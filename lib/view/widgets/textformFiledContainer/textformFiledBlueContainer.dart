@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
@@ -9,12 +11,14 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
   final String title;
   final String hintText;
   final Widget? widget;
+  final double? width;
   Function(String)? onChanged;
   Iterable<String>? autofillHints;
   String? Function(String?)? validator;
   Function()? onTap;
   TextInputType? keyboardType;
   TextFormFiledBlueContainerWidget({
+    this.width,
     this.widget,
     required this.hintText,
     required this.title,
@@ -47,6 +51,7 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
           ),
           Container(
             height: 40,
+            width: width,
             color: screenContainerbackgroundColor,
             child: Center(
               child: TextFormField(
