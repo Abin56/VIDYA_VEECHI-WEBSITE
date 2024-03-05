@@ -1,6 +1,7 @@
 import 'package:awesome_side_sheet/Enums/sheet_position.dart';
 import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
@@ -260,11 +261,20 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
             ),
              SizedBox(
               height: 35,
-              width: 250,
+              width: 290,
               child: Row(
                 children: [
                   const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
-                  Image.asset("assets/flact_png/usb.png")
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Image.asset("assets/flact_png/usb.png"),
+                    ),
+                  )
                 ],
               ),
             ),
