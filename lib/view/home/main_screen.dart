@@ -7,7 +7,6 @@ import 'package:vidyaveechi_website/view/home/home.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class MainScreen extends StatelessWidget {
-  final UserAuthController userLoginController = Get.put(UserAuthController());
 
   MainScreen({super.key});
 

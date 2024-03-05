@@ -31,6 +31,8 @@ class UserLoginController extends GetxController {
   Future<bool> secondaryAdminLogin() async {
     //....... .......................................Secondary Admin Login Function
     try {
+      final user =
+          await server.collection('SchoolListCollection').doc(schoolID).get();
       await serverAuth
           .signInWithEmailAndPassword(
               email: userEmailIDController.text.trim(),
@@ -43,6 +45,12 @@ class UserLoginController extends GetxController {
             .where('docid', isEqualTo: userUID.value)
             .get();
         if (result.docs.isNotEmpty) {
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.userRoleKey, 'admin');
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.schoolIdKey, schoolID);
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.batchIdKey, user.data()?['batchYear']);
           userEmailIDController.clear();
           userPasswordController.clear();
           Get.offAll(() => const AdminHomeScreen());

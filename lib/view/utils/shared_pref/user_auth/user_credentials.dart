@@ -6,6 +6,7 @@ import 'package:vidyaveechi_website/model/parent_model/parent_model.dart';
 import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
 import 'package:vidyaveechi_website/view/home/main_screen.dart';
+import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 
 class SharedPreferencesHelper {
   static String batchIdKey = 'batchId';
@@ -71,7 +72,7 @@ class UserCredentialsController {
 
 logoutUser() async {
   await FirebaseAuth.instance.signOut().then((value) async {
-    Get.offAll(MainScreen());
+    Get.offAll(SplashScreen());
     await SharedPreferencesHelper.clearSharedPreferenceData();
     UserCredentialsController.clearUserCredentials();
   });

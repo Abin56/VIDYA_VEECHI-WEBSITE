@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
@@ -34,7 +32,7 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:ResponsiveWebSite.isMobile(context)?80: 100,
+      height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
       color: cWhite,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +48,7 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
             height: 05,
           ),
           Container(
-            height: 40,
+            // height: 40,
             width: width,
             color: screenContainerbackgroundColor,
             child: Center(
@@ -62,6 +60,8 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
                 keyboardType: keyboardType,
                 controller: controller,
                 decoration: InputDecoration(
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 01, horizontal: 01),
                   errorBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(0)),
                       borderSide: BorderSide(

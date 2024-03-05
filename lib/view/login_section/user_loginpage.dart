@@ -1,8 +1,8 @@
 import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/Login_controller%20copy/login_controller.dart';
 import 'package:vidyaveechi_website/controller/get_firebase-data/get_firebase_data.dart';
+import 'package:vidyaveechi_website/controller/user_login_Controller/user_login_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/glassmorphism.dart';
@@ -19,14 +19,11 @@ class UserLoginPageScreen extends StatefulWidget {
 class _UserLoginPageScreenState extends State<UserLoginPageScreen>
     with SingleTickerProviderStateMixin {
   final GlobalKey<FabCircularMenuPlusState> fabKey = GlobalKey();
-  final LoginController loginController = Get.put(LoginController());
-  final GetFireBaseData getFireBaseData = Get.put(GetFireBaseData());
+  final UserLoginController loginController = Get.put(UserLoginController());
   // final AdminLoginScreenController adminLoginScreenController =
   //     Get.put(AdminLoginScreenController());
   // final ClassTeacherLoginController classTeacherLoginController =
   //     Get.put(ClassTeacherLoginController());
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   final Color istColor = Colors.black.withOpacity(0.8);
   late AnimationController animationctr;
@@ -66,16 +63,19 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                   // Cannot be `Alignment.center`
                   alignment: Alignment.bottomRight,
                   ringColor: cWhite.withOpacity(0.4),
-                  ringDiameter: ResponsiveWebSite.isMobile(context)?580: 1000.0,
-                  ringWidth: ResponsiveWebSite.isMobile(context)?200: 300.0,
-                  fabSize: ResponsiveWebSite.isMobile(context)?30 :64.0,
-                  fabElevation:  ResponsiveWebSite.isMobile(context)?8.0:8.0,
+                  ringDiameter:
+                      ResponsiveWebSite.isMobile(context) ? 580 : 1000.0,
+                  ringWidth: ResponsiveWebSite.isMobile(context) ? 200 : 300.0,
+                  fabSize: ResponsiveWebSite.isMobile(context) ? 30 : 64.0,
+                  fabElevation: ResponsiveWebSite.isMobile(context) ? 8.0 : 8.0,
                   fabIconBorder: const CircleBorder(),
 
                   fabColor: Colors.white,
                   fabOpenIcon: const Icon(Icons.menu, color: themeColorBlue),
                   fabCloseIcon: const Icon(Icons.close, color: themeColorBlue),
-                  fabMargin: ResponsiveWebSite.isMobile(context)?const EdgeInsets.all(30) :const EdgeInsets.all(16.0),
+                  fabMargin: ResponsiveWebSite.isMobile(context)
+                      ? const EdgeInsets.all(30)
+                      : const EdgeInsets.all(16.0),
                   animationDuration: const Duration(milliseconds: 800),
                   animationCurve: Curves.easeInOutCirc,
                   onDisplayChange: (isOpen) {
@@ -84,13 +84,15 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                   },
                   children: <Widget>[
                     SizedBox(
-                      height:ResponsiveWebSite.isMobile(context)?100: 200,
-                      width: ResponsiveWebSite.isMobile(context)?100: 200,
+                      height: ResponsiveWebSite.isMobile(context) ? 100 : 200,
+                      width: ResponsiveWebSite.isMobile(context) ? 100 : 200,
                       child: Column(
                         children: [
                           Container(
-                            height: ResponsiveWebSite.isMobile(context)?50: 100,
-                            width: ResponsiveWebSite.isMobile(context)?50: 100,
+                            height:
+                                ResponsiveWebSite.isMobile(context) ? 50 : 100,
+                            width:
+                                ResponsiveWebSite.isMobile(context) ? 50 : 100,
                             decoration: BoxDecoration(
                                 color: cWhite,
                                 shape: BoxShape.circle,
@@ -102,50 +104,69 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                           ),
                           GooglePoppinsWidgets(
                             text: "STUDENT",
-                            fontsize:ResponsiveWebSite.isMobile(context)?10:  ResponsiveWebSite.isMobile(context)?10:  12,
+                            fontsize: ResponsiveWebSite.isMobile(context)
+                                ? 10
+                                : ResponsiveWebSite.isMobile(context)
+                                    ? 10
+                                    : 12,
                             fontWeight: FontWeight.bold,
                           )
                         ],
                       ),
-                    ),const SizedBox(height: 20,),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     SizedBox(
-                      height:ResponsiveWebSite.isMobile(context)?100: 200,
-                      width: ResponsiveWebSite.isMobile(context)?100: 200,
+                      height: ResponsiveWebSite.isMobile(context) ? 100 : 200,
+                      width: ResponsiveWebSite.isMobile(context) ? 100 : 200,
                       child: Column(
                         children: [
                           Container(
-                            height: ResponsiveWebSite.isMobile(context)?50: 100,
-                            width: ResponsiveWebSite.isMobile(context)?50: 100,
+                            height:
+                                ResponsiveWebSite.isMobile(context) ? 50 : 100,
+                            width:
+                                ResponsiveWebSite.isMobile(context) ? 50 : 100,
                             decoration: BoxDecoration(
                                 color: cWhite,
                                 shape: BoxShape.circle,
                                 border: Border.all(color: themeColorBlue)),
                             child: Image.asset(
                               "assets/flact_png/icons8-parent-100.png",
-                              scale:ResponsiveWebSite.isMobile(context)?0.9: 1.5,
+                              scale: ResponsiveWebSite.isMobile(context)
+                                  ? 0.9
+                                  : 1.5,
                             ),
                           ),
                           GooglePoppinsWidgets(
                             text: "PARENT",
-                            fontsize: ResponsiveWebSite.isMobile(context)?10:  12,
+                            fontsize:
+                                ResponsiveWebSite.isMobile(context) ? 10 : 12,
                             fontWeight: FontWeight.bold,
                           )
                         ],
                       ),
-                    ),const SizedBox(height: 20,),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     GestureDetector(
                       onTap: () {
                         // classTeacherLoginController.classTeacherLogin(
-                        //     emailController, passwordController, context);
+                        //     loginController.userEmailIDController, loginController.userPasswordController, context);
                       },
                       child: SizedBox(
-                        height: ResponsiveWebSite.isMobile(context)?100: 200,
-                        width: ResponsiveWebSite.isMobile(context)?100: 200,
+                        height: ResponsiveWebSite.isMobile(context) ? 100 : 200,
+                        width: ResponsiveWebSite.isMobile(context) ? 100 : 200,
                         child: Column(
                           children: [
                             Container(
-                              height: ResponsiveWebSite.isMobile(context)?50: 100,
-                              width: ResponsiveWebSite.isMobile(context)?50: 100,
+                              height: ResponsiveWebSite.isMobile(context)
+                                  ? 50
+                                  : 100,
+                              width: ResponsiveWebSite.isMobile(context)
+                                  ? 50
+                                  : 100,
                               decoration: BoxDecoration(
                                   color: cWhite,
                                   shape: BoxShape.circle,
@@ -157,26 +178,33 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                             ),
                             GooglePoppinsWidgets(
                               text: "TEACHER",
-                              fontsize: ResponsiveWebSite.isMobile(context)?10:  12,
+                              fontsize:
+                                  ResponsiveWebSite.isMobile(context) ? 10 : 12,
                               fontWeight: FontWeight.bold,
                             )
                           ],
                         ),
                       ),
-                    ),const SizedBox(height: 20,),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     GestureDetector(
                       onTap: () {
-                        // adminLoginScreenController.loginFunction(
-                        //     emailController, passwordController, context);
+                        loginController.adminLoginController(context);
                       },
                       child: SizedBox(
-                        height: ResponsiveWebSite.isMobile(context)?100: 200,
-                        width: ResponsiveWebSite.isMobile(context)?100: 200,
+                        height: ResponsiveWebSite.isMobile(context) ? 100 : 200,
+                        width: ResponsiveWebSite.isMobile(context) ? 100 : 200,
                         child: Column(
                           children: [
                             Container(
-                              height:  ResponsiveWebSite.isMobile(context)?50: 100,
-                              width:  ResponsiveWebSite.isMobile(context)?50: 100,
+                              height: ResponsiveWebSite.isMobile(context)
+                                  ? 50
+                                  : 100,
+                              width: ResponsiveWebSite.isMobile(context)
+                                  ? 50
+                                  : 100,
                               decoration: BoxDecoration(
                                   color: cWhite,
                                   shape: BoxShape.circle,
@@ -188,7 +216,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                             ),
                             GooglePoppinsWidgets(
                               text: "ADMIN",
-                              fontsize: ResponsiveWebSite.isMobile(context)?10:  12,
+                              fontsize:
+                                  ResponsiveWebSite.isMobile(context) ? 10 : 12,
                               fontWeight: FontWeight.bold,
                             )
                           ],
@@ -203,20 +232,22 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
             return loginController.lodingContainer.value == true
                 ? Container(
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            colorFilter: istapped == true
-                                ? ColorFilter.mode(
-                                    const Color.fromARGB(255, 77, 76, 76)
-                                        .withOpacity(0.9),
-                                    BlendMode.modulate)
-                                : null,
-                            fit: BoxFit.fitWidth,
-                            image: const AssetImage(
-                              'assets/images/loginscreen.jpg',
-                            ))),
+                      image: DecorationImage(
+                        colorFilter: istapped == true
+                            ? ColorFilter.mode(
+                                const Color.fromARGB(255, 77, 76, 76)
+                                    .withOpacity(0.9),
+                                BlendMode.modulate)
+                            : null,
+                        fit: BoxFit.fitWidth,
+                        image: const AssetImage(
+                          'assets/images/loginscreen.jpg',
+                        ),
+                      ),
+                    ),
                     child: Center(
                       child: Padding(
-                        padding:  const EdgeInsets.only(left: 50, bottom: 0 ),
+                        padding: const EdgeInsets.only(left: 50, bottom: 0),
                         child: Row(
                           children: [
                             Expanded(
@@ -230,7 +261,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(top: 45),
@@ -254,7 +286,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                         child: SizedBox(
                                           height: 70,
                                           child: TextFormFiledContainerWidget(
-                                              controller: emailController,
+                                              controller: loginController
+                                                  .userEmailIDController,
                                               hintText: 'Enter your email',
                                               title: "Email",
                                               width: 300),
@@ -265,7 +298,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                         child: SizedBox(
                                           height: 64,
                                           child: TextFormFiledContainerWidget(
-                                              controller: passwordController,
+                                              controller: loginController
+                                                  .userPasswordController,
                                               hintText: 'Enter your password',
                                               title: "Password",
                                               width: 300),
@@ -287,8 +321,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                         padding: const EdgeInsets.only(top: 10),
                                         child: GestureDetector(
                                           onTap: () async {
-                                            loginController.loginontapped.value =
-                                                true;
+                                            loginController
+                                                .loginontapped.value = true;
                                             istapped = true;
                                             animationctr
                                                 .forward()
@@ -301,7 +335,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                                 Future.delayed(const Duration(
                                                         seconds: 3))
                                                     .then((value) async {
-                                                  loginController.lodingContainer
+                                                  loginController
+                                                      .lodingContainer
                                                       .value = true;
                                                 });
                                               }
@@ -392,7 +427,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                   child: SizedBox(
                                     height: 70,
                                     child: TextFormFiledContainerWidget(
-                                        controller: emailController,
+                                        controller: loginController
+                                            .userEmailIDController,
                                         hintText: 'Enter your email',
                                         title: "Email",
                                         width: 300),
@@ -403,7 +439,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                   child: SizedBox(
                                     height: 64,
                                     child: TextFormFiledContainerWidget(
-                                        controller: passwordController,
+                                        controller: loginController
+                                            .userPasswordController,
                                         hintText: 'Enter your password',
                                         title: "Password",
                                         width: 300),
@@ -422,12 +459,17 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 10,),
+                                  padding: const EdgeInsets.only(
+                                    top: 10,
+                                  ),
                                   child: GestureDetector(
                                     onTap: () async {
-                                      loginController.loginontapped.value = true;
+                                      loginController.loginontapped.value =
+                                          true;
                                       istapped = true;
-                                      animationctr.forward().then((value) async {
+                                      animationctr
+                                          .forward()
+                                          .then((value) async {
                                         if (fabKey.currentState?.isOpen ??
                                             false) {
                                           fabKey.currentState?.close();
@@ -443,7 +485,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                       });
                                     },
                                     child: Container(
-                                       height: 40,
+                                      height: 40,
                                       width: 250,
                                       decoration: BoxDecoration(
                                           color: Colors.black,

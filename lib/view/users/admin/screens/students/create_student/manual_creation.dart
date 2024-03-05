@@ -13,6 +13,7 @@ import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textform
 class ManualStudentCreation extends StatelessWidget {
   final StudentController studentController = Get.put(StudentController());
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   ManualStudentCreation({super.key});
 
   @override
@@ -188,7 +189,9 @@ class ManualStudentCreation extends StatelessWidget {
       ), ///////////////////////////6
 
       GestureDetector(
-        onTap: () {},
+        onTap: () {
+          if (_formKey.currentState!.validate()) {}
+        },
         child: Container(
           height: 40,
           width: 200,
@@ -217,65 +220,198 @@ class ManualStudentCreation extends StatelessWidget {
 
       ///11
     ];
-    return SingleChildScrollView(
-      child: ResponsiveWebSite.isMobile(context)
-          ? Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
+    return Form(
+      key: _formKey,
+      child: SingleChildScrollView(
+        child: ResponsiveWebSite.isMobile(context)
+            ? Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SingleChildScrollView(
+                  child: Container(
+                    color: cWhite,
+                    height: 1000,
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20, top: 15),
+                          child: createStudentListWidget[0], ////////////heading
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Column(
+                            children: [
+                              Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 20, left: 10, top: 10),
+                                  child:
+                                      createStudentListWidget[1] ///////////name
+                                  ),
+                              Padding(
+                                  padding: const EdgeInsets.only(
+                                    right: 20,
+                                    left: 10,
+                                  ),
+                                  child: createStudentListWidget[
+                                      2] ////////email............
+                                  ),
+                              Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 20, left: 10, top: 10),
+                                  child:
+                                      createStudentListWidget[3] ////////number
+                                  ),
+                            ],
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 20),
+                                child: createStudentListWidget[4] //////gender
+                                ),
+                            Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 20),
+                                child: createStudentListWidget[5] /////class
+                                ),
+                            Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 20),
+                                child: createStudentListWidget[6] ///////dob
+                                ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            right: 20,
+                            left: 20,
+                          ),
+                          child: Container(
+                            height: 160,
+                            decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: cBlack.withOpacity(0.3))),
+                            child: const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    TextFontWidget(
+                                        text: " Note :", fontsize: 14.5),
+                                    Expanded(
+                                        child: TextFontWidget(
+                                            text:
+                                                " When a student is created, a parent's dummy email address and password are automatically created. ",
+                                            fontsize: 11)),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: SizedBox(
+                                        height: 100,
+                                        child: TextFontWidget(
+                                            text:
+                                                '''For example : \nStudent name: Lepton\nEmail address: lepton653@gmail.com \nLeptonparent653@gmail.com is the parent mail address.
+                                ''',
+                                            fontsize: 11),
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.only(top: 20, left: 20),
+                            child: createStudentListWidget[7] ////////////button
+                            )
+                      ],
+                    ),
+                  ),
+                ),
+              ) /////////////////////////////////////////////////////////////////////////
+            : Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Container(
                   color: cWhite,
-                  height: 1000,
+                  height: 550,
                   width: double.infinity,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 15),
-                        child: createStudentListWidget[0], ////////////heading
-                      ),
+                          padding: const EdgeInsets.only(left: 20, top: 15),
+                          child: createStudentListWidget[0] ///////////name
+                          ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Column(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Row(
                           children: [
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20, left: 10, top: 10),
-                                child:
-                                    createStudentListWidget[1] ///////////name
-                                ),
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                  right: 20,
-                                  left: 10,
-                                ),
-                                child: createStudentListWidget[
-                                    2] ////////email............
-                                ),
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20, left: 10, top: 10),
-                                child: createStudentListWidget[3] ////////number
-                                ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 20, left: 10, top: 30),
+                                  child:
+                                      createStudentListWidget[1] ///////////name
+                                  ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    right: 20,
+                                    left: 10,
+                                  ),
+                                  child: createStudentListWidget[
+                                      2] /////////////////////email....
+                                  ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      right: 20, left: 10, top: 30),
+                                  child:
+                                      createStudentListWidget[3] ///////number
+                                  ),
+                            ),
                           ],
                         ),
                       ),
-                      Column(
+                      Row(
                         children: [
-                          Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 20),
-                              child: createStudentListWidget[4] //////gender
-                              ),
-                          Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 20),
-                              child: createStudentListWidget[5] /////class
-                              ),
-                          Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 20),
-                              child: createStudentListWidget[6] ///////dob
-                              ),
+                          Expanded(
+                              flex: 1,
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 20),
+                                  child:
+                                      createStudentListWidget[4] ////////gender
+                                  )),
+                          Expanded(
+                              flex: 1,
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 20),
+                                  child: createStudentListWidget[5] /////class
+                                  )),
+                          Expanded(
+                              flex: 1,
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 20),
+                                  child: createStudentListWidget[6] ////dob
+                                  )),
                         ],
                       ),
                       Padding(
@@ -284,7 +420,7 @@ class ManualStudentCreation extends StatelessWidget {
                           left: 20,
                         ),
                         child: Container(
-                          height: 160,
+                          height: 150,
                           decoration: BoxDecoration(
                               border:
                                   Border.all(color: cBlack.withOpacity(0.3))),
@@ -292,15 +428,13 @@ class ManualStudentCreation extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   TextFontWidget(
                                       text: " Note :", fontsize: 14.5),
-                                  Expanded(
-                                      child: TextFontWidget(
-                                          text:
-                                              " When a student is created, a parent's dummy email address and password are automatically created. ",
-                                          fontsize: 11)),
+                                  TextFontWidget(
+                                      text:
+                                          " When a student is created, a parent's dummy email address and password are automatically created. ",
+                                      fontsize: 11),
                                 ],
                               ),
                               SizedBox(
@@ -313,8 +447,8 @@ class ManualStudentCreation extends StatelessWidget {
                                       height: 100,
                                       child: TextFontWidget(
                                           text:
-                                              '''For example : \nStudent name: Lepton\nEmail address: lepton653@gmail.com \nLeptonparent653@gmail.com is the parent mail address.
-                              ''',
+                                              '''   For example : \n   Student name: Lepton\n   Email address: lepton653@gmail.com \n   Leptonparent653@gmail.com is the parent mail address.
+                                ''',
                                           fontsize: 11),
                                     ),
                                   )
@@ -326,136 +460,13 @@ class ManualStudentCreation extends StatelessWidget {
                       ),
                       Padding(
                           padding: const EdgeInsets.only(top: 20, left: 20),
-                          child: createStudentListWidget[7] ////////////button
+                          child: createStudentListWidget[7] //////button
                           )
                     ],
                   ),
                 ),
               ),
-            ) /////////////////////////////////////////////////////////////////////////
-          : Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                color: cWhite,
-                height: 550,
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 15),
-                        child: createStudentListWidget[0] ///////////name
-                        ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20, left: 10, top: 30),
-                                child:
-                                    createStudentListWidget[1] ///////////name
-                                ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Padding(
-                                padding: const EdgeInsets.only(
-                                  right: 20,
-                                  left: 10,
-                                ),
-                                child: createStudentListWidget[
-                                    2] /////////////////////email....
-                                ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20, left: 10, top: 30),
-                                child: createStudentListWidget[3] ///////number
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                            flex: 1,
-                            child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 10, right: 20),
-                                child: createStudentListWidget[4] ////////gender
-                                )),
-                        Expanded(
-                            flex: 1,
-                            child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 10, right: 20),
-                                child: createStudentListWidget[5] /////class
-                                )),
-                        Expanded(
-                            flex: 1,
-                            child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 10, right: 20),
-                                child: createStudentListWidget[6] ////dob
-                                )),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        right: 20,
-                        left: 20,
-                      ),
-                      child: Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: cBlack.withOpacity(0.3))),
-                        child: const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                TextFontWidget(text: " Note :", fontsize: 14.5),
-                                TextFontWidget(
-                                    text:
-                                        " When a student is created, a parent's dummy email address and password are automatically created. ",
-                                    fontsize: 11),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: SizedBox(
-                                    height: 100,
-                                    child: TextFontWidget(
-                                        text:
-                                            '''   For example : \n   Student name: Lepton\n   Email address: lepton653@gmail.com \n   Leptonparent653@gmail.com is the parent mail address.
-                              ''',
-                                        fontsize: 11),
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.only(top: 20, left: 20),
-                        child: createStudentListWidget[7] //////button
-                        )
-                  ],
-                ),
-              ),
-            ),
+      ),
     );
   }
 }

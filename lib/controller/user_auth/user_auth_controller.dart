@@ -19,22 +19,17 @@ class UserAuthController extends GetxController {
       if (kDebugMode) {
         print("Google Auth null");
       }
-      Get.offAllNamed('/');
+      Get.offAll(() => MainScreen());
     } else {
       if (UserCredentialsController.userRole == 'admin') {
-        Get.offAllNamed('admin_screen');
+        Get.offAll(() => const AdminHomeScreen());
       } else {
         if (kDebugMode) {
           print("shared pref Auth null");
         }
-        Get.offAllNamed('/');
+        Get.offAll(() => MainScreen());
       }
     }
   }
-
-  @override
-  void onInit() {
-    checkSavedLoginAuth();
-    super.onInit();
-  }
+  
 }
