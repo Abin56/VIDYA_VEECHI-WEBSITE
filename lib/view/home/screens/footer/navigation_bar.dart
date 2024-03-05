@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:vidyaveechi_website/view/home/screens/single_login.dart';
+import 'package:vidyaveechi_website/view/login_section/user_loginpage.dart';
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/schoolDropDownList.dart';
 
 class NavigationBarWidget extends StatelessWidget {

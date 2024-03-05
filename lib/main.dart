@@ -1,11 +1,11 @@
 import 'dart:developer';
+
 import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';
-import 'package:vidyaveechi_website/view/home/main_screen.dart';
-import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
+import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 // import 'package:vidyaveechi_website/view/home/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
 
@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
                 datePickerTheme:
                     const DatePickerThemeData(shape: RoundedRectangleBorder(  ))),
             scrollBehavior: MyCustomScrollBehavior(),
-            home: const AdminHomeScreen(),
+            home: const SplashScreen()
+            //const AdminHomeScreen(),
             // home: Scaffold(
             //   body: SafeArea(
             //       child: Center(

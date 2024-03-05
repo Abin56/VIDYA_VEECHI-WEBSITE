@@ -22,10 +22,10 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
   final GlobalKey<FabCircularMenuPlusState> fabKey = GlobalKey();
   final LoginController loginController = Get.put(LoginController());
   final GetFireBaseData getFireBaseData = Get.put(GetFireBaseData());
-  final AdminLoginScreenController adminLoginScreenController =
-      Get.put(AdminLoginScreenController());
-  final ClassTeacherLoginController classTeacherLoginController =
-      Get.put(ClassTeacherLoginController());
+  // final AdminLoginScreenController adminLoginScreenController =
+  //     Get.put(AdminLoginScreenController());
+  // final ClassTeacherLoginController classTeacherLoginController =
+  //     Get.put(ClassTeacherLoginController());
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -167,8 +167,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                     ),
                     GestureDetector(
                       onTap: () {
-                        adminLoginScreenController.loginFunction(
-                            emailController, passwordController, context);
+                   
                       },
                       child: SizedBox(
                         height: 200,

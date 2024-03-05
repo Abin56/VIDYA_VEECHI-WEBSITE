@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vidyaveechi_website/view/home/screens/footer/widgets/alertDilogueBox.dart';
-import 'package:vidyaveechi_website/view/home/screens/single_login.dart';
+import 'package:vidyaveechi_website/view/login_section/user_loginpage.dart';
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/schoolDropDownList.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 

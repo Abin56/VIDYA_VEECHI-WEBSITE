@@ -56,7 +56,7 @@ dependencies:
   flutter_inset_box_shadow: 
   flutter_overboard: 
   flutter_sms: 
-  flutter_staggered_animations: 
+  flutter_staggered_animations: ^1.1.1 
   fluttertoast:
   gcloud: 
   get: 
