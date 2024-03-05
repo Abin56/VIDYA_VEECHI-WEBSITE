@@ -1,10 +1,9 @@
 import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/Login_controller%20copy/login_controller.dart';
-import 'package:vidyaveechi_website/controller/admin_login_screen/admin_login_screen_controller.dart';
 import 'package:vidyaveechi_website/controller/class_teacher_login_screen/class_teacher_login_controller.dart';
 import 'package:vidyaveechi_website/controller/get_firebase-data/get_firebase_data.dart';
+import 'package:vidyaveechi_website/controller/user_login_Controller/user_login_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/glassmorphism.dart';
@@ -20,15 +19,11 @@ class UserLoginPageScreen extends StatefulWidget {
 class _UserLoginPageScreenState extends State<UserLoginPageScreen>
     with SingleTickerProviderStateMixin {
   final GlobalKey<FabCircularMenuPlusState> fabKey = GlobalKey();
-  final LoginController loginController = Get.put(LoginController());
-  final GetFireBaseData getFireBaseData = Get.put(GetFireBaseData());
-  final AdminLoginScreenController adminLoginScreenController =
-      Get.put(AdminLoginScreenController());
-  final ClassTeacherLoginController classTeacherLoginController =
-      Get.put(ClassTeacherLoginController());
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+//
 
+  // final ClassTeacherLoginController classTeacherLoginController =
+  //     Get.put(ClassTeacherLoginController());
+  UserLoginController userLoginController = Get.put(UserLoginController());
   final Color istColor = Colors.black.withOpacity(0.8);
   late AnimationController animationctr;
   late Animation colorAnimation;
@@ -137,7 +132,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                     GestureDetector(
                       onTap: () {
                         // classTeacherLoginController.classTeacherLogin(
-                        //     emailController, passwordController, context);
+                        //     userLoginController.userEmailIDController, userLoginController.userPasswordController, context);
                       },
                       child: SizedBox(
                         height: 200,
@@ -167,8 +162,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                     ),
                     GestureDetector(
                       onTap: () {
-                        adminLoginScreenController.loginFunction(
-                            emailController, passwordController, context);
+                        userLoginController.adminLoginController(context);
                       },
                       child: SizedBox(
                         height: 200,
@@ -200,8 +194,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                 ),
               ),
         body: Obx(() {
-          if (loginController.loginontapped.value == true) {
-            return loginController.lodingContainer.value == true
+          if (userLoginController.loginontapped.value == true) {
+            return userLoginController.lodingContainer.value == true
                 ? Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
@@ -254,7 +248,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                       child: SizedBox(
                                         height: 70,
                                         child: TextFormFiledContainerWidget(
-                                            controller: emailController,
+                                            controller: userLoginController
+                                                .userEmailIDController,
                                             hintText: 'Enter your email',
                                             title: "Email",
                                             width: 300),
@@ -265,7 +260,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                       child: SizedBox(
                                         height: 64,
                                         child: TextFormFiledContainerWidget(
-                                            controller: passwordController,
+                                            controller: userLoginController
+                                                .userPasswordController,
                                             hintText: 'Enter your password',
                                             title: "Password",
                                             width: 300),
@@ -287,8 +283,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                       padding: const EdgeInsets.only(top: 10),
                                       child: GestureDetector(
                                         onTap: () async {
-                                          loginController.loginontapped.value =
-                                              true;
+                                          userLoginController
+                                              .loginontapped.value = true;
                                           istapped = true;
                                           animationctr
                                               .forward()
@@ -301,7 +297,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                               Future.delayed(const Duration(
                                                       seconds: 3))
                                                   .then((value) async {
-                                                loginController.lodingContainer
+                                                userLoginController
+                                                    .lodingContainer
                                                     .value = true;
                                               });
                                             }
@@ -390,7 +387,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                 child: SizedBox(
                                   height: 70,
                                   child: TextFormFiledContainerWidget(
-                                      controller: emailController,
+                                      controller: userLoginController
+                                          .userEmailIDController,
                                       hintText: 'Enter your email',
                                       title: "Email",
                                       width: 300),
@@ -401,7 +399,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                 child: SizedBox(
                                   height: 64,
                                   child: TextFormFiledContainerWidget(
-                                      controller: passwordController,
+                                      controller: userLoginController
+                                          .userPasswordController,
                                       hintText: 'Enter your password',
                                       title: "Password",
                                       width: 300),
@@ -423,7 +422,8 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                 padding: const EdgeInsets.only(top: 10),
                                 child: GestureDetector(
                                   onTap: () async {
-                                    loginController.loginontapped.value = true;
+                                    userLoginController.loginontapped.value =
+                                        true;
                                     istapped = true;
                                     animationctr.forward().then((value) async {
                                       if (fabKey.currentState?.isOpen ??
@@ -434,7 +434,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                         Future.delayed(
                                                 const Duration(seconds: 2))
                                             .then((value) async {
-                                          loginController
+                                          userLoginController
                                               .lodingContainer.value = true;
                                         });
                                       }

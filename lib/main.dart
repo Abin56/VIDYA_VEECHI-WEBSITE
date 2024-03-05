@@ -3,21 +3,22 @@ import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/user_auth/user_auth_controller.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';
+import 'package:vidyaveechi_website/view/home/home.dart';
 import 'package:vidyaveechi_website/view/home/main_screen.dart';
 import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 // import 'package:vidyaveechi_website/view/home/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  } catch (e) {
-    log(e.toString());
-  }
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await SharedPreferencesHelper.initPrefs();
 
   runApp(const MyApp());
 }
@@ -31,18 +32,16 @@ class MyApp extends StatelessWidget {
         designSize: const Size(1536, 786.4000244140625),
         builder: (context) {
           return GetMaterialApp(
+            initialRoute: '/',
+            routes: {
+              '/': (_) => MainScreen(),
+              'admin_screen': (_) => const AdminHomeScreen(),
+            },
             theme: ThemeData(
                 primarySwatch: Colors.blue,
                 datePickerTheme:
-                    const DatePickerThemeData(shape: RoundedRectangleBorder(  ))),
+                    const DatePickerThemeData(shape: RoundedRectangleBorder())),
             scrollBehavior: MyCustomScrollBehavior(),
-            home: const AdminHomeScreen(),
-            // home: Scaffold(
-            //   body: SafeArea(
-            //       child: Center(
-            //     child: StudentDetailsContainer(),
-            //   )),
-            // ),
           );
         });
   }

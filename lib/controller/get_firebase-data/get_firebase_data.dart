@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/schoolDropDownList.dart';
 
-
 class GetFireBaseData extends GetxController {
   RxString getTeacherClassRole = ''.obs;
   RxString bYear = ''.obs;
@@ -19,7 +18,6 @@ class GetFireBaseData extends GetxController {
   RxString classTeacherdocid = ''.obs;
   RxString classTeacherName = ''.obs;
   Future<void> getBatchYearId() async {
-    // log("Get.find<GetFireBaseData>().bYear.value${Get.find<GetFireBaseData>().bYear.value}");
     var vari = await FirebaseFirestore.instance
         .collection("SchoolListCollection")
         .doc(schoolListValue?['docid'])
@@ -33,9 +31,9 @@ class GetFireBaseData extends GetxController {
         .collection("SchoolListCollection")
         .doc(schoolListValue?['docid'])
         .collection("Teachers")
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .doc(FirebaseAuth.instance.currentUser?.uid)
         .get();
-    getTeacherClassRole.value = vari.data()!['classID'];
+    getTeacherClassRole.value = vari.data()?['classID'];
     log('getx data >>>>>>>>>>>>>>>>>$bYear');
   }
 
@@ -47,7 +45,7 @@ class GetFireBaseData extends GetxController {
         .doc(teacherID)
         .get();
     teacherName.value = vari.data()!['teacherName'];
-      log('Teacher Nameee data >>>>>>>>>>>>>>>>>$teacherName');
+    log('Teacher Nameee data >>>>>>>>>>>>>>>>>$teacherName');
   }
 
   Future<void> getClassDetail(String classID) async {
