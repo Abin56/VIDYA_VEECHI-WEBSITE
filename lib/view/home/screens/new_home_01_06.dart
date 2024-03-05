@@ -13,7 +13,7 @@ import 'package:vidyaveechi_website/view/home/screens/create_school/create_schoo
 import 'package:vidyaveechi_website/view/home/screens/feature_tile.dart';
 import 'package:vidyaveechi_website/view/home/screens/footer/mob_footer.dart';
 import 'package:vidyaveechi_website/view/home/screens/footer/widgets/footerhomep.dart';
-import 'package:vidyaveechi_website/view/home/screens/single_login.dart';
+import 'package:vidyaveechi_website/view/login_section/user_loginpage.dart';
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/schoolDropDownList.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
