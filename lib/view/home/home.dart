@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vidyaveechi_website/controller/user_auth/user_auth_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_monstre.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
@@ -295,7 +297,7 @@ class DujoHOmeScreen extends StatelessWidget {
 }
 
 class DujoHomeWebSiteDetails extends StatelessWidget {
-   DujoHomeWebSiteDetails({super.key});
+  DujoHomeWebSiteDetails({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,14 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/user_auth/user_auth_controller.dart';
 import 'package:vidyaveechi_website/view/home/home.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+
+  MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

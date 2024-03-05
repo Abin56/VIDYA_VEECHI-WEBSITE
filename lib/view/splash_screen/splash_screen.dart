@@ -1,14 +1,19 @@
 import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/user_auth/user_auth_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_monstre.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+  final UserAuthController userLoginController = Get.put(UserAuthController());
+
+  SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    nextpage();
     return Scaffold(
       backgroundColor: cWhite,
       body: SafeArea(
@@ -69,25 +74,13 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     GoogleMonstserratWidgets(
-          //       text: 'COSTECH',
-          //       fontsize: 27.sp,
-          //       color: const Color.fromARGB(255, 201, 14, 1),
-          //       fontWeight: FontWeight.bold,
-          //     ),
-          //     Text(
-          //       " DuJo",
-
-          //       style: DGoogleFonts.headTextStyleMont,
-          //     ),
-          //   ],
-          // ), const SizedBox(height: 10,),
         ],
       )),
-    
     );
+  }
+
+  nextpage() async {
+    Future.delayed(const Duration(seconds: 3))
+        .then((value) => userLoginController.checkSavedLoginAuth());
   }
 }
