@@ -14,8 +14,7 @@ adminProfileShowingFunction(BuildContext context){
             backgroundColor: cWhite,
             title: 'Profile',
             showActions: false,
-            cancelActionText: '',
-            confirmActionText: '',
+           footer: Container(),
             body: ResponsiveWebSite.isMobile(context)?  
             Padding(
               padding: const EdgeInsets.all(8.0),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/class/create_class/create_class.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/view_class_students/class_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/view_class_students/data_list.dart';
 import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
@@ -65,19 +67,24 @@ class AllClassListView extends StatelessWidget {
                               //     ), //.......................Create Class
                               //   ),
                               // ),
-                              ButtonContainerWidget(
-                                  curving: 30,
-                                  colorindex: 0,
-                                  height: 40,
-                                  width: 150,
-                                  child: const Center(
-                                    child: TextFontWidget(
-                                      text: 'Create New Class',
-                                      fontsize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: cWhite,
-                                    ),
-                                  ))
+                              GestureDetector(
+                                onTap: () {
+                                  createClassFunction(context);
+                                },
+                                child: ButtonContainerWidget(
+                                    curving: 30,
+                                    colorindex: 0,
+                                    height: 40,
+                                    width: 150,
+                                    child: const Center(
+                                      child: TextFontWidget(
+                                        text: 'Create New Class',
+                                        fontsize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: cWhite,
+                                      ),
+                                    )),
+                              )
                             ],
                           ),
                         ),

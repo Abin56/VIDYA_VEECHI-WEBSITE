@@ -103,6 +103,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
+  
   const AllTeachersAttendance(),
   const AllStudentsAttendance(),
   const StudentExamResult(),
@@ -116,7 +117,7 @@ List<Widget> pages = [
   CreateStudent(),
   const StudentDetailsContainer(),
   ExamNotification(),
-  AllClassListView(),
+  AllClassListView(),///
   AllStudentListContainer(),
   Center(
     child: Text(sideMenu[2]),

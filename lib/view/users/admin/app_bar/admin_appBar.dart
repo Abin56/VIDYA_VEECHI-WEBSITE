@@ -1,11 +1,10 @@
+import 'package:awesome_side_sheet/Enums/sheet_position.dart';
+import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:awesome_side_sheet/Enums/sheet_position.dart';
-import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
 
 class AppBarAdminPanel extends StatefulWidget {
@@ -61,200 +60,214 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 70,
+        height: 90,
         width: double.infinity,
-        child: Row(
+        child: Column(
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Row(
               children: [
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(14)),
-                      color: Color.fromARGB(255, 61, 94, 225)),
-                  child: const DrawerIcon(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
+                          color: Color.fromARGB(255, 61, 94, 225)),
+                      child: const DrawerIcon(),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            const Spacer(),
-            SizedBox(
-              width: 109,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
+                const Spacer(),
+                SizedBox(
+                  width: 109,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                      Row(
                         children: [
-                          const Text(
-                            'Stevne Zone',
-                            style: TextStyle(fontSize: 12),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              const Text(
+                                'Stevne Zone',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 0),
+                                child: Text(
+                                  'Admin',
+                                  style: TextStyle(
+                                      color: cBlack.withOpacity(0.5),
+                                      fontSize: 10.7),
+                                ),
+                              ),
+                            ],
+                          ),
+                          IconButton(
+                              focusNode: textButtonFocusNode2,
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.arrow_drop_down,
+                                size: 18,
+                                color: cBlack,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    adminProfileShowingFunction(context);
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    radius: 20,
+                    child: Image.asset(
+                      'assets/png/avathar.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 70,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, right: 10),
+                            child: IconButton(
+                                focusNode: textButtonFocusNode,
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.mail_outline_outlined,
+                                  color: cBlack.withOpacity(0.4),
+                                )),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 0),
-                            child: Text(
-                              'Admin',
-                              style: TextStyle(
-                                  color: cBlack.withOpacity(0.5),
-                                  fontSize: 10.7),
+                            padding: const EdgeInsets.only(top: 07, left: 22),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 12,
+                              child: CircleAvatar(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 42, 215, 197),
+                                radius: 10,
+                                child: GooglePoppinsWidgets(
+                                  text: '5',
+                                  fontsize: 11,
+                                  fontWeight: FontWeight.w600,
+                                  color: cWhite,
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      IconButton(
-                          focusNode: textButtonFocusNode2,
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.arrow_drop_down,
-                            size: 18,
-                            color: cBlack,
-                          )),
                     ],
                   ),
-                ],
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                adminProfileShowingFunction(context);
-              },
-              child: CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 20,
-                child: Image.asset(
-                  'assets/png/avathar.png',
-                  fit: BoxFit.cover,
                 ),
-              ),
-            ),
-            SizedBox(
-              width: 70,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Stack(
+                SizedBox(
+                  width: 50,
+                  child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15, right: 10),
-                        child: IconButton(
-                            focusNode: textButtonFocusNode,
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.mail_outline_outlined,
-                              color: cBlack.withOpacity(0.4),
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 07, left: 22),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 12,
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 42, 215, 197),
-                            radius: 10,
-                            child: GooglePoppinsWidgets(
-                              text: '5',
-                              fontsize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: cWhite,
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, right: 10),
+                            child: IconButton(
+                                focusNode: textButtonFocusNode1,
+                                onPressed: () {
+                                  print("object");
+                                  aweSideSheet(
+                                      context: context,
+                                      sheetPosition: SheetPosition.right);
+                                },
+                                icon: Icon(
+                                  Icons.notifications_none_outlined,
+                                  color: cBlack.withOpacity(0.4),
+                                )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 07, left: 22),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 12,
+                              child: CircleAvatar(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 255, 49, 49),
+                                radius: 10,
+                                child: GooglePoppinsWidgets(
+                                  text: '8',
+                                  fontsize: 11,
+                                  fontWeight: FontWeight.w600,
+                                  color: cWhite,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 05),
+                //   child: SizedBox(
+                //     width: 86,
+                //     child: Column(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       crossAxisAlignment: CrossAxisAlignment.end,
+                //       children: [
+                //         Row(
+                //           children: [
+                //             const Icon(
+                //               Icons.south_america,
+                //               color: Colors.amber,
+                //             ),
+                //             GooglePoppinsWidgets(text: ' EN ', fontsize: 12),
+                //             PopupMenuButton(
+                //               icon: const Icon(
+                //                 Icons.keyboard_arrow_down_rounded,
+                //                 color: cBlack,
+                //                 size: 17,
+                //               ),
+                //               itemBuilder: (BuildContext context) {
+                //                 return <PopupMenuEntry>[
+                //                   PopupMenuItem(
+                //                       child: Column(
+                //                     children: [
+                //                       Container(
+                //                         height: 400,
+                //                         color: Colors.red,
+                //                       ),
+                //                     ],
+                //                   ))
+                //                 ];
+                //               },
+                //             ),
+                //           ],
+                //         ),
+                //       ],
+                //     ),=-0u809-o[]
+                //   ),
+                // ),
+              ],
             ),
-            SizedBox(
-              width: 50,
-              child: Column(
+             SizedBox(
+              height: 35,
+              width: 250,
+              child: Row(
                 children: [
-                  Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15, right: 10),
-                        child: IconButton(
-                            focusNode: textButtonFocusNode1,
-                            onPressed: () {
-                              print("object");
-                              aweSideSheet(
-                                  context: context,
-                                  sheetPosition: SheetPosition.right);
-                            },
-                            icon: Icon(
-                              Icons.notifications_none_outlined,
-                              color: cBlack.withOpacity(0.4),
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 07, left: 22),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 12,
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 255, 49, 49),
-                            radius: 10,
-                            child: GooglePoppinsWidgets(
-                              text: '8',
-                              fontsize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: cWhite,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
+                  Image.asset("assets/flact_png/usb.png")
                 ],
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 05),
-            //   child: SizedBox(
-            //     width: 86,
-            //     child: Column(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       crossAxisAlignment: CrossAxisAlignment.end,
-            //       children: [
-            //         Row(
-            //           children: [
-            //             const Icon(
-            //               Icons.south_america,
-            //               color: Colors.amber,
-            //             ),
-            //             GooglePoppinsWidgets(text: ' EN ', fontsize: 12),
-            //             PopupMenuButton(
-            //               icon: const Icon(
-            //                 Icons.keyboard_arrow_down_rounded,
-            //                 color: cBlack,
-            //                 size: 17,
-            //               ),
-            //               itemBuilder: (BuildContext context) {
-            //                 return <PopupMenuEntry>[
-            //                   PopupMenuItem(
-            //                       child: Column(
-            //                     children: [
-            //                       Container(
-            //                         height: 400,
-            //                         color: Colors.red,
-            //                       ),
-            //                     ],
-            //                   ))
-            //                 ];
-            //               },
-            //             ),
-            //           ],
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
