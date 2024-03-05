@@ -8,17 +8,16 @@ import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
-adminProfileShowingFunction(BuildContext context) {
-  aweSideSheet(
-      context: context,
-      sheetPosition: SheetPosition.right,
-      backgroundColor: cWhite,
-      title: 'Profile',
-      showActions: false,
-      cancelActionText: '',
-      confirmActionText: '',
-      body: ResponsiveWebSite.isMobile(context)
-          ? Padding(
+adminProfileShowingFunction(BuildContext context){
+   aweSideSheet(
+            context: context,
+            sheetPosition: SheetPosition.right,
+            backgroundColor: cWhite,
+            title: 'Profile',
+            showActions: false,
+           footer: Container(),
+            body: ResponsiveWebSite.isMobile(context)?  
+            Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,23 +179,15 @@ adminProfileShowingFunction(BuildContext context) {
                           height: 110,
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 15),
-                        child: Column(
-                          children: [
-                            TextFontWidget(
-                              text: "Name",
-                              fontsize: 19,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            TextFontWidget(
-                              text: "Email Id",
-                              fontsize: 15,
-                              fontWeight: FontWeight.w500,
-                            )
-                          ],
-                        ),
-                      )
+                  const Padding(
+                    padding: EdgeInsets.only(left: 15),
+                    child: Column(
+                      children: [ 
+                        TextFontWidget(text: "Name", fontsize: 19,fontWeight: FontWeight.w500,),
+                        TextFontWidget(text: "Email Id", fontsize: 15,fontWeight: FontWeight.w500,)
+                      ],
+                    ),
+                  )
                     ],
                   ),
                   const SizedBox(
