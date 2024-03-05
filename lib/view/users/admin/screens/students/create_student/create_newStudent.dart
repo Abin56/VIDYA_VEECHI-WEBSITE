@@ -154,18 +154,10 @@ class CreateStudent extends StatelessWidget {
                 cancelText: 'Cancel',
                 confirmText: 'OK',
                 builder: (BuildContext context, Widget? child) {
-                  return Theme(
-                    data: ThemeData.light().copyWith(
-                      primaryColor:
-                          const Color(0xFF2296F3), // Header background color
-                      // accentColor: Colors.white, // Selection color
-                      colorScheme:
-                          const ColorScheme.light(primary: Color(0xFF2296F3)),
-                      buttonTheme: const ButtonThemeData(
-                        textTheme: ButtonTextTheme.primary,
-                      ),
-                    ),
-                    child: child!,
+                  return Container(
+                    color: Colors.transparent,
+                    height: 500,
+                    width: 500,
                   );
                 },
               ),

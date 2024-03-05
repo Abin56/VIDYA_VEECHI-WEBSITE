@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(1536, 786.4000244140625),
         builder: (context) {
           return GetMaterialApp(
-            initialRoute: '/',
+            initialRoute: 'admin_screen',
             routes: {
               '/': (_) => MainScreen(),
               'admin_screen': (_) => const AdminHomeScreen(),
