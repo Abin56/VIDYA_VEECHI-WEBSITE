@@ -1,92 +1,182 @@
+import 'dart:developer';
+
 import 'package:awesome_side_sheet/Enums/sheet_position.dart';
 import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:progress_state_button/progress_button.dart';
+import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
+import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/class/create_class/edit_class_Container.dart';
+import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledBlueContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledContainer.dart';
 
-createClassFunction(BuildContext context){
-  aweSideSheet(context: context,
-  footer: Container(), 
-  sheetPosition: SheetPosition.right,
-  title: 'Create Class',
-  body: Column(
-    children: [ 
-      const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: TextFontWidget(text: "Batch 2024 - 2025", fontsize: 19),
-      ),
-      const SizedBox(height: 30,),
-      Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: TextFormFiledBlueContainerWidget(
-          hintText: "Enter Class Name",
-          title: 'Class Name',
-          validator: checkFieldEmpty,
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GestureDetector(
-          onTap: () {},
-          child: Container(
-            height: 40,
-            width: 150,
-            decoration: BoxDecoration(
-                color: themeColorBlue,
-                border: Border.all(color: themeColorBlue),
-                borderRadius: BorderRadius.circular(05)),
-            child: const Center(
-              child: TextFontWidget(
-                text: "Add",
-                fontsize: 14,
-                // fontWeight: FontWeight.w600,
-                color: cWhite,
-              ),
+createClassFunction(BuildContext context) {
+  aweSideSheet(
+      context: context,
+      footer: Container(),
+      sheetPosition: SheetPosition.right,
+      // title: 'Create Class',
+      header: Container(),
+      // t
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextFontWidget(text: "Batch 2024 - 2025", fontsize: 19),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 08, right: 08),
+            child: TextFormFiledBlueContainerWidget(
+              controller: Get.find<ClassController>().classNameController,
+              hintText: "  Enter Class Name",
+              title: 'Class Name',
+              validator: checkFieldEmpty,
             ),
           ),
-        ),
-      ), 
-      SizedBox(
-        height: ResponsiveWebSite.isDesktop(context)? 480:400,
-        child: ListView.separated(
-          itemBuilder: (context, index) {
-            return Padding(
-          padding: const EdgeInsets.all(1.0),
-          child: Container(
-            color: Colors.blue.withOpacity(0.2),
-            height: 35,
-            width: double.infinity,
-            child:  Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: TextFontWidget(text: "LkG", fontsize: 13,fontWeight: FontWeight.w600,),
-                ),
-                Container(
-                  color: screenContainerbackgroundColor,
-                  height: 35,
-                  width: 90,
-                  child:  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Icon(Icons.edit,color: cgreen,size: 18,),
-                      Container(width: 1,color: cWhite,),
-                       const Icon(Icons.delete,color: cred,size: 18,)
-                    ],
-                  )),
-               
-              ],
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: SizedBox(
+              // color: Colors.amber,
+              height: 40,
+              width: 180,
+              child: Obx(() => ProgressButtonWidget(
+                  function: () async {
+                    Get.find<ClassController>().addNewClass();
+                    log("state   ${Get.find<ClassController>().buttonstate}");
+                  },
+                  buttonstate: Get.find<ClassController>().buttonstate.value,
+                  text: 'Create Class')),
             ),
           ),
-        );
-          }, separatorBuilder: (context, index) => const SizedBox(height: 1,), 
-          itemCount: 25),
-      ),
-      
-    ],
-  ));
+          SizedBox(
+            height: ResponsiveWebSite.isDesktop(context) ? 480 : 400,
+            child: StreamBuilder(
+                stream: server
+                    .collection('SchoolListCollection')
+                    .doc(UserCredentialsController.schoolId)
+                    .collection('classes')
+                    .snapshots(),
+                builder: (context, snap) {
+                  if (snap.hasData) {
+                    if (snap.data!.docs.isEmpty) {
+                      return const Center(
+                        child: TextFontWidget(
+                            text: "No class found add new classes",
+                            fontsize: 12.5),
+                      );
+                    } else {
+                      return ListView.separated(
+                          itemBuilder: (context, index) {
+                            final data = ClassModel.fromMap(
+                                snap.data!.docs[index].data());
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 10, top: 08),
+                              child: data.editoption == true
+                                  ? ClassNameEditWidget(
+                                      docid: data.docid,
+                                    )
+                                  : Container(
+                                      color: Colors.blue.withOpacity(0.2),
+                                      height: 35,
+                                      width: double.infinity,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: TextFontWidget(
+                                              text: data.className,
+                                              fontsize: 13,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          Container(
+                                              color:
+                                                  screenContainerbackgroundColor,
+                                              height: 35,
+                                              width: 90,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceAround,
+                                                children: [
+                                                  GestureDetector(
+                                                    onTap: () => Get.find<
+                                                            ClassController>()
+                                                        .setClassForbatchYear(
+                                                            data.className,
+                                                            data.docid),
+                                                    child: const Icon(
+                                                      weight: 50,
+                                                      Icons.add,
+                                                      color: themeColorBlue,
+                                                      size: 18,
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 1,
+                                                    color: cWhite,
+                                                  ),
+                                                  GestureDetector(
+                                                    onTap: () => Get.find<
+                                                            ClassController>()
+                                                        .enableorDisableUpdate(
+                                                      data.docid,
+                                                      true,
+                                                    ),
+                                                    child: const Icon(
+                                                      Icons.edit,
+                                                      color: cgreen,
+                                                      size: 18,
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 1,
+                                                    color: cWhite,
+                                                  ),
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      Get.find<
+                                                              ClassController>()
+                                                          .deleteClass(
+                                                              data.docid,
+                                                              context);
+                                                    },
+                                                    child: const Icon(
+                                                      Icons.delete,
+                                                      color: cred,
+                                                      size: 18,
+                                                    ),
+                                                  ),
+                                                ],
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                            );
+                          },
+                          separatorBuilder: (context, index) => const SizedBox(
+                                height: 1,
+                              ),
+                          itemCount: snap.data!.docs.length);
+                    }
+                  } else {
+                    return circularProgressIndicator;
+                  }
+                }),
+          ),
+        ],
+      ));
 }

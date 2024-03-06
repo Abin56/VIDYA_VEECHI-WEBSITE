@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:progress_state_button/progress_button.dart';
 import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/view/constant/const.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
@@ -11,6 +12,8 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 
 class ClassController extends GetxController {
   final TextEditingController classNameController = TextEditingController();
+  final TextEditingController classNameEditController = TextEditingController();
+  Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   RxBool ontapClass = false.obs;
 
   final _schoolserver = server
@@ -19,6 +22,7 @@ class ClassController extends GetxController {
 
   Future<void> addNewClass() async {
     //.. Create New Class
+    buttonstate.value = ButtonState.loading;
     try {
       final data = ClassModel(
           editoption: false,
@@ -28,30 +32,70 @@ class ClassController extends GetxController {
           .collection("classes")
           .doc(data.docid)
           .set(data.toMap())
-          .then((value) => showToast(msg: 'New Class Added'));
+          .then((value) async {
+        buttonstate.value = ButtonState.success;
+        classNameController.clear();
+        await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
+          buttonstate.value = ButtonState.idle;
+        });
+
+        showToast(msg: 'New Class Added');
+      });
     } catch (e) {
       showToast(msg: 'Somthing went wrong please try again');
+      buttonstate.value = ButtonState.fail;
+      await Future.delayed(const Duration(seconds: 2)).then((value) {
+        buttonstate.value = ButtonState.idle;
+      });
       if (kDebugMode) {
         log(e.toString());
       }
     }
   }
 
+  setClassForbatchYear(String className, String docid) async {
+    try {
+      final data =
+          ClassModel(docid: docid, className: className, editoption: false);
+      await _schoolserver
+          .collection(UserCredentialsController.batchId!)
+          .doc(UserCredentialsController.batchId!)
+          .collection('classes')
+          .doc(docid)
+          .set(data.toMap())
+          .then((value) => showToast(msg: 'Class Added to BatchYear'));
+    } catch (e) {
+      showToast(msg: 'Somthing went wrong please try again');
+      log(e.toString());
+    }
+  }
+
+  Future<void> enableorDisableUpdate(
+    String docid,
+    bool status,
+  ) async {
+    await _schoolserver
+        .collection("classes")
+        .doc(docid)
+        .update({'editoption': status});
+  }
+
   Future<void> updateClassName(String docid) async {
     //................. Update Class Name
     //.... Update Class Name
     try {
-      _schoolserver
-          .collection("classes")
-          .doc(docid)
-          .update({'className': classNameController.text.trim()}).then((value) {
+      _schoolserver.collection("classes").doc(docid).update({
+        'className': classNameEditController.text.trim(),
+        'editoption': false,
+      }).then((value) {
         _schoolserver
             .collection(UserCredentialsController.batchId!)
             .doc(UserCredentialsController.batchId!)
             .collection('classes')
             .doc(docid)
-            .update({'className': classNameController.text.trim()}).then(
+            .update({'className': classNameEditController.text.trim()}).then(
                 (value) => showToast(msg: 'Class Name Changed'));
+        classNameEditController.clear();
       });
     } catch (e) {
       showToast(msg: 'Somthing went wrong please try again');
@@ -95,6 +139,7 @@ class ClassController extends GetxController {
                         .doc(docid)
                         .delete()
                         .then((value) => showToast(msg: 'Class Deleted'));
+                    Navigator.pop(context);
                   } catch (e) {
                     showToast(msg: 'Somthing went wrong please try again');
                     if (kDebugMode) {

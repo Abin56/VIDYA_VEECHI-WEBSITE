@@ -51,7 +51,7 @@ class ClassModel {
       classTeacherName: map['classTeacherName'] != null
           ? map['classTeacherName'] ?? ""
           : null,
-      editoption: map['editoption'] as bool,
+      editoption: map['editoption'] ?? false,
     );
   }
 

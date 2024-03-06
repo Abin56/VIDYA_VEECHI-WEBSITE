@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class ClassDataListWidget extends StatelessWidget {
+  final ClassModel data;
   final int index;
   const ClassDataListWidget({
     required this.index,
     super.key,
+    required this.data,
   });
 
   @override
@@ -29,13 +32,11 @@ class ClassDataListWidget extends StatelessWidget {
           ),
           Expanded(
             flex: 4,
-            child: Expanded(
-              child: DataContainerWidget(
-                  rowMainAccess: MainAxisAlignment.start,
-                  color: cWhite,
-                  index: index,
-                  headerTitle: "     Class XI Science"),
-            ),
+            child: DataContainerWidget(
+                rowMainAccess: MainAxisAlignment.start,
+                color: cWhite,
+                index: index,
+                headerTitle: "     ${data.className}"),
           ),
           const SizedBox(
             width: 01,

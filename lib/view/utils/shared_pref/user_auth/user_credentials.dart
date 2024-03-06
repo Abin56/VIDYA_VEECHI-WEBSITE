@@ -5,7 +5,6 @@ import 'package:vidyaveechi_website/model/admin_model.dart/admin_model.dart';
 import 'package:vidyaveechi_website/model/parent_model/parent_model.dart';
 import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
-import 'package:vidyaveechi_website/view/home/main_screen.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 
 class SharedPreferencesHelper {
