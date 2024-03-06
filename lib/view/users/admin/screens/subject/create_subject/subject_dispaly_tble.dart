@@ -42,33 +42,39 @@ class SubjectDisplayTable extends StatelessWidget {
                 child: Container(
                   color: cWhite,
                   height: 40,
-                  child: const Row(
+                  child:  Row(
                     children: [
                       Expanded(
                           flex: 1,
-                          child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
-                      SizedBox(
+                          child: CatrgoryTableHeaderColorWidget(headerTitle: 'No',
+                          color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,)),
+                      const SizedBox(
                         width: 02,
                       ),
-                      Expanded(
+                       Expanded(
                           flex: 4,
-                          child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Subjects')),
-                      SizedBox(
+                     child: CatrgoryTableHeaderColorWidget(headerTitle: 'Subject',
+                     color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,)),                 
+                      const SizedBox(
                         width: 02,
                       ),
-                      Expanded(
+                       Expanded(
                           flex: 1,
-                          child:
-                              CatrgoryTableHeaderWidget(headerTitle: 'Edit')),
-                      SizedBox(
+                          child: CatrgoryTableHeaderColorWidget(headerTitle: 'Edit',
+                     color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,),
+                          // child:
+                          //     CatrgoryTableHeaderWidget(headerTitle: 'Edit')
+                              ),
+                      const SizedBox(
                         width: 02,
                       ),
-                      Expanded(
+                       Expanded(
                           flex: 1,
-                          child:
-                              CatrgoryTableHeaderWidget(headerTitle: 'Remove')),
-                      SizedBox(
+                          child:CatrgoryTableHeaderColorWidget(headerTitle: 'Remove',
+                     color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,),
+                              //CatrgoryTableHeaderWidget(headerTitle: 'Remove')
+                              ),
+                      const SizedBox(
                         width: 02,
                       ),
                     ],
@@ -148,7 +154,7 @@ class SubjectDataListContainer extends StatelessWidget {
                       child: const Center(
                         child: TextFontWidget(
                           text: " English",
-                          fontsize: 10,
+                          fontsize: 13,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -176,7 +182,7 @@ class SubjectDataListContainer extends StatelessWidget {
                 ),
                 child:  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Image.asset("assets/stickers/pencil.png",height: 25,)],
+                  children: [Image.asset("assets/stickers/pencil.png",height: 25,color: cgreen,)],
                 ),
               )),// ................................... edit
           const SizedBox(
@@ -193,7 +199,7 @@ class SubjectDataListContainer extends StatelessWidget {
                 ),
                 child:  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Image.asset("assets/stickers/delete.png",height: 25,)],
+                  children: [Image.asset("assets/stickers/delete.png",height: 25,color: cred,)],
                 ),
               )), //.......................................delete
           const SizedBox(

@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: '>=3.2.4 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -47,7 +47,7 @@ dependencies:
   dropdown_search:
   excel:
   file_picker:
-  firebase_auth: ^4.10.1
+  firebase_auth:
   firebase_core: 
   firebase_core_platform_interface: 
   firebase_database: 
@@ -56,11 +56,11 @@ dependencies:
   flutter_inset_box_shadow: 
   flutter_overboard: 
   flutter_sms: 
-  flutter_staggered_animations: ^1.1.1 
+  flutter_staggered_animations:
   fluttertoast:
   gcloud: 
   get: 
-  google_fonts: 6.1.0  
+  google_fonts: 6.1.0
   google_sign_in: 
   group_radio_button: 
   http: 
@@ -84,8 +84,6 @@ dependencies:
   url_launcher:
   uuid:
   sidebar_drawer:
-  video_player:
-  video_player_web_hls: 
   visibility_detector:
   syncfusion_flutter_charts: 
   syncfusion_flutter_calendar:

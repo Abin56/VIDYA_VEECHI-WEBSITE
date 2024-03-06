@@ -12,10 +12,10 @@ class AllTeachersAttendance extends StatelessWidget {
   Widget build(BuildContext context) {
     final trattendanceListWidget = [
        TextFontWidget(
-        text: 'Attendance of Teachers',
+        text: '',
         fontsize: ResponsiveWebSite.isMobile(context)?15: 18,
         fontWeight: FontWeight.bold,
-      ), /////////////////////////////////....................0
+      ), ////////////////////////////Attendance of Teachers/////....................0
       Container(
         height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
         color: cWhite,
@@ -65,7 +65,7 @@ class AllTeachersAttendance extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.only(left: 25, top: 25),
             child: TextFontWidget(
-              text: 'All Teachers',
+              text: 'All Teachers Attendance',
               fontsize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -80,6 +80,7 @@ class AllTeachersAttendance extends StatelessWidget {
                 height: 700,
                 width: double.infinity,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ResponsiveWebSite.isMobile(context)
                         ? Row(

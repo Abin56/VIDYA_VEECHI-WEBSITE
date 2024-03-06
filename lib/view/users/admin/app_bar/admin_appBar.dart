@@ -61,7 +61,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 90,
+        height: 100,
         width: double.infinity,
         child: Column(
           children: [
@@ -260,7 +260,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
               ],
             ),
              SizedBox(
-              height: 35,
+              height: 45,
               width: 290,
               child: Row(
                 children: [
@@ -270,10 +270,9 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                     onTap: () {
                       academicYearSettingFunction(context);
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Image.asset("assets/flact_png/usb.png"),
-                    ),
+                    child: Tooltip(
+                      message: "Academic Year Setting",
+                      child: Image.asset("assets/flact_png/upcoming_.png")),
                   )
                 ],
               ),
