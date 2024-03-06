@@ -48,7 +48,7 @@ class UserLoginController extends GetxController {
           await SharedPreferencesHelper.setString(
               SharedPreferencesHelper.userRoleKey, 'admin');
           await SharedPreferencesHelper.setString(
-              SharedPreferencesHelper.schoolIdKey, schoolID);
+              SharedPreferencesHelper.batchIdKey, schoolID);
           await SharedPreferencesHelper.setString(
               SharedPreferencesHelper.batchIdKey, user.data()?['batchYear']);
           userEmailIDController.clear();

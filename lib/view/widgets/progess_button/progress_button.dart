@@ -1,88 +1,50 @@
-// Feel free to use the code in your projects but do not forget to give me the credits adding my app (Flutter Animation Gallery) where you are gonna use it.
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 
-// ------------------------------------------
+import 'package:flutter/material.dart';
+import 'package:progress_state_button/iconed_button.dart';
+import 'package:progress_state_button/progress_button.dart';
+import 'package:vidyaveechi_website/view/colors/colors.dart';
 
- 
+class ProgressButtonWidget extends StatelessWidget {
+  final ButtonState buttonstate;
+  final String text;
+  final Function function;
 
+  const ProgressButtonWidget({
+    Key? key,
+    required this.buttonstate,
+    required this.text,
+    required this.function,
+  }) : super(key: key);
 
-// // import this Package in pubspec.yaml file
-// // dependencies:
-// // 
-// //   progress_state_button: ^1.0.2
-
-// import 'dart:math';
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
-// import 'package:progress_state_button/iconed_button.dart';
-// import 'package:progress_state_button/progress_button.dart';
-
-// class MyCustomWidget extends StatefulWidget {
-//   @override
-//   _MyCustomWidgetState createState() => _MyCustomWidgetState();
-// }
-
-// class _MyCustomWidgetState extends State<MyCustomWidget> {
-//   ButtonState stateOnlyText = ButtonState.idle;
-//   ButtonState stateTextWithIcon = ButtonState.idle;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Center(
-//         child: ProgressButton.icon(iconedButtons: {
-//           ButtonState.idle: IconedButton(
-//               text: 'Send',
-//               icon: Icon(Icons.send, color: Colors.white),
-//               color: Colors.deepPurple.shade500),
-//           ButtonState.loading:
-//               IconedButton(text: 'Loading', color: Colors.deepPurple.shade700),
-//           ButtonState.fail: IconedButton(
-//               text: 'Failed',
-//               icon: Icon(Icons.cancel, color: Colors.white),
-//               color: Colors.red.shade300),
-//           ButtonState.success: IconedButton(
-//               text: 'Success',
-//               icon: Icon(
-//                 Icons.check_circle,
-//                 color: Colors.white,
-//               ),
-//               color: Colors.green.shade400)
-//         }, onPressed: onPressedIconWithText, state: stateTextWithIcon),
-//       ),
-//     );
-//   }
-
-//   void onPressedIconWithText() {
-//     switch (stateTextWithIcon) {
-//       case ButtonState.idle:
-//         stateTextWithIcon = ButtonState.loading;
-//         Future.delayed(
-//           Duration(seconds: 1),
-//           () {
-//             setState(
-//               () {
-//                 stateTextWithIcon = Random.secure().nextBool()
-//                     ? ButtonState.success
-//                     : ButtonState.fail;
-//               },
-//             );
-//           },
-//         );
-
-//         break;
-//       case ButtonState.loading:
-//         break;
-//       case ButtonState.success:
-//         stateTextWithIcon = ButtonState.idle;
-//         break;
-//       case ButtonState.fail:
-//         stateTextWithIcon = ButtonState.idle;
-//         break;
-//     }
-//     setState(
-//       () {
-//         stateTextWithIcon = stateTextWithIcon;
-//       },
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return ProgressButton.icon(
+      // radius: 12,
+      iconedButtons: {
+        ButtonState.idle: IconedButton(
+          text: text,
+          icon: const Icon(Icons.send, color: Colors.white),
+          color: themeColorBlue,
+        ),
+        ButtonState.loading:
+            IconedButton(text: 'Loading', color: Colors.deepPurple.shade700),
+        ButtonState.fail: IconedButton(
+          text: 'Failed',
+          icon: const Icon(Icons.cancel, color: Colors.white),
+          color: Colors.red.shade300,
+        ),
+        ButtonState.success: IconedButton(
+          text: 'Success',
+          icon: const Icon(
+            Icons.check_circle,
+            color: Colors.white,
+          ),
+          color: Colors.green.shade400,
+        )
+      },
+      onPressed: function,
+      state: buttonstate,
+    );
+  }
+}

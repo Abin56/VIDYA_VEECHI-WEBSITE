@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
+import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 // import 'package:vidyaveechi_website/view/home/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
 
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(1536, 786.4000244140625),
         builder: (context) {
           return GetMaterialApp(
-            home: SplashScreen(),
+            home:  SplashScreen(),
             theme: ThemeData(
                 primarySwatch: Colors.blue,
                 datePickerTheme:
