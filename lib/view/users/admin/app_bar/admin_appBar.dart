@@ -265,7 +265,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
               child: Row(
                 children: [
                   const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
-                  const Spacer(),
+                  // const Spacer(),
                   GestureDetector(
                     onTap: () {
                       academicYearSettingFunction(context);
@@ -273,7 +273,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                     child: Tooltip(
                       message: "Academic Year Setting",
                       child: Image.asset("assets/flact_png/upcoming_.png")),
-                  )
+                  )//////////////////////////////////////////////////////////////////...set academic year
                 ],
               ),
             ),
