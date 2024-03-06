@@ -14,6 +14,9 @@ class ClassController extends GetxController {
   final TextEditingController classNameController = TextEditingController();
   final TextEditingController classNameEditController = TextEditingController();
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
+  List<ClassModel> allclassList = [];
+  RxString className = ''.obs;
+  RxString classDocID = ''.obs;
   RxBool ontapClass = false.obs;
 
   final _schoolserver = server
@@ -249,5 +252,22 @@ class ClassController extends GetxController {
         },
       );
     }
+  }
+
+  Future<List<ClassModel>> fetchClass() async {
+    final firebase = await server
+        .collection('SchoolListCollection')
+        .doc(UserCredentialsController.schoolId)
+        .collection(UserCredentialsController.batchId!)
+        .doc(UserCredentialsController.batchId!)
+        .collection('classes')
+        .get();
+
+    for (var i = 0; i < firebase.docs.length; i++) {
+      final list =
+          firebase.docs.map((e) => ClassModel.fromMap(e.data())).toList();
+      allclassList.add(list[i]);
+    }
+    return allclassList;
   }
 }

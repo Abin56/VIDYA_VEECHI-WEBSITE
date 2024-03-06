@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
+import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
@@ -132,9 +133,7 @@ class ManualStudentCreation extends StatelessWidget {
             ),
             SizedBox(
               height: 40,
-              child: DropdownSearch(
-                items: const ['Class X', 'Class XI'],
-              ),
+              child: SelectClassDropDown(),
             ),
           ],
         ),
