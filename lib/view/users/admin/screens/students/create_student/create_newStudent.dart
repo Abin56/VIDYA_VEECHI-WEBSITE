@@ -36,40 +36,46 @@ class CreateStudent extends StatelessWidget {
               child: ResponsiveWebSite.isMobile(context)
                   ? const Column(
                       children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: 08,
-                                right: 05,
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 8),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 08,
+                                  right: 05,
+                                ),
+                                child:
+                                    RouteNonSelectedTextContainer(title: 'Home'),
                               ),
-                              child:
-                                  RouteNonSelectedTextContainer(title: 'Home'),
-                            ),
-                            RouteSelectedTextContainer(
-                                width: 140, title: 'Create Student'),
-                          ],
+                              RouteSelectedTextContainer(
+                                  width: 140, title: 'Create Student'),
+                            ],
+                          ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            SizedBox(
-                              width: 310,
-                              child: TabBar(
-                                  // indicatorSize: TabBarIndicatorSize.tab,
-                                  indicatorColor: Colors.red,
-                                  tabs: [
-                                    Tab(
-                                        height: 30,
-                                        child: RouteSelectedTextContainer(
-                                            width: 140, title: 'Manual')),
-                                    Tab(
-                                        height: 30,
-                                        child: RouteSelectedTextContainer(
-                                            width: 140, title: 'Class Wise')),
-                                  ]),
-                            )
-                          ],
+                        Padding(
+                          padding: EdgeInsets.only(top: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              SizedBox(
+                                width: 310,
+                                child: TabBar(
+                                    // indicatorSize: TabBarIndicatorSize.tab,
+                                    indicatorColor: Colors.red,
+                                    tabs: [
+                                      Tab(
+                                          height: 30,
+                                          child: RouteSelectedTextContainer(
+                                              width: 140, title: 'Manual')),
+                                      Tab(
+                                          height: 30,
+                                          child: RouteSelectedTextContainer(
+                                              width: 140, title: 'Class Wise')),
+                                    ]),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     )

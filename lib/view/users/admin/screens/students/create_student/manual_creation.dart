@@ -29,69 +29,72 @@ class ManualStudentCreation extends StatelessWidget {
         title: 'Student Name',
         validator: checkFieldEmpty,
       ), /////////////////////////////1
-      Obx(() => studentController.automaticmail.value == false
-          ? TextFormFiledBlueContainerWidget(
-              hintText: "Enter Student Email",
-              title: 'Student Email',
-              validator: checkFieldEmailIsValid,
-              widget: Row(
-                children: [
-                  const TextFontWidget(
-                      text: 'Student have no email ID?', fontsize: 10.5),
-                  SizedBox(
-                    height: 05,
-                    child: Checkbox(
-                      activeColor: cgreen,
-                      value: studentController.automaticmail.value,
-                      onChanged: (value) {
-                        value = studentController.automaticmail.value = true;
-                      },
+      SizedBox(
+        height: 110,
+        child: Obx(() => studentController.automaticmail.value == false
+            ? TextFormFiledBlueContainerWidget(
+                hintText: "Enter Student Email",
+                title: 'Student Email',
+                validator: checkFieldEmailIsValid,
+                widget: Row(
+                  children: [
+                    const TextFontWidget(
+                        text: 'Student have no email ID?', fontsize: 10.5),
+                    SizedBox(
+                      height: 05,
+                      child: Checkbox(
+                        activeColor: cgreen,
+                        value: studentController.automaticmail.value,
+                        onChanged: (value) {
+                          value = studentController.automaticmail.value = true;
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            )
-          : SizedBox(
-              height: 100,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const TextFontWidget(
-                          text: '  Student have no email ID?', fontsize: 10.5),
-                      SizedBox(
-                        height: 10,
-                        child: Checkbox(
-                          activeColor: cgreen,
-                          value: studentController.automaticmail.value,
-                          onChanged: (value) {
-                            value =
-                                studentController.automaticmail.value = false;
-                          },
+                  ],
+                ),
+              )
+            : SizedBox(
+                height: 60,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        const TextFontWidget(
+                            text: '  Student have no email ID?', fontsize: 10.5),
+                        SizedBox(
+                          height: 10,
+                          child: Checkbox(
+                            activeColor: cgreen,
+                            value: studentController.automaticmail.value,
+                            onChanged: (value) {
+                              value =
+                                  studentController.automaticmail.value = false;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 05,
+                    ),
+                    Container(
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: themeColorBlue,
+                        border: Border.all(color: cBlack.withOpacity(0.4)),
+                      ),
+                      child: const Center(
+                        child: TextFontWidget(
+                          text: "Auto - Creation",
+                          fontsize: 12.5,
+                          color: cWhite,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 05,
-                  ),
-                  Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: themeColorBlue,
-                      border: Border.all(color: cBlack.withOpacity(0.4)),
-                    ),
-                    child: const Center(
-                      child: TextFontWidget(
-                        text: "Auto - Creation",
-                        fontsize: 12.5,
-                        color: cWhite,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            )), /////////////////////...2
+                    )
+                  ],
+                ),
+              )),
+      ), /////////////////////...2
       TextFormFiledBlueContainerWidget(
         hintText: "Enter Student Ph",
         title: 'Phone Number',
@@ -368,7 +371,7 @@ class ManualStudentCreation extends StatelessWidget {
                             Expanded(
                               flex: 1,
                               child: Padding(
-                                  padding: const EdgeInsets.only(
+                                  padding: const EdgeInsets.only(top: 10,
                                     right: 20,
                                     left: 10,
                                   ),
