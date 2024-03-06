@@ -30,9 +30,10 @@ class MyApp extends StatelessWidget {
         designSize: const Size(1536, 786.4000244140625),
         builder: (context) {
           return GetMaterialApp(
-            home:  SplashScreen(),
+            home: SplashScreen(),
             theme: ThemeData(
                 primarySwatch: Colors.blue,
+                dialogTheme: const DialogTheme(shape: RoundedRectangleBorder()),
                 datePickerTheme:
                     const DatePickerThemeData(shape: RoundedRectangleBorder())),
             scrollBehavior: MyCustomScrollBehavior(),
