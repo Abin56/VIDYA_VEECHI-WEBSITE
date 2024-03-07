@@ -23,7 +23,7 @@ class NoticeButtonContainerWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration:  BoxDecoration(
-          color: cBlue.withOpacity(0.9),
+        color: color,
           borderRadius:  BorderRadius.circular(5),
         ),
         width: width,

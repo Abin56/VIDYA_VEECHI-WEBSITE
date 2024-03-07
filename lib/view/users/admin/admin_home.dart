@@ -6,9 +6,11 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/teachers/teachers_all_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
 import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achievements.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/batch_histroy/batch_history_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_listscreen.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/events/events.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/general%20instruction/general_instructions.dart';
@@ -136,23 +138,14 @@ List<Widget> pages = [
   const MeetingCreatingPage(),
    GeneralInsructions(),
  
-  Container(
-    height: 200,
-    color: Colors.pink,
-  ),
- TimeTable(),
-  Container(
-    height: 200,
-    color: Colors.blueGrey,
-  ),
+  const Achievements(),
+ const TimeTable(),
+  EventsEditREmove(),
   Container(
     height: 200,
     color: Colors.green,
   ),
-  Container(
-    height: 200,
-    color: Colors.pink,
-  ),
+   EventsEditREmove(),
   Container(
     height: 200,
     color: Colors.orange,
