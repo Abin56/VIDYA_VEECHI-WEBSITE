@@ -27,8 +27,17 @@ editFunctionOfExam(BuildContext context){
                 ),
                   Container(
                     height: 40,
-                    decoration: BoxDecoration(border: Border.all(width: 1),borderRadius: const BorderRadius.all(Radius.circular(5))),
-                    child: TextFormField(decoration: const InputDecoration(hintText: 'Enter Exam Name',hintStyle: TextStyle(fontSize: 13)),)),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 1),
+                      borderRadius: const BorderRadius.all(Radius.circular(5))),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        decoration: const InputDecoration( 
+                          border: InputBorder.none,
+                          hintText: 'Enter Exam Name',
+                          hintStyle: TextStyle(fontSize: 13,)),),
+                    )),
                 ],
               ),
             ),

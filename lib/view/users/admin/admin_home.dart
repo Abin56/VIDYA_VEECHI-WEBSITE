@@ -103,7 +103,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-   AllExamNotificationListView(),
+   const AllExamNotificationListView(),
   CreateStudent(),
   AllClassListView(),
   const AllTeachersAttendance(),
@@ -123,9 +123,7 @@ List<Widget> pages = [
 
   ///
   AllStudentListContainer(),
-  Center(
-    child: Text(sideMenu[2]),
-  ),
+ 
   const AllTeachersList(),
   const CreateTeacherProfile(),
   Center(
@@ -137,64 +135,19 @@ List<Widget> pages = [
   ),
   ////
 
-  Container(
-    height: 200,
-    color: Colors.brown,
-  ),
-  Container(
-    height: 200,
-    color: Colors.purple,
-  ),
-  Container(
-    height: 200,
-    color: Colors.black54,
-  ),
-  Center(
-    child: Text(sideMenu[19]),
-  ),
+
   const MeetingCreatingPage(),
-  Center(
-    child: Text(sideMenu[21]),
-  ),
-  Container(
-    height: 200,
-    color: Colors.pink,
-  ),
-  // Container(
-  //   height: 200,
-  //   color: Colors.cyan,
-  // ),
-  const MeetingCreatingPage(),
-  Container(
-    height: 200,
-    color: Colors.blueGrey,
-  ),
-  Container(
-    height: 200,
-    color: Colors.green,
-  ),
-  Container(
-    height: 200,
-    color: Colors.pink,
-  ),
-  Container(
-    height: 200,
-    color: Colors.orange,
-  ),
-  Container(
-    height: 200,
-    color: Colors.deepPurple,
-  ),
+  
 
   const FeesAndBillsPage(),
-  const BatchHistroyListPage(),
-  //  Container(height: 200,color: Colors.green,),
-  //  Container(height: 200,color: Colors.redAccent,),
+ Container(height: 200,color: Colors.redAccent,),
   const BatchHistroyListPage(),
   // const FeesAndBillsPage(),
 
   Center(
     child: Text(sideMenu[1]),
+  ),Center(
+    child: Text(sideMenu[2]),
   ),
   Center(
     child: Text(sideMenu[3]),
@@ -214,31 +167,5 @@ List<String> sideMenu = [
   'Settings',
   'Rules',
 
-  ///12
-  '1Attendence',
-  '1Food Manage',
-  '1Rooms Manage',
-  '1Leave Requests',
-  '1Visitors Pass',
-  '1Students Manage',
-  '1Students Payment',
-  '1Employee Manage',
-  '1Bill Manage',
-  '1Notice Board',
-  '1Settings',
-
-  ///
-  '1Rules', //24
-  '2Attendence',
-  '2Food Manage',
-  '2Rooms Manage',
-  '2Leave Requests', //28
-  '2Visitors Pass', //29
-  '2Students Manage', //30
-  '2Students Payment', //31
-  '2Employee Manage', //////last 32
-  '2Bill Manage',
-  '2Notice Board',
-  '2Settings',
-  '2Rules', //32
+ 
 ];
