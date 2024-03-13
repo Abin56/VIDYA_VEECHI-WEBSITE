@@ -28,9 +28,13 @@ class MyApp extends StatelessWidget {
         designSize: const Size(1536, 786.4000244140625),
         builder: (context) {
           return GetMaterialApp(
-            home:  SplashScreen(),
-            // SplashScreen(),
+            // home: const Sample(),
+            home: SplashScreen(),
             theme: ThemeData(
+                inputDecorationTheme: InputDecorationTheme(
+                    border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(0),
+                )),
                 primarySwatch: Colors.blue,
                 dialogTheme: const DialogTheme(shape: RoundedRectangleBorder()),
                 datePickerTheme:
