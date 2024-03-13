@@ -14,6 +14,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_da
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting_creating/meeting_creating.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_page.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
@@ -122,9 +123,7 @@ List<Widget> pages = [
 
   ///
   AllStudentListContainer(),
-  Center(
-    child: Text(sideMenu[2]),
-  ),
+  
   const AllTeachersList(),
   const CreateTeacherProfile(),
   Center(
@@ -136,10 +135,7 @@ List<Widget> pages = [
   ),
   ////
 
-  Container(
-    height: 200,
-    color: Colors.brown,
-  ),
+  const NoticeEditRemove(),
   Container(
     height: 200,
     color: Colors.purple,

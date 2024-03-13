@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/redistration/model/registration_model.dart';
+import 'package:vidyaveechi_website/registration/model/registration_model.dart';
 
 class RegisterController extends GetxController {
   TextEditingController nameController = TextEditingController();

@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
-import 'package:vidyaveechi_website/redistration/controller/registration_controller.dart';
-import 'package:vidyaveechi_website/redistration/excel.dart';
+import 'package:vidyaveechi_website/registration/controller/registration_controller.dart';
+import 'package:vidyaveechi_website/registration/excel.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledContainer.dart';

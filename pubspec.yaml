@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: '>=3.3.1 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -100,6 +100,7 @@ dependencies:
   flutter_rounded_date_picker:
   any_animated_button:
   progress_state_button: ^1.0.4
+  syncfusion_flutter_xlsio: 
 
 dev_dependencies:
   flutter_test:

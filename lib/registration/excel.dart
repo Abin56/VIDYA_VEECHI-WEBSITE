@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'package:syncfusion_flutter_xlsio/xlsio.dart' hide Column;
-import 'package:vidyaveechi_website/redistration/controller/registration_controller.dart';
-import 'package:vidyaveechi_website/redistration/model/registration_model.dart';
+import 'package:vidyaveechi_website/registration/controller/registration_controller.dart';
+import 'package:vidyaveechi_website/registration/model/registration_model.dart';
 
 class GenerateExcel extends StatefulWidget {
  
