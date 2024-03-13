@@ -14,8 +14,8 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Topic")//////.....1
    ];
   //  final Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child:ResponsiveWebSite.isMobile(context)?Row(
+    return Scaffold(
+      body:ResponsiveWebSite.isMobile(context)?Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(

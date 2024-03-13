@@ -141,7 +141,113 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                         padding: const EdgeInsets.only(top: 15, right: 10),
                         child: IconButton(
                             focusNode: textButtonFocusNode,
-                            onPressed: () {},
+                            onPressed: () {
+                              aweSideSheet(
+                                  context: context,
+                                  sheetPosition: SheetPosition.right,
+                                  showCloseButton: false,
+                                  title: "Messages",
+                                  body: SingleChildScrollView(
+                                    child: DefaultTabController(
+                                      length: 2,
+                                      child: Column(
+                                        children: [
+                                          const TabBar(
+                                            dividerColor: Colors.transparent,
+                                            tabs: <Widget>[
+                                              Tab(
+                                                text: 'All Messages',
+                                                // icon: Icon(Icons.flight),
+                                              ),
+                                              Tab(
+                                                text: 'New Messages',
+                                                // icon: Icon(Icons.luggage),
+                                              ),
+                                            ],
+                                          ),
+                                          Container(
+                                            height: 500,
+                                            child: TabBarView(children: [
+                                              Container(
+                                                color: themeColorGreen
+                                                    .withOpacity(0.1),
+                                                height: 300,
+                                                child: ListView.separated(
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return GestureDetector(
+                                                        onTap: () {},
+                                                        child: const ListTile(
+                                                          title: Text(
+                                                            'Title',
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          subtitle: Text(
+                                                            'Messages',
+                                                            style: TextStyle(
+                                                                fontSize: 11),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                    separatorBuilder:
+                                                        (context, index) {
+                                                      return Container(
+                                                        height: 0.1,
+                                                        color: Color.fromARGB(
+                                                            255, 12, 94, 14),
+                                                      );
+                                                    },
+                                                    itemCount: 20),
+                                              ),
+                                              Container(
+                                                color: themeColorGreen
+                                                    .withOpacity(0.1),
+                                                height: 300,
+                                                child: ListView.separated(
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return GestureDetector(
+                                                        onTap: () {},
+                                                        child: const ListTile(
+                                                          title: Text(
+                                                            'Title',
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          subtitle: Text(
+                                                            'Messages',
+                                                            style: TextStyle(
+                                                                fontSize: 11),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                    separatorBuilder:
+                                                        (context, index) {
+                                                      return Container(
+                                                        height: 0.1,
+                                                        color: Color.fromARGB(
+                                                            255, 12, 94, 14),
+                                                      );
+                                                    },
+                                                    itemCount: 20),
+                                              ),
+                                            ]),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  footer: Container());
+                            },
                             icon: Icon(
                               Icons.mail_outline_outlined,
                               color: cBlack.withOpacity(0.4),
@@ -181,10 +287,111 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                         child: IconButton(
                             focusNode: textButtonFocusNode1,
                             onPressed: () {
-                              print("object");
                               aweSideSheet(
                                   context: context,
-                                  sheetPosition: SheetPosition.right);
+                                  sheetPosition: SheetPosition.right,
+                                  title: "Notifications",
+                                  body: SingleChildScrollView(
+                                    child: DefaultTabController(
+                                      length: 2,
+                                      child: Column(
+                                        children: [
+                                          TabBar(
+                                            dividerColor: Colors.transparent,
+                                            tabs: <Widget>[
+                                              Tab(
+                                                text: 'All Notifications',
+                                                // icon: Icon(Icons.flight),
+                                              ),
+                                              Tab(
+                                                text: 'New Notifications',
+                                                // icon: Icon(Icons.flight),
+                                              ),
+                                            ],
+                                          ),
+                                          Container(
+                                            height: 500,
+                                            child: TabBarView(children: [
+                                              Container(
+                                                color: themeColorGreen
+                                                    .withOpacity(0.1),
+                                                height: 300,
+                                                child: ListView.separated(
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return GestureDetector(
+                                                        onTap: () {},
+                                                        child: const ListTile(
+                                                          title: Text(
+                                                            'Title',
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          subtitle: Text(
+                                                            'Notifications',
+                                                            style: TextStyle(
+                                                                fontSize: 11),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                    separatorBuilder:
+                                                        (context, index) {
+                                                      return Container(
+                                                        height: 0.1,
+                                                        color: Color.fromARGB(
+                                                            255, 12, 94, 14),
+                                                      );
+                                                    },
+                                                    itemCount: 20),
+                                              ),
+                                              Container(
+                                                color: themeColorGreen
+                                                    .withOpacity(0.1),
+                                                height: 300,
+                                                child: ListView.separated(
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      return GestureDetector(
+                                                        onTap: () {},
+                                                        child: const ListTile(
+                                                          title: Text(
+                                                            'Title',
+                                                            style: TextStyle(
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          subtitle: Text(
+                                                            'Notifications',
+                                                            style: TextStyle(
+                                                                fontSize: 11),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                    separatorBuilder:
+                                                        (context, index) {
+                                                      return Container(
+                                                        height: 0.1,
+                                                        color: Color.fromARGB(
+                                                            255, 12, 94, 14),
+                                                      );
+                                                    },
+                                                    itemCount: 20),
+                                              ),
+                                            ]),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  showCloseButton: false,
+                                  footer: Container());
                             },
                             icon: Icon(
                               Icons.notifications_none_outlined,
@@ -214,47 +421,6 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 ],
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 05),
-            //   child: SizedBox(
-            //     width: 86,
-            //     child: Column(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       crossAxisAlignment: CrossAxisAlignment.end,
-            //       children: [
-            //         Row(
-            //           children: [
-            //             const Icon(
-            //               Icons.south_america,
-            //               color: Colors.amber,
-            //             ),
-            //             GooglePoppinsWidgets(text: ' EN ', fontsize: 12),
-            //             PopupMenuButton(
-            //               icon: const Icon(
-            //                 Icons.keyboard_arrow_down_rounded,
-            //                 color: cBlack,
-            //                 size: 17,
-            //               ),
-            //               itemBuilder: (BuildContext context) {
-            //                 return <PopupMenuEntry>[
-            //                   PopupMenuItem(
-            //                       child: Column(
-            //                     children: [
-            //                       Container(
-            //                         height: 400,
-            //                         color: Colors.red,
-            //                       ),
-            //                     ],
-            //                   ))
-            //                 ];
-            //               },
-            //             ),
-            //           ],
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
@@ -265,200 +431,6 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
     Container(height: 40, width: 60, color: Colors.transparent),
     Container(height: 40, width: 60, color: Colors.transparent),
     Container(height: 40, width: 60, color: Colors.transparent),
-    Column(
-      children: [
-        Container(
-          color: const Color.fromARGB(255, 42, 215, 197),
-          width: 500,
-          height: 40,
-          child: const Center(
-            child: Text(
-              'All Messages',
-              style: TextStyle(
-                fontSize: 16,
-                color: cWhite,
-              ),
-            ),
-          ),
-        ),
-        Container(
-          color: themeColorGreen.withOpacity(0.1),
-          width: 500,
-          height: 300,
-          child: ListView.separated(
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {},
-                  child: const ListTile(
-                    leading: CircleAvatar(
-                      radius: 05,
-                    ),
-                    title: Text(
-                      'Title',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      'Messages',
-                      style: TextStyle(fontSize: 11),
-                    ),
-                  ),
-                );
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 10,
-                );
-              },
-              itemCount: 20),
-        ),
-      ],
-    ),
-    Column(
-      children: [
-        Container(
-          color: const Color.fromARGB(255, 255, 49, 49),
-          width: 400,
-          height: 40,
-          child: const Center(
-            child: Text(
-              'All Notifications',
-              style: TextStyle(
-                fontSize: 15,
-                color: cWhite,
-              ),
-            ),
-          ),
-        ),
-        Container(
-          color: themeColorGreen.withOpacity(0.1),
-          width: 400,
-          height: 300,
-          child: ListView.separated(
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {},
-                  child: const ListTile(
-                    leading: CircleAvatar(
-                      radius: 05,
-                    ),
-                    title: Text(
-                      'Title',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      'Messages',
-                      style: TextStyle(fontSize: 11),
-                    ),
-                  ),
-                );
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 10,
-                );
-              },
-              itemCount: 20),
-        ),
-      ],
-    ),
-    Column(
-      children: [
-        Container(
-          color: const Color.fromARGB(255, 255, 160, 1),
-          width: 200,
-          height: 40,
-          child: const Center(
-            child: Text(
-              'Steven Zone',
-              style: TextStyle(
-                  fontSize: 15, color: cWhite, fontWeight: FontWeight.w600),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: 200,
-          height: 200,
-          child: Column(
-            children: [
-              Container(
-                height: 50,
-                width: 200,
-                decoration: BoxDecoration(
-                    border: Border.all(color: cBlack.withOpacity(0.4))),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(7),
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Colors.transparent,
-                        child: Image.asset('assets/png/avathar.png'),
-                      ),
-                    ),
-                    const TextFontWidget(
-                      text: 'Stevne Zone',
-                      fontsize: 12,
-                      color: cBlack,
-                      fontWeight: FontWeight.w400,
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                height: 35,
-                width: 200,
-                decoration: BoxDecoration(
-                    border: Border.all(color: cBlack.withOpacity(0.4))),
-                child: const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      child: Icon(
-                        Icons.account_circle_outlined,
-                        size: 24,
-                        color: cBlack,
-                      ),
-                    ),
-                    TextFontWidget(
-                      text: 'My Profile',
-                      fontsize: 12,
-                      color: cBlack,
-                      fontWeight: FontWeight.w500,
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                height: 35,
-                width: 200,
-                decoration: BoxDecoration(
-                    border: Border.all(color: cBlack.withOpacity(0.4))),
-                child: const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10),
-                      child: Icon(
-                        Icons.power_settings_new,
-                        size: 24,
-                        color: cBlack,
-                      ),
-                    ),
-                    TextFontWidget(
-                      text: 'Log Ouit',
-                      fontsize: 12,
-                      color: cBlack,
-                      fontWeight: FontWeight.w500,
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    ),
   ];
   void _showOverlay(BuildContext context, int index) async {
     overlayState = Overlay.of(context);

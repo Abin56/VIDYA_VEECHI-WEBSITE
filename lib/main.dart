@@ -9,6 +9,8 @@ import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
 // import 'package:vidyaveechi_website/view/home/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
 
+import 'view/users/admin/create_new_admin_page/create_new_admin_page.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
                 datePickerTheme:
                     const DatePickerThemeData(shape: RoundedRectangleBorder(  ))),
             scrollBehavior: MyCustomScrollBehavior(),
-            home: const AdminHomeScreen(),
+            home: AdminHomeScreen(),
             // home: Scaffold(
             //   body: SafeArea(
             //       child: Center(
