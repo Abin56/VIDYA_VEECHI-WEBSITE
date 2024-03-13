@@ -75,7 +75,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           ),
           children: <Widget>[
             Container(
-              color: selectedIndex == 0
+              color: selectedIndex == 2
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               child: ListTile(
@@ -113,11 +113,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           ),
           children: <Widget>[
             ListTile(
-              tileColor: selectedIndex == 8
+              tileColor: selectedIndex == 4
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 8;
+                index = 5;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -125,11 +125,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ),
             ),/////////////////////////////....sub
             ListTile(
-              tileColor: selectedIndex == 9
+              tileColor: selectedIndex == 6
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 9;
+                index = 6;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -151,11 +151,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           ),
           children: <Widget>[
             ListTile(
-              tileColor: selectedIndex == 12
+              tileColor: selectedIndex == 7
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 12;
+                index = 7;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -163,11 +163,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ),
             ),/////////////.....sub......
             ListTile(
-              tileColor: selectedIndex == 13
+              tileColor: selectedIndex == 8
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 13;
+                index = 8;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -189,11 +189,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           ),
           children: <Widget>[
             ListTile(
-              tileColor: selectedIndex == 15
+              tileColor: selectedIndex == 9
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 15;
+                index = 9;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -201,11 +201,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ),
             ),//////////////...sub....
             ListTile(
-              tileColor: selectedIndex == 16
+              tileColor: selectedIndex == 10
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 4;
+                index = 10;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -213,11 +213,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ),
             ),////////////.....sub....
             ListTile(
-              tileColor: selectedIndex == 17
+              tileColor: selectedIndex == 11
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 17;
+                index = 11;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -239,11 +239,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           ),
           children: <Widget>[
             ListTile(
-              tileColor: selectedIndex == 18
+              tileColor: selectedIndex == 12
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 18;
+                index = 12;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -251,11 +251,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ),
             ),///////.....sub....
             ListTile(
-              tileColor: selectedIndex == 19
+              tileColor: selectedIndex == 13
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 19;
+                index = 13;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -263,11 +263,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ),
             ),////////.......sub....
             ListTile(
-              tileColor: selectedIndex == 20
+              tileColor: selectedIndex == 14
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 20;
+                index = 14;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -314,11 +314,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
             //   ),
             // ),
             ListTile(
-              tileColor: selectedIndex == 21
+              tileColor: selectedIndex == 15
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 21;
+                index = 15;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -326,11 +326,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ),
             ),//////////...../sub.........
             ListTile(
-              tileColor: selectedIndex == 22
+              tileColor: selectedIndex == 16
                   ? themeColorBlue.withOpacity(0.1)
                   : Colors.transparent,
               onTap: () {
-                index = 22;
+                index = 16;
                 onTap.call(index);
               },
               title: DashboardTextFontWidget(
@@ -347,11 +347,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/notification.png')),
-          tileColor: selectedIndex == 23
+          tileColor: selectedIndex == 17
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 23;
+            index = 17;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -366,11 +366,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/student.png')),
-          tileColor: selectedIndex == 24
+          tileColor: selectedIndex == 18
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 24;
+            index = 18;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -382,11 +382,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/teacher (1).png')),
-          tileColor: selectedIndex == 25
+          tileColor: selectedIndex == 19
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 25;
+            index = 19;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -398,11 +398,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/parents.png')),
-          tileColor: selectedIndex == 26
+          tileColor: selectedIndex == 20
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 26;
+            index = 20;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -414,11 +414,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/createadmin.png')),
-          tileColor: selectedIndex == 28
+          tileColor: selectedIndex == 21
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 28;
+            index = 21;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -433,11 +433,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/generalinstruction.png')),
-          tileColor: selectedIndex == 29
+          tileColor: selectedIndex == 22
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 29;
+            index = 22;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -452,11 +452,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/achive.png')),
-          tileColor: selectedIndex == 30
+          tileColor: selectedIndex == 23
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 30;
+            index = 23;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -471,11 +471,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/fees&bills.png')),
-          tileColor: selectedIndex == 31
+          tileColor: selectedIndex == 24
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 31;
+            index = 24;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -490,11 +490,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/batchhistory.png')),
-          tileColor: selectedIndex == 33
+          tileColor: selectedIndex == 25
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 33;
+            index = 25;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
@@ -509,11 +509,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/timetable.png')),
-          tileColor: selectedIndex == 34
+          tileColor: selectedIndex == 26
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 34;
+            index = 26;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(

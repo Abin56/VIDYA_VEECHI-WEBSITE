@@ -7,6 +7,7 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/academic_year.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_setting/notification.dart';
 
 class AppBarAdminPanel extends StatefulWidget {
   const AppBarAdminPanel({
@@ -108,7 +109,9 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                           ),
                           IconButton(
                               focusNode: textButtonFocusNode2,
-                              onPressed: () {},
+                              onPressed: () {
+                                showPopupMenu(context);
+                              },
                               icon: const Icon(
                                 Icons.arrow_drop_down,
                                 size: 18,
@@ -265,7 +268,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
               child: Row(
                 children: [
                   const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
-                  const Spacer(),
+                  // const Spacer(),
                   GestureDetector(
                     onTap: () {
                       academicYearSettingFunction(context);
@@ -273,7 +276,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                     child: Tooltip(
                       message: "Academic Year Setting",
                       child: Image.asset("assets/flact_png/upcoming_.png")),
-                  )
+                  )//////////////////////////////////////////////////////////////////...set academic year
                 ],
               ),
             ),
