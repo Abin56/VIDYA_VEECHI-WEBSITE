@@ -56,11 +56,11 @@ dependencies:
   flutter_inset_box_shadow: 
   flutter_overboard: 
   flutter_sms: 
-  flutter_staggered_animations: 
+  flutter_staggered_animations: ^1.1.1 
   fluttertoast:
   gcloud: 
   get: 
-  google_fonts: 6.1.0
+  google_fonts: 6.1.0  
   google_sign_in: 
   group_radio_button: 
   http: 
@@ -98,7 +98,8 @@ dependencies:
   fab_circular_menu_plus:
   font_awesome_flutter:
   flutter_rounded_date_picker:
-  syncfusion_flutter_xlsio: 
+  any_animated_button:
+  progress_state_button: ^1.0.4
 
 dev_dependencies:
   flutter_test:

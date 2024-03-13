@@ -10,4 +10,6 @@ class StudentController extends GetxController {
   RxBool automaticmail = false.obs;
 
   createaNewStudent() async {}
+
+  
 }

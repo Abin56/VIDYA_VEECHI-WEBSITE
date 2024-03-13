@@ -34,8 +34,7 @@ addSubjectFunction(BuildContext context){
 aweSideSheet(context: context, 
 sheetPosition:  SheetPosition.right,
 backgroundColor: cWhite,
-cancelActionText: '',
-confirmActionText: '',
+footer: Container(),
 title: 'Add New Subject',
 body: Column(
           children: [

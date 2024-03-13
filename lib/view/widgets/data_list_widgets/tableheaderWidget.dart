@@ -31,3 +31,34 @@ class TableHeaderWidget extends StatelessWidget {
   }
 }
 
+class ResultTableHeaderWidget extends StatelessWidget {
+  final String headerTitle;
+  final double? width;
+
+  const ResultTableHeaderWidget({
+    this.width,
+    required this.headerTitle,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: width,
+      decoration: BoxDecoration(
+          color: const Color.fromARGB(250, 250, 250, 252),
+          border: Border.symmetric(
+            horizontal: BorderSide(color: cBlack.withOpacity(0.5)),
+          )),
+          alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 5),
+        child: Text(
+          headerTitle,
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+        ),
+      ),
+    );
+  }
+}
