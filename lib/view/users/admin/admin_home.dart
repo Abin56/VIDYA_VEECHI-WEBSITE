@@ -21,6 +21,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allSt
 import 'package:vidyaveechi_website/view/users/admin/screens/subject/create_subject/create_newsubject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/list_of_teacher.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({super.key});
@@ -103,7 +104,13 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
+  // AllTeacherListContainer
+  AllTeacherListContainer(),
+  AllStudentListContainer(),
+  const AllTeachersAttendance(),
   CreateStudent(),
+
+  const AdminDashBoardSections(),
   AllClassListView(),
   const AllTeachersAttendance(),
   const AllStudentsAttendance(),

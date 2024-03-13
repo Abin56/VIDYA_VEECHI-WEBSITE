@@ -10,6 +10,7 @@ import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 class SharedPreferencesHelper {
   static String batchIdKey = 'batchId';
   static String schoolIdKey = 'schoolId';
+  static String schoolNameKey = 'schoolName';
   static String classIdKey = 'classId';
   static String userRoleKey = 'userRole';
   static late SharedPreferences _prefs;
@@ -17,6 +18,7 @@ class SharedPreferencesHelper {
   static Future<void> clearSharedPreferenceData() async {
     await setString(batchIdKey, "");
     await setString(schoolIdKey, "");
+    await setString(schoolNameKey, "");
     await setString(classIdKey, "");
     await setString(userRoleKey, "");
   }
@@ -49,6 +51,7 @@ class SharedPreferencesHelper {
 
 class UserCredentialsController {
   static String? schoolId;
+  static String? schoolName;
   static String? batchId;
   static String? classId;
   static String? userRole;
@@ -59,6 +62,7 @@ class UserCredentialsController {
 
   static void clearUserCredentials() {
     schoolId = null;
+    schoolName = null;
     batchId = null;
     classId = null;
     userRole = null;
