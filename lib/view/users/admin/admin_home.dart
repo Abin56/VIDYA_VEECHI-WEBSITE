@@ -18,7 +18,6 @@ import 'package:vidyaveechi_website/view/users/admin/screens/result/student_resu
 import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/subject/create_subject/create_newsubject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/list_of_teacher.dart';
 
@@ -113,7 +112,7 @@ List<Widget> pages = [
   const AdminDashBoardSections(),
   CreateStudent(),
   ListingOfTeacher(),
-  const CreateSubject(),
+ const FeesAndBillsPage(),
   CreateTeacher(),
 
   CreateStudent(),
