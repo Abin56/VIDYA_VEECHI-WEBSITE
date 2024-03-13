@@ -6,8 +6,8 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
-class NewAdminCreatePage extends StatelessWidget {
-  NewAdminCreatePage({super.key});
+class AdminCreatePage extends StatelessWidget {
+  AdminCreatePage({super.key});
   final _formKey = GlobalKey<FormState>();
 
   @override
