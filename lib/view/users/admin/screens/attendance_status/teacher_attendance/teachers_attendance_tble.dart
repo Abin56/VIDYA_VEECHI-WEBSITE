@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/widget/data_container_marks.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
+import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 
 class TeachersAttendanceDataList extends StatelessWidget {
@@ -16,10 +17,11 @@ class TeachersAttendanceDataList extends StatelessWidget {
     return SingleChildScrollView(
       child: SizedBox(
         height: 580,
-        width: double.infinity,
+        width:ResponsiveWebSite.isMobile(context)? double.infinity:900,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(left: 8,right: 8),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Row(
                 children: [
@@ -28,10 +30,10 @@ class TeachersAttendanceDataList extends StatelessWidget {
                       SizedBox(width: 1,),
                   Expanded(
                       flex: 6,
-                      child:TableHeaderWidget(headerTitle: "Student Name")), SizedBox(width: 1,),
+                      child:ResultTableHeaderWidget(headerTitle: "Teacher Name")), SizedBox(width: 1,),
                   Expanded(
                       flex: 2,
-                      child:TableHeaderWidget(headerTitle: "Status")),
+                      child:ResultTableHeaderWidget(headerTitle: "Status")),
                 ],
               ),
               SizedBox(
@@ -53,18 +55,18 @@ class TeachersAttendanceDataList extends StatelessWidget {
                           Expanded(
                             flex: 6,
                             child: DataContainerMarksWidget(
-                                rowMainAccess: MainAxisAlignment.center,
+                                rowMainAccess: MainAxisAlignment.start,
                                 color: cWhite,
                                 index: index,
-                                headerTitle: "Teacher Full Name"),
+                                headerTitle: "  Teacher Full Name"),
                           ), const SizedBox(width: 1,),
                           Expanded(
                             flex: 2,
                             child: DataContainerMarksWidget(
-                                rowMainAccess: MainAxisAlignment.center,
+                                rowMainAccess: MainAxisAlignment.start,
                                 color: cWhite,
                                 index: index,
-                                headerTitle: "Present"),
+                                headerTitle: "  Present"),
                           ),
                         ],
                       ),

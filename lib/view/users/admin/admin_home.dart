@@ -14,12 +14,10 @@ import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_da
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting_creating/meeting_creating.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_page.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/subject/create_subject/create_newsubject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/list_of_teacher.dart';
 
@@ -104,6 +102,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
+  const StudentDetailsContainer(),
+  const AllExamNotificationListView(),
   CreateStudent(),
   AllClassListView(),
   const AllTeachersAttendance(),
@@ -113,17 +113,17 @@ List<Widget> pages = [
   const AdminDashBoardSections(),
   CreateStudent(),
   ListingOfTeacher(),
-  const CreateSubject(),
+  const FeesAndBillsPage(),
   CreateTeacher(),
 
   CreateStudent(),
   const StudentDetailsContainer(),
-  ExamNotification(),
+
   AllClassListView(),
 
   ///
   AllStudentListContainer(),
-  
+
   const AllTeachersList(),
   const CreateTeacherProfile(),
   Center(
@@ -135,61 +135,21 @@ List<Widget> pages = [
   ),
   ////
 
-  const NoticeEditRemove(),
-  Container(
-    height: 200,
-    color: Colors.purple,
-  ),
-  Container(
-    height: 200,
-    color: Colors.black54,
-  ),
-  Center(
-    child: Text(sideMenu[19]),
-  ),
   const MeetingCreatingPage(),
-  Center(
-    child: Text(sideMenu[21]),
-  ),
-  Container(
-    height: 200,
-    color: Colors.pink,
-  ),
-  // Container(
-  //   height: 200,
-  //   color: Colors.cyan,
-  // ),
-  const MeetingCreatingPage(),
-  Container(
-    height: 200,
-    color: Colors.blueGrey,
-  ),
-  Container(
-    height: 200,
-    color: Colors.green,
-  ),
-  Container(
-    height: 200,
-    color: Colors.pink,
-  ),
-  Container(
-    height: 200,
-    color: Colors.orange,
-  ),
-  Container(
-    height: 200,
-    color: Colors.deepPurple,
-  ),
 
   const FeesAndBillsPage(),
-  const BatchHistroyListPage(),
-  //  Container(height: 200,color: Colors.green,),
-  //  Container(height: 200,color: Colors.redAccent,),
+  Container(
+    height: 200,
+    color: Colors.redAccent,
+  ),
   const BatchHistroyListPage(),
   // const FeesAndBillsPage(),
 
   Center(
     child: Text(sideMenu[1]),
+  ),
+  Center(
+    child: Text(sideMenu[2]),
   ),
   Center(
     child: Text(sideMenu[3]),
@@ -208,32 +168,4 @@ List<String> sideMenu = [
   'Notice Board',
   'Settings',
   'Rules',
-
-  ///12
-  '1Attendence',
-  '1Food Manage',
-  '1Rooms Manage',
-  '1Leave Requests',
-  '1Visitors Pass',
-  '1Students Manage',
-  '1Students Payment',
-  '1Employee Manage',
-  '1Bill Manage',
-  '1Notice Board',
-  '1Settings',
-
-  ///
-  '1Rules', //24
-  '2Attendence',
-  '2Food Manage',
-  '2Rooms Manage',
-  '2Leave Requests', //28
-  '2Visitors Pass', //29
-  '2Students Manage', //30
-  '2Students Payment', //31
-  '2Employee Manage', //////last 32
-  '2Bill Manage',
-  '2Notice Board',
-  '2Settings',
-  '2Rules', //32
 ];

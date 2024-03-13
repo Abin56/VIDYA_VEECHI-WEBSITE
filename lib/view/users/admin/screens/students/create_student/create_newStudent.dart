@@ -1,20 +1,28 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/admin_section/parent_controller/parent_controller.dart';
 import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/class_wise_creation.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/manual_creation.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
 class CreateStudent extends StatelessWidget {
   final StudentController studentController = Get.put(StudentController());
+  final ParentController parentController = Get.put(ParentController());
   CreateStudent({super.key});
 
   @override
   Widget build(BuildContext context) {
+    log("SchoolID :  ${UserCredentialsController.schoolId}");
+    log("BatchID :  ${UserCredentialsController.batchId}");
+    log("userrole :  ${UserCredentialsController.userRole}");
     return DefaultTabController(
       length: 2,
       child: Container(
@@ -36,40 +44,46 @@ class CreateStudent extends StatelessWidget {
               child: ResponsiveWebSite.isMobile(context)
                   ? const Column(
                       children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: 08,
-                                right: 05,
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 8),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 08,
+                                  right: 05,
+                                ),
+                                child: RouteNonSelectedTextContainer(
+                                    title: 'Home'),
                               ),
-                              child:
-                                  RouteNonSelectedTextContainer(title: 'Home'),
-                            ),
-                            RouteSelectedTextContainer(
-                                width: 140, title: 'Create Student'),
-                          ],
+                              RouteSelectedTextContainer(
+                                  width: 140, title: 'Create Student'),
+                            ],
+                          ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            SizedBox(
-                              width: 310,
-                              child: TabBar(
-                                  // indicatorSize: TabBarIndicatorSize.tab,
-                                  indicatorColor: Colors.red,
-                                  tabs: [
-                                    Tab(
-                                        height: 30,
-                                        child: RouteSelectedTextContainer(
-                                            width: 140, title: 'Manual')),
-                                    Tab(
-                                        height: 30,
-                                        child: RouteSelectedTextContainer(
-                                            width: 140, title: 'Class Wise')),
-                                  ]),
-                            )
-                          ],
+                        Padding(
+                          padding: EdgeInsets.only(top: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              SizedBox(
+                                width: 310,
+                                child: TabBar(
+                                    // indicatorSize: TabBarIndicatorSize.tab,
+                                    indicatorColor: Colors.red,
+                                    tabs: [
+                                      Tab(
+                                          height: 30,
+                                          child: RouteSelectedTextContainer(
+                                              width: 140, title: 'Manual')),
+                                      Tab(
+                                          height: 30,
+                                          child: RouteSelectedTextContainer(
+                                              width: 140, title: 'Class Wise')),
+                                    ]),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     )
@@ -109,7 +123,7 @@ class CreateStudent extends StatelessWidget {
             Expanded(
               child: TabBarView(children: [
                 ManualStudentCreation(),
-                const ClassWiseStudentCreation()
+                 ClassWiseStudentCreation()
               ]),
             )
           ],

@@ -5,6 +5,7 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/subject/create_subject/subject_dispaly_tble.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/subject/manage_subject/add_subject_function.dart';
+import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
@@ -193,22 +194,19 @@ class CreateSubject extends StatelessWidget {
                                 onTap: () {
                                   addSubjectFunction(context);
                                 },
-                                child: Container(
+                                child: ButtonContainerWidget(
+                                  curving: 30,
+                                  colorindex: 0,
                                   height: 40,
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                      color: themeColorBlue,
-                                      border: Border.all(color: themeColorBlue),
-                                      borderRadius: BorderRadius.circular(05)),
+                                  width: 180,
                                   child: const Center(
                                     child: TextFontWidget(
-                                      text: "Add Subject",
+                                      text: 'Create / E D I T',
                                       fontsize: 14,
-                                      // fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.bold,
                                       color: cWhite,
                                     ),
-                                  ),
-                                ),
+                                  )),
                               ),
                             )),
                         Expanded(
@@ -245,13 +243,13 @@ class CreateSubject extends StatelessWidget {
                         color: cWhite,
                         height: 650,
                         width: double.infinity,
-                        child: const Column(
+                        child:  Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
                                 height: 500,
-                                width: double.infinity,
-                                child: SubjectDisplayTable()),
+                                width:ResponsiveWebSite.isMobile(context)? double.infinity:650,
+                                child: const SubjectDisplayTable()),
                           ],
                         ),
                       ),

@@ -4,7 +4,7 @@ import 'package:awesome_side_sheet/Enums/sheet_position.dart';
 import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:progress_state_button/progress_button.dart';
+//import 'package:progress_state_button/progress_button.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
@@ -16,7 +16,7 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledBlueContainer.dart';
-import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledContainer.dart';
+//import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledContainer.dart';
 
 createClassFunction(BuildContext context) {
   aweSideSheet(
@@ -28,9 +28,14 @@ createClassFunction(BuildContext context) {
       // t
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextFontWidget(text: "Batch 2024 - 2025", fontsize: 19),
+          const Row(
+            children: [
+              BackButton(),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: TextFontWidget(text: "Batch 2024 - 2025", fontsize: 19),
+              ),
+            ],
           ),
           const SizedBox(
             height: 30,
@@ -112,19 +117,22 @@ createClassFunction(BuildContext context) {
                                                     MainAxisAlignment
                                                         .spaceAround,
                                                 children: [
-                                                  GestureDetector(
-                                                    onTap: () => Get.find<
-                                                            ClassController>()
-                                                        .setClassForbatchYear(
-                                                            data.className,
-                                                            data.docid),
-                                                    child: const Icon(
-                                                      weight: 50,
-                                                      Icons.add,
-                                                      color: themeColorBlue,
-                                                      size: 18,
+                                                  Tooltip(
+                                                    message: 'Add class to this batch year',
+                                                    child: GestureDetector(
+                                                      onTap: () => Get.find<
+                                                              ClassController>()
+                                                          .setClassForbatchYear(
+                                                              data.className,
+                                                              data.docid),
+                                                      child: const Icon(
+                                                        weight: 50,
+                                                        Icons.add,
+                                                        color: themeColorBlue,
+                                                        size: 18,
+                                                      ),
                                                     ),
-                                                  ),
+                                                  ),///////////////////////////................add
                                                   Container(
                                                     width: 1,
                                                     color: cWhite,
@@ -141,7 +149,7 @@ createClassFunction(BuildContext context) {
                                                       color: cgreen,
                                                       size: 18,
                                                     ),
-                                                  ),
+                                                  ),///////////////////////////...edit
                                                   Container(
                                                     width: 1,
                                                     color: cWhite,
@@ -159,7 +167,7 @@ createClassFunction(BuildContext context) {
                                                       color: cred,
                                                       size: 18,
                                                     ),
-                                                  ),
+                                                  ),/////////////////////////delete
                                                 ],
                                               )),
                                         ],

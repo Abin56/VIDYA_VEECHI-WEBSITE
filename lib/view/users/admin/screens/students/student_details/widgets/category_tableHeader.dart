@@ -31,3 +31,37 @@ class CatrgoryTableHeaderWidget extends StatelessWidget {
     );
   }
 }
+class CatrgoryTableHeaderColorWidget extends StatelessWidget {
+  final String headerTitle;
+  final double? width;
+  final Color color;
+  final Color textcolor;
+
+  const CatrgoryTableHeaderColorWidget({
+    this.width,
+    required this.headerTitle,
+    required this.color,
+     required this.textcolor,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 35,
+      width: width,
+      decoration:  BoxDecoration(
+          color: color,
+          border: const Border.symmetric(
+           // horizontal: BorderSide(color: Colors.blue),
+          )),
+      child: Center(
+        child: Text(
+          headerTitle,
+          style:  TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 13, color: textcolor),
+        ),
+      ),
+    );
+  }
+}

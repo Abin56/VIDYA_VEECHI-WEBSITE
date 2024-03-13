@@ -39,7 +39,6 @@ dependencies:
   bubble: 
   carousel_slider: 
   chewie: 
-  cloud_firestore: 
   country_state_city_picker: 
   dio: 
   download: 
@@ -47,20 +46,21 @@ dependencies:
   dropdown_search:
   excel:
   file_picker:
-  firebase_auth: ^4.10.1
-  firebase_core: 
-  firebase_core_platform_interface: 
-  firebase_database: 
+  cloud_firestore: ^4.15.4
+  firebase_auth: ^4.17.4
+  firebase_core: ^2.25.4
+  firebase_core_web: ^2.11.3
+  firebase_ui_auth: ^1.13.0
   firebase_storage: 
   flutter_colorpicker: 
   flutter_inset_box_shadow: 
   flutter_overboard: 
   flutter_sms: 
-  flutter_staggered_animations: ^1.1.1 
+  flutter_staggered_animations:
   fluttertoast:
   gcloud: 
   get: 
-  google_fonts: 6.1.0  
+  google_fonts: 6.1.0
   google_sign_in: 
   group_radio_button: 
   http: 
@@ -84,8 +84,6 @@ dependencies:
   url_launcher:
   uuid:
   sidebar_drawer:
-  video_player:
-  video_player_web_hls: 
   visibility_detector:
   syncfusion_flutter_charts: 
   syncfusion_flutter_calendar:

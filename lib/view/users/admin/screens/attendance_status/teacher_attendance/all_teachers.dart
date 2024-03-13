@@ -11,11 +11,11 @@ class AllTeachersAttendance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final trattendanceListWidget = [
-       TextFontWidget(
-        text: 'Attendance of Teachers',
-        fontsize: ResponsiveWebSite.isMobile(context)?15: 18,
+      TextFontWidget(
+        text: 'ff',
+        fontsize: ResponsiveWebSite.isMobile(context) ? 15 : 18,
         fontWeight: FontWeight.bold,
-      ), /////////////////////////////////....................0
+      ), ////////////////////////////Attendance of Teachers/////....................0
       Container(
         height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
         color: cWhite,
@@ -55,22 +55,20 @@ class AllTeachersAttendance extends StatelessWidget {
         ),
       ), //////////////////////...........2
     ];
-    return  Container(
-       color: screenContainerbackgroundColor,
-      height: 820,
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+    return Container(
+        color: screenContainerbackgroundColor,
+        height: 820,
+        width: double.infinity,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Padding(
             padding: EdgeInsets.only(left: 25, top: 25),
             child: TextFontWidget(
-              text: 'All Teachers',
+              text: 'All Teachers Attendance',
               fontsize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
-           Padding(
+          Padding(
             padding: EdgeInsets.only(
                 top: ResponsiveWebSite.isMobile(context) ? 20 : 50),
             child: Padding(
@@ -80,56 +78,62 @@ class AllTeachersAttendance extends StatelessWidget {
                 height: 700,
                 width: double.infinity,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ResponsiveWebSite.isMobile(context)
                         ? Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
-                                flex: 1,
-                                child: trattendanceListWidget[0]),/////////////////heading
+                                  flex: 1,
+                                  child: trattendanceListWidget[
+                                      0]), /////////////////heading
                               Expanded(
                                 flex: 1,
                                 child: SizedBox(
                                   height: 170,
                                   child: Column(
                                     children: [
-                                     trattendanceListWidget[1],/////////////////////////class
-                                     trattendanceListWidget[2]///////////////////////....exam
+                                      trattendanceListWidget[
+                                          1], /////////////////////////class
+                                      trattendanceListWidget[
+                                          2] ///////////////////////....exam
                                     ],
                                   ),
                                 ),
                               )
                             ],
-                          )///////////////////////////.....................mobile
+                          ) ///////////////////////////.....................mobile
                         : Row(
                             children: [
-                              Expanded(flex: 1, child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: trattendanceListWidget[0],
-                              )),/////////////////heading
+                              Expanded(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: trattendanceListWidget[0],
+                                  )), /////////////////heading
                               Expanded(
                                 flex: 1,
                                 child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: trattendanceListWidget[1]),///////////////////.....class
+                                    child: trattendanceListWidget[
+                                        1]), ///////////////////.....class
                               ),
                               Expanded(
                                 flex: 1,
                                 child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: trattendanceListWidget[2]),///////......exam
+                                    child: trattendanceListWidget[
+                                        2]), ///////......exam
                               ),
                             ],
                           ),
-                    const TeachersAttendanceDataList()//////////..............common
+                    const TeachersAttendanceDataList() //////////..............common
                   ],
                 ),
               ),
             ),
           )
-          ]
-    )
-    );
+        ]));
   }
 }
