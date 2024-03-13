@@ -78,21 +78,22 @@ class ViewClassStudentScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
-                child: SizedBox(
-                    width: 1200,
-                    child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return ClassDataListWidget(
-                            index: index,
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return const SizedBox(
-                            height: 02,
-                          );
-                        },
-                        itemCount: 100)))
+            // Expanded(
+            //     child: SizedBox(
+            //         width: 1200,
+            //         child: ListView.separated(
+            //             itemBuilder: (context, index) {
+            //               return ClassDataListWidget(
+                            
+            //                 index: index,
+            //               );
+            //             },
+            //             separatorBuilder: (context, index) {
+            //               return const SizedBox(
+            //                 height: 02,
+            //               );
+            //             },
+            //             itemCount: 100)))
           ],
         ),
       ),

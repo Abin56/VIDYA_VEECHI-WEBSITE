@@ -3,23 +3,24 @@ import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/create_teacher_profile/create_teacher_profile.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/create_new_admin_page.dart';
-import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/new_admin_page_create.dart';
+import 'package:vidyaveechi_website/view/teachers/teachers_all_list.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
+import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/all_students.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/teacher_attendance/all_teachers.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/batch_histroy/batch_history_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_listscreen.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/meeting_creating/meeting_creating.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/subject/create_subject/create_newsubject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/list_of_teacher.dart';
-import 'package:vidyaveechi_website/view/teachers/teachers_all_list.dart';
-import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
-import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/batch_histroy/batch_history_list.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/meeting_creating/meeting_creating.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({super.key});
@@ -102,8 +103,12 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-//  MeetingCreatingPage(),
-  NewAdminCreatePage(),
+  CreateStudent(),
+  AllClassListView(),
+  const AllTeachersAttendance(),
+  const AllStudentsAttendance(),
+  const StudentExamResult(),
+  CreateStudent(),
   const AdminDashBoardSections(),
   CreateStudent(),
   ListingOfTeacher(),
@@ -112,8 +117,10 @@ List<Widget> pages = [
 
   CreateStudent(),
   const StudentDetailsContainer(),
-  const AdminDashBoardSections(),
+  ExamNotification(),
   AllClassListView(),
+
+  ///
   AllStudentListContainer(),
   Center(
     child: Text(sideMenu[2]),
@@ -127,7 +134,7 @@ List<Widget> pages = [
   Center(
     child: Text(sideMenu[7]),
   ),
-  ExamNotification(), ////
+  ////
 
   Container(
     height: 200,
@@ -152,10 +159,11 @@ List<Widget> pages = [
     height: 200,
     color: Colors.pink,
   ),
-  Container(
-    height: 200,
-    color: Colors.cyan,
-  ),
+  // Container(
+  //   height: 200,
+  //   color: Colors.cyan,
+  // ),
+  const MeetingCreatingPage(),
   Container(
     height: 200,
     color: Colors.blueGrey,
@@ -185,7 +193,10 @@ List<Widget> pages = [
   // const FeesAndBillsPage(),
 
   Center(
-    child: Text(sideMenu[30]),
+    child: Text(sideMenu[1]),
+  ),
+  Center(
+    child: Text(sideMenu[3]),
   ),
 ];
 List<String> sideMenu = [
