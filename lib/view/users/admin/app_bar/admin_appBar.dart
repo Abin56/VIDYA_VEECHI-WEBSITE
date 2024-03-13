@@ -62,7 +62,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 100,
+        height: 105,
         width: double.infinity,
         child: Column(
           children: [
@@ -262,24 +262,31 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 // ),
               ],
             ),
-             SizedBox(
-              height: 45,
-              width: 290,
-              child: Row(
-                children: [
-                  const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
-                  // const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      academicYearSettingFunction(context);
-                    },
-                    child: Tooltip(
-                      message: "Academic Year Setting",
-                      child: Image.asset("assets/flact_png/upcoming_.png")),
-                  )//////////////////////////////////////////////////////////////////...set academic year
-                ],
-              ),
-            ),
+             Padding(
+               padding: const EdgeInsets.all(2.0),
+               child: Container(
+                decoration: const BoxDecoration(
+                  boxShadow: [BoxShadow(blurRadius: 1,offset: Offset(1, 2))],
+                  color: cWhite),
+                height: 45,
+                width: 290,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
+                    // const Spacer(),
+                    GestureDetector(
+                      onTap: () {
+                        academicYearSettingFunction(context);
+                      },
+                      child: Tooltip(
+                        message: "Academic Year Setting",
+                        child: Image.asset("assets/flact_png/upcoming_.png")),
+                    )//////////////////////////////////////////////////////////////////...set academic year
+                  ],
+                ),
+               ),
+             ),
           ],
         ),
       ),

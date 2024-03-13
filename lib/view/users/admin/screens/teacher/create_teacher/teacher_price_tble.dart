@@ -41,28 +41,28 @@ class TeacherSubjectPriceTable extends StatelessWidget {
                     children: [
                       Expanded(
                           flex: 1,
-                          child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
+                          child: CatrgoryTableHeaderColorWidget(color: adminePrimayColor,textcolor: cWhite,headerTitle: 'No')),
                       SizedBox(
                         width: 02,
                       ),
                       
                       Expanded(
                           flex: 5,
-                          child: CatrgoryTableHeaderWidget(
+                          child: CatrgoryTableHeaderColorWidget(color: adminePrimayColor,textcolor: cWhite,
                               headerTitle: 'Subjects')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                           flex: 1,
-                          child: CatrgoryTableHeaderWidget(
+                          child: CatrgoryTableHeaderColorWidget(color: adminePrimayColor,textcolor: cWhite,
                               headerTitle: 'Price')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                           flex: 1,
-                          child: CatrgoryTableHeaderWidget(
+                          child: CatrgoryTableHeaderColorWidget(color: adminePrimayColor,textcolor: cWhite,
                               headerTitle: 'Remove')),
                       SizedBox(
                         width: 02,
@@ -175,30 +175,68 @@ class TeacherSubjectDataListContainer extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child:Container(
-      height: 45,
-     
-      decoration: BoxDecoration(
-        color: index % 2 == 0
-            ? const Color.fromARGB(255, 246, 246, 246)
-            : Colors.blue[50],
-      ),
-      child:  Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("assets/stickers/delete.png",height: 25,)
-        ],
-      ),
-    )
+            child:GestureDetector(
+              onTap: () {
+                deleteFunctionOfTeacherSubject(context);
+              },
+              child: Container(
+                    height: 45,
+                   
+                    decoration: BoxDecoration(
+                      color: index % 2 == 0
+              ? const Color.fromARGB(255, 246, 246, 246)
+              : Colors.blue[50],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.delete_outline,color: cBlack.withOpacity(0.7),)
+                       // Image.asset("assets/stickers/delete.png",height: 25,)
+                      ],
+                    ),
+                  ),
+            )
           ), //....................................... delete
           const SizedBox(
             width: 02,
           ),
-          
-
-          
         ],
       ),
     );
   }
+}
+
+
+deleteFunctionOfTeacherSubject(BuildContext context){
+   showDialog(context: context, builder: (context) {
+     return  AlertDialog(
+      title: const Row(
+        children: [ 
+          BackButton(),
+          TextFontWidget(text: "Alert", fontsize: 15)
+
+      ],),
+      content:  const TextFontWidget(text: "Do you want to delete this subject", fontsize: 14),
+    actions: [  Row(
+      children: [
+       Expanded(
+        flex: 1,
+          child: Container(
+            height: 30,
+          color: Colors.grey.withOpacity(0.5),
+          alignment: Alignment.center,
+          child: const TextFontWidget(text: "Yes", fontsize: 12,fontWeight: FontWeight.w700,),)),
+
+          const Expanded(flex: 1, child: SizedBox(height: 30,)),
+
+          Expanded(
+            flex: 1,
+              child: Container(
+                 color: Colors.grey.withOpacity(0.5),
+                height: 30,
+                alignment: Alignment.center,
+              child: const TextFontWidget(text: "Cancel", fontsize: 12,fontWeight: FontWeight.w700,),))
+          ],)],
+     );
+   },);
 }
