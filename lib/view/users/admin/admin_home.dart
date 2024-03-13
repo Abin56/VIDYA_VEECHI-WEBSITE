@@ -102,7 +102,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-   const AllExamNotificationListView(),
+  const StudentDetailsContainer(),
+  const AllExamNotificationListView(),
   CreateStudent(),
   AllClassListView(),
   const AllTeachersAttendance(),
@@ -112,17 +113,17 @@ List<Widget> pages = [
   const AdminDashBoardSections(),
   CreateStudent(),
   ListingOfTeacher(),
- const FeesAndBillsPage(),
+  const FeesAndBillsPage(),
   CreateTeacher(),
 
   CreateStudent(),
   const StudentDetailsContainer(),
- 
+
   AllClassListView(),
 
   ///
   AllStudentListContainer(),
- 
+
   const AllTeachersList(),
   const CreateTeacherProfile(),
   Center(
@@ -134,18 +135,20 @@ List<Widget> pages = [
   ),
   ////
 
-
   const MeetingCreatingPage(),
-  
 
   const FeesAndBillsPage(),
- Container(height: 200,color: Colors.redAccent,),
+  Container(
+    height: 200,
+    color: Colors.redAccent,
+  ),
   const BatchHistroyListPage(),
   // const FeesAndBillsPage(),
 
   Center(
     child: Text(sideMenu[1]),
-  ),Center(
+  ),
+  Center(
     child: Text(sideMenu[2]),
   ),
   Center(
@@ -165,6 +168,4 @@ List<String> sideMenu = [
   'Notice Board',
   'Settings',
   'Rules',
-
- 
 ];
