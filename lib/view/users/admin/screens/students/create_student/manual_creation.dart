@@ -6,6 +6,7 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
@@ -26,75 +27,82 @@ class ManualStudentCreation extends StatelessWidget {
         fontWeight: FontWeight.bold,
       ), //////////////////////////0.....................
       TextFormFiledBlueContainerWidget(
-        hintText: "Enter Student Name",
+        controller: studentController.stNameController,
+        hintText: " Enter Student Name",
         title: 'Student Name',
         validator: checkFieldEmpty,
       ), /////////////////////////////1
-      Obx(() => studentController.automaticmail.value == false
-          ? TextFormFiledBlueContainerWidget(
-              hintText: "Enter Student Email",
-              title: 'Student Email',
-              validator: checkFieldEmailIsValid,
-              widget: Row(
-                children: [
-                  const TextFontWidget(
-                      text: 'Student have no email ID?', fontsize: 10.5),
-                  SizedBox(
-                    height: 05,
-                    child: Checkbox(
-                      activeColor: cgreen,
-                      value: studentController.automaticmail.value,
-                      onChanged: (value) {
-                        value = studentController.automaticmail.value = true;
-                      },
+      SizedBox(
+        height: 110,
+        child: Obx(() => studentController.automaticmail.value == false
+            ? TextFormFiledBlueContainerWidget(
+                controller: studentController.stEmailController,
+                hintText: " Enter Student Email",
+                title: 'Student Email',
+                validator: checkFieldEmailIsValid,
+                widget: Row(
+                  children: [
+                    const TextFontWidget(
+                        text: 'Student have no email ID?', fontsize: 10.5),
+                    SizedBox(
+                      height: 05,
+                      child: Checkbox(
+                        activeColor: cgreen,
+                        value: studentController.automaticmail.value,
+                        onChanged: (value) {
+                          value = studentController.automaticmail.value = true;
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            )
-          : SizedBox(
-              height: 100,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const TextFontWidget(
-                          text: '  Student have no email ID?', fontsize: 10.5),
-                      SizedBox(
-                        height: 10,
-                        child: Checkbox(
-                          activeColor: cgreen,
-                          value: studentController.automaticmail.value,
-                          onChanged: (value) {
-                            value =
-                                studentController.automaticmail.value = false;
-                          },
+                  ],
+                ),
+              )
+            : SizedBox(
+                height: 60,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        const TextFontWidget(
+                            text: '  Student have no email ID?',
+                            fontsize: 10.5),
+                        SizedBox(
+                          height: 10,
+                          child: Checkbox(
+                            activeColor: cgreen,
+                            value: studentController.automaticmail.value,
+                            onChanged: (value) {
+                              value =
+                                  studentController.automaticmail.value = false;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 05,
+                    ),
+                    Container(
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: themeColorBlue,
+                        border: Border.all(color: cBlack.withOpacity(0.4)),
+                      ),
+                      child: const Center(
+                        child: TextFontWidget(
+                          text: "Auto - Creation",
+                          fontsize: 12.5,
+                          color: cWhite,
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 05,
-                  ),
-                  Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: themeColorBlue,
-                      border: Border.all(color: cBlack.withOpacity(0.4)),
-                    ),
-                    child: const Center(
-                      child: TextFontWidget(
-                        text: "Auto - Creation",
-                        fontsize: 12.5,
-                        color: cWhite,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            )), /////////////////////...2
+                    )
+                  ],
+                ),
+              )),
+      ), /////////////////////...2
       TextFormFiledBlueContainerWidget(
-        hintText: "Enter Student Ph",
+        controller: studentController.stPhoneController,
+        hintText: " Enter Student Ph",
         title: 'Phone Number',
         validator: checkFieldPhoneNumberIsValid,
       ), /////////////////////////.....3
@@ -112,6 +120,9 @@ class ManualStudentCreation extends StatelessWidget {
               height: 40,
               child: DropdownSearch(
                 items: const ['Male', 'Female'],
+                onChanged: (value) {
+                  studentController.gender.value = value ?? '';
+                },
               ),
             ),
           ],
@@ -146,30 +157,7 @@ class ManualStudentCreation extends StatelessWidget {
               height: 05,
             ),
             GestureDetector(
-              onTap: () => showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(2018),
-                lastDate: DateTime(2030),
-                helpText: 'Select a date',
-                cancelText: 'Cancel',
-                confirmText: 'OK',
-                builder: (BuildContext context, Widget? child) {
-                  return Theme(
-                    data: ThemeData.light().copyWith(
-                      primaryColor:
-                          const Color(0xFF2296F3), // Header background color
-                      // accentColor: Colors.white, // Selection color
-                      colorScheme:
-                          const ColorScheme.light(primary: Color(0xFF2296F3)),
-                      buttonTheme: const ButtonThemeData(
-                        textTheme: ButtonTextTheme.primary,
-                      ),
-                    ),
-                    child: child!,
-                  );
-                },
-              ),
+              onTap: () => studentController.selectToDateofBirth(context),
               child: Container(
                 height: 40,
                 decoration: BoxDecoration(
@@ -177,9 +165,13 @@ class ManualStudentCreation extends StatelessWidget {
                     color: screenContainerbackgroundColor,
                     border: Border.all(color: cBlack.withOpacity(0.4))),
                 width: double.infinity,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: TextFontWidget(text: 'DD/MM/YYYY *', fontsize: 12.5),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Obx(() => TextFontWidget(
+                      text: studentController.dateofbithController.value == ''
+                          ? 'DD/MM/YYYY *'
+                          : studentController.dateofbithController.value,
+                      fontsize: 12.5)),
                 ),
               ),
             ),
@@ -187,27 +179,15 @@ class ManualStudentCreation extends StatelessWidget {
         ),
       ), ///////////////////////////6
 
-      GestureDetector(
-        onTap: () {
-          if (_formKey.currentState!.validate()) {}
-        },
-        child: Container(
-          height: 40,
-          width: 200,
-          decoration: BoxDecoration(
-              color: themeColorBlue,
-              border: Border.all(color: themeColorBlue),
-              borderRadius: BorderRadius.circular(05)),
-          child: const Center(
-            child: TextFontWidget(
-              text: "Create Student",
-              fontsize: 14,
-              // fontWeight: FontWeight.w600,
-              color: cWhite,
-            ),
-          ),
-        ),
-      ), /////////////........................................7
+      Obx(() => ProgressButtonWidget(
+          function: () async {
+            if (_formKey.currentState!.validate()) {
+              studentController.manualCreateaNewStudent();
+            }
+          },
+          buttonstate: studentController.buttonstate.value,
+          text:
+              'Create Student')), /////////////........................................7
       const RouteSelectedTextContainer(
           width: 140, title: 'Class Wise Creation'), ///////8
       const RouteSelectedTextContainer(
@@ -368,6 +348,7 @@ class ManualStudentCreation extends StatelessWidget {
                               flex: 1,
                               child: Padding(
                                   padding: const EdgeInsets.only(
+                                    top: 10,
                                     right: 20,
                                     left: 10,
                                   ),

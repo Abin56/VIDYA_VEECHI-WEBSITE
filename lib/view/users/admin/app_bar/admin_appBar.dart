@@ -1,12 +1,13 @@
+import 'package:awesome_side_sheet/Enums/sheet_position.dart';
+import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:awesome_side_sheet/Enums/sheet_position.dart';
-import 'package:awesome_side_sheet/side_sheet.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/academic_year.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_setting/notification.dart';
 
 class AppBarAdminPanel extends StatefulWidget {
   const AppBarAdminPanel({
@@ -24,6 +25,36 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
   OverlayEntry? overlayEntry3;
   bool showOverlay = false;
   int index = 0;
+  final layerLink = LayerLink();
+  final textButtonFocusNode = FocusNode();
+  final textButtonFocusNode1 = FocusNode();
+  final textButtonFocusNode2 = FocusNode();
+
+  @override
+  void initState() {
+    textButtonFocusNode.addListener(() {
+      if (textButtonFocusNode.hasFocus) {
+        _showOverlay(context, 0);
+      } else {
+        removeOverlay();
+      }
+    });
+    textButtonFocusNode1.addListener(() {
+      if (textButtonFocusNode1.hasFocus) {
+        _showOverlay(context, 1);
+      } else {
+        removeOverlay();
+      }
+    });
+    textButtonFocusNode2.addListener(() {
+      if (textButtonFocusNode2.hasFocus) {
+        _showOverlay(context, 2);
+      } else {
+        removeOverlay();
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,153 +62,221 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 70,
+        height: 100,
         width: double.infinity,
-        child: Row(
+        child: Column(
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Row(
               children: [
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(14)),
-                      color: Color.fromARGB(255, 61, 94, 225)),
-                  child: const DrawerIcon(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(14)),
+                          color: Color.fromARGB(255, 61, 94, 225)),
+                      child: const DrawerIcon(),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            const Spacer(),
-            SizedBox(
-              width: 109,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
+                const Spacer(),
+                SizedBox(
+                  width: 109,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                      Row(
                         children: [
-                          const Text(
-                            'Stevne Zone',
-                            style: TextStyle(fontSize: 12),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              const Text(
+                                'Stevne Zone',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 0),
+                                child: Text(
+                                  'Admin',
+                                  style: TextStyle(
+                                      color: cBlack.withOpacity(0.5),
+                                      fontSize: 10.7),
+                                ),
+                              ),
+                            ],
+                          ),
+                          IconButton(
+                              focusNode: textButtonFocusNode2,
+                              onPressed: () {
+                                showPopupMenu(context);
+                              },
+                              icon: const Icon(
+                                Icons.arrow_drop_down,
+                                size: 18,
+                                color: cBlack,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    adminProfileShowingFunction(context);
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    radius: 20,
+                    child: Image.asset(
+                      'assets/png/avathar.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 70,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, right: 10),
+                            child: IconButton(
+                                focusNode: textButtonFocusNode,
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.mail_outline_outlined,
+                                  color: cBlack.withOpacity(0.4),
+                                )),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 0),
-                            child: Text(
-                              'Admin',
-                              style: TextStyle(
-                                  color: cBlack.withOpacity(0.5),
-                                  fontSize: 10.7),
+                            padding: const EdgeInsets.only(top: 07, left: 22),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 12,
+                              child: CircleAvatar(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 42, 215, 197),
+                                radius: 10,
+                                child: GooglePoppinsWidgets(
+                                  text: '5',
+                                  fontsize: 11,
+                                  fontWeight: FontWeight.w600,
+                                  color: cWhite,
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.arrow_drop_down,
-                            size: 18,
-                            color: cBlack,
-                          )),
                     ],
                   ),
-                ],
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                adminProfileShowingFunction(context);
-              },
-              child: CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 20,
-                child: Image.asset(
-                  'assets/png/avathar.png',
-                  fit: BoxFit.cover,
                 ),
-              ),
-            ),
-            SizedBox(
-              width: 70,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Stack(
+                SizedBox(
+                  width: 50,
+                  child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15, right: 10),
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.mail_outline_outlined,
-                              color: cBlack.withOpacity(0.4),
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 07, left: 22),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 12,
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 42, 215, 197),
-                            radius: 10,
-                            child: GooglePoppinsWidgets(
-                              text: '5',
-                              fontsize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: cWhite,
+                      Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, right: 10),
+                            child: IconButton(
+                                focusNode: textButtonFocusNode1,
+                                onPressed: () {
+                                  print("object");
+                                  aweSideSheet(
+                                      context: context,
+                                      sheetPosition: SheetPosition.right);
+                                },
+                                icon: Icon(
+                                  Icons.notifications_none_outlined,
+                                  color: cBlack.withOpacity(0.4),
+                                )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 07, left: 22),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.white,
+                              radius: 12,
+                              child: CircleAvatar(
+                                backgroundColor:
+                                    const Color.fromARGB(255, 255, 49, 49),
+                                radius: 10,
+                                child: GooglePoppinsWidgets(
+                                  text: '8',
+                                  fontsize: 11,
+                                  fontWeight: FontWeight.w600,
+                                  color: cWhite,
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 05),
+                //   child: SizedBox(
+                //     width: 86,
+                //     child: Column(
+                //       mainAxisAlignment: MainAxisAlignment.center,
+                //       crossAxisAlignment: CrossAxisAlignment.end,
+                //       children: [
+                //         Row(
+                //           children: [
+                //             const Icon(
+                //               Icons.south_america,
+                //               color: Colors.amber,
+                //             ),
+                //             GooglePoppinsWidgets(text: ' EN ', fontsize: 12),
+                //             PopupMenuButton(
+                //               icon: const Icon(
+                //                 Icons.keyboard_arrow_down_rounded,
+                //                 color: cBlack,
+                //                 size: 17,
+                //               ),
+                //               itemBuilder: (BuildContext context) {
+                //                 return <PopupMenuEntry>[
+                //                   PopupMenuItem(
+                //                       child: Column(
+                //                     children: [
+                //                       Container(
+                //                         height: 400,
+                //                         color: Colors.red,
+                //                       ),
+                //                     ],
+                //                   ))
+                //                 ];
+                //               },
+                //             ),
+                //           ],
+                //         ),
+                //       ],
+                //     ),=-0u809-o[]
+                //   ),
+                // ),
+              ],
             ),
-            SizedBox(
-              width: 50,
-              child: Column(
+             SizedBox(
+              height: 45,
+              width: 290,
+              child: Row(
                 children: [
-                  Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15, right: 10),
-                        child: IconButton(
-                            onPressed: () {
-                              print("object");
-                              aweSideSheet(
-                                  context: context,
-                                  sheetPosition: SheetPosition.right);
-                            },
-                            icon: Icon(
-                              Icons.notifications_none_outlined,
-                              color: cBlack.withOpacity(0.4),
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 07, left: 22),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 12,
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 255, 49, 49),
-                            radius: 10,
-                            child: GooglePoppinsWidgets(
-                              text: '8',
-                              fontsize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: cWhite,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
+                  // const Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      academicYearSettingFunction(context);
+                    },
+                    child: Tooltip(
+                      message: "Academic Year Setting",
+                      child: Image.asset("assets/flact_png/upcoming_.png")),
+                  )//////////////////////////////////////////////////////////////////...set academic year
                 ],
               ),
             ),
@@ -386,4 +485,89 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       ],
     ),
   ];
+  void _showOverlay(BuildContext context, int index) async {
+    overlayState = Overlay.of(context);
+
+    overlayEntry = OverlayEntry(
+        maintainState: true,
+        builder: (context) {
+          return Positioned(
+            right: index == 0
+                ? 160
+                : index == 2
+                    ? 100
+                    : 120,
+            top: 60,
+            child: TextButton(
+              onPressed: () {},
+              onHover: (val) {
+                if (val && showOverlay) {
+                  if (index == 0) {
+                    textButtonFocusNode.requestFocus();
+                  } else if (index == 1) {
+                    textButtonFocusNode1.requestFocus();
+                  } else if (index == 2) {
+                    textButtonFocusNode2.requestFocus();
+                  }
+                } else {
+                  if (index == 0) {
+                    textButtonFocusNode.unfocus();
+                  } else if (index == 1) {
+                    textButtonFocusNode1.unfocus();
+                  } else if (index == 2) {
+                    textButtonFocusNode2.unfocus();
+                  }
+                }
+              },
+              child: widgets[index],
+            ),
+          );
+        });
+
+    overlayEntry2 = OverlayEntry(
+        maintainState: true,
+        builder: (context) {
+          return Positioned(
+            right: index == 0
+                ? 160
+                : index == 2
+                    ? 230
+                    : 120,
+            top: 60,
+            child: TextButton(
+              onPressed: () {},
+              onHover: (val) {
+                if (val && showOverlay) {
+                  if (index == 0) {
+                    textButtonFocusNode.requestFocus();
+                  } else if (index == 1) {
+                    textButtonFocusNode1.requestFocus();
+                  } else if (index == 2) {
+                    textButtonFocusNode2.requestFocus();
+                  }
+                } else {
+                  if (index == 0) {
+                    textButtonFocusNode.unfocus();
+                  } else if (index == 1) {
+                    textButtonFocusNode1.unfocus();
+                  } else if (index == 2) {
+                    textButtonFocusNode2.unfocus();
+                  }
+                }
+              },
+              child: widgets[index + 3],
+            ),
+          );
+        });
+
+    overlayState!.insertAll([
+      overlayEntry!,
+      overlayEntry2!,
+    ]);
+  }
+
+  void removeOverlay() {
+    overlayEntry!.remove();
+    overlayEntry2!.remove();
+  }
 }

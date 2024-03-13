@@ -230,144 +230,126 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
         body: Obx(() {
           if (loginController.loginontapped.value == true) {
             return loginController.lodingContainer.value == true
-                ? Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        colorFilter: istapped == true
-                            ? ColorFilter.mode(
-                                const Color.fromARGB(255, 77, 76, 76)
-                                    .withOpacity(0.9),
-                                BlendMode.modulate)
-                            : null,
-                        fit: BoxFit.fitWidth,
-                        image: const AssetImage(
-                          'assets/images/loginscreen.jpg',
-                        ),
-                      ),
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 50, bottom: 0),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: GlassMorphism(
-                                start: 0.6,
-                                end: 0.1,
-                                child: Container(
-                                  height: 500,
-                                  width: 500,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 45),
-                                        child: Text(
-                                          "Welcome Back",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: istColor,
-                                              fontSize: 25),
-                                        ),
-                                      ),
-                                      Text(
-                                        "Please enter your details",
+                ? Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 50, bottom: 0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: GlassMorphism(
+                              start: 0.6,
+                              end: 0.1,
+                              child: Container(
+                                height: 500,
+                                width: 500,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 45),
+                                      child: Text(
+                                        "Welcome Back",
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w300,
-                                            color: istColor.withOpacity(0.3),
-                                            fontSize: 12),
+                                            fontWeight: FontWeight.bold,
+                                            color: istColor,
+                                            fontSize: 25),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 50),
-                                        child: SizedBox(
-                                          height: 70,
-                                          child: TextFormFiledContainerWidget(
-                                              controller: loginController
-                                                  .userEmailIDController,
-                                              hintText: 'Enter your email',
-                                              title: "Email",
-                                              width: 300),
+                                    ),
+                                    Text(
+                                      "Please enter your details",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          color: istColor.withOpacity(0.3),
+                                          fontSize: 12),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 50),
+                                      child: SizedBox(
+                                        height: 70,
+                                        child: TextFormFiledContainerWidget(
+                                            controller: loginController
+                                                .userEmailIDController,
+                                            hintText: 'Enter your email',
+                                            title: "Email",
+                                            width: 300),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: SizedBox(
+                                        height: 64,
+                                        child: TextFormFiledContainerWidget(
+                                            controller: loginController
+                                                .userPasswordController,
+                                            hintText: 'Enter your password',
+                                            title: "Password",
+                                            width: 300),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 180, bottom: 10),
+                                      child: Text(
+                                        "Forgot your password ?",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w300,
+                                          fontSize: 11,
+                                          color: istColor.withOpacity(0.3),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 10),
-                                        child: SizedBox(
-                                          height: 64,
-                                          child: TextFormFiledContainerWidget(
-                                              controller: loginController
-                                                  .userPasswordController,
-                                              hintText: 'Enter your password',
-                                              title: "Password",
-                                              width: 300),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 180, bottom: 10),
-                                        child: Text(
-                                          "Forgot your password ?",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w300,
-                                            fontSize: 11,
-                                            color: istColor.withOpacity(0.3),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 10),
-                                        child: GestureDetector(
-                                          onTap: () async {
-                                            loginController
-                                                .loginontapped.value = true;
-                                            istapped = true;
-                                            animationctr
-                                                .forward()
-                                                .then((value) async {
-                                              if (fabKey.currentState?.isOpen ??
-                                                  false) {
-                                                fabKey.currentState?.close();
-                                              } else {
-                                                fabKey.currentState?.open();
-                                                Future.delayed(const Duration(
-                                                        seconds: 3))
-                                                    .then((value) async {
-                                                  loginController
-                                                      .lodingContainer
-                                                      .value = true;
-                                                });
-                                              }
-                                            });
-                                          },
-                                          child: Container(
-                                            height: 40,
-                                            width: 250,
-                                            decoration: BoxDecoration(
-                                                color: Colors.black,
-                                                borderRadius:
-                                                    BorderRadius.circular(12)),
-                                            child: const Center(
-                                              child: Text(
-                                                "Login",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 12,
-                                                    color: Colors.white),
-                                              ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: GestureDetector(
+                                        onTap: () async {
+                                          loginController.loginontapped.value =
+                                              true;
+                                          istapped = true;
+                                          animationctr
+                                              .forward()
+                                              .then((value) async {
+                                            if (fabKey.currentState?.isOpen ??
+                                                false) {
+                                              fabKey.currentState?.close();
+                                            } else {
+                                              fabKey.currentState?.open();
+                                              Future.delayed(const Duration(
+                                                      seconds: 3))
+                                                  .then((value) async {
+                                                loginController.lodingContainer
+                                                    .value = true;
+                                              });
+                                            }
+                                          });
+                                        },
+                                        child: Container(
+                                          height: 40,
+                                          width: 250,
+                                          decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              borderRadius:
+                                                  BorderRadius.circular(12)),
+                                          child: const Center(
+                                            child: Text(
+                                              "Login",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12,
+                                                  color: Colors.white),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   )
@@ -375,141 +357,125 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                     color: Colors.black.withOpacity(colorAnimation.value),
                   );
           } else {
-            return Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      colorFilter: istapped == true
-                          ? ColorFilter.mode(
-                              Colors.black.withOpacity(colorAnimation.value),
-                              BlendMode.modulate)
-                          : null,
-                      fit: BoxFit.fitWidth,
-                      image: const AssetImage(
-                        'assets/images/loginscreen.jpg',
-                      ))),
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 50, bottom: 0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: GlassMorphism(
-                          start: 0.6,
-                          end: 0.1,
-                          child: Container(
-                            height: 500,
-                            width: 500,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 45),
-                                  child: Text(
-                                    "Welcome Back",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: istColor,
-                                        fontSize: 25),
-                                  ),
-                                ),
-                                Text(
-                                  "Please enter your details",
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 50, bottom: 0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: GlassMorphism(
+                        start: 0.6,
+                        end: 0.1,
+                        child: Container(
+                          height: 500,
+                          width: 500,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 45),
+                                child: Text(
+                                  "Welcome Back",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      color: istColor.withOpacity(0.3),
-                                      fontSize: 12),
+                                      fontWeight: FontWeight.bold,
+                                      color: istColor,
+                                      fontSize: 25),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 50),
-                                  child: SizedBox(
-                                    height: 70,
-                                    child: TextFormFiledContainerWidget(
-                                        controller: loginController
-                                            .userEmailIDController,
-                                        hintText: 'Enter your email',
-                                        title: "Email",
-                                        width: 300),
+                              ),
+                              Text(
+                                "Please enter your details",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    color: istColor.withOpacity(0.3),
+                                    fontSize: 12),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 50),
+                                child: SizedBox(
+                                  height: 70,
+                                  child: TextFormFiledContainerWidget(
+                                      controller:
+                                          loginController.userEmailIDController,
+                                      hintText: 'Enter your email',
+                                      title: "Email",
+                                      width: 300),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: SizedBox(
+                                  height: 64,
+                                  child: TextFormFiledContainerWidget(
+                                      controller: loginController
+                                          .userPasswordController,
+                                      hintText: 'Enter your password',
+                                      title: "Password",
+                                      width: 300),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 180, bottom: 10),
+                                child: Text(
+                                  "Forgot your password ?",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 11,
+                                    color: istColor.withOpacity(0.3),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: SizedBox(
-                                    height: 64,
-                                    child: TextFormFiledContainerWidget(
-                                        controller: loginController
-                                            .userPasswordController,
-                                        hintText: 'Enter your password',
-                                        title: "Password",
-                                        width: 300),
-                                  ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 10,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 180, bottom: 10),
-                                  child: Text(
-                                    "Forgot your password ?",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w300,
-                                      fontSize: 11,
-                                      color: istColor.withOpacity(0.3),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10,
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () async {
-                                      loginController.loginontapped.value =
-                                          true;
-                                      istapped = true;
-                                      animationctr
-                                          .forward()
-                                          .then((value) async {
-                                        if (fabKey.currentState?.isOpen ??
-                                            false) {
-                                          fabKey.currentState?.close();
-                                        } else {
-                                          fabKey.currentState?.open();
-                                          Future.delayed(
-                                                  const Duration(seconds: 2))
-                                              .then((value) async {
-                                            loginController
-                                                .lodingContainer.value = true;
-                                          });
-                                        }
-                                      });
-                                    },
-                                    child: Container(
-                                      height: 40,
-                                      width: 250,
-                                      decoration: BoxDecoration(
-                                          color: Colors.black,
-                                          borderRadius:
-                                              BorderRadius.circular(12)),
-                                      child: const Center(
-                                        child: Text(
-                                          "Login",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 12,
-                                              color: Colors.white),
-                                        ),
+                                child: GestureDetector(
+                                  onTap: () async {
+                                    loginController.loginontapped.value = true;
+                                    istapped = true;
+                                    animationctr.forward().then((value) async {
+                                      if (fabKey.currentState?.isOpen ??
+                                          false) {
+                                        fabKey.currentState?.close();
+                                      } else {
+                                        fabKey.currentState?.open();
+                                        Future.delayed(
+                                                const Duration(seconds: 2))
+                                            .then((value) async {
+                                          loginController
+                                              .lodingContainer.value = true;
+                                        });
+                                      }
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: 250,
+                                    decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius:
+                                            BorderRadius.circular(12)),
+                                    child: const Center(
+                                      child: Text(
+                                        "Login",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                            color: Colors.white),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             );

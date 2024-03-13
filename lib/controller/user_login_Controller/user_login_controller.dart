@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'dart:html' as html;
 import 'package:intl/intl.dart';
 import 'package:vidyaveechi_website/view/constant/const.dart';
+import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/users/teacher/teacher.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
@@ -50,10 +51,14 @@ class UserLoginController extends GetxController {
           await SharedPreferencesHelper.setString(
               SharedPreferencesHelper.batchIdKey, schoolID);
           await SharedPreferencesHelper.setString(
-              SharedPreferencesHelper.batchIdKey, user.data()?['batchYear']);
-          userEmailIDController.clear();
-          userPasswordController.clear();
-          Get.offAll(() => const AdminHomeScreen());
+              SharedPreferencesHelper.schoolNameKey, schoolName);
+          await SharedPreferencesHelper.setString(
+                  SharedPreferencesHelper.batchIdKey, user.data()?['batchYear'])
+              .then((value) async {
+            userEmailIDController.clear();
+            userPasswordController.clear();
+            Get.offAll(() => SplashScreen());
+          });
         } else if (result.docs.isEmpty) {
           showToast(msg: "Admin login failed");
         } else {
@@ -92,10 +97,18 @@ class UserLoginController extends GetxController {
             await SharedPreferencesHelper.setString(
                 SharedPreferencesHelper.schoolIdKey, schoolID);
             await SharedPreferencesHelper.setString(
-                SharedPreferencesHelper.batchIdKey, user.data()?['batchYear']);
-            userEmailIDController.clear();
-            userPasswordController.clear();
-            Get.offAll(() => const AdminHomeScreen());
+                SharedPreferencesHelper.schoolNameKey, schoolName);
+            await SharedPreferencesHelper.setString(
+                    SharedPreferencesHelper.batchIdKey,
+                    user.data()!['batchYear'])
+                .then((value) async {
+              log("SchoolID :  ${UserCredentialsController.schoolId}");
+              log("BatchID :  ${UserCredentialsController.batchId}");
+              log("userrole :  ${UserCredentialsController.userRole}");
+              userEmailIDController.clear();
+              userPasswordController.clear();
+              Get.offAll(() => SplashScreen());
+            });
           } else {
             await secondaryAdminLogin();
           }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/widget/data_container_marks.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
+import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 
 class StudentAttendanceDataList extends StatelessWidget {
@@ -17,7 +18,7 @@ class StudentAttendanceDataList extends StatelessWidget {
    // scrollDirection: Axis.horizontal,
       child: SizedBox(
         height: 580,
-        width: double.infinity,
+        width: ResponsiveWebSite.isMobile(context)? double.infinity:1100,
       // width: ResponsiveWebSite.isMobile(context)?500: ResponsiveWebSite.isTablet(context)?800: 1200,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -30,10 +31,13 @@ class StudentAttendanceDataList extends StatelessWidget {
                       SizedBox(width: 1,),
                   Expanded(
                       flex: 6,
-                      child:TableHeaderWidget(headerTitle: "Student Name")), SizedBox(width: 1,),
+                      child:ResultTableHeaderWidget(headerTitle: "Student Name")), SizedBox(width: 1,),
+                        Expanded(
+                      flex: 2,
+                      child:ResultTableHeaderWidget(headerTitle: "Class")),SizedBox(width: 1,),
                   Expanded(
                       flex: 2,
-                      child:TableHeaderWidget(headerTitle: "Status")),
+                      child:ResultTableHeaderWidget(headerTitle: "Status")),
                 ],
               ),
               SizedBox(
@@ -55,18 +59,26 @@ class StudentAttendanceDataList extends StatelessWidget {
                           Expanded(
                             flex: 6,
                             child: DataContainerMarksWidget(
-                                rowMainAccess: MainAxisAlignment.center,
+                                rowMainAccess: MainAxisAlignment.start,
                                 color: cWhite,
                                 index: index,
-                                headerTitle: "Student Full Name"),
+                                headerTitle: " Student Full Name"),
                           ), const SizedBox(width: 1,),
+                            Expanded(
+                            flex: 2,
+                            child: DataContainerMarksWidget(
+                                rowMainAccess: MainAxisAlignment.start,
+                                color: cWhite,
+                                index: index,
+                                headerTitle: " VIII"),
+                          ),const SizedBox(width: 1,),
                           Expanded(
                             flex: 2,
                             child: DataContainerMarksWidget(
-                                rowMainAccess: MainAxisAlignment.center,
+                                rowMainAccess: MainAxisAlignment.start,
                                 color: cWhite,
                                 index: index,
-                                headerTitle: "Present"),
+                                headerTitle: " Present"),
                           ),
                         ],
                       ),

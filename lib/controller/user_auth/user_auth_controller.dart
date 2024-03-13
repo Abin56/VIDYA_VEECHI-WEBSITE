@@ -19,6 +19,8 @@ class UserAuthController extends GetxController {
         SharedPreferencesHelper.getString(SharedPreferencesHelper.batchIdKey);
     UserCredentialsController.schoolId =
         SharedPreferencesHelper.getString(SharedPreferencesHelper.schoolIdKey);
+           UserCredentialsController.schoolName =
+        SharedPreferencesHelper.getString(SharedPreferencesHelper.schoolNameKey);
 
     if (auth.currentUser == null) {
       if (kDebugMode) {

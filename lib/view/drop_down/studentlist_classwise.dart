@@ -2,20 +2,20 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
-import 'package:vidyaveechi_website/model/class_model/class_model.dart';
+import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
+import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 
-class SelectClassDropDown extends StatelessWidget {
-  SelectClassDropDown({
+class SelectCStudentClassWiseDropDown extends StatelessWidget {
+  SelectCStudentClassWiseDropDown({
     Key? key,
   }) : super(key: key);
 
-  final classCtrl = Get.put(ClassController());
+  final studentController = Get.put(StudentController());
 
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: DropdownSearch<ClassModel>(
+        child: DropdownSearch<StudentModel>(
       validator: (item) {
         if (item == null) {
           return "Required field";
@@ -26,15 +26,14 @@ class SelectClassDropDown extends StatelessWidget {
 
       // autoValidateMode: AutovalidateMode.always,
       asyncItems: (value) {
-        classCtrl.allclassList.clear();
+        studentController.studentclasswiseList.clear();
 
-        return classCtrl.fetchClass();
+        return studentController.fetchStudentClassWise();
       },
-      itemAsString: (value) => value.className,
+      itemAsString: (value) => value.studentName,
       onChanged: (value) async {
         if (value != null) {
-          classCtrl.className.value = value.className;
-          classCtrl.classDocID.value = value.docid;
+          studentController.stdClassWiseValue.value = value.docid;
         }
       },
       dropdownDecoratorProps: DropDownDecoratorProps(
