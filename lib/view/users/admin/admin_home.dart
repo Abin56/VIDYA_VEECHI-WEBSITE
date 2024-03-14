@@ -13,7 +13,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_list
 import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/meeting_creating/meeting_creating.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
@@ -105,19 +105,15 @@ List<Widget> pages = [
   AllStudentListContainer(),
    StudentDetailsContainer(),
   const AllExamNotificationListView(),
-  CreateStudent(),
   AllClassListView(),
   const AllTeachersAttendance(),
   const AllStudentsAttendance(),
   const StudentExamResult(),
-  CreateStudent(),
   const AdminDashBoardSections(),
-  CreateStudent(),
   ListingOfTeacher(),
   const FeesAndBillsPage(),
   CreateTeacher(),
 
-  CreateStudent(),
    StudentDetailsContainer(),
 
   AllClassListView(),
