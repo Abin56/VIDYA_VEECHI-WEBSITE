@@ -28,7 +28,7 @@ class PerStudentExamHistory extends StatelessWidget {
             ),
           ),
         ),
-        const Padding(
+        const Padding(  
           padding: EdgeInsets.only(top: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

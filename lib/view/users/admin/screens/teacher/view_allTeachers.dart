@@ -54,7 +54,6 @@ class AllTeacherListContainer extends StatelessWidget {
                                     title: 'All Student'),
                               ),
                               const Spacer(),
-                            
                               ButtonContainerWidget(
                                   curving: 30,
                                   colorindex: 0,
@@ -104,7 +103,6 @@ class AllTeacherListContainer extends StatelessWidget {
                             SizedBox(
                               width: 01,
                             ),
-                         
                             Expanded(
                                 flex: 3,
                                 child:
@@ -119,13 +117,15 @@ class AllTeacherListContainer extends StatelessWidget {
                                 width: 1200,
                                 child: ListView.separated(
                                     itemBuilder: (context, index) {
-                                      return GestureDetector(
-                                        // onTap: () => studentController
-                                        //     .ontapStudent.value = true,
-                                        child: AllStudentDataList(
-                                          index: index,
-                                        ),
-                                      );
+                                      return null;
+
+                                      // return GestureDetector(
+                                      //   // onTap: () => studentController
+                                      //   //     .ontapStudent.value = true,
+                                      //   child: AllStudentDataList(
+                                      //     index: index,
+                                      //   ),
+                                      // );
                                     },
                                     separatorBuilder: (context, index) {
                                       return const SizedBox(
