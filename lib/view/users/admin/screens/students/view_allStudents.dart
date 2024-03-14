@@ -133,15 +133,8 @@ class AllStudentListContainer extends StatelessWidget {
                         Expanded(
                             child: SizedBox(
                                 width: 1200,
-                                child: StreamBuilder(
-                                  stream: FirebaseFirestore.instance
-                                     .collection("collectionPath")
-                                     .snapshots(),
-                                  builder: (context, snapshot) {
-                                    if(snapshot.hasData){
-                                    return ListView.separated(
+                                child:  ListView.separated(
                                         itemBuilder: (context, index) {
-                                           final data = snapshot.data!.docs[index];
                                           return GestureDetector(
                                             onTap: () => studentController
                                                 .ontapStudent.value = true,
@@ -155,12 +148,10 @@ class AllStudentListContainer extends StatelessWidget {
                                             height: 02,
                                           );
                                         },
-                                        itemCount: snapshot.data!.docs.length);
-                                    }else{
-                                      return  TextFontWidget(text: "NO Data", fontsize: 14);
-                                    }
-                                  }
-                                )))
+                                        itemCount: 100)
+                                    
+                                  
+                                ))
                       ],
                     ),
                   ),
