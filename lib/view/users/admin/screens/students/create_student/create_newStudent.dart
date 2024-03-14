@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/parent_controller/parent_controller.dart';
 import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
@@ -42,26 +44,34 @@ class CreateStudent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 10),
               child: ResponsiveWebSite.isMobile(context)
-                  ? const Column(
+                  ? Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(bottom: 8),
+                          padding: const EdgeInsets.only(bottom: 8),
                           child: Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(
+                                padding: const EdgeInsets.only(
                                   left: 08,
                                   right: 05,
                                 ),
-                                child: RouteNonSelectedTextContainer(
-                                    title: 'Home'),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    studentController.ontapCreateStudent.value =
+                                        false;
+                                    // print(studentController
+                                    //     .ontapCreateStudent.value);
+                                  },
+                                  child: const RouteNonSelectedTextContainer(
+                                      title: 'Home'),
+                                ),
                               ),
-                              RouteSelectedTextContainer(
+                              const RouteSelectedTextContainer(
                                   width: 140, title: 'Create Student'),
                             ],
                           ),
                         ),
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(top: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -89,12 +99,18 @@ class CreateStudent extends StatelessWidget {
                     )
                   : Row(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(
+                        Padding(
+                          padding: const EdgeInsets.only(
                             left: 08,
                             right: 05,
                           ),
-                          child: RouteNonSelectedTextContainer(title: 'Home'),
+                          child: GestureDetector(
+                              onTap: () {
+                                studentController.ontapCreateStudent.value =
+                                    false;
+                              },
+                              child: const RouteNonSelectedTextContainer(
+                                  title: 'Home')),
                         ),
                         const RouteSelectedTextContainer(
                             width: 140, title: 'Create Student'),
@@ -123,7 +139,7 @@ class CreateStudent extends StatelessWidget {
             Expanded(
               child: TabBarView(children: [
                 ManualStudentCreation(),
-                 ClassWiseStudentCreation()
+                ClassWiseStudentCreation()
               ]),
             )
           ],
