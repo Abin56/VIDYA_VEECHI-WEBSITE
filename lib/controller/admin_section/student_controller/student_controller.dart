@@ -25,7 +25,7 @@ class StudentController extends GetxController {
   final RxString stdClassWiseValue = ''.obs;
   RxInt stAdNumber = 0000.obs; // Student Admission Number
   RxString stUID = ''.obs; // Student Email Auth ID
-
+  Rxn<StudentModel> studentModelData = Rxn<StudentModel>();
   final _randomstring = getRandomString(6);
   final _randomNum = getRandomNumber(4);
 
@@ -34,6 +34,7 @@ class StudentController extends GetxController {
       .doc(UserCredentialsController.schoolId);
 
   RxBool ontapStudent = false.obs;
+  RxBool ontapCreateStudent = false.obs;
   RxString dobSelectedDate = ''.obs;
   RxString joiningSelectedDate = ''.obs;
 

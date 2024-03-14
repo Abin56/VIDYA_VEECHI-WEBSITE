@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/attendence_history_status/attendence_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/exam_history_status/exam_history_status.dart';
@@ -7,11 +10,13 @@ import 'package:vidyaveechi_website/view/users/admin/screens/students/student_de
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
 
 class StudentDetailsContainer extends StatelessWidget {
-  const StudentDetailsContainer({super.key});
+  final StudentController studentController = Get.put(StudentController());
+  StudentDetailsContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // List<Widget> widgetList = [];
+    final data = studentController.studentModelData.value;
+
     return DefaultTabController(
       length: 3,
       child: SingleChildScrollView(
@@ -69,24 +74,24 @@ class StudentDetailsContainer extends StatelessWidget {
                                       width: double.infinity,
                                       height: 100,
                                       color: Colors.blue.withOpacity(0.1),
-                                      child: const Column(
+                                      child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 left: 10, top: 10),
                                             child: TextFontWidget(
-                                              text: 'Jon Aaron Jonathon Aaron',
+                                              text: data!.studentName,
                                               fontsize: 20,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 top: 20, left: 10),
                                             child: SizedBox(
-                                              width: 600,
+                                              width: 500,
                                               child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
@@ -96,27 +101,30 @@ class StudentDetailsContainer extends StatelessWidget {
                                                   StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Gender',
-                                                    subtitle: 'Male',
+                                                    subtitle: data.gender,
                                                   ),
                                                   StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Date of Birth',
-                                                    subtitle: '11/09/2007',
+                                                    subtitle: data.dateofBirth,
                                                   ),
-                                                  StudentDetailTileContainer(
-                                                    flex: 1,
-                                                    title: 'Batch Year',
-                                                    subtitle: 'March 2023',
-                                                  ),
+                                                  // const StudentDetailTileContainer(
+                                                  //   flex: 1,
+                                                  //   title: 'Batch Year',
+                                                  //   subtitle: 'March 2023',
+                                                  // ),
                                                   StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Admission No',
-                                                    subtitle: '563444',
+                                                    subtitle:
+                                                        data.admissionNumber,
                                                   ),
                                                   StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Join Date',
-                                                    subtitle: '11/09/2007',
+                                                    subtitle:
+                                                        stringTimeToDateConvert(
+                                                            data.createDate),
                                                   ),
                                                 ],
                                               ),
@@ -126,25 +134,26 @@ class StudentDetailsContainer extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const Expanded(
+                                  Expanded(
                                     // flex: 1,
                                     child: Padding(
-                                      padding: EdgeInsets.only(left: 20),
+                                      padding: const EdgeInsets.only(left: 20),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Row(
                                             children: [
-                                              Icon(Icons.call),
+                                              const Icon(Icons.call),
                                               TextFontWidget(
-                                                text: " +91 9126355467",
+                                                text:
+                                                    " +91 ${data.parentPhoneNumber}",
                                                 fontsize: 12,
                                                 color: Colors.blue,
                                               )
                                             ],
                                           ),
-                                          Row(
+                                          const Row(
                                             children: [
                                               Icon(Icons.location_on),
                                               TextFontWidget(
@@ -169,7 +178,7 @@ class StudentDetailsContainer extends StatelessWidget {
                   ),
                 ),
               ),
-        
+
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
                 child: Column(
@@ -182,8 +191,8 @@ class StudentDetailsContainer extends StatelessWidget {
                         tabAlignment: TabAlignment.start,
                         isScrollable: true,
                         labelColor: Colors.blue,
-                        labelStyle:
-                            TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+                        labelStyle: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 14),
                         tabs: [
                           Tab(
                             text: 'FEES',
@@ -215,7 +224,7 @@ class StudentDetailsContainer extends StatelessWidget {
                   height: 600,
                   color: cWhite,
                   // color: Colors.amber,
-        
+
                   // height: 300,
                   child: const TabBarView(children: [
                     PerStudentFeesHistory(), //........................ Student FEES
