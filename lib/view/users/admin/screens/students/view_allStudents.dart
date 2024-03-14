@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
@@ -132,22 +133,34 @@ class AllStudentListContainer extends StatelessWidget {
                         Expanded(
                             child: SizedBox(
                                 width: 1200,
-                                child: ListView.separated(
-                                    itemBuilder: (context, index) {
-                                      return GestureDetector(
-                                        onTap: () => studentController
-                                            .ontapStudent.value = true,
-                                        child: AllStudentDataList(
-                                          index: index,
-                                        ),
-                                      );
-                                    },
-                                    separatorBuilder: (context, index) {
-                                      return const SizedBox(
-                                        height: 02,
-                                      );
-                                    },
-                                    itemCount: 100)))
+                                child: StreamBuilder(
+                                  stream: FirebaseFirestore.instance
+                                     .collection("collectionPath")
+                                     .snapshots(),
+                                  builder: (context, snapshot) {
+                                    if(snapshot.hasData){
+                                    return ListView.separated(
+                                        itemBuilder: (context, index) {
+                                           final data = snapshot.data!.docs[index];
+                                          return GestureDetector(
+                                            onTap: () => studentController
+                                                .ontapStudent.value = true,
+                                            child: AllStudentDataList(
+                                              index: index,
+                                            ),
+                                          );
+                                        },
+                                        separatorBuilder: (context, index) {
+                                          return const SizedBox(
+                                            height: 02,
+                                          );
+                                        },
+                                        itemCount: snapshot.data!.docs.length);
+                                    }else{
+                                      return  TextFontWidget(text: "NO Data", fontsize: 14);
+                                    }
+                                  }
+                                )))
                       ],
                     ),
                   ),
