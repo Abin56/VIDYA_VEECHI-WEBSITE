@@ -188,7 +188,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                             text: 'SALARY',
                           ),
                           Tab(
-                            text: 'ATTENDENCE',
+                            text: 'ATTENDANCE',
                           ),
                           // Tab(
                           //   text: 'EXAM ',

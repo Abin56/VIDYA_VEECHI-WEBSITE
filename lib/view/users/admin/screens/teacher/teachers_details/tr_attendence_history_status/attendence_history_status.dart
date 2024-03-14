@@ -21,7 +21,7 @@ class PerStudentAttendenceHistory extends StatelessWidget {
           child: const Padding(
             padding: EdgeInsets.all(8.0),
             child: TextFontWidget(
-              text: 'Attendence Section',
+              text: 'Attendance Section',
               fontsize: 16,
               fontWeight: FontWeight.bold,
               color: cBlue,

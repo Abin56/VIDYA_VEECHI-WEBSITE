@@ -12,7 +12,8 @@ import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_list
 import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/meeting_creating/meeting_creating.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/meeting/edit_delete/edit_delete.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
@@ -102,6 +103,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
+  const MeetingCreatingPage(),
+  const MeetingEditRemove(),
  AllStudentListContainer(),
   const TeachersDetailsContainer(),
    CreateTeacher(),
@@ -133,11 +136,8 @@ List<Widget> pages = [
     child: Text(sideMenu[7]),
   ),
   ////
-
-
   const MeetingCreatingPage(),
   
-
   const FeesAndBillsPage(),
  Container(height: 200,color: Colors.redAccent,),
   const BatchHistroyListPage(),

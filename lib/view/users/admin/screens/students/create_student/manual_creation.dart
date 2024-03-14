@@ -195,9 +195,7 @@ class ManualStudentCreation extends StatelessWidget {
 
       const RouteSelectedTextContainer(
           width: 140, title: 'Create Student'), ////10
-      const RouteNonSelectedTextContainer(title: 'Home'),
-
-      ///11
+      const RouteNonSelectedTextContainer(title: 'Home'),///11
     ];
     return Form(
       key: _formKey,

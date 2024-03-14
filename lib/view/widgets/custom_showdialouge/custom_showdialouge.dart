@@ -21,7 +21,7 @@ customShowDilogBox(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GooglePoppinsWidgets(
-                  text: title, fontsize: 13, fontWeight: FontWeight.w600),
+                  text: title, fontsize: 15, fontWeight: FontWeight.w600),
               const Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: BackButtonContainerWidget(),

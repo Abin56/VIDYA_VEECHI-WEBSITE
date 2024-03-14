@@ -189,7 +189,7 @@ class StudentDetailsContainer extends StatelessWidget {
                             text: 'FEES',
                           ),
                           Tab(
-                            text: 'ATTENDENCE',
+                            text: 'ATTENDANCE',
                           ),
                           Tab(
                             text: 'EXAM ',
