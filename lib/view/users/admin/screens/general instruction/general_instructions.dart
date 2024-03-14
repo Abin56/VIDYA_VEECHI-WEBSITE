@@ -7,6 +7,7 @@ import 'package:vidyaveechi_website/controller/general%20instruction/general_ins
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/teacher/timetable/timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/custom_showdialouge/custom_showdialouge.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledContainer.dart';
@@ -208,6 +209,7 @@ class GeneralInsructions extends StatelessWidget {
                                                   ),
                                                 ),
                                               ),
+                                             
                                             ],
                                           );
                                         }),
@@ -368,89 +370,4 @@ class GeneralInsructions extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class TextFormFiledBlueContainerWidget1 extends StatelessWidget {
-  TextEditingController? controller = TextEditingController();
-  final String title;
-  final String hintText;
-  final Widget? widget;
-  Function(String)? onChanged;
-  Iterable<String>? autofillHints;
-  String? Function(String?)? validator;
-  Function()? onTap;
-  TextInputType? keyboardType;
-  TextFormFiledBlueContainerWidget1({
-    this.widget,
-    required this.hintText,
-    required this.title,
-    this.keyboardType,
-    this.controller,
-    this.autofillHints,
-    this.onChanged,
-    this.validator,
-    this.onTap,
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150,
-      
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              TextFontWidget(text: '$title *', fontsize: 12.5),
-              widget == null ? const SizedBox() : widget!,
-            ],
-          ),
-          const SizedBox(
-            height: 05,
-          ),
-          Container(
-            height: 100,width: 500,
-            color: screenContainerbackgroundColor,
-            child: Center(
-              child: TextFormField(
-                maxLines: 5,
-                onChanged: onChanged,
-                autofillHints: autofillHints,
-                onTap: onTap,
-                validator: validator,
-                keyboardType: keyboardType,
-                controller: controller,
-                decoration: InputDecoration(
-                  errorBorder: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(0)),
-                      borderSide: BorderSide(
-                        width: 1,
-                        style: BorderStyle.none,
-                        color: Colors.red,
-                      )),
-                  focusedErrorBorder: const OutlineInputBorder(
-                    // borderRadius: BorderRadius.all(Radius.circular(4)),
-                    borderSide: BorderSide(
-                      width: 1,
-                      style: BorderStyle.none,
-                      color: Colors.red,
-                    ),
-                  ),
-                  // contentPadding: const EdgeInsets.all(8.0),
-                  enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(width: 0.4)),
-                  hintStyle: const TextStyle(fontSize: 13),
-                  hintText: hintText,
-                  focusedBorder: const OutlineInputBorder(
-                    //<-- SEE HERE
-                    borderSide: BorderSide(width: 1, color: Colors.green),
-                  ),
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
