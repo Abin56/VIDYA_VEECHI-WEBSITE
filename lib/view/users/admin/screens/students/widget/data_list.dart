@@ -13,14 +13,7 @@ class AllStudentDataList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: FirebaseFirestore.instance
-                  .collection("collectionPath")
-                  .snapshots(),
-      builder: (context, snapshot) {
-        if(snapshot.hasData){
-           final data = snapshot.data!.docs[index];
-        return SizedBox(
+    return  SizedBox(
           height: 45,
           child: Row(
             children: [
@@ -42,7 +35,7 @@ class AllStudentDataList extends StatelessWidget {
                     rowMainAccess: MainAxisAlignment.center,
                     color: cWhite,
                     index: index,
-                    headerTitle: data.id),
+                    headerTitle: '556522'),
               ), //................................................. Student ID
               const SizedBox(
                 width: 01,
@@ -157,10 +150,5 @@ class AllStudentDataList extends StatelessWidget {
             ],
           ),
         );
-        }else{
-          return Container();
-        }
-      }
-    );
   }
 }
