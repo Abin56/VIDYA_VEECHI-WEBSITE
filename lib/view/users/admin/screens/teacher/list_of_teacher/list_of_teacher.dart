@@ -62,7 +62,7 @@ class ListingOfTeacher extends StatelessWidget {
                           child: Row(
                             children: [
                               const Padding(
-                                padding: EdgeInsets.only(left: 05, right: 05),
+                                padding: EdgeInsets.only(left: 20, right: 05),
                                 child: RouteSelectedTextContainer(
                                     title: 'All Teacher'),
                               ),
@@ -105,7 +105,7 @@ class ListingOfTeacher extends StatelessWidget {
                           child: Container(
                             color: cWhite,
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 0),
                               child: Container(
                                 color: cWhite,
                                 height: 40,
@@ -113,47 +113,48 @@ class ListingOfTeacher extends StatelessWidget {
                                   children: [
                                     Expanded(
                                         flex: 1,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'No',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'No')),
                                     SizedBox(
                                       width: 01,
                                     ),
                                     Expanded(
                                         flex: 2,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'ID',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'ID')),
                                     SizedBox(
                                       width: 01,
                                     ),
                                     Expanded(
                                         flex: 4,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'Name',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'Name')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                     Expanded(
                                         flex: 4,
-                                        child:
-                                            CatrgoryTableHeaderColorWidget(headerTitle: 'E mail',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'E mail')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                     Expanded(
                                         flex: 3,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'Ph.No',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'Ph.NO')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
-                                    // Expanded(
-                                    //     flex: 2,
-                                    //     child: CatrgoryTableHeaderColorWidget(headerTitle: 'Class',color: adminePrimayColor,textcolor: cWhite,)),
-                                    // SizedBox(
-                                    //   width: 01,
-                                    // ),
+                                    SizedBox(
+                                      width: 02,
+                                    ),
                                     Expanded(
                                         flex: 3,
-                                        child:
-                                            CatrgoryTableHeaderColorWidget(headerTitle: 'Status',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'Status')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                   ],
                                 ),
@@ -162,22 +163,24 @@ class ListingOfTeacher extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10, right: 10),
-                              child: Container(
-                                  width: 1200,
-                                  decoration: BoxDecoration(
-                                  color: cWhite,
-                                  border: Border.all(color: cWhite),
-                                ),
-                                  child: StreamBuilder(
-                                    stream: server
-                                    .collection('SchoolListCollection')
-                                        .doc(UserCredentialsController.schoolId)
-                                        .collection('AllTeachers')
-                                        .snapshots(),
-                                    builder: (context, snapshot) {
-                                      if(snapshot.hasData){
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: Container(
+                              width: 1150,
+                              decoration: BoxDecoration(
+                                color: cWhite,
+                                border: Border.all(color: cWhite),
+                              ),
+                              child: SizedBox(
+                                // width: 1100,
+                                child: StreamBuilder(
+                                  stream: server
+                                      .collection('SchoolListCollection')
+                                      .doc(UserCredentialsController.schoolId)
+                                      .collection('Teachers')
+                                      .snapshots(),
+                                  builder: (context, snaPS) {
+                                    if (snaPS.hasData) {
                                       return ListView.separated(
                                           itemBuilder: (context, index) {
                                             final data = TeacherModel.fromMap(
@@ -201,18 +204,20 @@ class ListingOfTeacher extends StatelessWidget {
                                               height: 02,
                                             );
                                           },
-                                          itemCount: snapshot.data!.docs.length);
-                                    }else{
-                                       return const LoadingWidget();
+                                          itemCount: snaPS.data!.docs.length);
+                                    } else {
+                                      return const LoadingWidget();
                                     }
-                                    }
-                                  )),
-                            ))
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
                 ),
-              )//
-              );
+              ));
   }
-  }
+}

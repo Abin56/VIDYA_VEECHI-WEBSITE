@@ -15,8 +15,6 @@ import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/e
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/list_of_teacher.dart';
@@ -103,22 +101,18 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-   ListingOfTeacher(),
+  AllTeacherListContainer(),
   AllStudentListContainer(),
-   const AdminDashBoardSections(),
-   ListingOfTeacher(),
+  const AdminDashBoardSections(),
   const AllExamNotificationListView(),
   AllClassListView(),
   const AllTeachersAttendance(),
   const AllStudentsAttendance(),
   const StudentExamResult(),
- TeachersDetailsContainer(),
- 
+  TeachersDetailsContainer(),
+
   const FeesAndBillsPage(),
   CreateTeacher(),
-   
-
- 
 
   AllClassListView(),
 
