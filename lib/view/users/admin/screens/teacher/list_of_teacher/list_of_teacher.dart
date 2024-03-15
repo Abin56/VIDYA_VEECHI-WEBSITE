@@ -1,38 +1,31 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
-import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
+import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
+import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/table_of_tr.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/teachers_details.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/widget/data_list.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
-class ListingOfTeacher extends StatelessWidget {
-  final TeacherController teacherController = Get.put(TeacherController());
-   ListingOfTeacher({super.key});
+class AllTeacherListContainer extends StatelessWidget {
+  final StudentController studentController = Get.put(StudentController());
+  AllTeacherListContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-     return
-     Obx(() => teacherController.ontapviewteacher.value == true
-        ? TeachersDetailsContainer()
-        : teacherController.ontapTeacher .value == true
-            ? CreateTeacher()
-            :
-        // List<Widget> widgetlist = [];
-        // Obx(() => teacherController.ontapTeacher.value == true
-        //     ? const ViewClassTeacherScreen()
-        //     : 
-            SingleChildScrollView(
+    return Obx(() => studentController.ontapStudent.value == true
+        ? StudentDetailsContainer()
+        : studentController.ontapCreateStudent.value == true
+            ? CreateStudent()
+            : SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
                   color: screenContainerbackgroundColor,
@@ -62,40 +55,32 @@ class ListingOfTeacher extends StatelessWidget {
                           child: Row(
                             children: [
                               const Padding(
-                                padding: EdgeInsets.only(left: 05, right: 05),
+                                padding: EdgeInsets.only(left: 20, right: 05),
                                 child: RouteSelectedTextContainer(
                                     title: 'All Teacher'),
                               ),
                               const Spacer(),
-                              // GestureDetector(
-                              //   onTap: () => createTeacher(context),
-                              //   child: const Padding(
-                              //     padding: EdgeInsets.only(left: 05, right: 05),
-                              //     child: SizedBox(
-                              //       width: 200,
-                              //       child: RouteSelectedTextContainer(
-                              //           title: 'Create New Class'),
-                              //     ), //.......................Create Class
-                              //   ),
-                              // ),
-                              GestureDetector(
-                                onTap: () {
-                                  teacherController.ontapTeacher.value =
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    studentController.ontapCreateStudent.value =
                                         true;
-                                },
-                                child: ButtonContainerWidget(
-                                    curving: 30,
-                                    colorindex: 0,
-                                    height: 35,
-                                    width: 150,
-                                    child: const Center(
-                                      child: TextFontWidget(
-                                        text: 'Create New Teacher',
-                                        fontsize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: cWhite,
-                                      ),
-                                    )),
+                                  },
+                                  child: ButtonContainerWidget(
+                                      curving: 30,
+                                      colorindex: 0,
+                                      height: 35,
+                                      width: 150,
+                                      child: const Center(
+                                        child: TextFontWidget(
+                                          text: 'Create New Student',
+                                          fontsize: 12,
+                                          fontWeight: FontWeight.bold,
+                                          color: cWhite,
+                                        ),
+                                      )),
+                                ),
                               )
                             ],
                           ),
@@ -105,7 +90,7 @@ class ListingOfTeacher extends StatelessWidget {
                           child: Container(
                             color: cWhite,
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 0),
                               child: Container(
                                 color: cWhite,
                                 height: 40,
@@ -113,47 +98,48 @@ class ListingOfTeacher extends StatelessWidget {
                                   children: [
                                     Expanded(
                                         flex: 1,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'No',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'No')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                     Expanded(
                                         flex: 2,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'ID',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'ID')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                     Expanded(
                                         flex: 4,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'Name',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'Name')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                     Expanded(
                                         flex: 4,
-                                        child:
-                                            CatrgoryTableHeaderColorWidget(headerTitle: 'E mail',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'E mail')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                     Expanded(
                                         flex: 3,
-                                        child: CatrgoryTableHeaderColorWidget(headerTitle: 'Ph.No',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'Ph.NO')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
-                                    // Expanded(
-                                    //     flex: 2,
-                                    //     child: CatrgoryTableHeaderColorWidget(headerTitle: 'Class',color: adminePrimayColor,textcolor: cWhite,)),
-                                    // SizedBox(
-                                    //   width: 01,
-                                    // ),
+                                    SizedBox(
+                                      width: 02,
+                                    ),
                                     Expanded(
                                         flex: 3,
-                                        child:
-                                            CatrgoryTableHeaderColorWidget(headerTitle: 'Status',color: adminePrimayColor,textcolor: cWhite,)),
+                                        child: CatrgoryTableHeaderWidget(
+                                            headerTitle: 'Status')),
                                     SizedBox(
-                                      width: 01,
+                                      width: 02,
                                     ),
                                   ],
                                 ),
@@ -162,37 +148,41 @@ class ListingOfTeacher extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10, right: 10),
-                              child: Container(
-                                  width: 1200,
-                                  decoration: BoxDecoration(
-                                  color: cWhite,
-                                  border: Border.all(color: cWhite),
-                                ),
-                                  child: StreamBuilder(
-                                    stream: server
-                                    .collection('SchoolListCollection')
-                                        .doc(UserCredentialsController.schoolId)
-                                        .collection('AllTeachers')
-                                        .snapshots(),
-                                    builder: (context, snapshot) {
-                                      if(snapshot.hasData){
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: Container(
+                              width: 1150,
+                              decoration: BoxDecoration(
+                                color: cWhite,
+                                border: Border.all(color: cWhite),
+                              ),
+                              child: SizedBox(
+                                // width: 1100,
+                                child: StreamBuilder(
+                                  stream: server
+                                      .collection('SchoolListCollection')
+                                      .doc(UserCredentialsController.schoolId)
+                                      .collection('Teachers')
+                                      .snapshots(),
+                                  builder: (context, snaPS) {
+                                    if (snaPS.hasData) {
                                       return ListView.separated(
                                           itemBuilder: (context, index) {
-                                            final data = TeacherModel.fromMap(
-                                                  snapshot.data!.docs[index].data());
+                                            final data = StudentModel.fromMap(
+                                                snaPS.data!.docs[index].data());
                                             return GestureDetector(
-                                              onTap: () { 
-                                                teacherController
-                                                      .teacherModelData
-                                                      .value = data;
-                                                teacherController
-                                                  .ontapTeacher.value = true;
+                                              onTap: () {
+                                                studentController
+                                                    .studentModelData
+                                                    .value = data;
+                                                studentController
+                                                    .ontapStudent.value = true;
+                                                // print(studentController
+                                                //     .studentModelData.value = data);
                                               },
-                                              child: AllTeachersDataList(
+                                              child: AllStudentDataList(
+                                                data: data,
                                                 index: index,
-                                                
                                               ),
                                             );
                                           },
@@ -201,18 +191,20 @@ class ListingOfTeacher extends StatelessWidget {
                                               height: 02,
                                             );
                                           },
-                                          itemCount: snapshot.data!.docs.length);
-                                    }else{
-                                       return const LoadingWidget();
+                                          itemCount: snaPS.data!.docs.length);
+                                    } else {
+                                      return const LoadingWidget();
                                     }
-                                    }
-                                  )),
-                            ))
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
                 ),
-              )//
-              );
+              ));
   }
-  }
+}
