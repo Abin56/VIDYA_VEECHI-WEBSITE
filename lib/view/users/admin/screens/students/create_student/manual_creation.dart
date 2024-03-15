@@ -186,8 +186,8 @@ class ManualStudentCreation extends StatelessWidget {
             }
           },
           buttonstate: studentController.buttonstate.value,
-          text:
-              'Create Student')), /////////////........................................7
+          text: 'Create Student')), /////////////........................................7
+          
       const RouteSelectedTextContainer(
           width: 140, title: 'Class Wise Creation'), ///////8
       const RouteSelectedTextContainer(

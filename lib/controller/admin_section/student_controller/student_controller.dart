@@ -240,7 +240,7 @@ class StudentController extends GetxController {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDOB.value ?? DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime(1920),
       lastDate: DateTime(2100),
       // builder: (context, child) {
       //   return Container();

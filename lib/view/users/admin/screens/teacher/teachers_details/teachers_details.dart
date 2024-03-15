@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/attendence_history_status/attendence_history_status.dart';
@@ -6,10 +8,12 @@ import 'package:vidyaveechi_website/view/users/admin/screens/teacher/salary_hist
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/widgets/detail_tileContainer.dart';
 
 class TeachersDetailsContainer extends StatelessWidget {
-  const TeachersDetailsContainer({super.key});
+   final TeacherController teacherController = Get.put(TeacherController());
+   TeachersDetailsContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final data = teacherController.teacherModelData.value;
     // List<Widget> widgetList = [];
     return DefaultTabController(
       length: 2,

@@ -79,8 +79,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 10, top: 10),
+                                            padding: const EdgeInsets.only(left: 10, top: 10),
                                             child: TextFontWidget(
                                               text: data!.studentName,
                                               fontsize: 20,
@@ -93,10 +92,8 @@ class StudentDetailsContainer extends StatelessWidget {
                                             child: SizedBox(
                                               width: 500,
                                               child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   StudentDetailTileContainer(
                                                     flex: 1,
