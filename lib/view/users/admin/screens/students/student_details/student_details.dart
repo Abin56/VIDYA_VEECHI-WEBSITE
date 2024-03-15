@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/attendence_history_status/attendence_history_status.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/edit_function_/edit_phoneno.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/exam_history_status/exam_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/fess_history_status/fess_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
@@ -43,7 +45,7 @@ class StudentDetailsContainer extends StatelessWidget {
                 child: Container(
                   color: cWhite,
                   height: 260,
-                  child: Column(
+                  child: Column(  
                     children: [
                       Container(
                         height: 60,
@@ -181,19 +183,30 @@ class StudentDetailsContainer extends StatelessWidget {
                                             children: [
                                               const Icon(Icons.call),
                                               TextFontWidget(
-                                                text:
-                                                    " +91 ${data.parentPhoneNumber}",
+                                                text: " +91 ${data.parentPhoneNumber} ",
                                                 fontsize: 12,
                                                 color: Colors.blue,
-                                              )
+                                              ),
+                                              SizedBox(width: 60,),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  editFunctionOfStudentPhoneNo(context);
+                                                },
+                                                child: CircleAvatar(child: const Icon(Icons.edit_square,size: 21,))),
+                                              // Container(
+                                              //   height: 30,
+                                              //   width: 30,
+                                              //   decoration:  BoxDecoration(
+                                              //     color: cgreen.withOpacity(0.3),
+                                              //     borderRadius: const BorderRadius.all(Radius.circular(5))),
+                                              //     child: const Icon(Icons.edit,size: 16,),)
                                             ],
                                           ),
-                                          const Row(
+                                           Row(
                                             children: [
-                                              Icon(Icons.location_on),
+                                              const Icon(Icons.email),
                                               TextFontWidget(
-                                                text:
-                                                    " Lepton Communications, Trivandrum",
+                                                text: data.studentemail,
                                                 fontsize: 12,
                                                 color: Colors.blue,
                                               )

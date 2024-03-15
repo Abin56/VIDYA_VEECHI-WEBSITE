@@ -188,7 +188,7 @@ class ListingOfTeacher extends StatelessWidget {
                                                       .teacherModelData
                                                       .value = data;
                                                 teacherController
-                                                  .ontapTeacher.value = true;
+                                                  .ontapviewteacher.value = true;
                                               },
                                               child: AllTeachersDataList(
                                                 index: index,
