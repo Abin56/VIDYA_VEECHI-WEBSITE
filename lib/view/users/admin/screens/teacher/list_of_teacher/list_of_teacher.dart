@@ -1,14 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
-import 'package:vidyaveechi_website/model/student_model/student_model.dart';
+import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
+import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/widget/data_list.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/table_of_tr.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/teachers_details.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
@@ -16,16 +17,22 @@ import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.d
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class AllTeacherListContainer extends StatelessWidget {
-  final StudentController studentController = Get.put(StudentController());
-  AllTeacherListContainer({super.key});
+  final TeacherController teacherController = Get.put(TeacherController());
+   AllTeacherListContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => studentController.ontapStudent.value == true
-        ? StudentDetailsContainer()
-        : studentController.ontapCreateStudent.value == true
-            ? CreateStudent()
-            : SingleChildScrollView(
+     return
+     Obx(() => teacherController.ontapviewteacher.value == true
+        ? TeachersDetailsContainer()
+        : teacherController.ontapTeacher .value == true
+            ? CreateTeacher()
+            :
+        // List<Widget> widgetlist = [];
+        // Obx(() => teacherController.ontapTeacher.value == true
+        //     ? const ViewClassTeacherScreen()
+        //     : 
+            SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
                   color: screenContainerbackgroundColor,
@@ -60,27 +67,35 @@ class AllTeacherListContainer extends StatelessWidget {
                                     title: 'All Teacher'),
                               ),
                               const Spacer(),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    studentController.ontapCreateStudent.value =
+                              // GestureDetector(
+                              //   onTap: () => createTeacher(context),
+                              //   child: const Padding(
+                              //     padding: EdgeInsets.only(left: 05, right: 05),
+                              //     child: SizedBox(
+                              //       width: 200,
+                              //       child: RouteSelectedTextContainer(
+                              //           title: 'Create New Class'),
+                              //     ), //.......................Create Class
+                              //   ),
+                              // ),
+                              GestureDetector(
+                                onTap: () {
+                                  teacherController.ontapTeacher.value =
                                         true;
-                                  },
-                                  child: ButtonContainerWidget(
-                                      curving: 30,
-                                      colorindex: 0,
-                                      height: 35,
-                                      width: 150,
-                                      child: const Center(
-                                        child: TextFontWidget(
-                                          text: 'Create New Student',
-                                          fontsize: 12,
-                                          fontWeight: FontWeight.bold,
-                                          color: cWhite,
-                                        ),
-                                      )),
-                                ),
+                                },
+                                child: ButtonContainerWidget(
+                                    curving: 30,
+                                    colorindex: 0,
+                                    height: 35,
+                                    width: 150,
+                                    child: const Center(
+                                      child: TextFontWidget(
+                                        text: 'Create New Teacher',
+                                        fontsize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: cWhite,
+                                      ),
+                                    )),
                               )
                             ],
                           ),
@@ -101,14 +116,14 @@ class AllTeacherListContainer extends StatelessWidget {
                                         child: CatrgoryTableHeaderWidget(
                                             headerTitle: 'No')),
                                     SizedBox(
-                                      width: 02,
+                                      width: 01,
                                     ),
                                     Expanded(
                                         flex: 2,
                                         child: CatrgoryTableHeaderWidget(
                                             headerTitle: 'ID')),
                                     SizedBox(
-                                      width: 02,
+                                      width: 01,
                                     ),
                                     Expanded(
                                         flex: 4,
@@ -127,7 +142,7 @@ class AllTeacherListContainer extends StatelessWidget {
                                     Expanded(
                                         flex: 3,
                                         child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'Ph.NO')),
+                                            headerTitle: 'Ph.No')),
                                     SizedBox(
                                       width: 02,
                                     ),
@@ -168,21 +183,19 @@ class AllTeacherListContainer extends StatelessWidget {
                                     if (snaPS.hasData) {
                                       return ListView.separated(
                                           itemBuilder: (context, index) {
-                                            final data = StudentModel.fromMap(
-                                                snaPS.data!.docs[index].data());
+                                            final data = TeacherModel.fromMap(
+                                                  snaPS.data!.docs[index].data());
                                             return GestureDetector(
-                                              onTap: () {
-                                                studentController
-                                                    .studentModelData
-                                                    .value = data;
-                                                studentController
-                                                    .ontapStudent.value = true;
-                                                // print(studentController
-                                                //     .studentModelData.value = data);
+                                              onTap: () { 
+                                                teacherController
+                                                      .teacherModelData
+                                                      .value = data;
+                                                teacherController
+                                                  .ontapviewteacher.value = true;
                                               },
-                                              child: AllStudentDataList(
-                                                data: data,
+                                              child: AllTeachersDataList(
                                                 index: index,
+                                                data: data,
                                               ),
                                             );
                                           },

@@ -266,7 +266,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                padding: const EdgeInsets.all(2.0),
                child: Container(
                 decoration: const BoxDecoration(
-                  boxShadow: [BoxShadow(blurRadius: 1,offset: Offset(1, 2))],
+                  boxShadow: [BoxShadow(blurRadius: 1,offset: Offset(1, 2),color: cBlue)],
                   color: cWhite),
                 height: 45,
                 width: 290,

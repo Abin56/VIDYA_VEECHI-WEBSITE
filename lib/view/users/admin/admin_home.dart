@@ -131,7 +131,7 @@ List<Widget> pages = [
   ////
 
   const MeetingCreatingPage(),
-
+const AllExamNotificationListView(),
   const FeesAndBillsPage(),
   Container(
     height: 200,
@@ -139,7 +139,7 @@ List<Widget> pages = [
   ),
   const BatchHistroyListPage(),
   // const FeesAndBillsPage(),
-
+const AllExamNotificationListView(),
   Center(
     child: Text(sideMenu[1]),
   ),
