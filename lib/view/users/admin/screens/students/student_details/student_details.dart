@@ -8,6 +8,8 @@ import 'package:vidyaveechi_website/view/users/admin/screens/students/student_de
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/exam_history_status/exam_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/fess_history_status/fess_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
 class StudentDetailsContainer extends StatelessWidget {
   final StudentController studentController = Get.put(StudentController());
@@ -40,9 +42,42 @@ class StudentDetailsContainer extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20, left: 20, top: 20),
                 child: Container(
                   color: cWhite,
-                  height: 200,
+                  height: 260,
                   child: Column(
                     children: [
+                      Container(
+                        height: 60,
+                        width: double.infinity,
+                        color: Colors.white10,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 0),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      left: 08,
+                                      right: 05,
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        studentController.ontapStudent.value =
+                                            false;
+                                      },
+                                      child:
+                                          const RouteNonSelectedTextContainer(
+                                              title: 'Home'),
+                                    ),
+                                  ),
+                                  const RouteSelectedTextContainer(
+                                      width: 140, title: 'Student Deatils'),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                       Container(
                         width: double.infinity,
                         color: Colors.blue,
