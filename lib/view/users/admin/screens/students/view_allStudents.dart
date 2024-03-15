@@ -185,7 +185,9 @@ class AllStudentListContainer extends StatelessWidget {
                                                 // print(studentController
                                                 //     .studentModelData.value = data);
                                               },
-                                              child: AllStudentDataList(
+                                              child: 
+                                              
+                                              AllStudentDataList(
                                                 data: data,
                                                 index: index,
                                               ),

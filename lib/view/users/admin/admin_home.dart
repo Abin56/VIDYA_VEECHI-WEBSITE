@@ -102,6 +102,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
+  AllStudentListContainer(),
+  StudentDetailsContainer(),
    const AdminDashBoardSections(),
    ListingOfTeacher(),
   const AllExamNotificationListView(),
@@ -114,10 +116,9 @@ List<Widget> pages = [
   const FeesAndBillsPage(),
   CreateTeacher(),
   
-  AllStudentListContainer(),
    StudentDetailsContainer(), 
 
-   StudentDetailsContainer(),
+ 
 
   AllClassListView(),
 

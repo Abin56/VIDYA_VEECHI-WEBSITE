@@ -228,6 +228,13 @@ class CreateTeacher extends StatelessWidget {
             SizedBox(
               height: 40,
               child: DropdownSearch(
+                 validator: (item) {
+                   if (item == null) {
+                   return "Required field";
+                   } else {
+                    return null;
+                   }
+      },
                 items: const ['Malayalam', 'English'],
                 onChanged: (value) {
                   teacherController.subject.value = value ?? '';
