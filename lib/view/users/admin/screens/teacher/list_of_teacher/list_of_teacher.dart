@@ -16,9 +16,9 @@ import 'package:vidyaveechi_website/view/widgets/button_container/button_contain
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
-class ListingOfTeacher extends StatelessWidget {
+class AllTeacherListContainer extends StatelessWidget {
   final TeacherController teacherController = Get.put(TeacherController());
-   ListingOfTeacher({super.key});
+   AllTeacherListContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +142,7 @@ class ListingOfTeacher extends StatelessWidget {
                                     Expanded(
                                         flex: 3,
                                         child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'Ph.NO')),
+                                            headerTitle: 'Ph.No')),
                                     SizedBox(
                                       width: 02,
                                     ),
@@ -184,7 +184,7 @@ class ListingOfTeacher extends StatelessWidget {
                                       return ListView.separated(
                                           itemBuilder: (context, index) {
                                             final data = TeacherModel.fromMap(
-                                                  snapshot.data!.docs[index].data());
+                                                  snaPS.data!.docs[index].data());
                                             return GestureDetector(
                                               onTap: () { 
                                                 teacherController
@@ -195,7 +195,7 @@ class ListingOfTeacher extends StatelessWidget {
                                               },
                                               child: AllTeachersDataList(
                                                 index: index,
-                                                
+                                                data: data,
                                               ),
                                             );
                                           },

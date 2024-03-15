@@ -15,6 +15,7 @@ class TeachersDetailsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final data = teacherController.teacherModelData.value;
   //  final data = teacherController.teacherModelData.value;
     // List<Widget> widgetList = [];
     return DefaultTabController(
@@ -110,7 +111,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                       width: double.infinity,
                                       height: 110,
                                       color: adminePrimayColor.withOpacity(0.1),
-                                      child: const Column(
+                                      child:  Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -118,7 +119,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                             padding: EdgeInsets.only(
                                                 left: 10, top: 10),
                                             child: TextFontWidget(
-                                              text: 'EDWIED LIVINGSTEN ANTO ANTONY',
+                                              text: '${data!.teacherName}',
                                               fontsize: 20,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -137,22 +138,22 @@ class TeachersDetailsContainer extends StatelessWidget {
                                                   TeacherDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Gender',
-                                                    subtitle: 'Male',
+                                                    subtitle: '${data.gender}',
                                                   ),
                                                   TeacherDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Employee Id',
-                                                    subtitle: '112007',
+                                                    subtitle: '${data.employeeID}',
                                                   ),
                                                   TeacherDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Phone No.',
-                                                    subtitle: '6344222023',
+                                                    subtitle: '${data.teacherPhNo}',
                                                   ),
                                                   TeacherDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Email Id',
-                                                    subtitle: 'edwedlivinstenantoantony@gmail.com',
+                                                    subtitle: '${data.teacherEmail}',
                                                   ),
                                                   // TeacherDetailTileContainer(
                                                   //   flex: 1,
@@ -167,7 +168,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  const Expanded(
+                                   Expanded(
                                     // flex: 1,
                                     child: Padding(
                                       padding: EdgeInsets.only(left: 20),
@@ -179,7 +180,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                             children: [
                                               Icon(Icons.call),
                                               TextFontWidget(
-                                                text: " +91 9126355467",
+                                                text: " ${data.teacherPhNo}",
                                                 fontsize: 12,
                                                 color: adminePrimayColor,
                                               )
@@ -190,7 +191,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                               Icon(Icons.location_on),
                                               TextFontWidget(
                                                 text:
-                                                    " Lepton Communications, Trivandrum",
+                                                    "${data.houseName} , ${data.place}",
                                                 fontsize: 12,
                                                 color: adminePrimayColor,
                                               )

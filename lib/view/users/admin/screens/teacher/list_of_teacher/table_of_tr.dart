@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class AllTeachersDataList extends StatelessWidget {
   final int index;
+  final TeacherModel data;
   const AllTeachersDataList({
     required this.index,
+    required this.data,
     super.key,
   });
 
@@ -34,7 +37,7 @@ class AllTeachersDataList extends StatelessWidget {
                 rowMainAccess: MainAxisAlignment.center,
                 color: cWhite,
                 index: index,
-                headerTitle: "99578"),
+                headerTitle: "${data.employeeID}"),
           ), //................................................. teacher ID
           const SizedBox(
             width: 01,
@@ -51,9 +54,9 @@ class AllTeachersDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                   child: TextFontWidget(
-                    text: "  Reshma Suresh",
+                    text: "  ${data.teacherName}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -76,9 +79,9 @@ class AllTeachersDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                   child: TextFontWidget(
-                    text: "  reshmaSuresh1006@gmail.com",
+                    text: "  ${data.teacherEmail}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -101,9 +104,9 @@ class AllTeachersDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                   child: TextFontWidget(
-                    text: "  +9180892625634",
+                    text: "  ${data.teacherPhNo}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -139,7 +142,7 @@ class AllTeachersDataList extends StatelessWidget {
                   ),
                 ),
                 const TextFontWidget(
-                  text: "  Active",
+                  text: "   ",
                   fontsize: 12,
                   overflow: TextOverflow.ellipsis,
                 ),
