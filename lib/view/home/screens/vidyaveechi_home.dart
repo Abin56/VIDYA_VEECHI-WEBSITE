@@ -16,6 +16,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
+      
       child: ResponsiveWebSite.isMobile(context)
           ? Column(
               children: [

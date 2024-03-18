@@ -2,26 +2,22 @@
 
 import 'dart:developer';
 
+import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:country_state_city_picker/country_state_city_picker.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:uuid/uuid.dart';
 import 'package:vidyaveechi_website/controller/add_Newschool/add_new_schhol.dart';
 import 'package:vidyaveechi_website/controller/payment_tarif/checking_tarif_controller.dart';
 import 'package:vidyaveechi_website/model/tarif_purchase_model/tarif_purchase_model.dart';
-import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
-import 'package:vidyaveechi_website/view/home/screens/footer/widgets/Iconbackbutton.dart';
+import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/widgets/drop_DownList/schoolDropDownList.dart';
+import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 import '../../../colors/colors.dart';
-import '../../../fonts/fonts.dart';
 
 class SchoolProfile extends StatefulWidget {
   const SchoolProfile({super.key});
@@ -75,453 +71,93 @@ class _SchoolProfileState extends State<SchoolProfile> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      //backgroundColor: Color.fromARGB(255, 27, 95, 88),
-
-      body: ListView(children: [
-        Row(
-          children: [
-            //IconButtonBackWidget(color: cWhite,),
-            Container(
-              color: adminePrimayColor,
-              height: size.height,
-              width: 730.w,
-              child: Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(
-                      top: 35.h,
-                    ),
-                    child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Container(
+            height:
+                ResponsiveWebSite.isMobile(context) ? 800 : 1000,
+            width: double.infinity,
+            decoration: BoxDecoration(
+             
+              image: DecorationImage(
+                image: AssetImage("assets/images/login-bg.jpg"),
+                fit: BoxFit.fill,
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:  EdgeInsets.only(top:ResponsiveWebSite.isMobile(context) ? 30:80),
+                  child: Container(
+                    
+                    decoration: BoxDecoration(
+                        color: cWhite,
+                        borderRadius: BorderRadius.circular(4)),
+                    height: ResponsiveWebSite.isMobile(context) ? 550 : 600,
+                    width: ResponsiveWebSite.isMobile(context) ? 300 : 400,
+                    child: Column(
                       children: [
-                        IconButtonBackWidget(
-                          color: cWhite,
-                        ),
-                        SizedBox(
-                          width: 150.w,
-                        ),
-                        Text(
-                          'Hi ! VIDYAVEECHI ',
-                          style: ralewayStyle.copyWith(
-                            fontSize: 30.0.w,
-                            color: AppColors.whiteColor,
-                            fontWeight: FontWeight.w800,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10, bottom: 10),
+                          child: GooglePoppinsWidgets(
+                            text: 'REGISTRATION',
+                            fontsize: ResponsiveWebSite.isMobile(context) ?18:25,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
-                          '    Welcomes you',
-                          style: ralewayStyle.copyWith(
-                            fontSize: 23.0.w,
-                            color: AppColors.whiteColor,
-                            fontWeight: FontWeight.w800,
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: GetSchoolListDropDownButton(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: GetSchoolListDropDownButton(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: TextFormFiledBlueContainerWidget1(
+                              hintText: 'Student name',
+                              title: 'Student name',
+                              labelText: 'Student name'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: TextFormFiledBlueContainerWidget1(
+                              hintText: 'Email',
+                              title: 'Email',
+                              labelText: 'Email'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: TextFormFiledBlueContainerWidget1(
+                              hintText: 'Phone number',
+                              title: 'Phone number',
+                              labelText: 'Phone number'),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Container(
+                            height:ResponsiveWebSite.isMobile(context) ? 40:50,
+                            width:ResponsiveWebSite.isMobile(context) ?240: 300,
+                            decoration: BoxDecoration(
+                              color: AppColors.blueDarkColor,
+                            ),
+                            child: Center(
+                                child: GooglePoppinsWidgets(
+                              text: 'Submit',
+                              fontsize:ResponsiveWebSite.isMobile(context) ? 14:16,
+                              color: cWhite,
+                            )),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Center(
-                    child: Container(
-                      margin: EdgeInsets.only(bottom: 25.h),
-                      child: Text(
-                        'Create new school',
-                        style: ralewayStyle.copyWith(
-                          fontSize: 18.0.w,
-                          color: AppColors.whiteColor,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  Flexible(
-                      child: SizedBox(
-                          height: 890.h,
-                          width: 800.w,
-                          child: Center(
-                            child: LottieBuilder.asset(
-                                'assets/lottie_files/22462-campus-library-school-building-maison-mocca-animation.json'),
-                          )))
-//
-                ],
-              ),
-            ),
-            SizedBox(
-              width: 800.w,
-              height: size.height,
-              child: SingleChildScrollView(
-                child: Form(
-                  key: _formKey,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        left: size.width / 10, right: size.width / 10),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: SelectState(
-                              onCountryChanged: (value) {
-                                addNewSchoolController.countryValue.value =
-                                    value;
-                              },
-                              onStateChanged: (value) {
-                                addNewSchoolController.stateValue.value = value;
-                              },
-                              onCityChanged: (value) {
-                                addNewSchoolController.cityValue.value = value;
-                              },
-                            ),
-                          ),
-                          SchoolTextFormFieldWidget(
-                            textEditingController:
-                                addNewSchoolController.schoolNameController,
-                            function: checkFieldEmpty,
-                            labelText: 'School Name',
-                            icon: Icons.school,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          SchoolTextFormFieldWidget(
-                            textEditingController:
-                                addNewSchoolController.schoolCodeController,
-                            function: checkFieldEmpty,
-                            labelText: 'School Code',
-                            icon: Icons.school_outlined,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          SchoolTextFormFieldWidget(
-                            textEditingController:
-                                addNewSchoolController.placeController,
-                            function: checkFieldEmpty,
-                            labelText: 'Place',
-                            icon: Icons.place_outlined,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          SchoolTextFormFieldWidget(
-                            textEditingController:
-                                addNewSchoolController.adminUserNameController,
-                            function: checkFieldEmpty,
-                            labelText: 'Admin Username',
-                            icon: Icons.admin_panel_settings_outlined,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: TextFormField(
-                              obscureText: true,
-                              validator: checkFieldPasswordIsValid,
-                              controller: addNewSchoolController
-                                  .adminPasswordController,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                icon: Icon(
-                                  Icons.lock_outline_sharp,
-                                  color: const Color.fromARGB(221, 28, 9, 110),
-                                ),
-                                labelText: 'Password',
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(15),
-                            child: TextFormField(
-                              obscureText: true,
-                              validator: (d) {
-                                if (addNewSchoolController
-                                        .adminPasswordController.text ==
-                                    addNewSchoolController
-                                        .conformpassController.text) {
-                                  return null;
-                                } else {
-                                  return 'Check Password';
-                                }
-                              },
-                              controller:
-                                  addNewSchoolController.conformpassController,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                icon: Icon(
-                                  Icons.lock_outline_sharp,
-                                  color: const Color.fromARGB(221, 28, 9, 110),
-                                ),
-                                labelText: 'Confirm Password',
-                              ),
-                            ),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SchoolTextFormFieldWidget(
-                                textEditingController:
-                                    addNewSchoolController.emailController,
-                                function: checkFieldEmailIsValid,
-                                labelText: 'Enter email',
-                                hintText: "Enter school's official mail ID",
-                                icon: Icons.mail_outline,
-                              ),
-                              GooglePoppinsWidgets(
-                                text:
-                                    "* You can't edit or change this entry in future ",
-                                fontsize: 13,
-                                color: Color.fromARGB(255, 27, 106, 170),
-                              ),
-                            ],
-                          ),
-                          SchoolTextFormFieldWidget(
-                            textEditingController:
-                                addNewSchoolController.phoneNumberController,
-                            function: checkFieldPhoneNumberIsValid,
-                            labelText: 'Phone number',
-                            icon: Icons.phone,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          SchoolTextFormFieldWidget(
-                            textEditingController:
-                                addNewSchoolController.designationController,
-                            function: checkFieldEmpty,
-                            labelText: 'Designation',
-                            icon: Icons.person_4,
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Stack(
-                            children: [
-                              (file == null)
-                                  ? CircleAvatar(
-                                      radius: 80, backgroundColor: Colors.blue)
-                                  : CircleAvatar(
-                                      radius: 80,
-                                      backgroundImage: MemoryImage(file!)),
-                              Positioned(
-                                  right: 0,
-                                  bottom: 0,
-                                  child: IconButton(
-                                      onPressed: () async {
-                                        FilePickerResult? result =
-                                            await FilePicker.platform.pickFiles(
-                                                type: FileType.image);
-                                        if (result != null) {
-                                          file = result.files.first.bytes;
-                                          setState(() {
-                                            _file = file;
-                                          });
-                                        }
-                                      },
-                                      icon: Icon(Icons.camera_alt)))
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: SizedBox(
-                              height: size.width * 1 / 25,
-                              width: size.width * 1 / 6,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      const Color.fromARGB(255, 3, 39, 68),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                ),
-                                onPressed: () async {
-                                  if (file == null) {
-                                    showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            title: Text('Image'),
-                                            content: Text(
-                                                'Add an image of school before requesting create school'),
-                                            actions: [
-                                              MaterialButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                color: Colors.blue,
-                                                child: Text('OK'),
-                                              )
-                                            ],
-                                          );
-                                        });
-                                  } else {
-                                    if (_formKey.currentState!.validate()) {
-                                      return showDialog(
-                                        context: context,
-                                        barrierDismissible:
-                                            false, // user must tap button!
-                                        builder: (BuildContext context) {
-                                          return AlertDialog(
-                                            title: const Text('Alert'),
-                                            content: SingleChildScrollView(
-                                              child: ListBody(
-                                                children: const <Widget>[
-                                                  Text(
-                                                      'You are ready to use 7 days free trial')
-                                                ],
-                                              ),
-                                            ),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                child: const Text('OK'),
-                                                onPressed: () async {
-                                                  String uid =
-                                                      const Uuid().v1();
-                                                  //isImageUpload.value = true;
-                                                  UploadTask uploadTask =
-                                                      FirebaseStorage.instance
-                                                          .ref()
-                                                          .child(
-                                                              "files/schooProfile/$uid")
-                                                          .putData(file!);
-
-                                                  final TaskSnapshot snap =
-                                                      await uploadTask;
-                                                  final String downloadUrl =
-                                                      await snap.ref
-                                                          .getDownloadURL();
-
-                                                  await addNewSchoolController
-                                                      .addNewSchool(
-                                                          context,
-                                                          tarifController
-                                                              .maxstudents
-                                                              .value,
-                                                          tarifController
-                                                              .selectedPlan.value,
-                                                          tarifController
-                                                              .price.value,
-                                                          gst.toString(),
-                                                          totalpayment,
-                                                          tarifController
-                                                                  .additionalFeatures[
-                                                              0],
-                                                          tarifController
-                                                              .additionalFeatures[1],
-                                                          downloadUrl);
-                                                },
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                      //    if (isChecked == true) {
-                                      //   return showDialog(
-                                      //     context: context,
-                                      //     barrierDismissible:
-                                      //         false, // user must tap button!
-                                      //     builder: (BuildContext context) {
-                                      //       return AlertDialog(
-                                      //         title: const Text('Alert'),
-                                      //         content: SingleChildScrollView(
-                                      //           child: ListBody(
-                                      //             children: const <Widget>[
-                                      //               Text(
-                                      //                   'You are ready to use 7 days free trial')
-                                      //             ],
-                                      //           ),
-                                      //         ),
-                                      //         actions: <Widget>[
-                                      //           TextButton(
-                                      //             child: const Text('OK'),
-                                      //             onPressed: () async {
-                                      //               await addNewSchoolController
-                                      //                   .addNewSchool(
-                                      //                       context,
-                                      //                       tarifController
-                                      //                           .maxstudents.value,
-                                      //                       tarifController
-                                      //                           .selectedPlan.value,
-                                      //                       tarifController
-                                      //                           .price.value,
-                                      //                       gst.toString(),
-                                      //                       totalpayment,
-                                      //                       tarifController
-                                      //                               .additionalFeatures[
-                                      //                           0],
-                                      //                       tarifController
-                                      //                           .additionalFeatures[1]);
-                                      //             },
-                                      //           ),
-                                      //         ],
-                                      //       );
-                                      //     },
-                                      //   );
-                                      // } else {
-                                      //   showToast(
-                                      //       msg:
-                                      //           'Please accept the terms and conditions');
-                                      //   return _validateForm();
-                                      // }
-                                      // if (tarif == false) {
-                                      //   return showDialog(
-                                      //     context: context,
-                                      //     barrierDismissible:
-                                      //         false, // user must tap button!
-                                      //     builder: (BuildContext context) {
-                                      //       return AlertDialog(
-                                      //         title: const Text('Alert'),
-                                      //         content: SingleChildScrollView(
-                                      //           child: ListBody(
-                                      //             children:  <Widget>[
-                                      //               GoogleMonstserratWidgets(text:
-                                      //                   'Please complete tariff section',fontsize: 15.w,)
-                                      //             ],
-                                      //           ),
-                                      //         ),
-                                      //         actions: <Widget>[
-                                      //           TextButton(
-                                      //             child: const Text('OK'),
-                                      //             onPressed: () {
-                                      //               Navigator.of(context).pop();
-                                      //             },
-                                      //           ),
-                                      //         ],
-                                      //       );
-                                      //     },
-                                      //   );
-                                      //   ///////////////////////////////////////////////////////////////////////////////////
-                                      //   /////////////////
-                                      //   /////////////////////////////
-                                      //   //////////////////////////////
-                                      //   ///
-                                      //   ///
-                                      //   ///
-                                      //   ///
-                                      //   ///
-                                      //   ///
-                                      //   ///
-                                      //   ///
-                                      // } else {
-
-                                      // }
-                                    }
-                                  }
-                                },
-                                child: const Text("Create"),
-                              ),
-                            ),
-                          ),
-                        ]),
-                  ),
                 ),
-              ),
-            ),
-          ],
-        ),
-      ]),
+              ],
+            )),
+      ),
     );
   }
 
@@ -751,41 +387,127 @@ class _SchoolProfileState extends State<SchoolProfile> {
   }
 }
 
-class SchoolTextFormFieldWidget extends StatelessWidget {
-  SchoolTextFormFieldWidget({
+class DropdownSearchContainer extends StatelessWidget {
+  const DropdownSearchContainer({
+    required this.title,
+    this.items,
+    this.color,
     super.key,
-    required this.textEditingController,
-    required this.labelText,
-    required this.function,
-    required this.icon,
-    this.obscureText,
-    this.hintText,
   });
+  final String title;
+  final List<Widget>? items;
+  final List<Color>? color;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
+      height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
+      color: cWhite,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TextFontWidget(text: title, fontsize: 12.5),
+          const SizedBox(
+            height: 05,
+          ),
+          SizedBox(
+            height: 40,
+            child: DropdownSearch(
+              items: items ?? [],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-  final TextEditingController textEditingController;
-  final String labelText;
-  final String? Function(String? fieldContent) function;
-  IconData icon;
-  bool? obscureText;
-  final String? hintText;
+class TextFormFiledBlueContainerWidget1 extends StatelessWidget {
+  TextEditingController? controller = TextEditingController();
+  final String title;
+  final String hintText;
+  final Widget? widget;
+  // Added child parameter
+  final double? width;
+  Function(String)? onChanged;
+  Iterable<String>? autofillHints;
+  String? Function(String?)? validator;
+  Function()? onTap;
+  TextInputType? keyboardType;
+
+  TextFormFiledBlueContainerWidget1({
+    this.width,
+    this.widget,
+    required this.hintText,
+    required this.title,
+    this.keyboardType,
+    this.controller,
+    this.autofillHints,
+    this.onChanged,
+    this.validator,
+    this.onTap,
+    Key? key,
+    required String labelText, // Changed super.key to Key key
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 5.w, left: 15.w, right: 15.w, top: 15.w),
-      child: TextFormField(
-        // obscureText: obscureText,
-        validator: function,
-        controller: textEditingController,
-        decoration: InputDecoration(
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-            icon: Icon(
-              icon,
-              color: const Color.fromARGB(221, 28, 9, 110),
+    return Container(
+      height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextFontWidget(text: '$title *', fontsize: 12.5),
+            ],
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Container(
+            height: 40,
+            width: width,
+            color: Colors.white,
+            child: Center(
+              child: TextFormField(
+                onChanged: onChanged,
+                autofillHints: autofillHints,
+                onTap: onTap,
+                validator: validator,
+                keyboardType: keyboardType,
+                controller: controller,
+                decoration: InputDecoration(
+                  errorBorder: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(0)),
+                    borderSide: BorderSide(
+                      width: 1,
+                      style: BorderStyle.none,
+                      color: Colors.red,
+                    ),
+                  ),
+                  focusedErrorBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 1,
+                      style: BorderStyle.none,
+                      color: Colors.red,
+                    ),
+                  ),
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(width: 0.4),
+                  ),
+                  hintStyle: const TextStyle(fontSize: 13),
+                  hintText: hintText,
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: Colors.green),
+                  ),
+                ),
+              ),
             ),
-            labelText: labelText,
-            hintText: hintText,
-            labelStyle: TextStyle(color: cBlack)),
+          ),
+        ],
       ),
     );
   }
