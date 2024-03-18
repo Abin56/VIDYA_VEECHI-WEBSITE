@@ -65,7 +65,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 100,
+        height: 105,
         width: double.infinity,
         child: Column(
           children: [
@@ -85,49 +85,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                   ],
                 ),
                 const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, right: 15),
-                  child: Container(
-                    height: 45,
-                    width: 280,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      children: [
-                        // const TextFontWidget(text: '🗓️', fontsize: 12),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.calendar_month_outlined),
-                        ),
-                        TextFontWidget(
-                            text: '${UserCredentialsController.batchId}',
-                            fontsize: 12),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: GestureDetector(
-                            onTap: () => academicYearSettingFunction(context),
-                            child: Container(
-                              height: 34,
-                              width: 34,
-                              decoration: BoxDecoration(
-                                  color: cWhite,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.settings_outlined,
-                                  color: cBlack,
-                                ),
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+               ////
+               ///....
                 SizedBox(
                   width: 109,
                   child: Column(
@@ -267,6 +226,52 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 ),
               ],
             ),
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [ 
+               Padding(
+                  padding: const EdgeInsets.only(bottom: 5, ),
+                  child: Container(
+                    height: 45,
+                    width: 280,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      children: [
+                        // const TextFontWidget(text: '🗓️', fontsize: 12),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(Icons.calendar_month_outlined),
+                        ),
+                        TextFontWidget(
+                            text: '${UserCredentialsController.batchId}',
+                            fontsize: 12),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: GestureDetector(
+                            onTap: () => academicYearSettingFunction(context),
+                            child: Container(
+                              height: 34,
+                              width: 34,
+                              decoration: BoxDecoration(
+                                  color: cWhite,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Center(
+                                child: Icon(
+                                  Icons.settings_outlined,
+                                  color: cBlack,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+            ],)
           ],
         ),
       ),

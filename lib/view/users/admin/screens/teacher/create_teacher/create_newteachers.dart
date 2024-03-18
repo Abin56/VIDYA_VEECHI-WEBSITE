@@ -32,110 +32,109 @@ class CreateTeacher extends StatelessWidget {
         hintText: " Enter Teacher Name",
         title: 'Teacher Name',
         validator: checkFieldEmpty,
-      ), /////////////////////////...........................1
-      Obx(() => teacherController.automaticmail.value == false
-          ? TextFormFiledBlueContainerWidget(
-              hintText: " Enter Teacher Email",
-              title: 'Teacher Email',
-              widget: Row(
-                children: [
-                  const TextFontWidget(
-                      text: 'Teacher have no email ID?', fontsize: 10.5),
-                  SizedBox(
-                    height: 05,
-                    child: Checkbox(
-                      activeColor: cgreen,
-                      value: teacherController.automaticmail.value,
-                      onChanged: (value) {
-                        value = teacherController.automaticmail.value = true;
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            )
-          : SizedBox(
-              height: 100,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const TextFontWidget(
-                          text: '  Teacher have no email ID?', fontsize: 10.5),
-                      SizedBox(
-                        height: 10,
-                        child: Checkbox(
-                          activeColor: cgreen,
-                          value: teacherController.automaticmail.value,
-                          onChanged: (value) {
-                            value =
-                                teacherController.automaticmail.value = false;
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 05,
-                  ),
-                  Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: themeColorBlue,
-                      border: Border.all(color: cBlack.withOpacity(0.4)),
-                    ),
-                    child: const Center(
-                      child: TextFontWidget(
-                        text: "Auto - Creation",
-                        fontsize: 12.5,
-                        color: cWhite,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            )), //////////////////////////////2..................
+      ), /////////////////////////...........................1....................name
+      // Obx(() => teacherController.automaticmail.value == false
+      //     ? TextFormFiledBlueContainerWidget(
+      //         hintText: " Enter Teacher Email",
+      //         title: 'Teacher Email',
+      //         widget: Row(
+      //           children: [
+      //             const TextFontWidget(
+      //                 text: 'Teacher have no email ID?', fontsize: 10.5),
+      //             SizedBox(
+      //               height: 05,
+      //               child: Checkbox(
+      //                 activeColor: cgreen,
+      //                 value: teacherController.automaticmail.value,
+      //                 onChanged: (value) {
+      //                   value = teacherController.automaticmail.value = true;
+      //                 },
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       )
+      //     : SizedBox(
+      //         height: 100,
+      //         child: Column(
+      //           children: [
+      //             Row(
+      //               children: [
+      //                 const TextFontWidget(
+      //                     text: '  Teacher have no email ID?', fontsize: 10.5),
+      //                 SizedBox(
+      //                   height: 10,
+      //                   child: Checkbox(
+      //                     activeColor: cgreen,
+      //                     value: teacherController.automaticmail.value,
+      //                     onChanged: (value) {
+      //                       value =
+      //                           teacherController.automaticmail.value = false;
+      //                     },
+      //                   ),
+      //                 ),
+      //               ],
+      //             ),
+      //             const SizedBox(
+      //               height: 05,
+      //             ),
+      //             Container(
+      //               height: 40,
+      //               decoration: BoxDecoration(
+      //                 color: themeColorBlue,
+      //                 border: Border.all(color: cBlack.withOpacity(0.4)),
+      //               ),
+      //               child: const Center(
+      //                 child: TextFontWidget(
+      //                   text: "Auto - Creation",
+      //                   fontsize: 12.5,
+      //                   color: cWhite,
+      //                 ),
+      //               ),
+      //             )
+      //           ],
+      //         ),
+      //       )), //////////////////////////////2..................
       TextFormFiledBlueContainerWidget(
         controller: teacherController.teacherPhoneNumeber,
         hintText: " Enter Teacher Ph",
         title: 'Phone Number',
         validator: checkFieldPhoneNumberIsValid,
-      ), //////////////////3....................
-      Container(
-        height: 80,
-        color: cWhite,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const TextFontWidget(text: 'Gender *', fontsize: 12.5),
-            const SizedBox(
-              height: 05,
-            ),
-            SizedBox(
-              height: 40,
-              child: DropdownSearch(
-                items: const ['Male', 'Female'],
-                onChanged: (value) {
-                  teacherController.gender.value = value ?? '';
-                },
-              ),
-            ),
-          ],
-        ),
-      ), ////////////////////4.....................
+      ), //////////////////2....................number...................
+      // Container(
+      //   height: 80,
+      //   color: cWhite,
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       const TextFontWidget(text: 'Gender *', fontsize: 12.5),
+      //       const SizedBox(
+      //         height: 05,
+      //       ),
+      //       SizedBox(
+      //         height: 40,
+      //         child: DropdownSearch(
+      //           items: const ['Male', 'Female'],
+      //           onChanged: (value) {
+      //             teacherController.gender.value = value ?? '';
+      //           },
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ), ////////////////////4.....................
       TextFormFiledBlueContainerWidget(
         controller: teacherController.teacherIDController,
         hintText: " Enter Employee Id",
         title: 'Employee Id',
-      ), ///////////////////5
-
+      ), ///////////////////3.......................
       Container(
         height: 80,
         color: cWhite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TextFontWidget(text: 'Date of birth 🗓️ *', fontsize: 12.5),
+            const TextFontWidget(text: 'Date of joining 🗓️ *', fontsize: 12.5),
             const SizedBox(
               height: 05,
             ),
@@ -162,13 +161,13 @@ class CreateTeacher extends StatelessWidget {
           ],
         ),
       ),
-      // /////////////////////6.............
+      // /////////////////////4.............joinong date
       TextFormFiledBlueContainerWidget(
         controller: teacherController.teacherPhoneNumeber,
         hintText: " Enter in number eg 100,500..",
         title: 'Enter Teacher Fees (per/hour)',
         validator: checkFieldPhoneNumberIsValid,
-      ), //////////////////////////7..................
+      ), //////////////////////////5..................fees
 
       Obx(() => ProgressButtonWidget(
           function: () async {
@@ -251,12 +250,12 @@ class CreateTeacher extends StatelessWidget {
                                             left: 10,
                                           ),
                                           child: createTeacherListWidget[
-                                              2]), /////2..........email
+                                              2]), /////2..........number
                                       Padding(
                                           padding: const EdgeInsets.only(
                                               right: 20, left: 10, top: 10),
                                           child: createTeacherListWidget[
-                                              3] //////////////////////............number
+                                              3] //////////////////////............id
                                           ),
                                     ],
                                   ),
@@ -267,13 +266,13 @@ class CreateTeacher extends StatelessWidget {
                                         padding: const EdgeInsets.only(
                                             left: 10, right: 20),
                                         child: createTeacherListWidget[
-                                            4] //////////..........gender
+                                            4] //////////..........joining date
                                         ),
                                     Padding(
                                         padding: const EdgeInsets.only(
                                             left: 10, right: 20),
                                         child: createTeacherListWidget[
-                                            6] /////////////////////dob............
+                                            5] /////////////////////fee............
                                         ),
                                   ],
                                 ),
@@ -283,17 +282,17 @@ class CreateTeacher extends StatelessWidget {
                                         padding: const EdgeInsets.only(
                                             left: 10, right: 20),
                                         child: createTeacherListWidget[
-                                            7] ////////////sub............
+                                            6] ////////////button............
                                         ),
                                   ],
                                 ),
                               ],
                             ),
-                            Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 20, left: 20),
-                                child: createTeacherListWidget[8] ////button
-                                )
+                            // Padding(
+                            //     padding:
+                            //         const EdgeInsets.only(top: 20, left: 20),
+                            //     child: createTeacherListWidget[8] ////button
+                            //     )
                           ],
                         ),
                       ),
@@ -329,12 +328,12 @@ class CreateTeacher extends StatelessWidget {
                                 Expanded(
                                   flex: 1,
                                   child: Padding(
-                                      padding: const EdgeInsets.only(
+                                      padding: const EdgeInsets.only(top: 30,
                                         right: 20,
                                         left: 10,
                                       ),
                                       child: createTeacherListWidget[
-                                          2]), ////////////email
+                                          2]), ////////////number
                                 ),
                                 Expanded(
                                   flex: 1,
@@ -342,7 +341,7 @@ class CreateTeacher extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           right: 20, left: 10, top: 30),
                                       child: createTeacherListWidget[
-                                          3]), ///////////number
+                                          3]), ///////////employee id
                                 ),
                               ],
                             ),
@@ -355,15 +354,15 @@ class CreateTeacher extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           left: 10, right: 20, bottom: 20),
                                       child: createTeacherListWidget[
-                                          4] //////////////////gnder...........
+                                          4] //////////////////joinin date...........
                                       )),
                               Expanded(
                                   flex: 1,
                                   child: Padding(
-                                      padding: const EdgeInsets.only(
+                                      padding: const EdgeInsets.only(top: 10,
                                           left: 10, right: 20, bottom: 20),
                                       child:
-                                          createTeacherListWidget[6] //////dob
+                                          createTeacherListWidget[5] //////fee
                                       )),
                             ],
                           ),
@@ -379,14 +378,14 @@ class CreateTeacher extends StatelessWidget {
                                           padding: const EdgeInsets.only(
                                               left: 10, right: 20),
                                           child: createTeacherListWidget[
-                                              7] /////sub..........
+                                              6] /////button..........
                                           ),
-                                      Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 20, left: 20),
-                                          child: createTeacherListWidget[
-                                              8] //////button
-                                          )
+                                      // Padding(
+                                      //     padding: const EdgeInsets.only(
+                                      //         top: 20, left: 20),
+                                      //     child: createTeacherListWidget[
+                                      //         8] //////button
+                                      //     )
                                     ],
                                   )),
                             ],

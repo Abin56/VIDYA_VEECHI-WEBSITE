@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
+import 'package:vidyaveechi_website/controller/admin_section/parent_controller/parent_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
@@ -13,13 +13,13 @@ import 'package:vidyaveechi_website/view/users/admin/screens/students/student_de
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
-class StudentDetailsContainer extends StatelessWidget {
-  final StudentController studentController = Get.put(StudentController());
-  StudentDetailsContainer({super.key});
+class ParentDetailsContainer extends StatelessWidget {
+  final ParentController parentController = Get.put(ParentController());
+  ParentDetailsContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final data = studentController.studentModelData.value;
+    final data = parentController.parentModelData.value;
 
     return DefaultTabController(
       length: 3,
@@ -35,7 +35,7 @@ class StudentDetailsContainer extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 25, top: 25),
                 child: TextFontWidget(
-                  text: 'Student Details',
+                  text: 'Parent Details',
                   fontsize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -66,7 +66,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                       ),
                                       child: GestureDetector(
                                         onTap: () {
-                                          studentController.ontapStudent.value =
+                                          parentController.ontapParent.value =
                                               false;
                                         },
                                         child:
@@ -75,7 +75,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                       ),
                                     ),
                                     const RouteSelectedTextContainer(
-                                        width: 140, title: 'Student Deatils'),
+                                        width: 140, title: 'Parent Deatils'),
                                   ],
                                 ),
                               ),
@@ -121,7 +121,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                           Padding(
                                             padding: const EdgeInsets.only(left: 10, top: 10),
                                             child: TextFontWidget(
-                                              text: data!.studentName,
+                                              text:" ${ data!.parentName}",
                                               fontsize: 20,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -138,13 +138,13 @@ class StudentDetailsContainer extends StatelessWidget {
                                                   StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Gender',
-                                                    subtitle: data.gender,
+                                                    subtitle: "${data.gender}",
                                                   ),
-                                                  StudentDetailTileContainer(
-                                                    flex: 1,
-                                                    title: 'Date of Birth',
-                                                    subtitle: data.dateofBirth,
-                                                  ),
+                                                  // StudentDetailTileContainer(
+                                                  //   flex: 1,
+                                                  //   title: 'Date of Birth',
+                                                  //   subtitle: "${data.dateofBirth}",
+                                                  // ),
                                                   // const StudentDetailTileContainer(
                                                   //   flex: 1,
                                                   //   title: 'Batch Year',
@@ -152,16 +152,16 @@ class StudentDetailsContainer extends StatelessWidget {
                                                   // ),
                                                   StudentDetailTileContainer(
                                                     flex: 1,
-                                                    title: 'Admission No',
+                                                    title: 'Place',
                                                     subtitle:
-                                                        data.admissionNumber,
+                                                        "${data.place}",
                                                   ),
                                                   StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Join Date',
                                                     subtitle:
                                                         stringTimeToDateConvert(
-                                                            data.createDate),
+                                                            "${data.createdate}"),
                                                   ),
                                                 ],
                                               ),
@@ -189,15 +189,10 @@ class StudentDetailsContainer extends StatelessWidget {
                                               ),
                                               SizedBox(width: 60,),
                                               GestureDetector(
-                                                onTap:  () => Get.find<
-                                                            StudentController>()
-                                                        .enableorDisableUpdate(
-                                                      data.docid,
-                                                      true,
-                                                    ),
-                                                child: CircleAvatar(child:  Icon(
-                                                  Icons.edit_square,size: 21,
-                                                  color: cBlack.withOpacity(0.3),))),
+                                                onTap: () {
+                                                //  editFunctionOfStudentPhoneNo(context);
+                                                },
+                                                child: CircleAvatar(child: const Icon(Icons.edit_square,size: 21,))),
                                               // Container(
                                               //   height: 30,
                                               //   width: 30,
@@ -211,7 +206,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                             children: [
                                               const Icon(Icons.email),
                                               TextFontWidget(
-                                                text: data.studentemail,
+                                                text: "${data.parentEmail}",
                                                 fontsize: 12,
                                                 color: Colors.blue,
                                               )

@@ -18,11 +18,14 @@ class ParentController extends GetxController {
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   final docUID = uuid.v1();
 
+ final Rx<String> studentName = ''.obs;
   RxBool ontapParent = false.obs;
   RxString dobSelectedDate = ''.obs;
   RxString joiningSelectedDate = ''.obs;
   RxString stParentUID = ''.obs; // Parent Email Auth ID
   RxString stParnetEmail = ''.obs;
+   RxBool ontapviewParent = false.obs;
+    Rxn<ParentModel> parentModelData = Rxn<ParentModel>();
 
 //......................  Add Parent Section
 
