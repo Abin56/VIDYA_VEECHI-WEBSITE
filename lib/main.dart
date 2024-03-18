@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
+import 'package:vidyaveechi_website/view/users/admin/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 // import 'package:vidyaveechi_website/view/home/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             // home: const Sample(),
             home: SplashScreen(),
+            // home: Scaffold(
+            //   body: ExamNotification(),
+            // ),
             theme: ThemeData(
                 inputDecorationTheme: InputDecorationTheme(
                     border: OutlineInputBorder(
