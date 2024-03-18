@@ -5,6 +5,7 @@ import 'package:vidyaveechi_website/view/create_teacher_profile/create_teacher_p
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/teachers/teachers_all_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
+import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/new_admin_page_create.dart';
 import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/all_students.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/teacher_attendance/all_teachers.dart';
@@ -102,7 +103,9 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
+  
   AllStudentListContainer(),
+   
    StudentDetailsContainer(),
   const AllExamNotificationListView(),
   CreateStudent(),
@@ -127,9 +130,12 @@ List<Widget> pages = [
 
   const AllTeachersList(),
   const CreateTeacherProfile(),
+  
+
   Center(
     child: Text(sideMenu[5]),
   ),
+  AdminCreatePage(),
 
   Center(
     child: Text(sideMenu[7]),

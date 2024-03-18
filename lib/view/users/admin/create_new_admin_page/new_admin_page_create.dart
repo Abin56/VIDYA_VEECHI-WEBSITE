@@ -192,8 +192,7 @@ class AdminCreatePage extends StatelessWidget {
         ),
       ), ///////////////////////////......................13
     ];
-    return Scaffold(
-    body: SingleChildScrollView(
+    return  SingleChildScrollView(
         child: ResponsiveWebSite.isMobile(context)
             ? Container(
                 color: screenContainerbackgroundColor,
@@ -627,7 +626,7 @@ class AdminCreatePage extends StatelessWidget {
                   ),
                 ),
               ), //////////////////////////////////////////////...................web view
-      ),
-    );
+      );
+    
   }
 }

@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
+import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 // import 'package:vidyaveechi_website/view/home/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
+
+import 'view/users/admin/create_new_admin_page/new_admin_page_create.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,8 +34,8 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             // home: const Sample(),
             home:
-              // AppBarAdminPanel(),
-              SplashScreen(),
+                AdminHomeScreen(),
+            // SplashScreen(),
             theme: ThemeData(
                 inputDecorationTheme: InputDecorationTheme(
                     border: OutlineInputBorder(
