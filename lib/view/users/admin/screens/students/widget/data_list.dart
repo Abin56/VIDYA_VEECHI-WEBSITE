@@ -142,7 +142,7 @@ class AllStudentDataList extends StatelessWidget {
                         color: cWhite,
                         // width: 150,
                         index: index,
-                        headerTitle: '${snap.data!['className']} ');
+                        headerTitle: '${snap.data!['className']}');
                   } else {
                     return const SizedBox();
                   }

@@ -207,6 +207,7 @@ class TimeTableDropdownContainerWidget extends StatelessWidget {
   const TimeTableDropdownContainerWidget({
     required this.title,
      this.items,
+     
    this.color,
     super.key,
   });
@@ -215,7 +216,7 @@ final List<String>? items ;
 final List<Color>? color ;
   @override
   Widget build(BuildContext context) {
-    return Container(width: ResponsiveWebSite.isMobile(context) ?double.infinity:400,
+    return Container(width: ResponsiveWebSite.isMobile(context) ?double.infinity:500,
       height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
       color: cWhite,
       child: Column(

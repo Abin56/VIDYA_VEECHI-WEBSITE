@@ -15,6 +15,7 @@ import 'package:vidyaveechi_website/view/widgets/button_container/button_contain
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
+
 class AllStudentListContainer extends StatelessWidget {
   final StudentController studentController = Get.put(StudentController());
   AllStudentListContainer({super.key});
@@ -90,8 +91,7 @@ class AllStudentListContainer extends StatelessWidget {
                           child: Container(
                             color: cWhite,
                             child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 10, right: 10, top: 20),
+                              padding: const EdgeInsets.only( top: 0),
                               child: Container(
                                 color: cWhite,
                                 height: 40,
@@ -185,7 +185,9 @@ class AllStudentListContainer extends StatelessWidget {
                                                 // print(studentController
                                                 //     .studentModelData.value = data);
                                               },
-                                              child: AllStudentDataList(
+                                              child: 
+                                              
+                                              AllStudentDataList(
                                                 data: data,
                                                 index: index,
                                               ),

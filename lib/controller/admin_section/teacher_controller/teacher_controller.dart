@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
+import 'package:intl/intl.dart';
 import 'package:progress_state_button/progress_button.dart';
 import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
 import 'package:vidyaveechi_website/view/constant/const.dart';
@@ -14,10 +15,15 @@ class TeacherController extends GetxController {
   TextEditingController teacherPhoneNumeber = TextEditingController();
   TextEditingController teacherIDController = TextEditingController();
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
+   final Rx<String> dateofbithController = ''.obs;
+  final Rx<String> gender = ''.obs;
+   final Rx<String> subject = ''.obs;
+  final Rxn<DateTime> selectedDOB = Rxn<DateTime>();
   RxBool ontapTeacher = false.obs;
   RxString dobSelectedDate = ''.obs;
   RxString joiningSelectedDate = ''.obs;
   RxBool ontapviewteacher = false.obs;
+   Rxn<TeacherModel> teacherModelData = Rxn<TeacherModel>();
 
 //......................  Add teacher Section
 
@@ -130,6 +136,26 @@ class TeacherController extends GetxController {
     }
   }
 
+selectToDateofBirth(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDOB.value ?? DateTime.now(),
+      firstDate: DateTime(1920),
+      lastDate: DateTime(2030),
+      // builder: (context, child) {
+      //   return Container();
+      // },
+    );
+    if (picked != null && picked != selectedDOB.value) {
+      selectedDOB.value = picked;
+      DateTime parseDate = DateTime.parse(selectedDOB.value.toString());
+      final DateFormat formatter = DateFormat('yyyy-MMMM-dd');
+      String formatted = formatter.format(parseDate);
+
+      dateofbithController.value = formatted.toString();
+      log(formatted.toString());
+    }
+  }
   void clearFields() {
     teacherNameController.clear();
     teacherPhoneNumeber.clear();

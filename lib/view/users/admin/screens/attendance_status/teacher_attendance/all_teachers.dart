@@ -12,7 +12,7 @@ class AllTeachersAttendance extends StatelessWidget {
   Widget build(BuildContext context) {
     final trattendanceListWidget = [
       TextFontWidget(
-        text: 'ff',
+        text: 'Attendance of Teachers',
         fontsize: ResponsiveWebSite.isMobile(context) ? 15 : 18,
         fontWeight: FontWeight.bold,
       ), ////////////////////////////Attendance of Teachers/////....................0
