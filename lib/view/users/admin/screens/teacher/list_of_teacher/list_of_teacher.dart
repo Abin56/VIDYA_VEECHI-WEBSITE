@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
@@ -18,21 +16,15 @@ import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/rout
 
 class AllTeacherListContainer extends StatelessWidget {
   final TeacherController teacherController = Get.put(TeacherController());
-   AllTeacherListContainer({super.key});
+  AllTeacherListContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-     return
-     Obx(() => teacherController.ontapviewteacher.value == true
+    return Obx(() => teacherController.ontapviewteacher.value == true
         ? TeachersDetailsContainer()
-        : teacherController.ontapTeacher .value == true
+        : teacherController.ontapTeacher.value == true
             ? CreateTeacher()
-            :
-        // List<Widget> widgetlist = [];
-        // Obx(() => teacherController.ontapTeacher.value == true
-        //     ? const ViewClassTeacherScreen()
-        //     : 
-            SingleChildScrollView(
+            : SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
                   color: screenContainerbackgroundColor,
@@ -67,21 +59,9 @@ class AllTeacherListContainer extends StatelessWidget {
                                     title: 'All Teacher'),
                               ),
                               const Spacer(),
-                              // GestureDetector(
-                              //   onTap: () => createTeacher(context),
-                              //   child: const Padding(
-                              //     padding: EdgeInsets.only(left: 05, right: 05),
-                              //     child: SizedBox(
-                              //       width: 200,
-                              //       child: RouteSelectedTextContainer(
-                              //           title: 'Create New Class'),
-                              //     ), //.......................Create Class
-                              //   ),
-                              // ),
                               GestureDetector(
                                 onTap: () {
-                                  teacherController.ontapTeacher.value =
-                                        true;
+                                  teacherController.ontapTeacher.value = true;
                                 },
                                 child: ButtonContainerWidget(
                                     curving: 30,
@@ -184,14 +164,15 @@ class AllTeacherListContainer extends StatelessWidget {
                                       return ListView.separated(
                                           itemBuilder: (context, index) {
                                             final data = TeacherModel.fromMap(
-                                                  snaPS.data!.docs[index].data());
+                                                snaPS.data!.docs[index].data());
                                             return GestureDetector(
-                                              onTap: () { 
+                                              onTap: () {
                                                 teacherController
-                                                      .teacherModelData
-                                                      .value = data;
+                                                    .teacherModelData
+                                                    .value = data;
                                                 teacherController
-                                                  .ontapviewteacher.value = true;
+                                                    .ontapviewteacher
+                                                    .value = true;
                                               },
                                               child: AllTeachersDataList(
                                                 index: index,

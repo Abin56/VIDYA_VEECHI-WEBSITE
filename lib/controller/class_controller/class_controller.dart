@@ -15,8 +15,9 @@ class ClassController extends GetxController {
   final TextEditingController classNameEditController = TextEditingController();
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   List<ClassModel> allclassList = [];
+    List<ClassModel> classwiseSubjectList = [];
   RxString className = ''.obs;
-  RxString classDocID = ''.obs;
+  RxString classDocID = 'dd'.obs;
   RxBool ontapClass = false.obs;
 
   final _schoolserver = server
@@ -270,4 +271,6 @@ class ClassController extends GetxController {
     }
     return allclassList;
   }
+
+
 }

@@ -2,20 +2,20 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
-import 'package:vidyaveechi_website/model/class_model/class_model.dart';
+import 'package:vidyaveechi_website/controller/subject_controller/subject_controller.dart';
+import 'package:vidyaveechi_website/model/subject_model/subject_model.dart';
 
-class SelectClassDropDown extends StatelessWidget {
-  SelectClassDropDown({
+class SelectClassWiseSubjectDropDown extends StatelessWidget {
+  SelectClassWiseSubjectDropDown({
     Key? key,
   }) : super(key: key);
 
-  final classCtrl = Get.put(ClassController());
+  final subjectCtrl = Get.put(SubjectController());
 
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: DropdownSearch<ClassModel>(
+        child: DropdownSearch<SubjectModel>(
       validator: (item) {
         if (item == null) {
           return "Required field";
@@ -25,17 +25,16 @@ class SelectClassDropDown extends StatelessWidget {
       },
 
       // autoValidateMode: AutovalidateMode.always,
-  
       asyncItems: (value) {
-        classCtrl.allclassList.clear();
+        subjectCtrl.classwiseSubjectList.clear();
 
-        return classCtrl.fetchClass();
+        return subjectCtrl.fetchClassWiseSubject();
       },
-      itemAsString: (value) => value.className,
+      itemAsString: (value) => value.subjectName,
       onChanged: (value) async {
         if (value != null) {
-          classCtrl.className.value = value.className;
-          classCtrl.classDocID.value = value.docid;
+          subjectCtrl.subjectName.value = value.subjectName;
+          subjectCtrl.subjectID.value = value.docid;
         }
       },
       dropdownDecoratorProps: DropDownDecoratorProps(

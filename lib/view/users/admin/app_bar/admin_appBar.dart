@@ -1,6 +1,8 @@
 import 'package:awesome_side_sheet/Enums/sheet_position.dart';
 import 'package:awesome_side_sheet/side_sheet.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
@@ -8,6 +10,7 @@ import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/academic_year.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_setting/notification.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
 class AppBarAdminPanel extends StatefulWidget {
   const AppBarAdminPanel({
@@ -62,7 +65,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 105,
+        height: 100,
         width: double.infinity,
         child: Column(
           children: [
@@ -82,6 +85,49 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                   ],
                 ),
                 const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, right: 15),
+                  child: Container(
+                    height: 45,
+                    width: 280,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      children: [
+                        // const TextFontWidget(text: '🗓️', fontsize: 12),
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(Icons.calendar_month_outlined),
+                        ),
+                        TextFontWidget(
+                            text: '${UserCredentialsController.batchId}',
+                            fontsize: 12),
+                        const Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: GestureDetector(
+                            onTap: () => academicYearSettingFunction(context),
+                            child: Container(
+                              height: 34,
+                              width: 34,
+                              decoration: BoxDecoration(
+                                  color: cWhite,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Center(
+                                child: Icon(
+                                  Icons.settings_outlined,
+                                  color: cBlack,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
                 SizedBox(
                   width: 109,
                   child: Column(
@@ -219,74 +265,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                     ],
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(left: 05),
-                //   child: SizedBox(
-                //     width: 86,
-                //     child: Column(
-                //       mainAxisAlignment: MainAxisAlignment.center,
-                //       crossAxisAlignment: CrossAxisAlignment.end,
-                //       children: [
-                //         Row(
-                //           children: [
-                //             const Icon(
-                //               Icons.south_america,
-                //               color: Colors.amber,
-                //             ),
-                //             GooglePoppinsWidgets(text: ' EN ', fontsize: 12),
-                //             PopupMenuButton(
-                //               icon: const Icon(
-                //                 Icons.keyboard_arrow_down_rounded,
-                //                 color: cBlack,
-                //                 size: 17,
-                //               ),
-                //               itemBuilder: (BuildContext context) {
-                //                 return <PopupMenuEntry>[
-                //                   PopupMenuItem(
-                //                       child: Column(
-                //                     children: [
-                //                       Container(
-                //                         height: 400,
-                //                         color: Colors.red,
-                //                       ),
-                //                     ],
-                //                   ))
-                //                 ];
-                //               },
-                //             ),
-                //           ],
-                //         ),
-                //       ],
-                //     ),=-0u809-o[]
-                //   ),
-                // ),
               ],
             ),
-             Padding(
-               padding: const EdgeInsets.all(2.0),
-               child: Container(
-                decoration: const BoxDecoration(
-                  boxShadow: [BoxShadow(blurRadius: 1,offset: Offset(1, 2),color: cBlue)],
-                  color: cWhite),
-                height: 45,
-                width: 290,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const TextFontWidget(text: "Academic Year 2024 - 2025", fontsize: 15,fontWeight: FontWeight.w500,),
-                    // const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        academicYearSettingFunction(context);
-                      },
-                      child: Tooltip(
-                        message: "Academic Year Setting",
-                        child: Image.asset("assets/flact_png/upcoming_.png")),
-                    )//////////////////////////////////////////////////////////////////...set academic year
-                  ],
-                ),
-               ),
-             ),
           ],
         ),
       ),

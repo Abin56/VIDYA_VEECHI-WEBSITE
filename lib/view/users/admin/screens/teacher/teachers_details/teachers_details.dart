@@ -1,22 +1,25 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/asign_subject/asign_subject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/attendence_history_status/attendence_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/salary_history_status/salary_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/widgets/detail_tileContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
 class TeachersDetailsContainer extends StatelessWidget {
-   final TeacherController teacherController = Get.put(TeacherController());
-   TeachersDetailsContainer({super.key});
+  final TeacherController teacherController = Get.put(TeacherController());
+  TeachersDetailsContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-        final data = teacherController.teacherModelData.value;
-  //  final data = teacherController.teacherModelData.value;
+    final data = teacherController.teacherModelData.value;
+    //  final data = teacherController.teacherModelData.value;
     // List<Widget> widgetList = [];
     return DefaultTabController(
       length: 2,
@@ -63,8 +66,8 @@ class TeachersDetailsContainer extends StatelessWidget {
                                       ),
                                       child: GestureDetector(
                                         onTap: () {
-                                          teacherController.ontapTeacher.value =
-                                              false;
+                                          teacherController
+                                              .ontapviewteacher.value = false;
                                         },
                                         child:
                                             const RouteNonSelectedTextContainer(
@@ -111,12 +114,12 @@ class TeachersDetailsContainer extends StatelessWidget {
                                       width: double.infinity,
                                       height: 110,
                                       color: adminePrimayColor.withOpacity(0.1),
-                                      child:  Column(
+                                      child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 left: 10, top: 10),
                                             child: TextFontWidget(
                                               text: '${data!.teacherName}',
@@ -125,7 +128,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 top: 20, left: 10),
                                             child: SizedBox(
                                               width: 600,
@@ -143,17 +146,20 @@ class TeachersDetailsContainer extends StatelessWidget {
                                                   TeacherDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Employee Id',
-                                                    subtitle: '${data.employeeID}',
+                                                    subtitle:
+                                                        '${data.employeeID}',
                                                   ),
                                                   TeacherDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Phone No.',
-                                                    subtitle: '${data.teacherPhNo}',
+                                                    subtitle:
+                                                        '${data.teacherPhNo}',
                                                   ),
                                                   TeacherDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Email Id',
-                                                    subtitle: '${data.teacherEmail}',
+                                                    subtitle:
+                                                        '${data.teacherEmail}',
                                                   ),
                                                   // TeacherDetailTileContainer(
                                                   //   flex: 1,
@@ -168,27 +174,50 @@ class TeachersDetailsContainer extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                   Expanded(
+                                  Expanded(
                                     // flex: 1,
                                     child: Padding(
-                                      padding: EdgeInsets.only(left: 20),
+                                      padding: const EdgeInsets.only(left: 20),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Row(
                                             children: [
-                                              Icon(Icons.call),
+                                              const Icon(Icons.call),
                                               TextFontWidget(
                                                 text: " ${data.teacherPhNo}",
                                                 fontsize: 12,
                                                 color: adminePrimayColor,
-                                              )
+                                              ),
+                                              const Spacer(),
+                                              BlueContainerWidget(
+                                                color: themeColorBlue,
+                                                fontSize: 12,
+                                                title: '🔗 Class Access',
+                                                width: 120,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                              const SizedBox(
+                                                width: 10,
+                                              ),
+                                              GestureDetector(
+                                                onTap: () =>
+                                                    aSignSubjectFunction(
+                                                        context),
+                                                child: BlueContainerWidget(
+                                                  color: themeColorBlue,
+                                                  fontSize: 12,
+                                                  title: '⚙️ Asign Subjects',
+                                                  width: 120,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                           Row(
                                             children: [
-                                              Icon(Icons.location_on),
+                                              const Icon(Icons.location_on),
                                               TextFontWidget(
                                                 text:
                                                     "${data.houseName} , ${data.place}",
@@ -211,7 +240,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                   ),
                 ),
               ),
-        
+
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
                 child: Column(
@@ -224,8 +253,8 @@ class TeachersDetailsContainer extends StatelessWidget {
                         tabAlignment: TabAlignment.start,
                         isScrollable: true,
                         labelColor: adminePrimayColor,
-                        labelStyle:
-                            TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+                        labelStyle: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 14),
                         tabs: [
                           Tab(
                             text: 'SALARY',
@@ -257,12 +286,12 @@ class TeachersDetailsContainer extends StatelessWidget {
                   height: 600,
                   color: cWhite,
                   // color: Colors.amber,
-        
+
                   // height: 300,
                   child: const TabBarView(children: [
                     PerTeacherSalaryHistory(), //........................ Teacher FEES
                     PerTeacherAttendenceHistory(), //.......................... Teacher Attendence
-                   // PerExamHistory() //............................ Teacher Exam History
+                    // PerExamHistory() //............................ Teacher Exam History
                   ]),
                 ),
               )
