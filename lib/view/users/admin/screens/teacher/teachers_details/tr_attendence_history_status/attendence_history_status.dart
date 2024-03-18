@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/attendence_dataList.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tile_container.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/exam_dataList.dart';
 
-class PerStudentExamHistory extends StatelessWidget {
-  const PerStudentExamHistory({
+class PerStudentAttendenceHistory extends StatelessWidget {
+  const PerStudentAttendenceHistory({
     super.key,
   });
 
@@ -16,34 +16,34 @@ class PerStudentExamHistory extends StatelessWidget {
       children: [
         Container(
           height: 40,
-          width: 1200 ,
+          width: 1200,
           color: Colors.blue.withOpacity(0.1),
           child: const Padding(
             padding: EdgeInsets.all(8.0),
             child: TextFontWidget(
-              text: 'Exams section',
+              text: 'Attendance Section',
               fontsize: 16,
               fontWeight: FontWeight.bold,
               color: cBlue,
             ),
           ),
         ),
-        const Padding(  
+        const Padding(
           padding: EdgeInsets.only(top: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               StudentCategoryTileContainer(
-                  title: 'No.of Exam Passed',
-                  subTitle: '1500 / -',
+                  title: 'No.of Present',
+                  subTitle: '1500 ',
                   color: Color.fromARGB(255, 121, 240, 125)),
               StudentCategoryTileContainer(
-                  title: 'No.of Exam Failed',
-                  subTitle: '1000 / -',
+                  title: 'No.of Absent',
+                  subTitle: '1000',
                   color: Color.fromARGB(255, 234, 102, 92)),
               StudentCategoryTileContainer(
-                  title: 'No.of Exam Conducted',
-                  subTitle: '2500 / -',
+                  title: 'Working Days',
+                  subTitle: '2500 ',
                   color: Color.fromARGB(255, 121, 123, 240))
             ],
           ),
@@ -66,43 +66,43 @@ class PerStudentExamHistory extends StatelessWidget {
                       ),
                       Expanded(
                           flex: 1,
-                          child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Date/Day')),
+                          child:
+                              CatrgoryTableHeaderWidget(headerTitle: 'Days')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                           flex: 5,
                           child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Exam Subjects')),
+                              headerTitle: 'Subjects')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                           flex: 1,
                           child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Attended Exam')),
+                              headerTitle: 'Attended Class')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                           flex: 1,
                           child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Missed Exam')),
+                              headerTitle: 'Missed Classes')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                           flex: 1,
                           child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Total Exam')),
+                              headerTitle: 'Total Classes')),
                       SizedBox(
                         width: 02,
                       ),
                       Expanded(
                           flex: 1,
                           child: CatrgoryTableHeaderWidget(
-                              headerTitle: 'Present/Absent')),
+                              headerTitle: 'Presnet/Absent')),
                       SizedBox(
                         width: 02,
                       ),
@@ -117,7 +117,7 @@ class PerStudentExamHistory extends StatelessWidget {
                             return Padding(
                               padding:
                                   const EdgeInsets.only(left: 10, right: 10),
-                              child: ExameDataListContainer(index: index),
+                              child: AttendenceDataListContainer(index: index),
                             );
                           },
                           separatorBuilder: (context, index) {

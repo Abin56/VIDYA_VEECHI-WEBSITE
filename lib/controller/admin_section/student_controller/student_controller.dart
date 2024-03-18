@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,15 +26,18 @@ class StudentController extends GetxController {
   final RxString stdClassWiseValue = ''.obs;
   RxInt stAdNumber = 0000.obs; // Student Admission Number
   RxString stUID = ''.obs; // Student Email Auth ID
-
+  Rxn<StudentModel> studentModelData = Rxn<StudentModel>();
   final _randomstring = getRandomString(6);
   final _randomNum = getRandomNumber(4);
-
+//serach
+  List<StudentModel> studentProfileList = [];
+  RxBool onClassWiseSearch = false.obs;
   final _fbServer = server
       .collection('SchoolListCollection')
       .doc(UserCredentialsController.schoolId);
 
   RxBool ontapStudent = false.obs;
+  RxBool ontapCreateStudent = false.obs;
   RxString dobSelectedDate = ''.obs;
   RxString joiningSelectedDate = ''.obs;
 
@@ -239,7 +243,7 @@ class StudentController extends GetxController {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDOB.value ?? DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime(1920),
       lastDate: DateTime(2100),
       // builder: (context, child) {
       //   return Container();
@@ -343,10 +347,23 @@ class StudentController extends GetxController {
     }
   }
 
+  Future<void> fetchAllStudents() async {
+    try {
+      log("fetchAllStudents......................");
+      final data = await _fbServer.collection('AllStudents').get();
+      studentProfileList =
+          data.docs.map((e) => StudentModel.fromMap(e.data())).toList();
+      print(studentProfileList[0]);
+    } catch (e) {
+      showToast(msg: "User Data Error");
+    }
+  }
+
   @override
   void onReady() async {
     print("On Ready");
     await getAdmissionNumber();
+    await fetchAllStudents();
 
     super.onReady();
   }

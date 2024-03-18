@@ -13,13 +13,12 @@ import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_list
 import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/meeting_creating/meeting_creating.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/create_student/create_newStudent.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/student_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/list_of_teacher.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/teachers_details.dart';
 
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({super.key});
@@ -102,22 +101,21 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  const StudentDetailsContainer(),
+  AllTeacherListContainer(),
+
+  AllStudentListContainer(),
+
+  AllClassListView(),
+  const AdminDashBoardSections(),
   const AllExamNotificationListView(),
-  CreateStudent(),
   AllClassListView(),
   const AllTeachersAttendance(),
   const AllStudentsAttendance(),
   const StudentExamResult(),
-  CreateStudent(),
-  const AdminDashBoardSections(),
-  CreateStudent(),
-  ListingOfTeacher(),
+  TeachersDetailsContainer(),
+
   const FeesAndBillsPage(),
   CreateTeacher(),
-
-  CreateStudent(),
-  const StudentDetailsContainer(),
 
   AllClassListView(),
 
@@ -136,7 +134,7 @@ List<Widget> pages = [
   ////
 
   const MeetingCreatingPage(),
-
+  const AllExamNotificationListView(),
   const FeesAndBillsPage(),
   Container(
     height: 200,
@@ -144,7 +142,7 @@ List<Widget> pages = [
   ),
   const BatchHistroyListPage(),
   // const FeesAndBillsPage(),
-
+  const AllExamNotificationListView(),
   Center(
     child: Text(sideMenu[1]),
   ),

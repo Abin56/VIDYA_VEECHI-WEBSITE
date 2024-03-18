@@ -15,7 +15,7 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
   String? Function(String?)? validator;
   Function()? onTap;
   TextInputType? keyboardType;
-  TextFormFiledBlueContainerWidget({
+    TextFormFiledBlueContainerWidget({
     this.width,
     this.widget,
     required this.hintText,

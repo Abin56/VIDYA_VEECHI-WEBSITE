@@ -1,44 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
+import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
-class AllTeachersDataList extends StatelessWidget {
+class SearchStudentDataList extends StatelessWidget {
+  final StudentModel data;
   final int index;
-  final TeacherModel data;
-  const AllTeachersDataList({
-    required this.index,
+  const SearchStudentDataList({
     required this.data,
+    required this.index,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 45,
+      decoration: BoxDecoration(
+        color: index % 2 == 0
+            ? const Color.fromARGB(255, 246, 246, 246)
+            : Colors.blue[50],
+      ),
       child: Row(
         children: [
-          Expanded(
-            flex: 1,
-            child: DataContainerWidget(
-                rowMainAccess: MainAxisAlignment.center,
-                color: cWhite,
-                // width: 150,
-                index: index,
-                headerTitle: '${index + 1}'), //....................No
-          ),
-          const SizedBox(
-            width: 01,
-          ),
           Expanded(
             flex: 2,
             child: DataContainerWidget(
                 rowMainAccess: MainAxisAlignment.center,
                 color: cWhite,
                 index: index,
-                headerTitle: "${data.employeeID}"),
-          ), //................................................. teacher ID
+                headerTitle: data.admissionNumber),
+          ), //................................................. Student ID
           const SizedBox(
             width: 01,
           ),
@@ -54,16 +49,44 @@ class AllTeachersDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
-                    text: "  ${data.teacherName}",
+                    text: '  ${data.studentName}',
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
             ),
-          ), //........................................... teacher Name
+          ), //........................................... Student Name
+          const SizedBox(
+            width: 01,
+          ),
+          Expanded(
+            flex: 2,
+            child: StreamBuilder(
+                stream: server
+                    .collection('SchoolListCollection')
+                    .doc(UserCredentialsController.schoolId)
+                    .collection(UserCredentialsController.batchId!)
+                    .doc(UserCredentialsController.batchId!)
+                    .collection('classes')
+                    .doc(data.classId)
+                    .snapshots(),
+                builder: (context, snap) {
+                  if (snap.hasData) {
+                    return DataContainerWidget(
+                        rowMainAccess: MainAxisAlignment.center,
+                        color: cWhite,
+                        // width: 150,
+                        index: index,
+                        headerTitle: '${snap.data!['className']}');
+                  } else {
+                    return const SizedBox();
+                  }
+                }),
+          ), //............................. Student Class
+
           const SizedBox(
             width: 01,
           ),
@@ -79,16 +102,16 @@ class AllTeachersDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
-                    text: "  ${data.teacherEmail}",
+                    text: "  ${data.studentemail}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
             ),
-          ), // ................................... teacher Email
+          ), // ................................... Student Email
           const SizedBox(
             width: 01,
           ),
@@ -104,51 +127,17 @@ class AllTeachersDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
-                    text: "  ${data.teacherPhNo}",
+                    text: "  ${data.parentPhoneNumber}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
             ),
-          ), //....................................... teacher Phone Number
-          const SizedBox(
-            width: 01,
-          ),
-          // Expanded(
-          //   flex: 2,
-          //   child: DataContainerWidget(
-          //       rowMainAccess: MainAxisAlignment.center,
-          //       color: cWhite,
-          //       // width: 150,
-          //       index: index,
-          //       headerTitle: 'Class '),
-          // ), //............................. Student Class
-
-          // const SizedBox(
-          //   width: 01,
-          // ),
-          Expanded(
-            flex: 3,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 15,
-                  child: Image.asset(
-                    'assets/png/active.png',
-                  ),
-                ),
-                const TextFontWidget(
-                  text: "   ",
-                  fontsize: 12,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          ), //............................. Status [Active or DeActivate]
+          ), //....................................... Student Phone Number
+       
         ],
       ),
     );
