@@ -163,6 +163,7 @@ class _EventsEditREmoveState extends State<EventsEditREmove> {
 }
 
 
+// ignore: must_be_immutable
 class TextFormFiledBlueContainerWidgetEvent extends StatelessWidget {
   TextEditingController? controller = TextEditingController();
   final String title;

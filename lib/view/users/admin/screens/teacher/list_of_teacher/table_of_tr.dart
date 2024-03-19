@@ -15,8 +15,13 @@ class AllTeachersDataList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 45,
+    return Container(
+       height: 45,
+      decoration: BoxDecoration(
+        color: index % 2 == 0
+            ? const Color.fromARGB(255, 246, 246, 246)
+            : Colors.blue[50],
+      ),
       child: Row(
         children: [
           Expanded(

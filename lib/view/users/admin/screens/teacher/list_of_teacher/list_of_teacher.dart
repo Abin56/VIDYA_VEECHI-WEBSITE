@@ -22,8 +22,8 @@ class AllTeacherListContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() => teacherController.ontapviewteacher.value == true
         ? TeachersDetailsContainer()
-        : teacherController.ontapTeacher.value == true
-            ? CreateTeacher()
+        // : teacherController.ontapTeacher.value == true
+        //     ? CreateTeacher()
             : SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
@@ -63,19 +63,27 @@ class AllTeacherListContainer extends StatelessWidget {
                                 onTap: () {
                                   teacherController.ontapTeacher.value = true;
                                 },
-                                child: ButtonContainerWidget(
-                                    curving: 30,
-                                    colorindex: 0,
-                                    height: 35,
-                                    width: 150,
-                                    child: const Center(
-                                      child: TextFontWidget(
-                                        text: 'Create New Teacher',
-                                        fontsize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        color: cWhite,
-                                      ),
-                                    )),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 25,top: 5),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      createTeacherFunction(context);
+                                    },
+                                    child: ButtonContainerWidget(
+                                        curving: 30,
+                                        colorindex: 0,
+                                        height: 35,
+                                        width: 150,
+                                        child: const Center(
+                                          child: TextFontWidget(
+                                            text: 'Create New Teacher',
+                                            fontsize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: cWhite,
+                                          ),
+                                        )),
+                                  ),
+                                ),
                               )
                             ],
                           ),
@@ -85,7 +93,7 @@ class AllTeacherListContainer extends StatelessWidget {
                           child: Container(
                             color: cWhite,
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 0),
+                              padding: const EdgeInsets.only(left: 5,right: 5),
                               child: Container(
                                 color: cWhite,
                                 height: 40,
@@ -151,45 +159,48 @@ class AllTeacherListContainer extends StatelessWidget {
                                 color: cWhite,
                                 border: Border.all(color: cWhite),
                               ),
-                              child: SizedBox(
-                                // width: 1100,
-                                child: StreamBuilder(
-                                  stream: server
-                                      .collection('SchoolListCollection')
-                                      .doc(UserCredentialsController.schoolId)
-                                      .collection('Teachers')
-                                      .snapshots(),
-                                  builder: (context, snaPS) {
-                                    if (snaPS.hasData) {
-                                      return ListView.separated(
-                                          itemBuilder: (context, index) {
-                                            final data = TeacherModel.fromMap(
-                                                snaPS.data!.docs[index].data());
-                                            return GestureDetector(
-                                              onTap: () {
-                                                teacherController
-                                                    .teacherModelData
-                                                    .value = data;
-                                                teacherController
-                                                    .ontapviewteacher
-                                                    .value = true;
-                                              },
-                                              child: AllTeachersDataList(
-                                                index: index,
-                                                data: data,
-                                              ),
-                                            );
-                                          },
-                                          separatorBuilder: (context, index) {
-                                            return const SizedBox(
-                                              height: 02,
-                                            );
-                                          },
-                                          itemCount: snaPS.data!.docs.length);
-                                    } else {
-                                      return const LoadingWidget();
-                                    }
-                                  },
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 5,right: 5),
+                                child: SizedBox(
+                                  // width: 1100,
+                                  child: StreamBuilder(
+                                    stream: server
+                                        .collection('SchoolListCollection')
+                                        .doc(UserCredentialsController.schoolId)
+                                        .collection('Teachers')
+                                        .snapshots(),
+                                    builder: (context, snaPS) {
+                                      if (snaPS.hasData) {
+                                        return ListView.separated(
+                                            itemBuilder: (context, index) {
+                                              final data = TeacherModel.fromMap(
+                                                  snaPS.data!.docs[index].data());
+                                              return GestureDetector(
+                                                onTap: () {
+                                                  teacherController
+                                                      .teacherModelData
+                                                      .value = data;
+                                                  teacherController
+                                                      .ontapviewteacher
+                                                      .value = true;
+                                                },
+                                                child: AllTeachersDataList(
+                                                  index: index,
+                                                  data: data,
+                                                ),
+                                              );
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return const SizedBox(
+                                                height: 02,
+                                              );
+                                            },
+                                            itemCount: snaPS.data!.docs.length);
+                                      } else {
+                                        return const LoadingWidget();
+                                      }
+                                    },
+                                  ),
                                 ),
                               ),
                             ),

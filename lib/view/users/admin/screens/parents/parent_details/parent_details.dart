@@ -1,30 +1,27 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
+import 'package:vidyaveechi_website/controller/admin_section/parent_controller/parent_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/asign_subject/asign_subject.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/attendence_history_status/attendence_history_status.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/class_access/class_access.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/salary_history_status/salary_history_status.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/widgets/detail_tileContainer.dart';
-import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/attendence_history_status/attendence_history_status.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/exam_history_status/exam_history_status.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/fess_history_status/fess_history_status.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
-class TeachersDetailsContainer extends StatelessWidget {
-  final TeacherController teacherController = Get.put(TeacherController());
-  TeachersDetailsContainer({super.key});
+class ParentDetailsContainer extends StatelessWidget {
+  final ParentController parentController = Get.put(ParentController());
+  ParentDetailsContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final data = teacherController.teacherModelData.value;
-    //  final data = teacherController.teacherModelData.value;
-    // List<Widget> widgetList = [];
+    final data = parentController.parentModelData.value;
+
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Container(
@@ -37,7 +34,7 @@ class TeachersDetailsContainer extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 25, top: 25),
                 child: TextFontWidget(
-                  text: 'Teacher Details',
+                  text: 'Parent Details',
                   fontsize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -47,7 +44,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                 child: Container(
                   color: cWhite,
                   height: 260,
-                  child: Column(
+                  child: Column(  
                     children: [
                       Container(
                         height: 60,
@@ -68,8 +65,8 @@ class TeachersDetailsContainer extends StatelessWidget {
                                       ),
                                       child: GestureDetector(
                                         onTap: () {
-                                          teacherController
-                                              .ontapviewteacher.value = false;
+                                          parentController.ontapParent.value =
+                                              false;
                                         },
                                         child:
                                             const RouteNonSelectedTextContainer(
@@ -77,7 +74,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                       ),
                                     ),
                                     const RouteSelectedTextContainer(
-                                        width: 140, title: 'Teacher Deatils'),
+                                        width: 140, title: 'Parent Deatils'),
                                   ],
                                 ),
                               ),
@@ -87,7 +84,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                       ),
                       Container(
                         width: double.infinity,
-                        color: adminePrimayColor,
+                        color: Colors.blue,
                         height: 02,
                       ),
                       Expanded(
@@ -103,7 +100,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                                 child: CircleAvatar(
                                   radius: 78,
                                   backgroundImage:
-                                      AssetImage('assets/png/teacher (1).png'),
+                                      AssetImage('assets/png/student.png'),
                                 ),
                               ),
                             ),
@@ -114,17 +111,16 @@ class TeachersDetailsContainer extends StatelessWidget {
                                     padding: const EdgeInsets.only(left: 20),
                                     child: Container(
                                       width: double.infinity,
-                                      height: 110,
-                                      color: adminePrimayColor.withOpacity(0.1),
+                                      height: 100,
+                                      color: Colors.blue.withOpacity(0.1),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 10, top: 10),
+                                            padding: const EdgeInsets.only(left: 10, top: 10),
                                             child: TextFontWidget(
-                                              text: '${data!.teacherName}',
+                                              text:" ${ data!.parentName}",
                                               fontsize: 20,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -133,41 +129,39 @@ class TeachersDetailsContainer extends StatelessWidget {
                                             padding: const EdgeInsets.only(
                                                 top: 20, left: 10),
                                             child: SizedBox(
-                                              width: 600,
+                                              width: 500,
                                               child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
-                                                  TeacherDetailTileContainer(
+                                                  StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Gender',
-                                                    subtitle: '${data.gender}',
+                                                    subtitle: "${data.gender}",
                                                   ),
-                                                  TeacherDetailTileContainer(
-                                                    flex: 1,
-                                                    title: 'Employee Id',
-                                                    subtitle:
-                                                        '${data.employeeID}',
-                                                  ),
-                                                  TeacherDetailTileContainer(
-                                                    flex: 1,
-                                                    title: 'Phone No.',
-                                                    subtitle:
-                                                        '${data.teacherPhNo}',
-                                                  ),
-                                                  TeacherDetailTileContainer(
-                                                    flex: 1,
-                                                    title: 'Email Id',
-                                                    subtitle:
-                                                        '${data.teacherEmail}',
-                                                  ),
-                                                  // TeacherDetailTileContainer(
+                                                  // StudentDetailTileContainer(
                                                   //   flex: 1,
-                                                  //   title: 'Join Date',
-                                                  //   subtitle: '11/09/2007',
+                                                  //   title: 'Date of Birth',
+                                                  //   subtitle: "${data.dateofBirth}",
                                                   // ),
+                                                  // const StudentDetailTileContainer(
+                                                  //   flex: 1,
+                                                  //   title: 'Batch Year',
+                                                  //   subtitle: 'March 2023',
+                                                  // ),
+                                                  StudentDetailTileContainer(
+                                                    flex: 1,
+                                                    title: 'Place',
+                                                    subtitle:
+                                                        "${data.place}",
+                                                  ),
+                                                  StudentDetailTileContainer(
+                                                    flex: 1,
+                                                    title: 'Join Date',
+                                                    subtitle:
+                                                        stringTimeToDateConvert(
+                                                            "${data.createdate}"),
+                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -188,46 +182,32 @@ class TeachersDetailsContainer extends StatelessWidget {
                                             children: [
                                               const Icon(Icons.call),
                                               TextFontWidget(
-                                                text: " ${data.teacherPhNo}",
+                                                text: " +91 ${data.parentPhoneNumber} ",
                                                 fontsize: 12,
-                                                color: adminePrimayColor,
+                                                color: Colors.blue,
                                               ),
-                                              const Spacer(),
+                                              SizedBox(width: 60,),
                                               GestureDetector(
-                                                onTap: () => classAccessFunction(context),
-                                                child: BlueContainerWidget(
-                                                  color: themeColorBlue,
-                                                  fontSize: 12,
-                                                  title: '🔗 Class Access',
-                                                  width: 120,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 10,
-                                              ),
-                                              GestureDetector(
-                                                onTap: () =>
-                                                    aSignSubjectFunction(
-                                                        context),
-                                                child: BlueContainerWidget(
-                                                  color: themeColorBlue,
-                                                  fontSize: 12,
-                                                  title: '⚙️ Assign Subjects',
-                                                  width: 120,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
+                                                onTap: () {
+                                                //  editFunctionOfStudentPhoneNo(context);
+                                                },
+                                                child: CircleAvatar(child: const Icon(Icons.edit_square,size: 21,))),
+                                              // Container(
+                                              //   height: 30,
+                                              //   width: 30,
+                                              //   decoration:  BoxDecoration(
+                                              //     color: cgreen.withOpacity(0.3),
+                                              //     borderRadius: const BorderRadius.all(Radius.circular(5))),
+                                              //     child: const Icon(Icons.edit,size: 16,),)
                                             ],
                                           ),
-                                          Row(
+                                           Row(
                                             children: [
-                                              const Icon(Icons.location_on),
+                                              const Icon(Icons.email),
                                               TextFontWidget(
-                                                text:
-                                                    "${data.houseName} , ${data.place}",
+                                                text: "${data.parentEmail}",
                                                 fontsize: 12,
-                                                color: adminePrimayColor,
+                                                color: Colors.blue,
                                               )
                                             ],
                                           ),
@@ -257,19 +237,19 @@ class TeachersDetailsContainer extends StatelessWidget {
                         indicatorColor: cWhite,
                         tabAlignment: TabAlignment.start,
                         isScrollable: true,
-                        labelColor: adminePrimayColor,
+                        labelColor: Colors.blue,
                         labelStyle: TextStyle(
                             fontWeight: FontWeight.w400, fontSize: 14),
                         tabs: [
                           Tab(
-                            text: 'SALARY',
+                            text: 'FEES',
                           ),
                           Tab(
                             text: 'ATTENDANCE',
                           ),
-                          // Tab(
-                          //   text: 'EXAM ',
-                          // )
+                          Tab(
+                            text: 'EXAM ',
+                          )
                         ],
                       ),
                     ),
@@ -281,7 +261,7 @@ class TeachersDetailsContainer extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 0, left: 20, right: 20),
                 child: Container(
                   width: double.infinity,
-                  color: adminePrimayColor,
+                  color: Colors.blue,
                   height: 02,
                 ),
               ),
@@ -294,9 +274,9 @@ class TeachersDetailsContainer extends StatelessWidget {
 
                   // height: 300,
                   child: const TabBarView(children: [
-                    PerTeacherSalaryHistory(), //........................ Teacher FEES
-                    PerTeacherAttendenceHistory(), //.......................... Teacher Attendence
-                    // PerExamHistory() //............................ Teacher Exam History
+                    PerStudentFeesHistory(), //........................ Student FEES
+                    PerStudentAttendenceHistory(), //.......................... Student Attendence
+                    PerStudentExamHistory() //............................ Student Exam History
                   ]),
                 ),
               )

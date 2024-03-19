@@ -6,7 +6,6 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/attendence_history_status/attendence_history_status.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/edit_function_/edit_phoneno.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/exam_history_status/exam_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/fess_history_status/fess_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
@@ -189,10 +188,15 @@ class StudentDetailsContainer extends StatelessWidget {
                                               ),
                                               SizedBox(width: 60,),
                                               GestureDetector(
-                                                onTap: () {
-                                                  editFunctionOfStudentPhoneNo(context);
-                                                },
-                                                child: CircleAvatar(child: const Icon(Icons.edit_square,size: 21,))),
+                                                onTap:  () => Get.find<
+                                                            StudentController>()
+                                                        .enableorDisableUpdate(
+                                                      data.docid,
+                                                      true,
+                                                    ),
+                                                child: CircleAvatar(child:  Icon(
+                                                  Icons.edit_square,size: 21,
+                                                  color: cBlack.withOpacity(0.3),))),
                                               // Container(
                                               //   height: 30,
                                               //   width: 30,

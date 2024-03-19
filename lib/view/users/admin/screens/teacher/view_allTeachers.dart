@@ -4,7 +4,6 @@ import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/view_class_students/class_details.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/widget/data_list.dart';
 import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
@@ -54,19 +53,22 @@ class AllTeacherListContainer extends StatelessWidget {
                                     title: 'All Student'),
                               ),
                               const Spacer(),
-                              ButtonContainerWidget(
-                                  curving: 30,
-                                  colorindex: 0,
-                                  height: 35,
-                                  width: 150,
-                                  child: const Center(
-                                    child: TextFontWidget(
-                                      text: 'Create New Student',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.bold,
-                                      color: cWhite,
-                                    ),
-                                  ))
+                              Padding(
+                                padding: const EdgeInsets.only(right: 5,top: 25),
+                                child: ButtonContainerWidget(
+                                    curving: 30,
+                                    colorindex: 0,
+                                    height: 35,
+                                    width: 150,
+                                    child: const Center(
+                                      child: TextFontWidget(
+                                        text: 'Create New Student',
+                                        fontsize: 12,
+                                        fontWeight: FontWeight.bold,
+                                        color: cWhite,
+                                      ),
+                                    )),
+                              ),
                             ],
                           ),
                         ),
@@ -118,7 +120,6 @@ class AllTeacherListContainer extends StatelessWidget {
                                 child: ListView.separated(
                                     itemBuilder: (context, index) {
                                       return null;
-
                                       // return GestureDetector(
                                       //   // onTap: () => studentController
                                       //   //     .ontapStudent.value = true,

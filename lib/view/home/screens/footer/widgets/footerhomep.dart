@@ -22,7 +22,7 @@ class FooterHomeP extends StatelessWidget {
   Uri _twitterUrl = Uri.parse('https://twitter.com/LeptonDujo');
   Uri _instaUrl = Uri.parse('https://www.instagram.com/leptondujo/');
   Uri _utubeUrl = Uri.parse('https://www.youtube.com/@LEPTONDUJO/featured');
-  Uri _leptonUrl = Uri.parse('http://www.leptoncommunications.com');
+ // Uri _leptonUrl = Uri.parse('http://www.leptoncommunications.com');
 
   Future<void> _launchFacebookUrl() async {
     if (!await launchUrl(_faceBookUrl)) {

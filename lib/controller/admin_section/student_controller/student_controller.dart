@@ -1,7 +1,6 @@
 import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -19,6 +18,8 @@ class StudentController extends GetxController {
   final TextEditingController stNameController = TextEditingController();
   final TextEditingController stEmailController = TextEditingController();
   final TextEditingController stPhoneController = TextEditingController();
+    final TextEditingController phoneNumberStdEditController = TextEditingController();
+
   final Rx<String> dateofbithController = ''.obs;
   final Rx<String> gender = ''.obs;
   final Rxn<DateTime> selectedDOB = Rxn<DateTime>();
@@ -94,7 +95,15 @@ class StudentController extends GetxController {
       log("Error .... $e");
     }
   }
-
+ Future<void> enableorDisableUpdate(
+    String docid,
+    bool status,
+  ) async {
+    await _fbServer
+        .collection("classes")
+        .doc(docid)
+        .update({'editoption': status});
+  }
   Future<void> manualCreateaNewStudent() async {
     buttonstate.value = ButtonState.loading;
     final studentEmail =
@@ -381,5 +390,30 @@ class StudentController extends GetxController {
       studentclasswiseList.add(list[i]);
     }
     return studentclasswiseList;
+  }
+
+   Future<void> updatePhoneNumber(String docid) async {
+    //................. Update Class Name
+    //.... Update Class Name
+    try {
+      _fbServer.collection("classes").doc(docid).update({
+        'phoneNumber': phoneNumberStdEditController.text.trim(),
+        'editoption': false,
+      }).then((value) {
+        _fbServer
+            .collection(UserCredentialsController.batchId!)
+            .doc(UserCredentialsController.batchId!)
+            .collection('phoneNumber')
+            .doc(docid)
+            .update({'phoneNumberStdEditController': phoneNumberStdEditController.text.trim()}).then(
+                (value) => showToast(msg: 'Phone Number Changed'));
+        phoneNumberStdEditController.clear();
+      });
+    } catch (e) {
+      showToast(msg: 'Somthing went wrong please try again');
+      if (kDebugMode) {
+        log(e.toString());
+      }
+    }
   }
 }
