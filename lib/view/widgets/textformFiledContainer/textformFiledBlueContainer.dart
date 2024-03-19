@@ -13,9 +13,10 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
   Function(String)? onChanged;
   Iterable<String>? autofillHints;
   String? Function(String?)? validator;
+  bool? readOnly;
   Function()? onTap;
   TextInputType? keyboardType;
-    TextFormFiledBlueContainerWidget({
+  TextFormFiledBlueContainerWidget({
     this.width,
     this.widget,
     required this.hintText,
@@ -26,6 +27,7 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
     this.onChanged,
     this.validator,
     this.onTap,
+    this.readOnly,
     super.key,
   });
 
@@ -53,6 +55,7 @@ class TextFormFiledBlueContainerWidget extends StatelessWidget {
             color: screenContainerbackgroundColor,
             child: Center(
               child: TextFormField(
+                readOnly: readOnly ?? false,
                 onChanged: onChanged,
                 autofillHints: autofillHints,
                 onTap: onTap,

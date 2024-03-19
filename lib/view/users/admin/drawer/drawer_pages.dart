@@ -40,7 +40,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               ],
             ),
           ),
-        ),////////////////////////////////.........................................
+        ), ////////////////////////////////.........................................
         const SizedBox(
           height: 10,
         ),
@@ -61,7 +61,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: 'Class',
             ),
           ),
-        ),///////////////////////////////////////////.........................................
+        ), ///////////////////////////////////////////.........................................
         const SizedBox(
           height: 10,
         ),
@@ -87,7 +87,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
                   title: 'Students',
                 ),
               ),
-            ),////////////////////////////////........sub....
+            ), ////////////////////////////////........sub....
             ListTile(
               tileColor: selectedIndex == 3
                   ? themeColorBlue.withOpacity(0.1)
@@ -99,9 +99,9 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Teachers',
               ),
-            ),///////////////////////..........sub........
+            ), ///////////////////////..........sub........
           ],
-        ),///////////////////////////////////.................................
+        ), ///////////////////////////////////.................................
         const SizedBox(
           height: 10,
         ),
@@ -123,7 +123,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Class Test',
               ),
-            ),/////////////////////////////....sub
+            ), /////////////////////////////....sub
             ListTile(
               tileColor: selectedIndex == 6
                   ? themeColorBlue.withOpacity(0.1)
@@ -135,9 +135,9 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'School Test',
               ),
-            ),////////////////////........sub
+            ), ////////////////////........sub
           ],
-        ),///////////////////////////////////////////////.....................................
+        ), ///////////////////////////////////////////////.....................................
         const SizedBox(
           height: 10,
         ),
@@ -161,7 +161,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Students',
               ),
-            ),/////////////.....sub......
+            ), /////////////.....sub......
             ListTile(
               tileColor: selectedIndex == 8
                   ? themeColorBlue.withOpacity(0.1)
@@ -173,9 +173,9 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Teachers',
               ),
-            ),/////////////////sub.................
+            ), /////////////////sub.................
           ],
-        ),/////////////////////////////////////////////////.................
+        ), /////////////////////////////////////////////////.................
         const SizedBox(
           height: 10,
         ),
@@ -199,7 +199,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Students',
               ),
-            ),//////////////...sub....
+            ), //////////////...sub....
             ListTile(
               tileColor: selectedIndex == 10
                   ? themeColorBlue.withOpacity(0.1)
@@ -211,7 +211,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Teachers',
               ),
-            ),////////////.....sub....
+            ), ////////////.....sub....
             ListTile(
               tileColor: selectedIndex == 11
                   ? themeColorBlue.withOpacity(0.1)
@@ -223,9 +223,9 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Parents',
               ),
-            ),////////.........sub....
+            ), ////////.........sub....
           ],
-        ),/////////////////////////////////////////////////.......................................
+        ), /////////////////////////////////////////////////.......................................
         const SizedBox(
           height: 10,
         ),
@@ -249,7 +249,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Students',
               ),
-            ),///////.....sub....
+            ), ///////.....sub....
             ListTile(
               tileColor: selectedIndex == 13
                   ? themeColorBlue.withOpacity(0.1)
@@ -261,7 +261,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Teachers',
               ),
-            ),////////.......sub....
+            ), ////////.......sub....
             ListTile(
               tileColor: selectedIndex == 14
                   ? themeColorBlue.withOpacity(0.1)
@@ -273,9 +273,9 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Parents',
               ),
-            ),///////////////////...sub.....
+            ), ///////////////////...sub.....
           ],
-        ),/////////////////////////////////..................................
+        ), /////////////////////////////////..................................
         const SizedBox(
           height: 10,
         ),
@@ -324,7 +324,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Parents Meeting',
               ),
-            ),//////////...../sub.........
+            ), //////////...../sub.........
             ListTile(
               tileColor: selectedIndex == 16
                   ? themeColorBlue.withOpacity(0.1)
@@ -336,9 +336,9 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               title: DashboardTextFontWidget(
                 title: 'Teachers Meeting',
               ),
-            ),////////////..........sub...
+            ), ////////////..........sub...
           ],
-        ),//////////////////////////////...........................................
+        ), //////////////////////////////...........................................
         const SizedBox(
           height: 10,
         ),
@@ -347,17 +347,17 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/notification.png')),
-          tileColor: selectedIndex == 17
+          tileColor: selectedIndex == 3
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 17;
+            index = 3;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
             title: 'Notifications',
           ),
-        ),//////////////////////////////////.......................
+        ), //////////////////////////////////.......................
         const SizedBox(
           height: 10,
         ),
@@ -376,7 +376,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'Student',
           ),
-        ),//////////////////////////////////........................
+        ), //////////////////////////////////........................
         ListTile(
           leading: SizedBox(
               height: 20,
@@ -392,7 +392,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'Teacher',
           ),
-        ),/////////////////////////////......................
+        ), /////////////////////////////......................
         ListTile(
           leading: SizedBox(
               height: 20,
@@ -408,7 +408,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'Parent',
           ),
-        ),//////////////////////////////////////........................
+        ), //////////////////////////////////////........................
         ListTile(
           leading: SizedBox(
               height: 20,
@@ -424,7 +424,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'Create Admin',
           ),
-        ),//////////////////////////////////////.................................
+        ), //////////////////////////////////////.................................
         const SizedBox(
           height: 10,
         ),
@@ -443,7 +443,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'General Instructions',
           ),
-        ),///////////////////////////////////...................
+        ), ///////////////////////////////////...................
         const SizedBox(
           height: 10,
         ),
@@ -462,7 +462,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'Achievements',
           ),
-        ),//////////////////////////////////////...........................
+        ), //////////////////////////////////////...........................
         const SizedBox(
           height: 10,
         ),
@@ -481,7 +481,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'Fees and Bills',
           ),
-        ),///////////////////////////////////////...............................
+        ), ///////////////////////////////////////...............................
         const SizedBox(
           height: 10,
         ),
@@ -500,7 +500,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'Batch History',
           ),
-        ),///////////////////////////////.............................
+        ), ///////////////////////////////.............................
         const SizedBox(
           height: 10,
         ),
@@ -519,7 +519,7 @@ class DrawerSelectedPagesSection extends StatelessWidget {
           title: DashboardTextFontWidget(
             title: 'TimeTable',
           ),
-        ),////////////////////////////////////........................
+        ), ////////////////////////////////////........................
         const SizedBox(
           height: 10,
         ),

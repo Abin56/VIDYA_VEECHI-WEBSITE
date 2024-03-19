@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/model/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class ExamNotificationDataListWidget extends StatelessWidget {
-  //final ClassModel data;
+  final ExamNotificationModel data;
   final int index;
   const ExamNotificationDataListWidget({
     required this.index,
     super.key,
-   // required this.data,
+    required this.data,
   });
 
   @override
@@ -35,7 +37,7 @@ class ExamNotificationDataListWidget extends StatelessWidget {
                 rowMainAccess: MainAxisAlignment.start,
                 color: cWhite,
                 index: index,
-                headerTitle: "     {data.className}"),
+                headerTitle: data.examName),
           ),
           const SizedBox(
             width: 01,
@@ -47,8 +49,8 @@ class ExamNotificationDataListWidget extends StatelessWidget {
                 color: cWhite,
                 // width: 150,
                 index: index,
-                headerTitle: '${index + 1}'),
-          ), // ...................................Total Number 
+                headerTitle: data.totalDays.toString()),
+          ), // ...................................Total Number
           const SizedBox(
             width: 01,
           ),
@@ -59,7 +61,7 @@ class ExamNotificationDataListWidget extends StatelessWidget {
                 color: cWhite,
                 // width: 150,
                 index: index,
-                headerTitle: '${index + 1}'),
+                headerTitle: stringTimeToDateConvert(data.startDate)),
           ), //....................................... starting
           const SizedBox(
             width: 01,
@@ -71,8 +73,8 @@ class ExamNotificationDataListWidget extends StatelessWidget {
                 color: cWhite,
                 // width: 150,
                 index: index,
-                headerTitle: '${index + 1}'),
-          ),/////////////...............................ending
+                headerTitle: stringTimeToDateConvert(data.endDate)),
+          ), /////////////...............................ending
         ],
       ),
     );

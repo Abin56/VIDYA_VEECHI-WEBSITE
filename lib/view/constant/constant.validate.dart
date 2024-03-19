@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 const sw50 = SizedBox(
@@ -40,6 +41,11 @@ String stringTimeToDateConvert(String date) {
     }
   }
   return '';
+}
+
+String dateConvert(DateTime dateTime) {
+  String formattedDate = DateFormat('dd-MM-yyyy').format(dateTime);
+  return formattedDate;
 }
 
 String? checkFieldEmpty(String? fieldContent) {
@@ -118,17 +124,17 @@ String? checkFieldDateIsValid(String? fieldContent) {
   return 'Date is not valid (dd-mm-yyyy)';
 }
 
-
 class TeacherLoginIDSaver {
   static String id = '';
   static String teacherID = '';
-  static String  findUser ='';
+  static String findUser = '';
 }
+
 class TarifdetailSaver {
-  static int  index0 = 0;
+  static int index0 = 0;
   static int index1 = 0;
-  static String   gpsprice ='';
-    static String   bioprice ='';
+  static String gpsprice = '';
+  static String bioprice = '';
 }
 
 Widget circularProgressIndicator = const Center(
