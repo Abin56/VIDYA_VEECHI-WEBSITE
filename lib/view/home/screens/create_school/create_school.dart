@@ -41,6 +41,7 @@ class _SchoolProfileState extends State<SchoolProfile> {
   bool isChecked = false;
   bool showError = false;
   Uint8List? file;
+  // ignore: unused_field
   Uint8List? _file;
 
   void _validateForm() {
@@ -607,7 +608,9 @@ class _SchoolProfileState extends State<SchoolProfile> {
 
   Future<void> getclickonAdd(BuildContext context, String productName,
       String productPrice, int index) async {
+    // ignore: unused_local_variable
     int price = int.parse(productPrice);
+
     return showDialog(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -752,7 +755,7 @@ class _SchoolProfileState extends State<SchoolProfile> {
 }
 
 class SchoolTextFormFieldWidget extends StatelessWidget {
-  SchoolTextFormFieldWidget({
+  const SchoolTextFormFieldWidget({
     super.key,
     required this.textEditingController,
     required this.labelText,
@@ -765,8 +768,8 @@ class SchoolTextFormFieldWidget extends StatelessWidget {
   final TextEditingController textEditingController;
   final String labelText;
   final String? Function(String? fieldContent) function;
-  IconData icon;
-  bool? obscureText;
+ final IconData icon;
+ final bool? obscureText;
   final String? hintText;
 
   @override

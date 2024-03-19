@@ -9,7 +9,6 @@ import 'package:vidyaveechi_website/controller/class_controller/class_controller
 import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
-import 'package:vidyaveechi_website/view/drop_down/class_wise_subject.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/create_class/edit_class_Container.dart';

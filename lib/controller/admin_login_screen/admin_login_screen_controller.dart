@@ -331,8 +331,10 @@ class AdminLoginScreenController extends GetxController {
                           context: context,
                           barrierDismissible: false, // user must tap button!
                           builder: (BuildContext context) {
+                            // ignore: unused_local_variable
                             TextEditingController emailController =
                                 TextEditingController();
+                                
                             return AlertDialog(
                               title: const Text('Reset Password ?'),
                               content: const SingleChildScrollView(
@@ -356,6 +358,7 @@ class AdminLoginScreenController extends GetxController {
                           },
                         );
                       }).catchError((e) {
+                        // ignore: invalid_return_type_for_catch_error
                         return showToast(msg: 'Invalid Check Email');
                       });
                     }

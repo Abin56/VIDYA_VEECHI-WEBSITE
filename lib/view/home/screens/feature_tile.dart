@@ -3,7 +3,7 @@ import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
 import 'package:vidyaveechi_website/view/fonts/google_monstre.dart';
 
 class FeatureTile extends StatelessWidget {
-  FeatureTile(
+  const FeatureTile(
       {super.key,
       required this.topMargin,
       required this.iconImageUrl,
@@ -11,7 +11,7 @@ class FeatureTile extends StatelessWidget {
 
   final String title;
   final String iconImageUrl;
-  double? topMargin;
+ final double? topMargin;
 
   String get _iconImageUrl => "";
 

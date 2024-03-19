@@ -66,14 +66,14 @@ class CreateParent extends StatelessWidget {
         ),
       ), ////////////////////2..............slect.student..........
       TextFormFiledBlueContainerWidget(
-       // controller: parentController.nameController,
+        controller: parentController.parentNameController,
         hintText: " Enter Parent Name",
         title: 'Parent Name',
         validator: checkFieldEmpty,
       ), /////////////////////////////3.....................name
       
       TextFormFiledBlueContainerWidget(
-      //  controller: parentController.stPhoneController,
+       controller: parentController.parentPhNOController,
         hintText: " Enter Parent Ph",
         title: 'Phone Number',
         validator: checkFieldPhoneNumberIsValid,
@@ -82,15 +82,11 @@ class CreateParent extends StatelessWidget {
       Obx(() => ProgressButtonWidget(
           function: () async {
             if (_formKey.currentState!.validate()) {
+               parentController.addParent();
             }
           },
           buttonstate: parentController.buttonstate.value,
-          text: 'Create Parent')), /////////////........................................5...
-         
-
-      const RouteSelectedTextContainer(
-          width: 140, title: 'Create Student'), ////6
-      const RouteNonSelectedTextContainer(title: 'Home'),///7
+          text: 'Create Parent')), /////////////........................................5...  
     ];
     return Form(
       key: _formKey,

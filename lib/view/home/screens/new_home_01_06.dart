@@ -20,8 +20,8 @@ import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 class HomePageImages extends StatelessWidget {
   HomePageImages({super.key});
 
-  final String _imageUrl =
-      "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/dujocolleges.jpeg?alt=media&token=0c3fa202-c59f-47bd-b997-88f3128e6871";
+  // final String _imageUrl =
+  //     "https://firebasestorage.googleapis.com/v0/b/dujo-kerala-schools-1a6c5.appspot.com/o/dujocolleges.jpeg?alt=media&token=0c3fa202-c59f-47bd-b997-88f3128e6871";
 
   String _description = "Any schools from Kerala can register on\n"
       "Lepton VIDYAVEECHI. Lepton VIDYAVEECHI is a mobile application\n"

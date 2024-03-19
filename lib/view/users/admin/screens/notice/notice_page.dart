@@ -506,6 +506,7 @@ class _NoticeEditRemoveState extends State<NoticeEditRemove> {
 }
 
 
+// ignore: must_be_immutable
 class TextFormFiledBlueContainerWidgetEvent extends StatelessWidget {
   TextEditingController? controller = TextEditingController();
   final String title;
