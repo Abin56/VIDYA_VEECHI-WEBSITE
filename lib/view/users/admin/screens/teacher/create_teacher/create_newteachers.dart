@@ -38,11 +38,15 @@ createTeacherFunction(BuildContext context){
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [ 
           BackButtonContainerWidget(),
-          TextFontWidget(text: "Create Teacher", fontsize: 15)
+
+          Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: TextFontWidget(text: "Create Teacher", fontsize: 15,fontWeight: FontWeight.w500,),
+          )
         ],
       ),
       content: Container(
-        height: 400,
+        height: 380,
         width: 300,
         child: Column(
           children: [ 
