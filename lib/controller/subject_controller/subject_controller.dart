@@ -90,4 +90,6 @@ class SubjectController extends GetxController {
     }
     return classwiseSubjectList;
   }
+
+  
 }
