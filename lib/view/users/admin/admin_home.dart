@@ -11,6 +11,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/s
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/teacher_attendance/all_teachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/batch_histroy/batch_history_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_listscreen.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/class_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/events/events.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
@@ -21,9 +22,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_page.
 import 'package:vidyaveechi_website/view/users/admin/screens/parents/all_parents_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/list_of_teacher/list_of_teacher.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/teachers_details.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
 import 'package:vidyaveechi_website/view/users/teacher/timetable/timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 

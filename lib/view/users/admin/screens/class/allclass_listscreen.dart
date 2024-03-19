@@ -6,6 +6,7 @@ import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/class_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/create_class/create_class.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/view_class_students/class_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/view_class_students/data_list.dart';
@@ -25,7 +26,7 @@ class AllClassListView extends StatelessWidget {
         // List<Widget> widgetlist = [];
         Obx(
       () => classController.ontapClass.value == true
-          ? const ViewClassStudentScreen()
+          ?  ClassDetailsContainer()
           : SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(

@@ -101,13 +101,13 @@ class AllParentsListContainer extends StatelessWidget {
                                     SizedBox(
                                       width: 01,
                                     ),
-                                    Expanded(
-                                        flex: 2,
-                                        child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'ID')),
-                                    SizedBox(
-                                      width: 01,
-                                    ),
+                                    // Expanded(
+                                    //     flex: 2,
+                                    //     child: CatrgoryTableHeaderWidget(
+                                    //         headerTitle: 'ID')),
+                                    // SizedBox(
+                                    //   width: 01,
+                                    // ),
                                     Expanded(
                                         flex: 4,
                                         child: CatrgoryTableHeaderWidget(
