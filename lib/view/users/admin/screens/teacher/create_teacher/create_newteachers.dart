@@ -1,13 +1,11 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
 import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/teacher_price_tble.dart';
 import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
@@ -17,7 +15,7 @@ import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textform
 class CreateTeacher extends StatelessWidget {
   final TeacherController teacherController = Get.put(TeacherController());
 
-   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   CreateTeacher({super.key});
 
@@ -31,13 +29,13 @@ class CreateTeacher extends StatelessWidget {
       ), //////////////////////////////////////////0................
       TextFormFiledBlueContainerWidget(
         controller: teacherController.teacherNameController,
-        hintText: "Enter Teacher Name",
+        hintText: " Enter Teacher Name",
         title: 'Teacher Name',
         validator: checkFieldEmpty,
       ), /////////////////////////...........................1
       Obx(() => teacherController.automaticmail.value == false
           ? TextFormFiledBlueContainerWidget(
-              hintText: "Enter Teacher Email",
+              hintText: " Enter Teacher Email",
               title: 'Teacher Email',
               widget: Row(
                 children: [
@@ -99,7 +97,7 @@ class CreateTeacher extends StatelessWidget {
             )), //////////////////////////////2..................
       TextFormFiledBlueContainerWidget(
         controller: teacherController.teacherPhoneNumeber,
-        hintText: "Enter Teacher Ph",
+        hintText: " Enter Teacher Ph",
         title: 'Phone Number',
         validator: checkFieldPhoneNumberIsValid,
       ), //////////////////3....................
@@ -111,14 +109,14 @@ class CreateTeacher extends StatelessWidget {
           children: [
             const TextFontWidget(text: 'Gender *', fontsize: 12.5),
             const SizedBox(
-              height: 05, 
+              height: 05,
             ),
             SizedBox(
               height: 40,
               child: DropdownSearch(
                 items: const ['Male', 'Female'],
-                onChanged: (value){
-                   teacherController.gender.value = value ?? '';
+                onChanged: (value) {
+                  teacherController.gender.value = value ?? '';
                 },
               ),
             ),
@@ -127,62 +125,12 @@ class CreateTeacher extends StatelessWidget {
       ), ////////////////////4.....................
       TextFormFiledBlueContainerWidget(
         controller: teacherController.teacherIDController,
-        hintText: "Enter Employee Id",
+        hintText: " Enter Employee Id",
         title: 'Employee Id',
       ), ///////////////////5
-      // Container(
-      //   height: 80,
-      //   color: cWhite,
-      //   child: Column(
-      //     crossAxisAlignment: CrossAxisAlignment.start,
-      //     children: [
-      //       const TextFontWidget(text: 'Date of birth 🗓️ *', fontsize: 12.5),
-      //       const SizedBox(
-      //         height: 05,
-      //       ),
-      //       GestureDetector(
-      //         onTap: () => showDatePicker(
-      //           context: context,
-      //           initialDate: DateTime.now(),
-      //           firstDate: DateTime(2018),
-      //           lastDate: DateTime(2030),
-      //           helpText: 'Select a date',
-      //           cancelText: 'Cancel',
-      //           confirmText: 'OK',
-      //           builder: (BuildContext context, Widget? child) {
-      //             return Theme(
-      //               data: ThemeData.light().copyWith(
-      //                 primaryColor:
-      //                     const Color(0xFF2296F3), // Header background color
-      //                 // accentColor: Colors.white, // Selection color
-      //                 colorScheme:
-      //                     const ColorScheme.light(primary: Color(0xFF2296F3)),
-      //                 buttonTheme: const ButtonThemeData(
-      //                   textTheme: ButtonTextTheme.primary,
-      //                 ),
-      //               ),
-      //               child: child!,
-      //             );
-      //           },
-      //         ),
-      //         child: Container(
-      //           height: 40,
-      //           decoration: BoxDecoration(
-      //               borderRadius: BorderRadius.circular(05),
-      //               color: screenContainerbackgroundColor,
-      //               border: Border.all(color: cBlack.withOpacity(0.4))),
-      //           width: double.infinity,
-      //           child: const Padding(
-      //             padding: EdgeInsets.all(8.0),
-      //             child: TextFontWidget(text: 'DD/MM/YYYY *', fontsize: 12.5),
-      //           ),
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ), 
+
       Container(
-        height: 80 ,
+        height: 80,
         color: cWhite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,62 +163,23 @@ class CreateTeacher extends StatelessWidget {
         ),
       ),
       // /////////////////////6.............
-      Container(
-        height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
-        color: cWhite,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const TextFontWidget(text: 'Subject *', fontsize: 12.5),
-            const SizedBox(
-              height: 05,
-            ),
-            SizedBox(
-              height: 40,
-              child: DropdownSearch(
-                 validator: (item) {
-                   if (item == null) {
-                   return "Required field";
-                   } else {
-                    return null;
-                   }
-      },
-                items: const ['Malayalam', 'English'],
-                onChanged: (value) {
-                  teacherController.subject.value = value ?? '';
-                },
-              ),
-            ),
-          ],
-        ),
+      TextFormFiledBlueContainerWidget(
+        controller: teacherController.teacherPhoneNumeber,
+        hintText: " Enter in number eg 100,500..",
+        title: 'Enter Teacher Fees (per/hour)',
+        validator: checkFieldPhoneNumberIsValid,
       ), //////////////////////////7..................
 
-      // Container(
-      //   height: 40,
-      //   width: 200,
-      //   decoration: BoxDecoration(
-      //       color: themeColorBlue,
-      //       border: Border.all(color: themeColorBlue),
-      //       borderRadius: BorderRadius.circular(05)),
-      //   child: const Center(
-      //     child: TextFontWidget(
-      //       text: "Create Teacher",
-      //       fontsize: 14,
-      //       // fontWeight: FontWeight.w600,
-      //       color: cWhite,
-      //     ),
-      //   ),
-      // ),
-        Obx(() => ProgressButtonWidget(
+      Obx(() => ProgressButtonWidget(
           function: () async {
             if (_formKey.currentState!.validate()) {
               teacherController.createNewTeacher(TeacherModel());
             }
           },
           buttonstate: teacherController.buttonstate.value,
-          text:  'Create Teacher'))
+          text: 'Create Teacher'))
       // /////////////////////////////8
-    ];///////////////////////////////////...................................//////////////////////////////////................
+    ]; ///////////////////////////////////...................................//////////////////////////////////................
     return Form(
       key: _formKey,
       child: Container(
@@ -287,23 +196,24 @@ class CreateTeacher extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-             Padding(
-              padding: EdgeInsets.only(top: 10),
+            Padding(
+              padding: const EdgeInsets.only(top: 10),
               child: Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 08,
                       right: 05,
                     ),
                     child: GestureDetector(
-                      onTap: () {
-                        teacherController.ontapTeacher.value =
-                                          false;
-                      },
-                      child: RouteNonSelectedTextContainer(title: 'Home')),
+                        onTap: () {
+                          teacherController.ontapTeacher.value = false;
+                        },
+                        child:
+                            const RouteNonSelectedTextContainer(title: 'Home')),
                   ),
-                  RouteSelectedTextContainer(width: 140, title: 'Create Teacher'),
+                  const RouteSelectedTextContainer(
+                      width: 140, title: 'Create Teacher'),
                 ],
               ),
             ),
@@ -333,14 +243,15 @@ class CreateTeacher extends StatelessWidget {
                                           padding: const EdgeInsets.only(
                                               right: 20, left: 10, top: 10),
                                           child: createTeacherListWidget[
-                                              1] //////////////////1.....................name   
+                                              1] //////////////////1.....................name
                                           ),
                                       Padding(
                                           padding: const EdgeInsets.only(
                                             right: 20,
                                             left: 10,
                                           ),
-                                          child: createTeacherListWidget[2]),/////2..........email
+                                          child: createTeacherListWidget[
+                                              2]), /////2..........email
                                       Padding(
                                           padding: const EdgeInsets.only(
                                               right: 20, left: 10, top: 10),
@@ -361,12 +272,6 @@ class CreateTeacher extends StatelessWidget {
                                     Padding(
                                         padding: const EdgeInsets.only(
                                             left: 10, right: 20),
-                                        child:
-                                            createTeacherListWidget[5] ///////id
-                                        ),
-                                    Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 10, right: 20),
                                         child: createTeacherListWidget[
                                             6] /////////////////////dob............
                                         ),
@@ -380,20 +285,13 @@ class CreateTeacher extends StatelessWidget {
                                         child: createTeacherListWidget[
                                             7] ////////////sub............
                                         ),
-                                    const Padding(
-                                      padding: EdgeInsets.only(bottom: 10),
-                                      child: SizedBox(
-                                        height: 250,
-                                        width: 500,
-                                        child: TeacherSubjectPriceTable(),
-                                      ),
-                                    )
                                   ],
                                 ),
                               ],
                             ),
                             Padding(
-                                padding: const EdgeInsets.only(top: 20, left: 20),
+                                padding:
+                                    const EdgeInsets.only(top: 20, left: 20),
                                 child: createTeacherListWidget[8] ////button
                                 )
                           ],
@@ -401,7 +299,7 @@ class CreateTeacher extends StatelessWidget {
                       ),
                     ),
                   ) //////////////////////////////////////////////////////////////////
-                  //////////V.....desktop and tab
+                //////////V.....desktop and tab
                 : Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -413,7 +311,8 @@ class CreateTeacher extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 20, top: 15),
-                            child: createTeacherListWidget[0],////////////////////heading
+                            child: createTeacherListWidget[
+                                0], ////////////////////heading
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 20),
@@ -424,7 +323,8 @@ class CreateTeacher extends StatelessWidget {
                                   child: Padding(
                                       padding: const EdgeInsets.only(
                                           right: 20, left: 10, top: 30),
-                                      child: createTeacherListWidget[1]),//////////////////name
+                                      child: createTeacherListWidget[
+                                          1]), //////////////////name
                                 ),
                                 Expanded(
                                   flex: 1,
@@ -433,14 +333,16 @@ class CreateTeacher extends StatelessWidget {
                                         right: 20,
                                         left: 10,
                                       ),
-                                      child: createTeacherListWidget[2]),////////////email
+                                      child: createTeacherListWidget[
+                                          2]), ////////////email
                                 ),
                                 Expanded(
                                   flex: 1,
                                   child: Padding(
                                       padding: const EdgeInsets.only(
                                           right: 20, left: 10, top: 30),
-                                      child: createTeacherListWidget[3]),///////////number
+                                      child: createTeacherListWidget[
+                                          3]), ///////////number
                                 ),
                               ],
                             ),
@@ -451,7 +353,7 @@ class CreateTeacher extends StatelessWidget {
                                   flex: 1,
                                   child: Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 10, right: 20,bottom: 20),
+                                          left: 10, right: 20, bottom: 20),
                                       child: createTeacherListWidget[
                                           4] //////////////////gnder...........
                                       )),
@@ -459,15 +361,9 @@ class CreateTeacher extends StatelessWidget {
                                   flex: 1,
                                   child: Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 10, right: 20),
-                                      child: createTeacherListWidget[5] //////id
-                                      )),
-                              Expanded(
-                                  flex: 1,
-                                  child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 10, right: 20,bottom: 20),
-                                      child: createTeacherListWidget[6] //////dob
+                                          left: 10, right: 20, bottom: 20),
+                                      child:
+                                          createTeacherListWidget[6] //////dob
                                       )),
                             ],
                           ),
@@ -493,21 +389,6 @@ class CreateTeacher extends StatelessWidget {
                                           )
                                     ],
                                   )),
-                              Expanded(
-                                flex: 2,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 20),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            color: cBlack.withOpacity(0.5))),
-                                    height: 250,
-                                    width: 150,
-                                    padding: const EdgeInsets.all(10),
-                                    child: const TeacherSubjectPriceTable(),
-                                  ),
-                                ),
-                              )
                             ],
                           ),
                         ],
@@ -520,6 +401,3 @@ class CreateTeacher extends StatelessWidget {
     );
   }
 }
-
-
-
