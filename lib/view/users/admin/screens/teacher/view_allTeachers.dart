@@ -120,7 +120,6 @@ class AllTeacherListContainer extends StatelessWidget {
                                 child: ListView.separated(
                                     itemBuilder: (context, index) {
                                       return null;
-
                                       // return GestureDetector(
                                       //   // onTap: () => studentController
                                       //   //     .ontapStudent.value = true,

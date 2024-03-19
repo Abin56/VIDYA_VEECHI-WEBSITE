@@ -22,8 +22,8 @@ class AllTeacherListContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() => teacherController.ontapviewteacher.value == true
         ? TeachersDetailsContainer()
-        : teacherController.ontapTeacher.value == true
-            ? CreateTeacher()
+        // : teacherController.ontapTeacher.value == true
+        //     ? CreateTeacher()
             : SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Container(
@@ -65,19 +65,24 @@ class AllTeacherListContainer extends StatelessWidget {
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 25,top: 5),
-                                  child: ButtonContainerWidget(
-                                      curving: 30,
-                                      colorindex: 0,
-                                      height: 35,
-                                      width: 150,
-                                      child: const Center(
-                                        child: TextFontWidget(
-                                          text: 'Create New Teacher',
-                                          fontsize: 12,
-                                          fontWeight: FontWeight.bold,
-                                          color: cWhite,
-                                        ),
-                                      )),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      createTeacherFunction(context);
+                                    },
+                                    child: ButtonContainerWidget(
+                                        curving: 30,
+                                        colorindex: 0,
+                                        height: 35,
+                                        width: 150,
+                                        child: const Center(
+                                          child: TextFontWidget(
+                                            text: 'Create New Teacher',
+                                            fontsize: 12,
+                                            fontWeight: FontWeight.bold,
+                                            color: cWhite,
+                                          ),
+                                        )),
+                                  ),
                                 ),
                               )
                             ],
