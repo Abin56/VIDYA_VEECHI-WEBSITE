@@ -16,6 +16,7 @@ class ClassController extends GetxController {
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   List<ClassModel> allclassList = [];
     List<ClassModel> classwiseSubjectList = [];
+      Rxn<ClassModel> classModelData = Rxn<ClassModel>();
   RxString className = ''.obs;
   RxString classDocID = 'dd'.obs;
   RxBool ontapClass = false.obs;
