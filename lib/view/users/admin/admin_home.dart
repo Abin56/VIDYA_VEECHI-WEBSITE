@@ -14,6 +14,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_da
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_page.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/create_teacher/create_newteachers.dart';
@@ -136,12 +137,9 @@ List<Widget> pages = [
   const MeetingCreatingPage(),
   const AllExamNotificationListView(),
   const FeesAndBillsPage(),
-  Container(
-    height: 200,
-    color: Colors.redAccent,
-  ),
+ NoticeEditRemove(),
   const BatchHistroyListPage(),
-  // const FeesAndBillsPage(),
+  // const Color.fromARGB(255, 7, 7, 7)(),
   const AllExamNotificationListView(),
   Center(
     child: Text(sideMenu[1]),

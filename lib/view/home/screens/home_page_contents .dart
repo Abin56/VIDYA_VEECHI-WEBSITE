@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vidyaveechi_website/view/home/screens/create_school/Registration/registrationpage.dart';
 import 'package:vidyaveechi_website/view/home/screens/create_school/create_school.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
@@ -132,7 +133,7 @@ class HomePageContents extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return const SchoolProfile();
+                        return const RegisrationPage();
                       },
                     ));
                   },
@@ -165,7 +166,11 @@ class HomePageContents extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 102, 206, 169),
                   ),
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const SchoolProfile();
+                      },
+                    ));},
                   child: Text(
                     'QUERY',
                     style: GoogleFonts.poppins(

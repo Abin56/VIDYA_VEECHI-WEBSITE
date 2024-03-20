@@ -247,8 +247,9 @@ List<String> constechDUjo = ['Who We Are', 'Why choose us'];
 List<String> connect = ['Facebook', 'Instagram', 'Twitter', 'Youtube'];
 List<String> legal = [
   'Terms & Conditions',
-  'Privacy Policy',
   'Family Policy',
+  'Privacy Policy',
+  
   'Trademark Policy',
   'Refund and\nCancellation Policy'
 ];
@@ -301,8 +302,9 @@ var connectnav = [
 ];
 var legalnav = [
   const TermsAndConditions(),
-  const TermsAndConditions(),
+
   const FamilyPolicyScreen(),
+    const   PrivacyPolicy(),
   const TrademarkAndPolicy(),
   const CancellationPolicy(),
 ];
