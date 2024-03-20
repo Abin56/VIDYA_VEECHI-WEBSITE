@@ -5,8 +5,7 @@ import 'package:vidyaveechi_website/view/home/home.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class MainScreen extends StatelessWidget {
-
-  MainScreen({super.key});
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

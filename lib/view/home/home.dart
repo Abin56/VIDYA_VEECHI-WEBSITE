@@ -14,7 +14,6 @@ import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +55,7 @@ class DujoHOmeScreen extends StatelessWidget {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/websiteHomepage.jpg'),
+            image: AssetImage('webassets/images/websiteHomepage.jpg'),
             fit: BoxFit.fill),
       ),
       child: Column(
@@ -91,7 +90,7 @@ class DujoHOmeScreen extends StatelessWidget {
                             //       // color: cred                ,
                             //       child: Center(
                             //           child: Image.asset(
-                            //         "assets/images/COSTECH_bg.png",
+                            //         "webassets/images/COSTECH_bg.png",
                             //         fit: BoxFit.cover,
                             //       ))
                             //       ),
@@ -178,7 +177,7 @@ class DujoHOmeScreen extends StatelessWidget {
 
                                 child: Center(
                                   child: Image.asset(
-                                    "assets/images/vvl1.png",
+                                    "webassets/images/vvl1.png",
                                     width: 280,
                                     height: 100,
                                   ),
@@ -199,7 +198,7 @@ class DujoHOmeScreen extends StatelessWidget {
                               //   decoration: const BoxDecoration(
                               //     image: DecorationImage(
                               //         image: AssetImage(
-                              //             'assets/images/dujon.png')),
+                              //             'webassets/images/dujon.png')),
                               //   ),
                               // ),
                               Padding(
@@ -260,7 +259,7 @@ class DujoHOmeScreen extends StatelessWidget {
                             //       // color: cred                ,
                             //       child: Center(
                             //           child: Image.asset(
-                            //         "assets/images/COSTECH_bg.png",
+                            //         "webassets/images/COSTECH_bg.png",
                             //         fit: BoxFit.cover,
                             //       ))),
                             // ),
@@ -311,8 +310,8 @@ class DujoHomeWebSiteDetails extends StatelessWidget {
                     : const Color.fromARGB(255, 235, 227, 227),
                 image: ResponsiveWebSite.isDesktop(context)
                     ? const DecorationImage(
-                        image:
-                            AssetImage('assets/images/dujo_schools_image.png'),
+                        image: AssetImage(
+                            'webassets/images/dujo_schools_image.png'),
                         fit: BoxFit.fill)
                     : null),
             child: ResponsiveWebSite.isDesktop(context)

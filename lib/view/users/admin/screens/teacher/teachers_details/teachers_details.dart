@@ -102,8 +102,8 @@ class TeachersDetailsContainer extends StatelessWidget {
                                 backgroundColor: Colors.grey,
                                 child: CircleAvatar(
                                   radius: 78,
-                                  backgroundImage:
-                                      AssetImage('assets/png/teacher (1).png'),
+                                  backgroundImage: AssetImage(
+                                      'webassets/png/teacher (1).png'),
                                 ),
                               ),
                             ),

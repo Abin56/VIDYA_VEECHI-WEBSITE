@@ -62,13 +62,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                             SizedBox(
                               height: 60,
                               child: Image.asset(
-                                'assets/images/vidyaveechi_logo.png',
+                                'webassets/images/vidyaveechi_logo.png',
                                 fit: BoxFit.fill,
                               ),
                             ),
                             GooglePoppinsWidgets(
                               text: "VIDYA VEECHI",
-                              fontsize:ResponsiveWebSite.isMobile(context)?18: 20,
+                              fontsize:
+                                  ResponsiveWebSite.isMobile(context) ? 18 : 20,
                               fontWeight: FontWeight.w500,
                             )
                           ],
@@ -114,24 +115,24 @@ List<Widget> pages = [
   const AllStudentsAttendance(),
 
   const AllTeachersAttendance(),
-   
- const AllExamNotificationListView(),
- const AllExamNotificationListView(),
- const AllExamNotificationListView(),
-  
+
+  const AllExamNotificationListView(),
+  const AllExamNotificationListView(),
+  const AllExamNotificationListView(),
+
   const StudentExamResult(),
   const StudentExamResult(),
 
-const NoticeEditRemove(),
-const NoticeEditRemove(),
-const NoticeEditRemove(),
+  const NoticeEditRemove(),
+  const NoticeEditRemove(),
+  const NoticeEditRemove(),
 
- const EventsEditREmove(),
- const EventsEditREmove(),
- const EventsEditREmove(),
+  const EventsEditREmove(),
+  const EventsEditREmove(),
+  const EventsEditREmove(),
 
-    const MeetingCreatingPage(),
-    const MeetingCreatingPage(),
+  const MeetingCreatingPage(),
+  const MeetingCreatingPage(),
 
   const AdminDashBoardSections(),
 
@@ -141,7 +142,9 @@ const NoticeEditRemove(),
 
   AllParentsListContainer(),
 
-  GeneralInsructions(),///create admin eduknm
+  GeneralInsructions(),
+
+  ///create admin eduknm
   GeneralInsructions(),
 
   const Achievements(),
@@ -155,7 +158,6 @@ const NoticeEditRemove(),
   // AllClassListView(),
   // TeachersDetailsContainer(),
 
- 
   // CreateTeacher(),
 
   // AllClassListView(),

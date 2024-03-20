@@ -11,7 +11,7 @@ class FeatureTile extends StatelessWidget {
 
   final String title;
   final String iconImageUrl;
- final double? topMargin;
+  final double? topMargin;
 
   String get _iconImageUrl => "";
 
@@ -60,7 +60,7 @@ class FeatureTile extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(left: 10.h),
                 child: Image.asset(
-                  "assets/images/$iconImageUrl",
+                  "webassets/images/$iconImageUrl",
                   height: 25.h,
                   width: 25.h,
                 ),

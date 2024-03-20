@@ -44,7 +44,7 @@ class StudentDetailsContainer extends StatelessWidget {
                 child: Container(
                   color: cWhite,
                   height: 260,
-                  child: Column(  
+                  child: Column(
                     children: [
                       Container(
                         height: 60,
@@ -100,7 +100,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                 child: CircleAvatar(
                                   radius: 78,
                                   backgroundImage:
-                                      AssetImage('assets/png/student.png'),
+                                      AssetImage('webassets/png/student.png'),
                                 ),
                               ),
                             ),
@@ -118,7 +118,8 @@ class StudentDetailsContainer extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(left: 10, top: 10),
+                                            padding: const EdgeInsets.only(
+                                                left: 10, top: 10),
                                             child: TextFontWidget(
                                               text: data!.studentName,
                                               fontsize: 20,
@@ -131,8 +132,10 @@ class StudentDetailsContainer extends StatelessWidget {
                                             child: SizedBox(
                                               width: 500,
                                               child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
                                                   StudentDetailTileContainer(
                                                     flex: 1,
@@ -182,21 +185,28 @@ class StudentDetailsContainer extends StatelessWidget {
                                             children: [
                                               const Icon(Icons.call),
                                               TextFontWidget(
-                                                text: " +91 ${data.parentPhoneNumber} ",
+                                                text:
+                                                    " +91 ${data.parentPhoneNumber} ",
                                                 fontsize: 12,
                                                 color: Colors.blue,
                                               ),
-                                              SizedBox(width: 60,),
+                                              const SizedBox(
+                                                width: 60,
+                                              ),
                                               GestureDetector(
-                                                onTap:  () => Get.find<
-                                                            StudentController>()
-                                                        .enableorDisableUpdate(
-                                                      data.docid,
-                                                      true,
-                                                    ),
-                                                child: CircleAvatar(child:  Icon(
-                                                  Icons.edit_square,size: 21,
-                                                  color: cBlack.withOpacity(0.3),))),
+                                                  onTap: () => Get.find<
+                                                              StudentController>()
+                                                          .enableorDisableUpdate(
+                                                        data.docid,
+                                                        true,
+                                                      ),
+                                                  child: CircleAvatar(
+                                                      child: Icon(
+                                                    Icons.edit_square,
+                                                    size: 21,
+                                                    color:
+                                                        cBlack.withOpacity(0.3),
+                                                  ))),
                                               // Container(
                                               //   height: 30,
                                               //   width: 30,
@@ -206,7 +216,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                               //     child: const Icon(Icons.edit,size: 16,),)
                                             ],
                                           ),
-                                           Row(
+                                          Row(
                                             children: [
                                               const Icon(Icons.email),
                                               TextFontWidget(

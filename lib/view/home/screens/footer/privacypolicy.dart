@@ -5,7 +5,6 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 
 class PrivacyPolicy extends StatefulWidget {
   const PrivacyPolicy({super.key});
-  static const String route = '/privacypolicy';
 
   @override
   State<PrivacyPolicy> createState() => _PrivacyPolicyState();

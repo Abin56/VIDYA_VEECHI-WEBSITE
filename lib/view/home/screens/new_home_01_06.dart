@@ -72,10 +72,10 @@ class HomePageImages extends StatelessWidget {
   ];
 
   List<String> assetsimages = [
-    "assets/images/attitude_girl.png",
-    "assets/images/college.png",
-    "assets/images/intitute.png",
-    "assets/images/professional.png",
+    "webassets/images/attitude_girl.png",
+    "webassets/images/college.png",
+    "webassets/images/intitute.png",
+    "webassets/images/professional.png",
   ];
 
   @override
@@ -114,7 +114,7 @@ class HomePageImages extends StatelessWidget {
                               width: 20.h,
                             ),
                             Image.asset(
-                              "assets/images/leptdujo.png",
+                              "webassets/images/leptdujo.png",
                               height: 130.h,
                               width: 100.h,
                             ),
@@ -124,7 +124,7 @@ class HomePageImages extends StatelessWidget {
                       Container(
                           margin: EdgeInsets.only(top: 95.h),
                           child: Image.asset(
-                            "assets/images/dujo_schools_image.png",
+                            "webassets/images/dujo_schools_image.png",
                             fit: BoxFit.cover,
                           )),
                       FeatureTile(
@@ -197,6 +197,7 @@ class HomePageImages extends StatelessWidget {
                           )
                         ],
                       ),
+
                       ///
                     ],
                   ),
@@ -268,7 +269,7 @@ class HomePageImages extends StatelessWidget {
                           // color: cBlue,
 
                           child: Image.asset(
-                            'assets/images/dujo_colleges_image.png',
+                            'webassets/images/dujo_colleges_image.png',
                             fit: BoxFit.fill,
                           )),
 
@@ -310,7 +311,7 @@ class HomePageImages extends StatelessWidget {
                           topMargin: 955.h,
                           iconImageUrl: "live.png",
                           title: "Live doubt clearing."),
-                          //
+                      //
                     ],
                   ),
 
@@ -380,7 +381,7 @@ class HomePageImages extends StatelessWidget {
                           child: Container(
                               color: cred,
                               child: Image.asset(
-                                'assets/images/dujo_institutions_image.png',
+                                'webassets/images/dujo_institutions_image.png',
                                 fit: BoxFit.fill,
                               ))),
                       FeatureTile(
@@ -414,7 +415,8 @@ class HomePageImages extends StatelessWidget {
                           topMargin: 1080.h,
                           iconImageUrl: "live.png",
                           title: "Live courses"),
-                     ///
+
+                      ///
                     ],
                   ),
 
@@ -482,7 +484,7 @@ class HomePageImages extends StatelessWidget {
                           height: 300.h,
                           width: double.infinity,
                           child: Image.asset(
-                              "assets/images/dujo_professional_image.png",
+                              "webassets/images/dujo_professional_image.png",
                               fit: BoxFit.fill)),
                       FeatureTile(
                         iconImageUrl: "professional.png",
@@ -522,7 +524,7 @@ class HomePageImages extends StatelessWidget {
                           topMargin: 1095,
                           iconImageUrl: "live.png",
                           title: "Live courses"),
-                     ///////////////
+                      ///////////////
                     ],
                   ),
 
@@ -661,10 +663,11 @@ class HomePageImages extends StatelessWidget {
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                         ///
+                          ///
                           SizedBox(
                             width: 10.w,
                           ),
+
                           ///
                         ],
                       ),
@@ -764,7 +767,7 @@ class HomePageImages extends StatelessWidget {
                                     color: cred,
                                   ),
                                 ))
-                            //Image.asset('assets/images/login-button.png')
+                            //Image.asset('webassets/images/login-button.png')
 
                             // Text(
                             //   'Login',
@@ -790,7 +793,7 @@ class HomePageImages extends StatelessWidget {
                               _launchFacebookUrl();
                             },
                             child: Image.asset(
-                              'assets/images/frdd.png',
+                              'webassets/images/frdd.png',
                               height: 25.h,
                               width: 38.w,
                               color: adminePrimayColor,
@@ -803,7 +806,7 @@ class HomePageImages extends StatelessWidget {
                               _launchInstaUrl();
                             },
                             child: Image.asset(
-                              'assets/images/instag.png',
+                              'webassets/images/instag.png',
                               height: 40.h,
                               width: 40.w,
                               color: adminePrimayColor,
@@ -815,7 +818,7 @@ class HomePageImages extends StatelessWidget {
                               _launchTwitterUrl();
                             },
                             child: Image.asset(
-                              'assets/images/twitt.png',
+                              'webassets/images/twitt.png',
                               height: 29.h,
                               width: 30.w,
                               color: adminePrimayColor,
@@ -827,7 +830,7 @@ class HomePageImages extends StatelessWidget {
                               _launchyouTubeUrl();
                             },
                             child: Image.asset(
-                              'assets/images/utube.png',
+                              'webassets/images/utube.png',
                               height: 28.h,
                               width: 28.w,
                               color: adminePrimayColor,
@@ -844,7 +847,7 @@ class HomePageImages extends StatelessWidget {
                     height: 900.h,
                     width: double.infinity,
                     child: Image.asset(
-                      'assets/images/websiteHomepage.jpg',
+                      'webassets/images/websiteHomepage.jpg',
                       fit: BoxFit.fill,
                     )),
                 Padding(
@@ -866,7 +869,7 @@ class HomePageImages extends StatelessWidget {
                           //     // color: cred                ,
                           //     child: Center(
                           //         child: Image.asset(
-                          //       "assets/images/COSTECH_bg.png",
+                          //       "webassets/images/COSTECH_bg.png",
                           //       fit: BoxFit.cover,
                           //     ))),
                           //sizedBoxH5,
@@ -919,7 +922,7 @@ class HomePageImages extends StatelessWidget {
                                     ),
                                     // Image.asset(
                                     //   //"https://firebasestorage.googleapis.com/v0/b/leptonscipro-31792.appspot.com/o/files%2Fimages%2FLepton-removebg-preview.png?alt=media&token=cb2cbd20-7630-4681-8857-f8b245018453",
-                                    //   "assets/images/lepton2.png",
+                                    //   "webassets/images/lepton2.png",
 
                                     //   width: 150.w,
                                     //   height: 150.h,
@@ -933,14 +936,14 @@ class HomePageImages extends StatelessWidget {
                                     height: 50.h,
 
                                     child: Image.asset(
-                                      'assets/images/dujon.png',
+                                      'webassets/images/dujon.png',
                                       width: 180.h,
                                       height: 170.h,
                                     ),
                                   ),
                                   // Image.asset(
                                   //   //"https://firebasestorage.googleapis.com/v0/b/leptonscipro-31792.appspot.com/o/files%2Fimages%2FLepton-removebg-preview.png?alt=media&token=cb2cbd20-7630-4681-8857-f8b245018453",
-                                  //   "assets/images/lepton2.png",
+                                  //   "webassets/images/lepton2.png",
 
                                   //   width: 150.w,
                                   //   height: 150.h,
@@ -1014,7 +1017,7 @@ class HomePageImages extends StatelessWidget {
                           width: double.infinity,
                           child: Image(
                             image: AssetImage(
-                              'assets/images/dujo_schools_image.png',
+                              'webassets/images/dujo_schools_image.png',
                             ),
                             fit: BoxFit.fill,
                           )),
@@ -1150,7 +1153,7 @@ class HomePageImages extends StatelessWidget {
                       )
                     ],
                   ),
-                 ////
+                  ////
                 ],
               ),
               SizedBox(
@@ -1196,7 +1199,7 @@ class ContainerDecrationTabs extends StatelessWidget {
 }
 
 class ImageContainerWidget extends StatelessWidget {
- final String imagename;
+  final String imagename;
   const ImageContainerWidget({
     required this.imagename,
     super.key,
@@ -1211,7 +1214,7 @@ class ImageContainerWidget extends StatelessWidget {
           //  border: Border.all(),
           // color: cWhite,
           borderRadius: BorderRadius.all(Radius.circular(10.w))),
-      child: Image.asset('assets/images/$imagename', fit: BoxFit.fill),
+      child: Image.asset('webassets/images/$imagename', fit: BoxFit.fill),
     );
   }
 }

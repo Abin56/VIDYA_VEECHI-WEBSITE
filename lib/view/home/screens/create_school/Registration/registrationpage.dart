@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-
-
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,10 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/home/screens/footer/widgets/Iconbackbutton.dart';
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/schoolDropDownList.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
-
 
 class RegisrationPage extends StatefulWidget {
   const RegisrationPage({super.key});
@@ -23,138 +19,139 @@ class RegisrationPage extends StatefulWidget {
 }
 
 class _RegisrationPageState extends State<RegisrationPage> {
- 
-
-
   @override
   Widget build(BuildContext context) {
-   
-    return Scaffold(appBar: AppBar( title:IconButtonBackWidget(),automaticallyImplyLeading: false ),
-      body: SingleChildScrollView(
-        child: Container(
-            height:
-                ResponsiveWebSite.isMobile(context) ? 800 : 1000,
-            width: double.infinity,
-            decoration: BoxDecoration(
-             
-              image: DecorationImage(
-                image: AssetImage("assets/images/login-bg.jpg"),
-                fit: BoxFit.fill,
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+              height: ResponsiveWebSite.isMobile(context) ? 800 : 1000,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("webassets/images/login-bg.jpg"),
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:  EdgeInsets.only(top:ResponsiveWebSite.isMobile(context) ? 30:80),
-                  child: Container(
-                    
-                    decoration: BoxDecoration(
-                        color: cWhite,
-                        borderRadius: BorderRadius.circular(4)),
-                    height: ResponsiveWebSite.isMobile(context) ? 600 : 650,
-                    width: ResponsiveWebSite.isMobile(context) ? 300 : 400,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          child: GooglePoppinsWidgets(
-                            text: 'REGISTRATION',
-                            fontsize: ResponsiveWebSite.isMobile(context) ?18:25,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: GetSchoolListDropDownButton(),
-                          
-                        ),
-                         const Padding(
-         padding: EdgeInsets.only(top: 10,left: 10,right: 10),
-        child: DropdownContainerWidget(title: 'Select class *', items: ['Class 1', 'Class 2', 'Class 3', 'Class 3', ],),
-      ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: TextFormFiledBlueContainerWidget1(
-                              hintText: 'Student name',
-                              title: 'Student name',
-                              labelText: 'Student name'),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: TextFormFiledBlueContainerWidget1(
-                              hintText: 'Email',
-                              title: 'Email',
-                              labelText: 'Email'),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, right: 10),
-                          child: TextFormFiledBlueContainerWidget1(
-                              hintText: 'Phone number',
-                              title: 'Phone number',
-                              labelText: 'Phone number'),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Container(
-                            height:ResponsiveWebSite.isMobile(context) ? 40:50,
-                            width:ResponsiveWebSite.isMobile(context) ?240: 300,
-                            decoration: BoxDecoration(
-                              color: AppColors.blueDarkColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: ResponsiveWebSite.isMobile(context) ? 30 : 80),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: cWhite, borderRadius: BorderRadius.circular(4)),
+                      height: ResponsiveWebSite.isMobile(context) ? 600 : 650,
+                      width: ResponsiveWebSite.isMobile(context) ? 300 : 400,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 10, bottom: 10),
+                            child: GooglePoppinsWidgets(
+                              text: 'REGISTRATION',
+                              fontsize:
+                                  ResponsiveWebSite.isMobile(context) ? 18 : 25,
+                              fontWeight: FontWeight.bold,
                             ),
-                            child: Center(
-                                child: GooglePoppinsWidgets(
-                              text: 'Submit',
-                              fontsize:ResponsiveWebSite.isMobile(context) ? 14:16,
-                              color: cWhite,
-                            )),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: GetSchoolListDropDownButton(),
+                          ),
+                          const Padding(
+                            padding:
+                                EdgeInsets.only(top: 10, left: 10, right: 10),
+                            child: DropdownContainerWidget(
+                              title: 'Select class *',
+                              items: [
+                                'Class 1',
+                                'Class 2',
+                                'Class 3',
+                                'Class 3',
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: TextFormFiledBlueContainerWidget1(
+                                hintText: 'Student name',
+                                title: 'Student name',
+                                labelText: 'Student name'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: TextFormFiledBlueContainerWidget1(
+                                hintText: 'Email',
+                                title: 'Email',
+                                labelText: 'Email'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: TextFormFiledBlueContainerWidget1(
+                                hintText: 'Phone number',
+                                title: 'Phone number',
+                                labelText: 'Phone number'),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Container(
+                              height:
+                                  ResponsiveWebSite.isMobile(context) ? 40 : 50,
+                              width:
+                                  ResponsiveWebSite.isMobile(context) ? 240 : 300,
+                              decoration: BoxDecoration(
+                                color: AppColors.blueDarkColor,
+                              ),
+                              child: Center(
+                                  child: GooglePoppinsWidgets(
+                                text: 'Submit',
+                                fontsize:
+                                    ResponsiveWebSite.isMobile(context) ? 14 : 16,
+                                color: cWhite,
+                              )),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            )),
+                ],
+              )),
+        ),
       ),
     );
   }
-
-  
-
 }
 
 class DropdownContainerWidget extends StatelessWidget {
   const DropdownContainerWidget({
     required this.title,
-     this.items,
-     
-   this.color,
+    this.items,
+    this.color,
     super.key,
   });
-final String title;
-final List<String>? items ;
-final List<Color>? color ;
+  final String title;
+  final List<String>? items;
+  final List<Color>? color;
   @override
   Widget build(BuildContext context) {
-    return Container(width: ResponsiveWebSite.isMobile(context) ?double.infinity:500,
+    return Container(
+      width: ResponsiveWebSite.isMobile(context) ? double.infinity : 500,
       height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
       color: cWhite,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           TextFontWidget(text: title, fontsize: 12.5),
+          TextFontWidget(text: title, fontsize: 12.5),
           const SizedBox(
             height: 05,
           ),
           SizedBox(
             height: 40,
-            child: DropdownSearch(
-              items: items??[]
-            ),
+            child: DropdownSearch(items: items ?? []),
           ),
-          
         ],
       ),
     );
@@ -251,6 +248,3 @@ class TextFormFiledBlueContainerWidget1 extends StatelessWidget {
     );
   }
 }
-
-
-

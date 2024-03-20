@@ -185,7 +185,7 @@ class _RegistrationState extends State<Registration> {
                       // color: cBlue,
                       image: DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage('assets/images/register.png'))),
+                          image: AssetImage('webassets/images/register.png'))),
                 ),
               )),
             ],

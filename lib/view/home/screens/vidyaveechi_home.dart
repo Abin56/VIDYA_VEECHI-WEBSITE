@@ -16,7 +16,6 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
-      
       child: ResponsiveWebSite.isMobile(context)
           ? Column(
               children: [
@@ -36,7 +35,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                                   width: 50,
                                   color: Colors.transparent,
                                   child: Image.asset(
-                                    "assets/images/logo5.png",
+                                    "webassets/images/logo5.png",
                                   ),
                                 ),
                               ),
@@ -49,7 +48,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                               //     width: screenSize.width / 15,
                               //     color: Colors.transparent,
                               //     child: Image.asset(
-                              //         "assets/images/leptonlogo.png"),
+                              //         "webassets/images/leptonlogo.png"),
                               //   ),
                               // ),
                               Column(
@@ -203,7 +202,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                                 decoration: const BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                            "assets/images/book-removebg-preview.png"),
+                                            "webassets/images/book-removebg-preview.png"),
                                         fit: BoxFit.fitWidth)),
                                 child: const Align(
                                     alignment: Alignment.center,
@@ -258,7 +257,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                                 print("object");
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return  const RegisrationPage();
+                                    return const RegisrationPage();
                                   },
                                 ));
                               },
@@ -293,11 +292,13 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                                       const Color.fromARGB(255, 75, 131, 252),
                                   // backgroundColor: const Color.fromARGB(255, 102, 206, 169),
                                 ),
-                                onPressed: () { Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) {
-                                    return  const SchoolProfile();
-                                  },
-                                ));},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return const SchoolProfile();
+                                    },
+                                  ));
+                                },
                                 child: Text(
                                   'QUERY',
                                   style: GoogleFonts.poppins(

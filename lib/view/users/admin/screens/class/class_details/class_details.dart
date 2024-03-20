@@ -100,7 +100,7 @@ class ClassDetailsContainer extends StatelessWidget {
                                 child: CircleAvatar(
                                   radius: 78,
                                   backgroundImage:
-                                      AssetImage('assets/png/roll-call.png'),
+                                      AssetImage('webassets/png/roll-call.png'),
                                 ),
                               ),
                             ),

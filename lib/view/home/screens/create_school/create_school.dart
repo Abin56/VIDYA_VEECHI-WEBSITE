@@ -144,7 +144,7 @@ class _SchoolProfileState extends State<SchoolProfile> {
                           width: 800.w,
                           child: Center(
                             child: LottieBuilder.asset(
-                                'assets/lottie_files/22462-campus-library-school-building-maison-mocca-animation.json'),
+                                'webassets/lottie_files/22462-campus-library-school-building-maison-mocca-animation.json'),
                           )))
 //
                 ],
@@ -768,8 +768,8 @@ class SchoolTextFormFieldWidget extends StatelessWidget {
   final TextEditingController textEditingController;
   final String labelText;
   final String? Function(String? fieldContent) function;
- final IconData icon;
- final bool? obscureText;
+  final IconData icon;
+  final bool? obscureText;
   final String? hintText;
 
   @override

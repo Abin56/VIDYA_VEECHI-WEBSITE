@@ -114,7 +114,7 @@ class ClassAttendenceDataListContainer extends StatelessWidget {
                 SizedBox(
                   width: 15,
                   child: Image.asset(
-                    'assets/png/active.png',
+                    'webassets/png/active.png',
                   ),
                 ),
                 const TextFontWidget(

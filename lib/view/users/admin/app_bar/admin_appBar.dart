@@ -84,8 +84,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                   ],
                 ),
                 const Spacer(),
-               ////
-               ///....
+                ////
+                ///....
                 SizedBox(
                   width: 109,
                   child: Column(
@@ -134,7 +134,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                     backgroundColor: Colors.transparent,
                     radius: 20,
                     child: Image.asset(
-                      'assets/png/avathar.png',
+                      'webassets/png/avathar.png',
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -225,10 +225,13 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 ),
               ],
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center,
-              children: [ 
-               Padding(
-                  padding: const EdgeInsets.only(bottom: 5, ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 5,
+                  ),
                   child: Container(
                     height: 45,
                     width: 280,
@@ -270,7 +273,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                     ),
                   ),
                 ),
-            ],)
+              ],
+            )
           ],
         ),
       ),
@@ -410,7 +414,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                       child: CircleAvatar(
                         radius: 20,
                         backgroundColor: Colors.transparent,
-                        child: Image.asset('assets/png/avathar.png'),
+                        child: Image.asset('webassets/png/avathar.png'),
                       ),
                     ),
                     const TextFontWidget(
