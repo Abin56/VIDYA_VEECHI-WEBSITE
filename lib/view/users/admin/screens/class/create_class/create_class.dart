@@ -50,6 +50,16 @@ createClassFunction(BuildContext context) {
             ),
           ),
           Padding(
+            padding: const EdgeInsets.only(left: 08, right: 08, top: 10),
+            child: TextFormFiledBlueContainerWidgetWithOutColor(
+              controller: Get.find<ClassController>().classFeeController,
+              hintText:
+                  " Enter teacher fee for this subject per/ 1 month eg :1000,5000",
+              title: 'Subject Fee',
+              validator: checkFieldEmpty,
+            ),
+          ),
+          Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
               // color: Colors.amber,
@@ -107,6 +117,32 @@ createClassFunction(BuildContext context) {
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
+                                              Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: TextFontWidget(
+                                              text: '${data.classfee} /-',
+                                              fontsize: 13,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                                    Tooltip(
+                                                    message:
+                                                        'Edit Class fee',
+                                                    child: GestureDetector(
+                                                      onTap: () => Get.find<
+                                                              ClassController>()
+                                                          .setClassForbatchYear(
+                                                              data.className,
+                                                              data.docid,
+                                                              data.classfee!),
+                                                      child: const Icon(
+                                                        weight: 50,
+                                                        Icons.add,
+                                                        color: themeColorBlue,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                  ),
                                           Container(
                                               color:
                                                   screenContainerbackgroundColor,
@@ -118,13 +154,15 @@ createClassFunction(BuildContext context) {
                                                         .spaceAround,
                                                 children: [
                                                   Tooltip(
-                                                    message: 'Add class to this batch year',
+                                                    message:
+                                                        'Add class to this batch year',
                                                     child: GestureDetector(
                                                       onTap: () => Get.find<
                                                               ClassController>()
                                                           .setClassForbatchYear(
                                                               data.className,
-                                                              data.docid),
+                                                              data.docid,
+                                                              data.classfee!),
                                                       child: const Icon(
                                                         weight: 50,
                                                         Icons.add,
@@ -132,7 +170,7 @@ createClassFunction(BuildContext context) {
                                                         size: 18,
                                                       ),
                                                     ),
-                                                  ),///////////////////////////................add
+                                                  ), ///////////////////////////................add
                                                   Container(
                                                     width: 1,
                                                     color: cWhite,
@@ -149,7 +187,7 @@ createClassFunction(BuildContext context) {
                                                       color: cgreen,
                                                       size: 18,
                                                     ),
-                                                  ),///////////////////////////...edit
+                                                  ), ///////////////////////////...edit
                                                   Container(
                                                     width: 1,
                                                     color: cWhite,
@@ -167,7 +205,7 @@ createClassFunction(BuildContext context) {
                                                       color: cred,
                                                       size: 18,
                                                     ),
-                                                  ),/////////////////////////delete
+                                                  ), /////////////////////////delete
                                                 ],
                                               )),
                                         ],

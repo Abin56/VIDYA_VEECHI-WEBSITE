@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart'; 
+import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/attendence_history_status/attendence_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/exam_history_status/exam_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/fess_history_status/fess_history_status.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/class/subject/create_subject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
@@ -17,7 +19,7 @@ class ClassDetailsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final data = classController.classModelData.value;
     return DefaultTabController(
       length: 3,
       child: SingleChildScrollView(
@@ -42,7 +44,7 @@ class ClassDetailsContainer extends StatelessWidget {
                 child: Container(
                   color: cWhite,
                   height: 260,
-                  child: Column(  
+                  child: Column(
                     children: [
                       Container(
                         height: 60,
@@ -111,26 +113,29 @@ class ClassDetailsContainer extends StatelessWidget {
                                       width: double.infinity,
                                       height: 100,
                                       color: themeColorBlue.withOpacity(0.1),
-                                      child:  const Column(
+                                      child: const Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.only(left: 10, top: 10),
+                                            padding: EdgeInsets.only(
+                                                left: 10, top: 10),
                                             child: TextFontWidget(
                                               text: "Class Name",
                                               fontsize: 20,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
-                                         Padding(
-                                            padding: const EdgeInsets.only(
+                                          Padding(
+                                            padding: EdgeInsets.only(
                                                 top: 20, left: 10),
                                             child: SizedBox(
                                               width: 500,
                                               child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
                                                   StudentDetailTileContainer(
                                                     flex: 1,
@@ -142,23 +147,23 @@ class ClassDetailsContainer extends StatelessWidget {
                                                     title: 'Presnt Today',
                                                     subtitle: "49",
                                                   ),
-                                          //         // const StudentDetailTileContainer(
-                                          //         //   flex: 1,
-                                          //         //   title: 'Batch Year',
-                                          //         //   subtitle: 'March 2023',
-                                          //         // ),
+                                                  //         // const StudentDetailTileContainer(
+                                                  //         //   flex: 1,
+                                                  //         //   title: 'Batch Year',
+                                                  //         //   subtitle: 'March 2023',
+                                                  //         // ),
                                                   StudentDetailTileContainer(
                                                     flex: 1,
                                                     title: 'Absent Today',
                                                     subtitle: '1',
                                                   ),
-                                          //         StudentDetailTileContainer(
-                                          //           flex: 1,
-                                          //           title: 'Join Date',
-                                          //           subtitle:
-                                          //               stringTimeToDateConvert(
-                                          //                   data.createDate),
-                                          //         ),
+                                                  //         StudentDetailTileContainer(
+                                                  //           flex: 1,
+                                                  //           title: 'Join Date',
+                                                  //           subtitle:
+                                                  //               stringTimeToDateConvert(
+                                                  //                   data.createDate),
+                                                  //         ),
                                                 ],
                                               ),
                                             ),
@@ -167,49 +172,56 @@ class ClassDetailsContainer extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                   const Expanded(
+                                  Expanded(
                                     // flex: 1,
                                     child: Padding(
-                                      padding: EdgeInsets.only(left: 20),
+                                      padding: const EdgeInsets.only(left: 20),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Row(
                                             children: [
-                                              Icon(Icons.person),
-                                              TextFontWidget(
+                                              const Icon(Icons.person),
+                                              const TextFontWidget(
                                                 text: " Reshma Suresh ",
                                                 fontsize: 12,
                                                 color: themeColorBlue,
                                               ),
-                                              // SizedBox(width: 60,),
+                                              const Spacer(),
                                               // GestureDetector(
-                                              //   onTap:  () => Get.find<
-                                              //               ClassController>()
-                                              //           .enableorDisableUpdate(
-                                              //         data.docid,
-                                              //         true,
-                                              //       ),
-                                              //   child: CircleAvatar(child:  Icon(
-                                              //     Icons.edit_square,size: 21,
-                                              //     color: cBlack.withOpacity(0.3),))),
-                                              // Container(
-                                              //   height: 30,
-                                              //   width: 30,
-                                              //   decoration:  BoxDecoration(
-                                              //     color: cgreen.withOpacity(0.3),
-                                              //     borderRadius: const BorderRadius.all(Radius.circular(5))),
-                                              //     child: const Icon(Icons.edit,size: 16,),)
+                                              //   child: BlueContainerWidget(
+                                              //     color: themeColorBlue,
+                                              //     fontSize: 12,
+                                              //     title: '🔗 Class Access',
+                                              //     width: 120,
+                                              //     fontWeight: FontWeight.w500,
+                                              //   ),
+                                              // ),
+                                              // const SizedBox(
+                                              //   width: 10,
+                                              // ),
+                                              GestureDetector(
+                                                onTap: () =>
+                                                    createSubjectFunction(
+                                                        context, data!.docid),
+                                                child: BlueContainerWidget(
+                                                  color: themeColorBlue,
+                                                  fontSize: 12,
+                                                  title: '⚙️ Add Subjects',
+                                                  width: 120,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
                                             ],
                                           ),
-                                           Row(
+                                          const Row(
                                             children: [
-                                              const Icon(Icons.call),
+                                              Icon(Icons.call),
                                               TextFontWidget(
                                                 text: "9876456788",
                                                 fontsize: 12,
-                                                color: themeColorBlue       ,
+                                                color: themeColorBlue,
                                               )
                                             ],
                                           ),

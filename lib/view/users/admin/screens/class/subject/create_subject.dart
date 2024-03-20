@@ -1,23 +1,23 @@
-import 'dart:developer';
-
 import 'package:awesome_side_sheet/Enums/sheet_position.dart';
 import 'package:awesome_side_sheet/side_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 //import 'package:progress_state_button/progress_button.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
-import 'package:vidyaveechi_website/model/class_model/class_model.dart';
+import 'package:vidyaveechi_website/controller/subject_controller/subject_controller.dart';
+import 'package:vidyaveechi_website/model/subject_model/subject_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
-import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/class/create_class/edit_class_Container.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/class/subject/edit_subject_container.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
+import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledBlueContainer.dart';
 
-classAccessFunction(BuildContext context) {
+createSubjectFunction(BuildContext context, String classId) {
+  final SubjectController subjectController = Get.put(SubjectController());
   aweSideSheet(
       context: context,
       footer: Container(),
@@ -41,37 +41,25 @@ classAccessFunction(BuildContext context) {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 08, right: 08),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TextFontWidget(text: "Select Class *", fontsize: 12),
-                SelectClassDropDown(),
-              ],
+            child: TextFormFiledBlueContainerWidgetWithOutColor(
+              controller: subjectController.subNameController,
+              hintText: " Enter Subject Name",
+              title: 'Subject Name',
+              validator: checkFieldEmpty,
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 08, right: 08, top: 10),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       const TextFontWidget(text: "Select Subject *", fontsize: 12),
-          //       SelectClassWiseSubjectDropDown(),
-          //     ],
-          //   ),
-          // ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20,top: 10),
+            padding: const EdgeInsets.only(bottom: 20, top: 10),
             child: SizedBox(
               // color: Colors.amber,
               height: 40,
               width: 180,
               child: Obx(() => ProgressButtonWidget(
                   function: () async {
-                    Get.find<ClassController>().addNewClass();
-                    log("state   ${Get.find<ClassController>().buttonstate}");
+                    subjectController.addSubjectIntoClass(classID: classId);
                   },
-                  buttonstate: Get.find<ClassController>().buttonstate.value,
-                  text: 'Give Access')),
+                  buttonstate: subjectController.buttonstate.value,
+                  text: 'Create Subject')),
             ),
           ),
           SizedBox(
@@ -80,7 +68,11 @@ classAccessFunction(BuildContext context) {
                 stream: server
                     .collection('SchoolListCollection')
                     .doc(UserCredentialsController.schoolId)
+                    .collection(UserCredentialsController.batchId!)
+                    .doc(UserCredentialsController.batchId!)
                     .collection('classes')
+                    .doc(classId)
+                    .collection('subjects')
                     .snapshots(),
                 builder: (context, snap) {
                   if (snap.hasData) {
@@ -93,12 +85,12 @@ classAccessFunction(BuildContext context) {
                     } else {
                       return ListView.separated(
                           itemBuilder: (context, index) {
-                            final data = ClassModel.fromMap(
+                            final data = SubjectModel.fromMap(
                                 snap.data!.docs[index].data());
                             return Padding(
                               padding: const EdgeInsets.only(left: 10, top: 08),
-                              child: data.editoption == true
-                                  ? ClassNameEditWidget(
+                              child: data.subjectNameedit == true
+                                  ? SubjectNameEditWidget(
                                       docid: data.docid,
                                     )
                                   : Container(
@@ -112,7 +104,7 @@ classAccessFunction(BuildContext context) {
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: TextFontWidget(
-                                              text: data.className,
+                                              text: data.subjectName,
                                               fontsize: 13,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -127,34 +119,10 @@ classAccessFunction(BuildContext context) {
                                                     MainAxisAlignment
                                                         .spaceAround,
                                                 children: [
-                                                  Tooltip(
-                                                    message:
-                                                        'Add class to this batch year',
-                                                    child: GestureDetector(
-                                                      onTap: () => Get.find<
-                                                              ClassController>()
-                                                          .setClassForbatchYear(
-                                                              data.className,
-                                                              data.docid,data.classfee!),
-                                                      child: const Icon(
-                                                        weight: 50,
-                                                        Icons.add,
-                                                        color: themeColorBlue,
-                                                        size: 18,
-                                                      ),
-                                                    ),
-                                                  ), ///////////////////////////................add
-                                                  Container(
-                                                    width: 1,
-                                                    color: cWhite,
-                                                  ),
                                                   GestureDetector(
-                                                    onTap: () => Get.find<
-                                                            ClassController>()
+                                                    onTap: () => subjectController
                                                         .enableorDisableUpdate(
-                                                      data.docid,
-                                                      true,
-                                                    ),
+                                                            data.docid, true),
                                                     child: const Icon(
                                                       Icons.edit,
                                                       color: cgreen,

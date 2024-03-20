@@ -13,10 +13,12 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 class ClassController extends GetxController {
   final TextEditingController classNameController = TextEditingController();
   final TextEditingController classNameEditController = TextEditingController();
+    final TextEditingController classFeeController = TextEditingController();
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   List<ClassModel> allclassList = [];
     List<ClassModel> classwiseSubjectList = [];
       Rxn<ClassModel> classModelData = Rxn<ClassModel>();
+    
   RxString className = ''.obs;
   RxString classDocID = 'dd'.obs;
   RxBool ontapClass = false.obs;
@@ -30,6 +32,8 @@ class ClassController extends GetxController {
     buttonstate.value = ButtonState.loading;
     try {
       final data = ClassModel(
+        classfee:int.parse(classFeeController.text.trim()) ,
+        feeeditoption: false,
           editoption: false,
           docid: classNameController.text.trim() + uuid.v1(),
           className: classNameController.text.trim());
@@ -58,10 +62,10 @@ class ClassController extends GetxController {
     }
   }
 
-  setClassForbatchYear(String className, String docid) async {
+  setClassForbatchYear(String className, String docid,int classfee) async {
     try {
       final data =
-          ClassModel(docid: docid, className: className, editoption: false);
+          ClassModel(docid: docid, className: className, editoption: false,feeeditoption: false,classfee: classfee);
       await _schoolserver
           .collection(UserCredentialsController.batchId!)
           .doc(UserCredentialsController.batchId!)

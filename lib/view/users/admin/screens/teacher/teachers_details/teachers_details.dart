@@ -194,22 +194,11 @@ class TeachersDetailsContainer extends StatelessWidget {
                                               ),
                                               const Spacer(),
                                               GestureDetector(
-                                                onTap: () => classAccessFunction(context),
-                                                child: BlueContainerWidget(
-                                                  color: themeColorBlue,
-                                                  fontSize: 12,
-                                                  title: '🔗 Class Access',
-                                                  width: 120,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                width: 10,
-                                              ),
-                                              GestureDetector(
                                                 onTap: () =>
                                                     aSignSubjectFunction(
-                                                        context),
+                                                        context,
+                                                        data.docid!,
+                                                        data.teacherName!),
                                                 child: BlueContainerWidget(
                                                   color: themeColorBlue,
                                                   fontSize: 12,
@@ -217,6 +206,9 @@ class TeachersDetailsContainer extends StatelessWidget {
                                                   width: 120,
                                                   fontWeight: FontWeight.w500,
                                                 ),
+                                              ),
+                                              const SizedBox(
+                                                width: 10,
                                               ),
                                             ],
                                           ),
