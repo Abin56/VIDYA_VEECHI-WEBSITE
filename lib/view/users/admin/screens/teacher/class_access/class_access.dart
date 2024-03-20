@@ -60,7 +60,7 @@ classAccessFunction(BuildContext context) {
           //   ),
           // ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20,top: 10),
+            padding: const EdgeInsets.only(bottom: 20, top: 10),
             child: SizedBox(
               // color: Colors.amber,
               height: 40,
@@ -135,7 +135,8 @@ classAccessFunction(BuildContext context) {
                                                               ClassController>()
                                                           .setClassForbatchYear(
                                                               data.className,
-                                                              data.docid,data.classfee!),
+                                                              data.docid,
+                                                              data.classfee!),
                                                       child: const Icon(
                                                         weight: 50,
                                                         Icons.add,
@@ -153,6 +154,7 @@ classAccessFunction(BuildContext context) {
                                                             ClassController>()
                                                         .enableorDisableUpdate(
                                                       data.docid,
+                                                      'editoption',
                                                       true,
                                                     ),
                                                     child: const Icon(

@@ -13,12 +13,13 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 class ClassController extends GetxController {
   final TextEditingController classNameController = TextEditingController();
   final TextEditingController classNameEditController = TextEditingController();
-    final TextEditingController classFeeController = TextEditingController();
+  final TextEditingController classFeeController = TextEditingController();
+  final TextEditingController classFeeEditController = TextEditingController();
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   List<ClassModel> allclassList = [];
-    List<ClassModel> classwiseSubjectList = [];
-      Rxn<ClassModel> classModelData = Rxn<ClassModel>();
-    
+  List<ClassModel> classwiseSubjectList = [];
+  Rxn<ClassModel> classModelData = Rxn<ClassModel>();
+
   RxString className = ''.obs;
   RxString classDocID = 'dd'.obs;
   RxBool ontapClass = false.obs;
@@ -32,8 +33,8 @@ class ClassController extends GetxController {
     buttonstate.value = ButtonState.loading;
     try {
       final data = ClassModel(
-        classfee:int.parse(classFeeController.text.trim()) ,
-        feeeditoption: false,
+          classfee: int.parse(classFeeController.text.trim()),
+          feeeditoption: false,
           editoption: false,
           docid: classNameController.text.trim() + uuid.v1(),
           className: classNameController.text.trim());
@@ -44,6 +45,7 @@ class ClassController extends GetxController {
           .then((value) async {
         buttonstate.value = ButtonState.success;
         classNameController.clear();
+        classFeeController.clear();
         await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
           buttonstate.value = ButtonState.idle;
         });
@@ -62,10 +64,14 @@ class ClassController extends GetxController {
     }
   }
 
-  setClassForbatchYear(String className, String docid,int classfee) async {
+  setClassForbatchYear(String className, String docid, int classfee) async {
     try {
-      final data =
-          ClassModel(docid: docid, className: className, editoption: false,feeeditoption: false,classfee: classfee);
+      final data = ClassModel(
+          docid: docid,
+          className: className,
+          editoption: false,
+          feeeditoption: false,
+          classfee: classfee);
       await _schoolserver
           .collection(UserCredentialsController.batchId!)
           .doc(UserCredentialsController.batchId!)
@@ -80,13 +86,36 @@ class ClassController extends GetxController {
   }
 
   Future<void> enableorDisableUpdate(
+    String data,
     String docid,
     bool status,
   ) async {
-    await _schoolserver
-        .collection("classes")
-        .doc(docid)
-        .update({'editoption': status});
+    await _schoolserver.collection("classes").doc(docid).update({data: status});
+  }
+
+  Future<void> updateClassFees(String docid) async {
+    //................. Update Class Name
+    //.... Update Class Name
+    try {
+      _schoolserver.collection("classes").doc(docid).update({
+        'classfee': classFeeEditController.text.trim(),
+        'feeeditoption': false,
+      }).then((value) {
+        _schoolserver
+            .collection(UserCredentialsController.batchId!)
+            .doc(UserCredentialsController.batchId!)
+            .collection('classes')
+            .doc(docid)
+            .update({'classfee': classFeeEditController.text.trim()}).then(
+                (value) => showToast(msg: 'Class Name Changed'));
+        classFeeEditController.clear();
+      });
+    } catch (e) {
+      showToast(msg: 'Somthing went wrong please try again');
+      if (kDebugMode) {
+        log(e.toString());
+      }
+    }
   }
 
   Future<void> updateClassName(String docid) async {
@@ -276,6 +305,4 @@ class ClassController extends GetxController {
     }
     return allclassList;
   }
-
-
 }

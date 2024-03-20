@@ -101,116 +101,121 @@ createClassFunction(BuildContext context) {
                                   ? ClassNameEditWidget(
                                       docid: data.docid,
                                     )
-                                  : Container(
-                                      color: Colors.blue.withOpacity(0.2),
-                                      height: 35,
-                                      width: double.infinity,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: TextFontWidget(
-                                              text: data.className,
-                                              fontsize: 13,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
+                                  : data.feeeditoption == true
+                                      ? FeesEditWidget(docid: data.docid)
+                                      : Container(
+                                          color: Colors.blue.withOpacity(0.2),
+                                          height: 35,
+                                          width: double.infinity,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
                                               Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: TextFontWidget(
-                                              text: '${data.classfee} /-',
-                                              fontsize: 13,
-                                              fontWeight: FontWeight.w600,
-                                            ),
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: TextFontWidget(
+                                                  text: data.className,
+                                                  fontsize: 13,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: TextFontWidget(
+                                                  text: '${data.classfee} /-',
+                                                  fontsize: 13,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ),
+                                              Tooltip(
+                                                message: 'Edit Class fee',
+                                                child: GestureDetector(
+                                                  onTap: () => Get.find<
+                                                          ClassController>()
+                                                      .enableorDisableUpdate(
+                                                          'feeeditoption',
+                                                          data.docid,
+                                                          true),
+                                                  child: const Icon(
+                                                    weight: 50,
+                                                    Icons.add,
+                                                    color: themeColorBlue,
+                                                    size: 18,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                  color:
+                                                      screenContainerbackgroundColor,
+                                                  height: 35,
+                                                  width: 90,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Tooltip(
+                                                        message:
+                                                            'Add class to this batch year',
+                                                        child: GestureDetector(
+                                                          onTap: () => Get.find<
+                                                                  ClassController>()
+                                                              .setClassForbatchYear(
+                                                                  data.className,
+                                                                  data.docid,
+                                                                  data.classfee!),
+                                                          child: const Icon(
+                                                            weight: 50,
+                                                            Icons.add,
+                                                            color:
+                                                                themeColorBlue,
+                                                            size: 18,
+                                                          ),
+                                                        ),
+                                                      ), ///////////////////////////................add
+                                                      Container(
+                                                        width: 1,
+                                                        color: cWhite,
+                                                      ),
+                                                      GestureDetector(
+                                                        onTap: () => Get.find<
+                                                                ClassController>()
+                                                            .enableorDisableUpdate(
+                                                          'editoption',
+                                                          data.docid,
+                                                          true,
+                                                        ),
+                                                        child: const Icon(
+                                                          Icons.edit,
+                                                          color: cgreen,
+                                                          size: 18,
+                                                        ),
+                                                      ), ///////////////////////////...edit
+                                                      Container(
+                                                        width: 1,
+                                                        color: cWhite,
+                                                      ),
+                                                      GestureDetector(
+                                                        onTap: () {
+                                                          Get.find<
+                                                                  ClassController>()
+                                                              .deleteClass(
+                                                                  data.docid,
+                                                                  context);
+                                                        },
+                                                        child: const Icon(
+                                                          Icons.delete,
+                                                          color: cred,
+                                                          size: 18,
+                                                        ),
+                                                      ), /////////////////////////delete
+                                                    ],
+                                                  )),
+                                            ],
                                           ),
-                                                    Tooltip(
-                                                    message:
-                                                        'Edit Class fee',
-                                                    child: GestureDetector(
-                                                      onTap: () => Get.find<
-                                                              ClassController>()
-                                                          .setClassForbatchYear(
-                                                              data.className,
-                                                              data.docid,
-                                                              data.classfee!),
-                                                      child: const Icon(
-                                                        weight: 50,
-                                                        Icons.add,
-                                                        color: themeColorBlue,
-                                                        size: 18,
-                                                      ),
-                                                    ),
-                                                  ),
-                                          Container(
-                                              color:
-                                                  screenContainerbackgroundColor,
-                                              height: 35,
-                                              width: 90,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  Tooltip(
-                                                    message:
-                                                        'Add class to this batch year',
-                                                    child: GestureDetector(
-                                                      onTap: () => Get.find<
-                                                              ClassController>()
-                                                          .setClassForbatchYear(
-                                                              data.className,
-                                                              data.docid,
-                                                              data.classfee!),
-                                                      child: const Icon(
-                                                        weight: 50,
-                                                        Icons.add,
-                                                        color: themeColorBlue,
-                                                        size: 18,
-                                                      ),
-                                                    ),
-                                                  ), ///////////////////////////................add
-                                                  Container(
-                                                    width: 1,
-                                                    color: cWhite,
-                                                  ),
-                                                  GestureDetector(
-                                                    onTap: () => Get.find<
-                                                            ClassController>()
-                                                        .enableorDisableUpdate(
-                                                      data.docid,
-                                                      true,
-                                                    ),
-                                                    child: const Icon(
-                                                      Icons.edit,
-                                                      color: cgreen,
-                                                      size: 18,
-                                                    ),
-                                                  ), ///////////////////////////...edit
-                                                  Container(
-                                                    width: 1,
-                                                    color: cWhite,
-                                                  ),
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                      Get.find<
-                                                              ClassController>()
-                                                          .deleteClass(
-                                                              data.docid,
-                                                              context);
-                                                    },
-                                                    child: const Icon(
-                                                      Icons.delete,
-                                                      color: cred,
-                                                      size: 18,
-                                                    ),
-                                                  ), /////////////////////////delete
-                                                ],
-                                              )),
-                                        ],
-                                      ),
-                                    ),
+                                        ),
                             );
                           },
                           separatorBuilder: (context, index) => const SizedBox(

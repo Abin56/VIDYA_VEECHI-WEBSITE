@@ -31,13 +31,22 @@ class MyApp extends StatelessWidget {
         builder: (context) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute: '/spashscreen',
-            getPages: [
-              GetPage(name: '/spashscreen', page: () => SplashScreen()),
-              GetPage(name: '/Homescreen', page: () => const HomeScreen()),
-              GetPage(
-                  name: '/PrivacyPolicy', page: () => const PrivacyPolicy()),
-            ],
+            // initialRoute: '/spashscreen',
+            routes: {
+              '/spashscreen': (context) => SplashScreen(),
+              '/PrivacyPolicy': (context) => const PrivacyPolicy(),
+            },
+            //         getPages: [
+            //           GetPage(name: '/spashscreen', page: () => SplashScreen()),
+            //           // GetPage(name: '/Homescreen', page: () => const HomeScreen()),
+            //           GetPage(
+
+            // // GetPage(name: '/spashscreen', page: () => SplashScreen()),
+            //               participatesInRootNavigator: false,
+            //               name: '/PrivacyPolicy',
+            //               page: () => const PrivacyPolicy()),
+            //         ],
+            home: SplashScreen(),
             theme: ThemeData(
                 inputDecorationTheme: InputDecorationTheme(
                     border: OutlineInputBorder(
