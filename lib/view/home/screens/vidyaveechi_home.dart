@@ -1,8 +1,8 @@
 import 'package:dropdown_search/dropdown_search.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/home/screens/create_school/Registration/registrationpage.dart';
 import 'package:vidyaveechi_website/view/home/screens/create_school/create_school.dart';
 import 'package:vidyaveechi_website/view/home/screens/home_page_contents%20.dart';
 import 'package:vidyaveechi_website/view/home/screens/lepton_logo_appbar.dart';
@@ -16,6 +16,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
+      
       child: ResponsiveWebSite.isMobile(context)
           ? Column(
               children: [
@@ -257,7 +258,7 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                                 print("object");
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return const SchoolProfile();
+                                    return  const RegisrationPage();
                                   },
                                 ));
                               },
@@ -292,7 +293,11 @@ class VidhyaVeechiHomePageResponsive extends StatelessWidget {
                                       const Color.fromARGB(255, 75, 131, 252),
                                   // backgroundColor: const Color.fromARGB(255, 102, 206, 169),
                                 ),
-                                onPressed: () {},
+                                onPressed: () { Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return  const SchoolProfile();
+                                  },
+                                ));},
                                 child: Text(
                                   'QUERY',
                                   style: GoogleFonts.poppins(

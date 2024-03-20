@@ -367,7 +367,7 @@ class _NoticeEditRemoveState extends State<NoticeEditRemove> {
   TextEditingController descriptionController = TextEditingController();
   TextEditingController venueController = TextEditingController();
   TextEditingController signedByController = TextEditingController();
-
+ bool? valuefirst = false;
   @override
   Widget build(BuildContext context) {
     return Container(
