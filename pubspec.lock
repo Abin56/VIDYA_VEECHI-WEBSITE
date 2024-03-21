@@ -245,10 +245,10 @@ packages:
     dependency: transitive
     description:
       name: device_info_plus
-      sha256: "77f757b789ff68e4eaf9c56d1752309bd9f7ad557cb105b938a7f8eb89e59110"
+      sha256: "50fb435ed30c6d2525cbfaaa0f46851ea6131315f213c0d921b0e407b34e3b84"
       url: "https://pub.dev"
     source: hosted
-    version: "9.1.2"
+    version: "10.0.1"
   device_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -357,10 +357,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: caa6bc229eab3e32eb2f37b53a5f9d22a6981474afd210c512a7546c1e1a04f6
+      sha256: d1d0ac3966b36dc3e66eeefb40280c17feb87fa2099c6e22e6a1fc959327bd03
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.0"
+    version: "8.0.0+1"
   file_selector_linux:
     dependency: transitive
     description:
@@ -689,10 +689,10 @@ packages:
     dependency: transitive
     description:
       name: google_sign_in_android
-      sha256: bfd42c81c30c6faba16e0f62968d5505a87504aaa672b3155ee931461abb0a49
+      sha256: "38cef11ed22fc0c9bfa7b00bf7f2d91012138f5613089522917fd26c853be93e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.21"
+    version: "6.1.22"
   google_sign_in_ios:
     dependency: transitive
     description:
@@ -1081,10 +1081,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: bdafc6db74253abb63907f4e357302e6bb786ab41465e8635f362ee71fd8707b
+      sha256: "8c90be7f8244eeb2bbfa4248221d38a66ca3e3cc3ab967a25a2529d86eee7c45"
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.0"
+    version: "9.4.1"
   permission_handler_html:
     dependency: transitive
     description:
@@ -1193,10 +1193,10 @@ packages:
     dependency: transitive
     description:
       name: share_plus_platform_interface
-      sha256: df08bc3a07d01f5ea47b45d03ffcba1fa9cd5370fb44b3f38c70e42cced0f956
+      sha256: "251eb156a8b5fa9ce033747d73535bf53911071f8d3b6f4f0b578505ce0d4496"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.1"
+    version: "3.4.0"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -1281,10 +1281,10 @@ packages:
     dependency: "direct main"
     description:
       name: skeletonizer
-      sha256: "2eb80153c80507359ff05f6a18ed50ae0bafa1b999aa867a8cef0a53387b5650"
+      sha256: "9a3ae2f4ee4349bdbed3292d04586a1315a44745d2c454684f82f0c46dbeabf9"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1350,66 +1350,66 @@ packages:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_calendar
-      sha256: "57cca039b31d49844de6681ad039216dd098da7b9e7acffeee5e7075a4978416"
+      sha256: "2a41662f56368fc2dc63dd4b41e817470e031ee4cbc56121cd2edc6960ecf2f6"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   syncfusion_flutter_charts:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_charts
-      sha256: ab73109c586f5ec2b01adc2672026a1fb3f93b2b5f6061ba8d7126c119061002
+      sha256: d3d06f23e6014c7fc591e4dc3c0646378a9affb38e366b9cf2537024d3f31b32
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   syncfusion_flutter_core:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
-      sha256: "7666506885ebc8f62bb928ad4588a73e20caaff2b2cf2b2b56f67d98f4113525"
+      sha256: eac3cbf2278fa4993d9b97d92d050973025deebfbff970109843640dc770888c
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   syncfusion_flutter_datagrid:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_datagrid
-      sha256: "0ac1c54467ef2c1099943207dfd95748da94c900104e37fbaa346668a120c02d"
+      sha256: "68d5f711c30fc3b74d070b6af05a16b1a6273dff74785acfb64668cfed0d3db1"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   syncfusion_flutter_datepicker:
     dependency: transitive
     description:
       name: syncfusion_flutter_datepicker
-      sha256: c010440ccef2beecb988684af3557c57ade8ea300d1177536f01059e3a16ce5d
+      sha256: "37e0c694110d106aab43e6ab7b1823fc95db143c5038c6b7aaf3054b8f97db1d"
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   syncfusion_flutter_gauges:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_gauges
-      sha256: "87be13e520fc1676a725691446f411f549ea5b6ff2580234db0479799f213757"
+      sha256: d2c7aeec1f765bebe0c3282bd050e93ba0b1f7cf168dbb502aa031e1343ffea3
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   syncfusion_flutter_xlsio:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_xlsio
-      sha256: "6020dc5b4765e9850ddf0789fb247c03c10751869af1c888bf9cef2fbabc2389"
+      sha256: a23fdc0bb99b64e10b89bed615e37319516eb3b0db8b2592014696cdaee1fdf4
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   syncfusion_officecore:
     dependency: transitive
     description:
       name: syncfusion_officecore
-      sha256: "7d172ffe5b995788414faea199ed32fbca60297c9fc27a052711287bb710e3c4"
+      sha256: c08df0b93ebdafe87b72a9a9aaf0720ff6b9726ec75af0bf4d5dd8f6c55ecf7d
       url: "https://pub.dev"
     source: hosted
-    version: "24.2.9"
+    version: "25.1.35"
   term_glyph:
     dependency: transitive
     description:
@@ -1446,10 +1446,10 @@ packages:
     dependency: "direct main"
     description:
       name: toggle_switch
-      sha256: "9e6af1f0c5a97d9de41109dc7b9e1b3bbe73417f89b10e0e44dc834fb493d4cb"
+      sha256: "8aa37981a5c64ac9cafbfbf438e64b18170b2b7b3ffa330637d127598abcc980"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.1"
   typed_data:
     dependency: transitive
     description:
