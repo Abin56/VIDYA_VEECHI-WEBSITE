@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
+import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 
 const sw50 = SizedBox(
   width: 50,
@@ -140,3 +141,39 @@ class TarifdetailSaver {
 Widget circularProgressIndicator = const Center(
   child: CircularProgressIndicator(),
 );
+
+showDialogWidget(
+    {required BuildContext context,
+    required String title,
+    required Function function}) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        shape: LinearBorder.none,
+        title: TextFontWidget(text: title, fontsize: 16),
+        actions: [
+          TextButton(
+            child: TextFontWidget(
+              text: 'No',
+              fontsize: 16,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          TextButton(
+            child: TextFontWidget(
+              text: 'Yes',
+              fontsize: 16,
+            ),
+            onPressed: () {
+              function();
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
+}

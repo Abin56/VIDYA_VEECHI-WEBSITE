@@ -162,6 +162,8 @@ createExamNotificationFunction(BuildContext context) {
                   stream: server
                       .collection('SchoolListCollection')
                       .doc(UserCredentialsController.schoolId)
+                      .collection(UserCredentialsController.batchId!)
+                      .doc(UserCredentialsController.batchId!)
                       .collection('ExamNotification')
                       .snapshots(),
                   builder: (context, snap) {
@@ -220,27 +222,27 @@ createExamNotificationFunction(BuildContext context) {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
-                                                Tooltip(
-                                                  message:
-                                                      'Add Exam to this batch year',
-                                                  child: GestureDetector(
-                                                    onTap: () {
-                                                      getExamNotificationCtr
-                                                          .addExamNotifcationToBatchYear(
-                                                              data: data);
-                                                    },
-                                                    child: const Icon(
-                                                      weight: 50,
-                                                      Icons.add,
-                                                      color: themeColorBlue,
-                                                      size: 18,
-                                                    ),
-                                                  ),
-                                                ), ///////////////////////////................add
-                                                Container(
-                                                  width: 1,
-                                                  color: cWhite,
-                                                ),
+                                                // Tooltip(
+                                                //   message:
+                                                //       'Add Exam to this batch year',
+                                                //   child: GestureDetector(
+                                                //     onTap: () {
+                                                //       getExamNotificationCtr
+                                                //           .addExamNotifcationToBatchYear(
+                                                //               data: data);
+                                                //     },
+                                                //     child: const Icon(
+                                                //       weight: 50,
+                                                //       Icons.add,
+                                                //       color: themeColorBlue,
+                                                //       size: 18,
+                                                //     ),
+                                                //   ),
+                                                // ), ///////////////////////////................add
+                                                // Container(
+                                                //   width: 1,
+                                                //   color: cWhite,
+                                                // ),
                                                 GestureDetector(
                                                   onTap: () {
                                                     editFunctionOfExam(
@@ -258,9 +260,16 @@ createExamNotificationFunction(BuildContext context) {
                                                 ),
                                                 GestureDetector(
                                                   onTap: () {
-                                                    getExamNotificationCtr
-                                                        .deletExamNotification(
-                                                            docId: data.docId);
+                                                    showDialogWidget(
+                                                        context: context,
+                                                        title:
+                                                            'Are you sure to Delete',
+                                                        function: () {
+                                                          getExamNotificationCtr
+                                                              .deletExamNotification(
+                                                                  docId: data
+                                                                      .docId);
+                                                        });
                                                   },
                                                   child: const Icon(
                                                     Icons.delete,

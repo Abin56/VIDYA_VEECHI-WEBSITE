@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/model/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/create_exam.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_functions_n_list/data_list_exam.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/widget/widget.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
@@ -13,10 +15,12 @@ import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWi
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class AllExamNotificationListView extends StatelessWidget {
-  const AllExamNotificationListView({super.key});
-
+  AllExamNotificationListView({super.key});
+  final getExamNotificationCtr = Get.put(ExamNotificationController());
+  final GlobalKey<FormState> fkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(
@@ -133,10 +137,32 @@ class AllExamNotificationListView extends StatelessWidget {
                                     //   onTap: () => classController
                                     //       .ontapClass.value = true,
                                     //   child:
-                                    ExamNotificationDataListWidget(
-                                  data: data,
-                                  index: index,
-                                  //   ),
+                                    InkWell(
+                                  onTap: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        getExamNotificationCtr
+                                            .startDateCtr.text = '';
+                                        getExamNotificationCtr.endDateCtr.text =
+                                            '';
+                                        getExamNotificationCtr
+                                            .startTimeCtr.text = '';
+                                        getExamNotificationCtr.endTimeCtr.text =
+                                            '';
+                                        return ExamTimeTableAddWidget(
+                                            size: size,
+                                            fkey: fkey,
+                                            getExamNotificationCtr:
+                                                getExamNotificationCtr);
+                                      },
+                                    );
+                                  },
+                                  child: ExamNotificationDataListWidget(
+                                    data: data,
+                                    index: index,
+                                    //   ),
+                                  ),
                                 );
                               },
                               separatorBuilder: (context, index) {

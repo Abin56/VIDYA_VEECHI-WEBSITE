@@ -107,7 +107,7 @@ List<Widget> pages = [
 
   AllClassListView(),
   const AdminDashBoardSections(),
-  const AllExamNotificationListView(),
+  AllExamNotificationListView(),
   AllClassListView(),
   const AllTeachersAttendance(),
   const AllStudentsAttendance(),
@@ -134,7 +134,7 @@ List<Widget> pages = [
   ////
 
   const MeetingCreatingPage(),
-  const AllExamNotificationListView(),
+  AllExamNotificationListView(),
   const FeesAndBillsPage(),
   Container(
     height: 200,
@@ -142,7 +142,7 @@ List<Widget> pages = [
   ),
   const BatchHistroyListPage(),
   // const FeesAndBillsPage(),
-  const AllExamNotificationListView(),
+  AllExamNotificationListView(),
   Center(
     child: Text(sideMenu[1]),
   ),

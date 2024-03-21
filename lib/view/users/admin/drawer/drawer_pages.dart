@@ -347,11 +347,11 @@ class DrawerSelectedPagesSection extends StatelessWidget {
               height: 20,
               width: 20,
               child: Image.asset('assets/png/notification.png')),
-          tileColor: selectedIndex == 3
+          tileColor: selectedIndex == 4
               ? themeColorBlue.withOpacity(0.1)
               : Colors.transparent,
           onTap: () {
-            index = 3;
+            index = 4;
             onTap.call(index);
           },
           title: DashboardTextFontWidget(
