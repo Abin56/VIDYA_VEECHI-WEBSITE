@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/class/view_class_students/data_list.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';

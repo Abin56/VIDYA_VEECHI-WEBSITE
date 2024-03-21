@@ -15,15 +15,15 @@ class TeacherController extends GetxController {
   TextEditingController teacherPhoneNumeber = TextEditingController();
   TextEditingController teacherIDController = TextEditingController();
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
-   final Rx<String> dateofbithController = ''.obs;
+  final Rx<String> dateofbithController = ''.obs;
   final Rx<String> gender = ''.obs;
-   final Rx<String> subject = ''.obs;
+  final Rx<String> subject = ''.obs;
   final Rxn<DateTime> selectedDOB = Rxn<DateTime>();
   RxBool ontapTeacher = false.obs;
   RxString dobSelectedDate = ''.obs;
   RxString joiningSelectedDate = ''.obs;
   RxBool ontapviewteacher = false.obs;
-   Rxn<TeacherModel> teacherModelData = Rxn<TeacherModel>();
+  Rxn<TeacherModel> teacherModelData = Rxn<TeacherModel>();
 
 //......................  Add teacher Section
 
@@ -51,6 +51,9 @@ class TeacherController extends GetxController {
         );
       });
       buttonstate.value = ButtonState.success;
+      await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
+        buttonstate.value = ButtonState.idle;
+      });
     } catch (e) {
       showToast(msg: "Teacher Creation Failed");
       buttonstate.value = ButtonState.fail;
@@ -136,7 +139,7 @@ class TeacherController extends GetxController {
     }
   }
 
-selectToDateofBirth(BuildContext context) async {
+  selectToDateofBirth(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDOB.value ?? DateTime.now(),
@@ -156,6 +159,7 @@ selectToDateofBirth(BuildContext context) async {
       log(formatted.toString());
     }
   }
+
   void clearFields() {
     teacherNameController.clear();
     teacherPhoneNumeber.clear();

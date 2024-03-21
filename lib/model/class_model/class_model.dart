@@ -6,13 +6,17 @@ class ClassModel {
   String className;
   String? classTeacherdocid;
   String? classTeacherName;
+  int? classfee;
   bool editoption;
+    bool feeeditoption;
   ClassModel({
     required this.docid,
     required this.className,
     this.classTeacherdocid,
     this.classTeacherName,
+    this.classfee,
     required this.editoption,
+    required this.feeeditoption,
   });
 
   ClassModel copyWith({
@@ -20,14 +24,18 @@ class ClassModel {
     String? className,
     String? classTeacherdocid,
     String? classTeacherName,
+    int? classfee,
     bool? editoption,
+    bool? feeeditoption,
   }) {
     return ClassModel(
       docid: docid ?? this.docid,
       className: className ?? this.className,
       classTeacherdocid: classTeacherdocid ?? this.classTeacherdocid,
       classTeacherName: classTeacherName ?? this.classTeacherName,
+      classfee: classfee ?? this.classfee,
       editoption: editoption ?? this.editoption,
+      feeeditoption: feeeditoption ?? this.feeeditoption,
     );
   }
 
@@ -37,21 +45,21 @@ class ClassModel {
       'className': className,
       'classTeacherdocid': classTeacherdocid,
       'classTeacherName': classTeacherName,
+      'classfee': classfee,
       'editoption': editoption,
+      'feeeditoption': feeeditoption,
     };
   }
 
   factory ClassModel.fromMap(Map<String, dynamic> map) {
     return ClassModel(
-      docid: map['docid'] ?? "",
-      className: map['className'] ?? "",
-      classTeacherdocid: map['classTeacherdocid'] != null
-          ? map['classTeacherdocid'] ?? ""
-          : null,
-      classTeacherName: map['classTeacherName'] != null
-          ? map['classTeacherName'] ?? ""
-          : null,
+      docid: map['docid'] ??'',
+      className: map['className'] ??'',
+      classTeacherdocid: map['classTeacherdocid'] != null ? map['classTeacherdocid'] ??'' : null,
+      classTeacherName: map['classTeacherName'] != null ? map['classTeacherName'] ??'' : null,
+      classfee: map['classfee'] != null ? map['classfee'] ??0 : null,
       editoption: map['editoption'] ?? false,
+      feeeditoption: map['feeeditoption'] ?? false,
     );
   }
 
@@ -62,26 +70,31 @@ class ClassModel {
 
   @override
   String toString() {
-    return 'ClassModel(docid: $docid, className: $className, classTeacherdocid: $classTeacherdocid, classTeacherName: $classTeacherName, editoption: $editoption)';
+    return 'ClassModel(docid: $docid, className: $className, classTeacherdocid: $classTeacherdocid, classTeacherName: $classTeacherName, classfee: $classfee, editoption: $editoption, feeeditoption: $feeeditoption)';
   }
 
   @override
   bool operator ==(covariant ClassModel other) {
     if (identical(this, other)) return true;
-
-    return other.docid == docid &&
-        other.className == className &&
-        other.classTeacherdocid == classTeacherdocid &&
-        other.classTeacherName == classTeacherName &&
-        other.editoption == editoption;
+  
+    return 
+      other.docid == docid &&
+      other.className == className &&
+      other.classTeacherdocid == classTeacherdocid &&
+      other.classTeacherName == classTeacherName &&
+      other.classfee == classfee &&
+      other.editoption == editoption &&
+      other.feeeditoption == feeeditoption;
   }
 
   @override
   int get hashCode {
     return docid.hashCode ^
-        className.hashCode ^
-        classTeacherdocid.hashCode ^
-        classTeacherName.hashCode ^
-        editoption.hashCode;
+      className.hashCode ^
+      classTeacherdocid.hashCode ^
+      classTeacherName.hashCode ^
+      classfee.hashCode ^
+      editoption.hashCode ^
+      feeeditoption.hashCode;
   }
 }

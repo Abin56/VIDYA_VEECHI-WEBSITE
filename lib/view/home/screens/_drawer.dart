@@ -33,7 +33,7 @@ class ExploreDrawer extends StatelessWidget {
                   SizedBox(
                     height: 150.w,
                     width: 160.w,
-                    child: Image.asset('assets/images/leptdujo.png'),
+                    child: Image.asset('webassets/images/leptdujo.png'),
                   ),
                   InkWell(
                     onTap: () {

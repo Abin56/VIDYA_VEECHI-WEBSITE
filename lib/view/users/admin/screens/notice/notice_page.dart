@@ -367,7 +367,7 @@ class _NoticeEditRemoveState extends State<NoticeEditRemove> {
   TextEditingController descriptionController = TextEditingController();
   TextEditingController venueController = TextEditingController();
   TextEditingController signedByController = TextEditingController();
-
+ bool? valuefirst = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -506,6 +506,7 @@ class _NoticeEditRemoveState extends State<NoticeEditRemove> {
 }
 
 
+// ignore: must_be_immutable
 class TextFormFiledBlueContainerWidgetEvent extends StatelessWidget {
   TextEditingController? controller = TextEditingController();
   final String title;

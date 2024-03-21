@@ -42,66 +42,71 @@ class SubjectDisplayTable extends StatelessWidget {
                 child: Container(
                   color: cWhite,
                   height: 40,
-                  child:  Row(
+                  child: Row(
                     children: [
                       Expanded(
                           flex: 1,
-                          child: CatrgoryTableHeaderColorWidget(headerTitle: 'No',
-                          color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,)),
+                          child: CatrgoryTableHeaderColorWidget(
+                            headerTitle: 'No',
+                            color: themeColorBlue.withOpacity(0.3),
+                            textcolor: cBlack,
+                          )),
                       const SizedBox(
                         width: 02,
                       ),
-                       Expanded(
+                      Expanded(
                           flex: 4,
-                     child: CatrgoryTableHeaderColorWidget(headerTitle: 'Subject',
-                     color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,)),                 
+                          child: CatrgoryTableHeaderColorWidget(
+                            headerTitle: 'Subject',
+                            color: themeColorBlue.withOpacity(0.3),
+                            textcolor: cBlack,
+                          )),
                       const SizedBox(
                         width: 02,
                       ),
-                    //    Expanded(
-                    //       flex: 1,
-                    //       child: CatrgoryTableHeaderColorWidget(headerTitle: 'Edit',
-                    //  color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,),
-                    //       // child:
-                    //       //     CatrgoryTableHeaderWidget(headerTitle: 'Edit')
-                    //           ),
-                    //   const SizedBox(
-                    //     width: 02,
-                    //   ),
-                    //    Expanded(
-                    //       flex: 1,
-                    //       child:CatrgoryTableHeaderColorWidget(headerTitle: 'Remove',
-                    //  color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,),
-                    //           //CatrgoryTableHeaderWidget(headerTitle: 'Remove')
-                    //           ),
-                    //   const SizedBox(
-                    //     width: 02,
-                    //   ),
+                      //    Expanded(
+                      //       flex: 1,
+                      //       child: CatrgoryTableHeaderColorWidget(headerTitle: 'Edit',
+                      //  color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,),
+                      //       // child:
+                      //       //     CatrgoryTableHeaderWidget(headerTitle: 'Edit')
+                      //           ),
+                      //   const SizedBox(
+                      //     width: 02,
+                      //   ),
+                      //    Expanded(
+                      //       flex: 1,
+                      //       child:CatrgoryTableHeaderColorWidget(headerTitle: 'Remove',
+                      //  color: themeColorBlue.withOpacity(0.3),textcolor: cBlack,),
+                      //           //CatrgoryTableHeaderWidget(headerTitle: 'Remove')
+                      //           ),
+                      //   const SizedBox(
+                      //     width: 02,
+                      //   ),
                     ],
                   ),
                 ),
               ),
               Expanded(
                   child: Padding(
-                    padding: ResponsiveWebSite.isMobile(context)
+                padding: ResponsiveWebSite.isMobile(context)
                     ? const EdgeInsets.all(0)
                     : const EdgeInsets.only(left: 10, right: 10, top: 0),
-                    child: SizedBox(
-                        child: ListView.separated(
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 0, right: 0),
-                                child: SubjectDataListContainer(index: index),
-                              );
-                            },
-                            separatorBuilder: (context, index) {
-                              return const SizedBox(
-                                height: 02,
-                              );
-                            },
-                            itemCount: 100)),
-                  ))
+                child: SizedBox(
+                    child: ListView.separated(
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(left: 0, right: 0),
+                            child: SubjectDataListContainer(index: index),
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return const SizedBox(
+                            height: 02,
+                          );
+                        },
+                        itemCount: 100)),
+              ))
             ],
           ),
         )
@@ -143,29 +148,29 @@ class SubjectDataListContainer extends StatelessWidget {
                   ? const Color.fromARGB(255, 246, 246, 246)
                   : Colors.blue[50],
               child:
-              //  ListView.separated(
-              //     scrollDirection: Axis.horizontal,
-              //     itemBuilder: (context, index) {
-              //       return 
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: cBlack.withOpacity(0.2))),
-                      width: 50,
-                      child: const Center(
-                        child: TextFontWidget(
-                          text: " English",
-                          fontsize: 13,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ),
-                  // },
-                  // separatorBuilder: (context, index) {
-                  //   return const SizedBox(
-                  //     width: 03,
-                  //   );
-                  // },
-                  // itemCount: 08),
+                  //  ListView.separated(
+                  //     scrollDirection: Axis.horizontal,
+                  //     itemBuilder: (context, index) {
+                  //       return
+                  Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: cBlack.withOpacity(0.2))),
+                width: 50,
+                child: const Center(
+                  child: TextFontWidget(
+                    text: " English",
+                    fontsize: 13,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ),
+              // },
+              // separatorBuilder: (context, index) {
+              //   return const SizedBox(
+              //     width: 03,
+              //   );
+              // },
+              // itemCount: 08),
             ),
           ), //........................................... Subjects
           const SizedBox(
@@ -184,7 +189,7 @@ class SubjectDataListContainer extends StatelessWidget {
           //         mainAxisAlignment: MainAxisAlignment.center,
           //         children: [
           //           Icon(Icons.edit,color: cgreen,size: 18,),
-          //           //Image.asset("assets/stickers/pencil.png",height: 25,color: cgreen, )
+          //           //Image.asset("webassets/stickers/pencil.png",height: 25,color: cgreen, )
           //           ],
           //       ),
           //     )),// ................................... edit
@@ -204,7 +209,7 @@ class SubjectDataListContainer extends StatelessWidget {
           //         mainAxisAlignment: MainAxisAlignment.center,
           //         children: [
           //           Icon(Icons.delete,color: cred,size: 18,)
-          //           //Image.asset("assets/stickers/delete.png",height: 25,color: cred,)
+          //           //Image.asset("webassets/stickers/delete.png",height: 25,color: cred,)
           //         ],
           //       ),
           //     )), //.......................................delete

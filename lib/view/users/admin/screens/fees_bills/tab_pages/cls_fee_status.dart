@@ -35,11 +35,14 @@ class ClassFeesStatusPage extends StatelessWidget {
                   ),
                       Padding(
                         padding:  EdgeInsets.all(ResponsiveWebSite.isMobile(context)? 8:4.0),
-                        child: DropdownSearch<Map<String, dynamic>>(
-                          dropdownDecoratorProps: const DropDownDecoratorProps(
-                            dropdownSearchDecoration: InputDecoration(
-                                labelText: "Select Class",
-                                border: OutlineInputBorder()),
+                        child: SizedBox(
+                          height: 40,
+                          child: DropdownSearch<Map<String, dynamic>>(
+                            dropdownDecoratorProps: const DropDownDecoratorProps(
+                              dropdownSearchDecoration: InputDecoration(
+                                  labelText: "Select Class",
+                                  border: OutlineInputBorder()),
+                            ),
                           ),
                         ),
                       ),
@@ -60,11 +63,14 @@ class ClassFeesStatusPage extends StatelessWidget {
                   ),
                       Padding(
                          padding:  EdgeInsets.all(ResponsiveWebSite.isMobile(context)? 8:4.0),
-                        child: DropdownSearch<Map<String, dynamic>>(
-                          dropdownDecoratorProps: const DropDownDecoratorProps(
-                            dropdownSearchDecoration: InputDecoration(
-                                labelText: "Select Fees",
-                                border: OutlineInputBorder()),
+                        child: SizedBox(
+                          height: 40,
+                          child: DropdownSearch<Map<String, dynamic>>(
+                            dropdownDecoratorProps: const DropDownDecoratorProps(
+                              dropdownSearchDecoration: InputDecoration(
+                                  labelText: "Select Fees",
+                                  border: OutlineInputBorder()),
+                            ),
                           ),
                         ),
                       ),
@@ -78,7 +84,7 @@ class ClassFeesStatusPage extends StatelessWidget {
                           height: 35,
                           width: 120,
                           decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8)),
-                          color: cBlue),
+                          color: themeColorBlue),
                           child: const Center(child: TextFontWidget(text: "Submit", fontsize: 15,fontWeight: FontWeight.bold,color: cWhite,)),
                        ),
                      ),
@@ -90,7 +96,7 @@ class ClassFeesStatusPage extends StatelessWidget {
                           height: 35,
                           width: 140,
                           decoration: const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(8)),
-                          color: cBlue),
+                          color: themeColorBlue),
                           child: const Center(child: TextFontWidget(text: "Send Notification", fontsize: 15,fontWeight: FontWeight.bold,color: cWhite,)),
                        ),
                      ),

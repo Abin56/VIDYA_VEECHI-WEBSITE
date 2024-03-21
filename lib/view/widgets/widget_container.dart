@@ -3,10 +3,10 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class WidgetContainerOnHome extends StatelessWidget {
-  String title;
-  String body;
-  String imagePath;
-  WidgetContainerOnHome({
+ final String title;
+ final String body;
+ final String imagePath;
+  const WidgetContainerOnHome({
     required this.body,
     required this.imagePath,
     required this.title,

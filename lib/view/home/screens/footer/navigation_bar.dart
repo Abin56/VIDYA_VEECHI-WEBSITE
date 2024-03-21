@@ -167,7 +167,7 @@ class NavigationBarWidget extends StatelessWidget {
                 radius: screenSize.width * 1 / 55,
                 backgroundColor: Colors.transparent,
                 child: Image.asset(
-                  "assets/images/frdd.png",
+                  "webassets/images/frdd.png",
                   height: screenSize.width * 1 / 75,
                   width: screenSize.width * 1 / 60,
                 ),
@@ -184,7 +184,7 @@ class NavigationBarWidget extends StatelessWidget {
                 radius: screenSize.width * 1 / 60,
                 backgroundColor: Colors.transparent,
                 child: Image.asset(
-                  "assets/images/instag.png",
+                  "webassets/images/instag.png",
                   height: screenSize.width * 1 / 50,
                   width: screenSize.width * 1 / 50,
                 ),
@@ -201,7 +201,7 @@ class NavigationBarWidget extends StatelessWidget {
                 radius: screenSize.width * 1 / 60,
                 backgroundColor: Colors.transparent,
                 child: Image.asset(
-                  "assets/images/twitt.png",
+                  "webassets/images/twitt.png",
                   height: screenSize.width * 1 / 65,
                   width: screenSize.width * 1 / 65,
                 ),
@@ -218,7 +218,7 @@ class NavigationBarWidget extends StatelessWidget {
                 radius: screenSize.width * 1 / 60,
                 backgroundColor: Colors.transparent,
                 child: Image.asset(
-                  "assets/images/utube.png",
+                  "webassets/images/utube.png",
                   height: screenSize.width * 1 / 62,
                   width: screenSize.width * 1 / 62,
                 ),

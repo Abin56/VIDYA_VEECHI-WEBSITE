@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/asign_subject/asign_subject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/attendence_history_status/attendence_history_status.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/teacher/class_access/class_access.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/salary_history_status/salary_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/widgets/detail_tileContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
@@ -100,8 +102,8 @@ class TeachersDetailsContainer extends StatelessWidget {
                                 backgroundColor: Colors.grey,
                                 child: CircleAvatar(
                                   radius: 78,
-                                  backgroundImage:
-                                      AssetImage('assets/png/teacher (1).png'),
+                                  backgroundImage: AssetImage(
+                                      'webassets/png/teacher (1).png'),
                                 ),
                               ),
                             ),
@@ -191,27 +193,22 @@ class TeachersDetailsContainer extends StatelessWidget {
                                                 color: adminePrimayColor,
                                               ),
                                               const Spacer(),
-                                              BlueContainerWidget(
-                                                color: themeColorBlue,
-                                                fontSize: 12,
-                                                title: '🔗 Class Access',
-                                                width: 120,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                              const SizedBox(
-                                                width: 10,
-                                              ),
                                               GestureDetector(
                                                 onTap: () =>
                                                     aSignSubjectFunction(
-                                                        context),
+                                                        context,
+                                                        data.docid!,
+                                                        data.teacherName!),
                                                 child: BlueContainerWidget(
                                                   color: themeColorBlue,
                                                   fontSize: 12,
-                                                  title: '⚙️ Asign Subjects',
+                                                  title: '⚙️ Assign Subjects',
                                                   width: 120,
                                                   fontWeight: FontWeight.w500,
                                                 ),
+                                              ),
+                                              const SizedBox(
+                                                width: 10,
                                               ),
                                             ],
                                           ),

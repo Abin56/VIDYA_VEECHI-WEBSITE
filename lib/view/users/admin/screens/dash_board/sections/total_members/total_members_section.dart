@@ -20,7 +20,7 @@ class TotalMembersSection extends StatelessWidget {
             },
             child: TotalMemberContainerWidget(
                 imageradius: 20,
-                imagepath: 'assets/png/student.png',
+                imagepath: 'webassets/png/student.png',
                 imageColor: const Color.fromARGB(255, 60, 184, 120),
                 color: const Color.fromARGB(255, 209, 243, 224),
                 count: 4020,
@@ -30,7 +30,7 @@ class TotalMembersSection extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10),
             child: TotalMemberContainerWidget(
                 imageradius: 18,
-                imagepath: 'assets/png/teacher.png',
+                imagepath: 'webassets/png/teacher.png',
                 imageColor: const Color.fromARGB(255, 63, 122, 252),
                 color: const Color.fromARGB(255, 225, 241, 255),
                 count: 56,
@@ -40,13 +40,12 @@ class TotalMembersSection extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10),
             child: TotalMemberContainerWidget(
                 imageradius: 18,
-                imagepath: 'assets/png/parent.png',
+                imagepath: 'webassets/png/parent.png',
                 imageColor: const Color.fromARGB(255, 255, 160, 1),
                 color: const Color.fromARGB(255, 255, 242, 216),
                 count: 4020,
                 title: 'Parents'),
           ),
-         
         ],
       ),
     );

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 var schoolBatchYearListValue;
 
+// ignore: must_be_immutable
 class GetBatchYearListDropDownButton extends StatefulWidget {
   var schoolID;
 

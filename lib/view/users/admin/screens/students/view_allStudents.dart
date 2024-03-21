@@ -194,7 +194,7 @@ class AllStudentListContainer extends StatelessWidget {
                           child: Container(
                             color: cWhite,
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 0),
+                              padding: const EdgeInsets.only(left: 5,right: 5),
                               child: Container(
                                 color: cWhite,
                                 height: 40,
@@ -264,64 +264,67 @@ class AllStudentListContainer extends StatelessWidget {
                                 color: cWhite,
                                 border: Border.all(color: cWhite),
                               ),
-                              child: SizedBox(
-                                // width: 1100,
-                                child: StreamBuilder(
-                                  stream: studentController
-                                              .onClassWiseSearch.value ==
-                                          true
-                                      ? server
-                                          .collection('SchoolListCollection')
-                                          .doc(UserCredentialsController
-                                              .schoolId)
-                                          .collection(UserCredentialsController
-                                              .batchId!)
-                                          .doc(UserCredentialsController
-                                              .batchId!)
-                                          .collection('classes')
-                                          .doc(Get.find<ClassController>()
-                                              .classDocID
-                                              .value)
-                                          .collection('Students')
-                                          .snapshots()
-                                      : server
-                                          .collection('SchoolListCollection')
-                                          .doc(UserCredentialsController
-                                              .schoolId)
-                                          .collection('AllStudents')
-                                          .snapshots(),
-                                  builder: (context, snaPS) {
-                                    if (snaPS.hasData) {
-                                      return ListView.separated(
-                                          itemBuilder: (context, index) {
-                                            final data = StudentModel.fromMap(
-                                                snaPS.data!.docs[index].data());
-                                            return GestureDetector(
-                                              onTap: () {
-                                                studentController
-                                                    .studentModelData
-                                                    .value = data;
-                                                studentController
-                                                    .ontapStudent.value = true;
-                                              },
-                                              child: AllStudentDataList(
-                                                data: data,
-                                                index: index,
-                                              ),
-                                            );
-                                          },
-                                          separatorBuilder: (context, index) {
-                                            return const SizedBox(
-                                              height: 02,
-                                            );
-                                          },
-                                          itemCount: snaPS.data!.docs.length);
-                                    } else if (snaPS.data == null) {
-                                      return const LoadingWidget();
-                                    } else {
-                                      return const LoadingWidget();
-                                    }
-                                  },
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 5,left: 5),
+                                child: SizedBox(
+                                  // width: 1100,
+                                  child: StreamBuilder(
+                                    stream: studentController
+                                                .onClassWiseSearch.value ==
+                                            true
+                                        ? server
+                                            .collection('SchoolListCollection')
+                                            .doc(UserCredentialsController
+                                                .schoolId)
+                                            .collection(UserCredentialsController
+                                                .batchId!)
+                                            .doc(UserCredentialsController
+                                                .batchId!)
+                                            .collection('classes')
+                                            .doc(Get.find<ClassController>()
+                                                .classDocID
+                                                .value)
+                                            .collection('Students')
+                                            .snapshots()
+                                        : server
+                                            .collection('SchoolListCollection')
+                                            .doc(UserCredentialsController
+                                                .schoolId)
+                                            .collection('AllStudents')
+                                            .snapshots(),
+                                    builder: (context, snaPS) {
+                                      if (snaPS.hasData) {
+                                        return ListView.separated(
+                                            itemBuilder: (context, index) {
+                                              final data = StudentModel.fromMap(
+                                                  snaPS.data!.docs[index].data());
+                                              return GestureDetector(
+                                                onTap: () {
+                                                  studentController
+                                                      .studentModelData
+                                                      .value = data;
+                                                  studentController
+                                                      .ontapStudent.value = true;
+                                                },
+                                                child: AllStudentDataList(
+                                                  data: data,
+                                                  index: index,
+                                                ),
+                                              );
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return const SizedBox(
+                                                height: 02,
+                                              );
+                                            },
+                                            itemCount: snaPS.data!.docs.length);
+                                      } else if (snaPS.data == null) {
+                                        return const LoadingWidget();
+                                      } else {
+                                        return const LoadingWidget();
+                                      }
+                                    },
+                                  ),
                                 ),
                               ),
                             ),

@@ -15,8 +15,13 @@ class AllTeachersDataList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 45,
+      decoration: BoxDecoration(
+        color: index % 2 == 0
+            ? const Color.fromARGB(255, 246, 246, 246)
+            : Colors.blue[50],
+      ),
       child: Row(
         children: [
           Expanded(
@@ -50,11 +55,11 @@ class AllTeachersDataList extends StatelessWidget {
                   width: 20,
                   child: Center(
                     child: Image.asset(
-                      'assets/stickers/icons8-student-100 (1).png',
+                      'webassets/stickers/icons8-student-100 (1).png',
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
                     text: "  ${data.teacherName}",
                     fontsize: 12,
@@ -75,11 +80,11 @@ class AllTeachersDataList extends StatelessWidget {
                   width: 15,
                   child: Center(
                     child: Image.asset(
-                      'assets/png/gmail.png',
+                      'webassets/png/gmail.png',
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
                     text: "  ${data.teacherEmail}",
                     fontsize: 12,
@@ -100,11 +105,11 @@ class AllTeachersDataList extends StatelessWidget {
                   width: 15,
                   child: Center(
                     child: Image.asset(
-                      'assets/png/telephone.png',
+                      'webassets/png/telephone.png',
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
                     text: "  ${data.teacherPhNo}",
                     fontsize: 12,
@@ -138,7 +143,7 @@ class AllTeachersDataList extends StatelessWidget {
                 SizedBox(
                   width: 15,
                   child: Image.asset(
-                    'assets/png/active.png',
+                    'webassets/png/active.png',
                   ),
                 ),
                 const TextFontWidget(

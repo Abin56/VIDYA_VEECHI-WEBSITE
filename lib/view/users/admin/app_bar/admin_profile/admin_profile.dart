@@ -11,7 +11,7 @@ adminProfileShowingFunction(BuildContext context) {
     Padding(
       padding: const EdgeInsets.all(8.0),
       child: Image.asset(
-        'assets/png/avathar.png',
+        'webassets/png/avathar.png',
         width: 110,
         height: 110,
       ),
@@ -21,12 +21,14 @@ adminProfileShowingFunction(BuildContext context) {
         TextFontWidget(
           text: "ABIN JOHN",
           fontsize: 19,
-          fontWeight: FontWeight.w500,overflow: TextOverflow.ellipsis,
+          fontWeight: FontWeight.w500,
+          overflow: TextOverflow.ellipsis,
         ),
         TextFontWidget(
           text: "abinjohn8089@gmail.com",
           fontsize: 15,
-          fontWeight: FontWeight.w500,overflow: TextOverflow.ellipsis,
+          fontWeight: FontWeight.w500,
+          overflow: TextOverflow.ellipsis,
         )
       ],
     ), ///////////////////...............1
@@ -60,13 +62,19 @@ adminProfileShowingFunction(BuildContext context) {
             border: Border.all(color: cBlack.withOpacity(0.2))),
         child: const Padding(
           padding: EdgeInsets.all(4.0),
-          child: TextFontWidget(text: "Abin John", fontsize: 14,overflow: TextOverflow.ellipsis,),
+          child: TextFontWidget(
+            text: "Abin John",
+            fontsize: 14,
+            overflow: TextOverflow.ellipsis,
+          ),
         )), //.................................5
     Container(
         height: 35,
         width: 120,
         alignment: Alignment.centerLeft,
-        child: const TextFontWidget(text: "Job Title", fontsize: 14)), ///,,.......6
+        child: const TextFontWidget(text: "Job Title", fontsize: 14)),
+
+    ///,,.......6
     Container(
         height: 35,
         width: 240,
@@ -92,7 +100,9 @@ adminProfileShowingFunction(BuildContext context) {
         child: const Padding(
           padding: EdgeInsets.all(4.0),
           child: TextFontWidget(text: "8089262564", fontsize: 14),
-        )) ///...................9
+        ))
+
+    ///...................9
   ];
   aweSideSheet(
       context: context,
@@ -123,7 +133,8 @@ adminProfileShowingFunction(BuildContext context) {
                           0], /////////////,,,,,,,,,,,,,,,,,image
                       Padding(
                           padding: const EdgeInsets.only(left: 15),
-                          child: adminprofileListWidget[ 1] //////////////.............name and email id
+                          child: adminprofileListWidget[
+                              1] //////////////.............name and email id
                           )
                     ],
                   ),
@@ -133,7 +144,9 @@ adminProfileShowingFunction(BuildContext context) {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      adminprofileListWidget[2], ///employe id
+                      adminprofileListWidget[2],
+
+                      ///employe id
                       adminprofileListWidget[3], //......
                     ],
                   ),
@@ -163,7 +176,8 @@ adminProfileShowingFunction(BuildContext context) {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      adminprofileListWidget[ 8], /////...................phone no
+                      adminprofileListWidget[
+                          8], /////...................phone no
                       adminprofileListWidget[9], //////............
                     ],
                   )
@@ -197,7 +211,8 @@ adminProfileShowingFunction(BuildContext context) {
                           0], /////////////,,,,,,,,,,,,,,,,,image
                       Padding(
                           padding: const EdgeInsets.only(left: 15),
-                          child: adminprofileListWidget[ 1] //,,...............name and email id
+                          child: adminprofileListWidget[
+                              1] //,,...............name and email id
                           )
                     ],
                   ),
@@ -235,7 +250,8 @@ adminProfileShowingFunction(BuildContext context) {
                   ),
                   Row(
                     children: [
-                      adminprofileListWidget[8] ,/////...................phone no
+                      adminprofileListWidget[
+                          8], /////...................phone no
                       adminprofileListWidget[9]
                     ],
                   )

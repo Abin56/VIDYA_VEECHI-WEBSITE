@@ -47,7 +47,7 @@ class AllTeacherDataList extends StatelessWidget {
                   width: 20,
                   child: Center(
                     child: Image.asset(
-                      'assets/stickers/icons8-student-100 (1).png',
+                      'webassets/stickers/icons8-student-100 (1).png',
                     ),
                   ),
                 ),
@@ -72,7 +72,7 @@ class AllTeacherDataList extends StatelessWidget {
                   width: 15,
                   child: Center(
                     child: Image.asset(
-                      'assets/png/gmail.png',
+                      'webassets/png/gmail.png',
                     ),
                   ),
                 ),
@@ -97,7 +97,7 @@ class AllTeacherDataList extends StatelessWidget {
                   width: 15,
                   child: Center(
                     child: Image.asset(
-                      'assets/png/telephone.png',
+                      'webassets/png/telephone.png',
                     ),
                   ),
                 ),
@@ -123,7 +123,7 @@ class AllTeacherDataList extends StatelessWidget {
                 SizedBox(
                   width: 15,
                   child: Image.asset(
-                    'assets/png/active.png',
+                    'webassets/png/active.png',
                   ),
                 ),
                 const TextFontWidget(

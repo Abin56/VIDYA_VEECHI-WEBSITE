@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';
+import 'package:vidyaveechi_website/view/home/home.dart';
+import 'package:vidyaveechi_website/view/home/screens/footer/privacypolicy.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
@@ -30,7 +32,21 @@ class MyApp extends StatelessWidget {
         builder: (context) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            // home: const Sample(),
+            // initialRoute: '/spashscreen',
+            routes: {
+              '/spashscreen': (context) => SplashScreen(),
+              '/PrivacyPolicy': (context) => const PrivacyPolicy(),
+            },
+            //         getPages: [
+            //           GetPage(name: '/spashscreen', page: () => SplashScreen()),
+            //           // GetPage(name: '/Homescreen', page: () => const HomeScreen()),
+            //           GetPage(
+
+            // // GetPage(name: '/spashscreen', page: () => SplashScreen()),
+            //               participatesInRootNavigator: false,
+            //               name: '/PrivacyPolicy',
+            //               page: () => const PrivacyPolicy()),
+            //         ],
             home: SplashScreen(),
             // home: Scaffold(
             //   body: AllExamNotificationListView(),
