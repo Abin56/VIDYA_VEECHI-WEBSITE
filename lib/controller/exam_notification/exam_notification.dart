@@ -1,6 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
@@ -35,8 +33,7 @@ class ExamNotificationController extends GetxController {
     required String examName,
     required String startDate,
     required String endDate,
-  }) {
-    print(startDate);
+  }) async {
     Duration differents =
         DateTime.parse(endDate).difference(DateTime.parse(startDate));
     final totalDays = differents.inDays + 1;
@@ -47,7 +44,7 @@ class ExamNotificationController extends GetxController {
         endDate: endDate,
         docId: docId,
         totalDays: totalDays);
-    server
+    await server
         .collection('SchoolListCollection')
         .doc(UserCredentialsController.schoolId)
         .collection(UserCredentialsController.batchId!)
@@ -61,19 +58,6 @@ class ExamNotificationController extends GetxController {
       startDateCtr.text = '';
       endDateCtr.text = '';
     });
-
-    // server
-    //     .collection('SchoolListCollection')
-    //     .doc(UserCredentialsController.schoolId)
-    //     .collection('ExamNotification')
-    //     .doc(docId)
-    //     .set(examData.toMap())
-    //     .then((value) {
-    //   showToast(msg: 'Exam Notifiaction Added');
-    //   examNameCtr.text = '';
-    //   startDateCtr.text = '';
-    //   endDateCtr.text = '';
-    // });
   }
 
   // void addExamNotifcationToBatchYear({required ExamNotificationModel data}) {
@@ -155,7 +139,7 @@ class ExamNotificationController extends GetxController {
       {required String examName,
       required String startDate,
       required String endDate,
-      required String docId}) {
+      required String docId}) async {
     Duration differents =
         DateTime.parse(endDate).difference(DateTime.parse(startDate));
     final totalDays = differents.inDays + 1;
@@ -165,41 +149,39 @@ class ExamNotificationController extends GetxController {
         endDate: endDate,
         docId: docId,
         totalDays: totalDays);
-    // server
-    //     .collection('SchoolListCollection')
-    //     .doc(UserCredentialsController.schoolId)
-    //     .collection('ExamNotification')
-    //     .doc(docId)
-    //     .update(examData.toMap())
-    //     .then((value) {
-    server
+
+    await server
         .collection('SchoolListCollection')
         .doc(UserCredentialsController.schoolId)
         .collection(UserCredentialsController.batchId!)
         .doc(UserCredentialsController.batchId!)
         .collection('ExamNotification')
         .doc(docId)
-        .update(examData.toMap());
-
-    showToast(msg: 'Exam notifiaction updated');
-    examNameCtr.text = '';
-    startDateCtr.text = '';
-    endDateCtr.text = '';
-    // });
+        .update(examData.toMap())
+        .then((value) {
+      showToast(msg: 'Exam notifiaction updated');
+      examNameCtr.text = '';
+      startDateCtr.text = '';
+      endDateCtr.text = '';
+    });
   }
 
-  void deletExamNotification({required String docId}) {
-    server
-        .collection('SchoolListCollection')
-        .doc(UserCredentialsController.schoolId)
-        .collection(UserCredentialsController.batchId!)
-        .doc(UserCredentialsController.batchId!)
-        .collection('ExamNotification')
-        .doc(docId)
-        .delete()
-        .then((value) {
-      showToast(msg: 'Exam notifiaction deleted');
-    });
+  void deletExamNotification({required String docId}) async {
+    try {
+      await server
+          .collection('SchoolListCollection')
+          .doc(UserCredentialsController.schoolId)
+          .collection(UserCredentialsController.batchId!)
+          .doc(UserCredentialsController.batchId!)
+          .collection('ExamNotification')
+          .doc(docId)
+          .delete()
+          .then((value) {
+        showToast(msg: 'Exam notifiaction deleted');
+      });
+    } catch (e) {
+      showToast(msg: "Error occurred");
+    }
   }
 
   void setStartTime(BuildContext context) async {
@@ -229,31 +211,71 @@ class ExamNotificationController extends GetxController {
       required String date,
       required String startTime,
       required String endTime}) async {
-    final uuid = Uuid().v1();
+    final uuid = const Uuid().v1();
     final examData = ExamTimeTableModel(
         subject: subject,
         docId: uuid,
         startTime: startTime,
         endTime: endTime,
         date: date);
-    firebaseClassPath
-        .doc(Get.find<ClassController>().classDocID.value)
-        .collection('ExamTimeTable')
-        .doc(uuid)
-        .set(examData.toMap())
-        .then((value) {
-      showToast(msg: "Timetable added");
-    });
+
+    try {
+      final existdata = await firebaseClassPath
+          .doc(Get.find<ClassController>().classDocID.value)
+          .collection('ExamTimeTable')
+          .where('subject', isEqualTo: subject)
+          .get();
+      if (existdata.docs.isEmpty) {
+        await firebaseClassPath
+            .doc(Get.find<ClassController>().classDocID.value)
+            .collection('ExamTimeTable')
+            .doc(uuid)
+            .set(examData.toMap())
+            .then((value) {
+          showToast(msg: "Timetable added");
+        });
+      } else {
+        showToast(msg: "Timetable already added");
+      }
+    } catch (e) {
+      showToast(msg: "Error occurred");
+    }
   }
 
-  void deleteExamTibleTable({required String docId}) {
-    firebaseClassPath
-        .doc(Get.find<ClassController>().classDocID.value)
-        .collection('ExamTimeTable')
-        .doc(docId)
-        .delete()
-        .then((value) {
-      showToast(msg: "Timetable Deleted");
-    });
+  void deleteExamTibleTable({required String docId}) async {
+    try {
+      await firebaseClassPath
+          .doc(Get.find<ClassController>().classDocID.value)
+          .collection('ExamTimeTable')
+          .doc(docId)
+          .delete()
+          .then((value) {
+        showToast(msg: "Timetable Deleted");
+      });
+    } catch (e) {
+      showToast(msg: "Error occurred");
+    }
+  }
+
+  void editExamTimeTable(
+      {required String docId,
+      required String date,
+      required String startTime,
+      required String endTime}) async {
+    try {
+      await firebaseClassPath
+          .doc(Get.find<ClassController>().classDocID.value)
+          .collection('ExamTimeTable')
+          .doc(docId)
+          .update({
+        'startTime': startTime,
+        'endTime': endTime,
+        'date': date
+      }).then((value) {
+        showToast(msg: "Timetable updated");
+      });
+    } catch (e) {
+      showToast(msg: "Error occurred");
+    }
   }
 }

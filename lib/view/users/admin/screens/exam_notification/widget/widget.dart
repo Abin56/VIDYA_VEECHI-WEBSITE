@@ -14,15 +14,14 @@ import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/rout
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledBlueContainer.dart';
 
 class ExamTimeTableAddWidget extends StatelessWidget {
-  const ExamTimeTableAddWidget({
+  ExamTimeTableAddWidget({
     super.key,
     required this.size,
-    required this.fkey,
     required this.getExamNotificationCtr,
   });
 
   final Size size;
-  final GlobalKey<FormState> fkey;
+  final GlobalKey<FormState> fkey = GlobalKey<FormState>();
   final ExamNotificationController getExamNotificationCtr;
 
   @override
@@ -258,10 +257,10 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                                                             context: context,
                                                             builder: (context) {
                                                               return EditExamTimeTableAddWidget(
-                                                                  size: size,
-                                                                  fkey: fkey,
-                                                                  getExamNotificationCtr:
-                                                                      getExamNotificationCtr);
+                                                                examData:
+                                                                    examData,
+                                                                size: size,
+                                                              );
                                                             },
                                                           );
                                                         },
@@ -320,19 +319,27 @@ class ExamTimeTableAddWidget extends StatelessWidget {
 }
 
 class EditExamTimeTableAddWidget extends StatelessWidget {
-  const EditExamTimeTableAddWidget({
+  EditExamTimeTableAddWidget({
     super.key,
     required this.size,
-    required this.fkey,
-    required this.getExamNotificationCtr,
+    required this.examData,
+    // required this.getExamNotificationCtr,
   });
 
   final Size size;
-  final GlobalKey<FormState> fkey;
-  final ExamNotificationController getExamNotificationCtr;
+  final GlobalKey<FormState> fkey = GlobalKey<FormState>();
+  final ExamTimeTableModel examData;
+  // final ExamNotificationController getExamNotificationCtr;
+  final ExamNotificationController getExamNotificationCtr =
+      ExamNotificationController();
 
   @override
   Widget build(BuildContext context) {
+    print(examData.startTime);
+    getExamNotificationCtr.startDateCtr.text = examData.date;
+    getExamNotificationCtr.startTimeCtr.text = examData.startTime;
+    getExamNotificationCtr.endTimeCtr.text = examData.endTime;
+
     return AlertDialog(
       contentPadding:
           EdgeInsetsGeometry.lerp(EdgeInsets.zero, EdgeInsets.zero, 0),
@@ -432,10 +439,8 @@ class EditExamTimeTableAddWidget extends StatelessWidget {
                                   function: () async {
                                     if (fkey.currentState?.validate() ??
                                         false) {
-                                      getExamNotificationCtr.addExamTimeTable(
-                                          subject: Get.find<SubjectController>()
-                                              .subjectName
-                                              .value,
+                                      getExamNotificationCtr.editExamTimeTable(
+                                          docId: examData.docId,
                                           date: getExamNotificationCtr
                                               .startDateCtr.text,
                                           startTime: getExamNotificationCtr
@@ -447,7 +452,7 @@ class EditExamTimeTableAddWidget extends StatelessWidget {
                                   buttonstate: Get.find<ClassController>()
                                       .buttonstate
                                       .value,
-                                  text: 'Add Exam')),
+                                  text: 'Update Exam')),
                             ),
                           ),
                         ],

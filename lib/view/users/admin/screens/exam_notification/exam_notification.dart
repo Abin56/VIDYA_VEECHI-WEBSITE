@@ -152,7 +152,6 @@ class AllExamNotificationListView extends StatelessWidget {
                                             '';
                                         return ExamTimeTableAddWidget(
                                             size: size,
-                                            fkey: fkey,
                                             getExamNotificationCtr:
                                                 getExamNotificationCtr);
                                       },
