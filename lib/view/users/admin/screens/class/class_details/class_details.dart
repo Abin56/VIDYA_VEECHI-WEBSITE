@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/class/add_student/add_studentfunction.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/attendence_history_status/attendence_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/exam_history_status/exam_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/fess_history_status/fess_history_status.dart';
@@ -189,18 +190,20 @@ class ClassDetailsContainer extends StatelessWidget {
                                                 color: themeColorBlue,
                                               ),
                                               const Spacer(),
-                                              // GestureDetector(
-                                              //   child: BlueContainerWidget(
-                                              //     color: themeColorBlue,
-                                              //     fontSize: 12,
-                                              //     title: '🔗 Class Access',
-                                              //     width: 120,
-                                              //     fontWeight: FontWeight.w500,
-                                              //   ),
-                                              // ),
-                                              // const SizedBox(
-                                              //   width: 10,
-                                              // ),
+                                              GestureDetector(
+                                                onTap: () => addStudentToClass(
+                                                    context, data!.docid),
+                                                child: BlueContainerWidget(
+                                                  color: themeColorBlue,
+                                                  fontSize: 12,
+                                                  title: '🔗 Add Student',
+                                                  width: 120,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                width: 10,
+                                              ),
                                               GestureDetector(
                                                 onTap: () =>
                                                     createSubjectFunction(

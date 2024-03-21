@@ -108,7 +108,6 @@ class ClassNameEditWidget extends StatelessWidget {
   }
 }
 
-
 class FeesEditWidget extends StatelessWidget {
   final String docid;
   const FeesEditWidget({super.key, required this.docid});
@@ -123,7 +122,7 @@ class FeesEditWidget extends StatelessWidget {
             height: 35,
             child: Center(
               child: TextFormField(
-                controller: Get.find<ClassController>().classNameEditController,
+                controller: Get.find<ClassController>().classFeeEditController,
                 decoration: const InputDecoration(
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 01, horizontal: 01),

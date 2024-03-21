@@ -37,6 +37,12 @@ class SelectClassWiseSubjectDropDown extends StatelessWidget {
           subjectCtrl.subjectID.value = value.docid;
         }
       },
+      popupProps: const PopupProps.menu(
+          searchFieldProps: TextFieldProps(
+              decoration: InputDecoration(
+                  hintText: "Search Subject", border: OutlineInputBorder())),
+          showSearchBox: true,
+          searchDelay: Duration(microseconds: 10)),
       dropdownDecoratorProps: DropDownDecoratorProps(
           baseStyle: GoogleFonts.poppins(
               fontSize: 13, color: Colors.black.withOpacity(0.7))),
