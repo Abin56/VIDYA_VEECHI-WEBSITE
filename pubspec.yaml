@@ -46,11 +46,11 @@ dependencies:
   dropdown_search:
   excel:
   file_picker:
-  cloud_firestore: 
-  firebase_auth: 
-  firebase_core: 
+  cloud_firestore:
+  firebase_auth:
+  firebase_core:
   firebase_core_web: ^2.11.3
-  firebase_ui_auth: 
+  firebase_ui_auth:
   firebase_storage: 
   flutter_colorpicker: 
   flutter_inset_box_shadow: 
@@ -99,7 +99,6 @@ dependencies:
   any_animated_button:
   progress_state_button: ^1.0.4
   skeletonizer: ^1.1.0
-  syncfusion_flutter_xlsio:
 
 dev_dependencies:
   flutter_test:
