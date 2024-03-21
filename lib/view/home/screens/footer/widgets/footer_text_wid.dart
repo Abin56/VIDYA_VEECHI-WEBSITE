@@ -301,7 +301,7 @@ var connectnav = [
 ];
 var legalnav = [
   const TermsAndConditions(),
-  const TermsAndConditions(),
+  const PrivacyPolicy(),
   const FamilyPolicyScreen(),
   const TrademarkAndPolicy(),
   const CancellationPolicy(),

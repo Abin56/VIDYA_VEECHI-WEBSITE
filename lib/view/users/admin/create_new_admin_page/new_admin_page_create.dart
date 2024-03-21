@@ -85,9 +85,10 @@ class AdminCreatePage extends StatelessWidget {
             color: screenContainerbackgroundColor,
 
             child: DropdownSearch(
-              dropdownDecoratorProps: const DropDownDecoratorProps(
+              dropdownDecoratorProps:  DropDownDecoratorProps(
                   dropdownSearchDecoration: InputDecoration(
                       hintText: "Please Select Gender",
+                      labelStyle: TextStyle(fontSize: ResponsiveWebSite.isMobile(context) ? 13 : 15,),
                       contentPadding: EdgeInsets.only(top: 5,bottom: 5),
                       prefixIcon: Icon(Icons.person_2,size: 20,))),
              
@@ -170,6 +171,7 @@ class AdminCreatePage extends StatelessWidget {
         ),
       ), ///////////////////......................12
       ElevatedButton(
+
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color.fromARGB(255, 30, 4, 202),
         ),

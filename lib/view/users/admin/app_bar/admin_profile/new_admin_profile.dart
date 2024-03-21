@@ -24,7 +24,10 @@ adminProfileshowlist(BuildContext context) {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top:  ResponsiveWebSite.isMobile(context) ? 40 : 60, left:  ResponsiveWebSite.isMobile(context) ?90 :125, ),
+          padding: EdgeInsets.only(
+            top: ResponsiveWebSite.isMobile(context) ? 40 : 60,
+            left: ResponsiveWebSite.isMobile(context) ? 90 : 125,
+          ),
           child: Center(
             child: CircleAvatar(
               radius: ResponsiveWebSite.isMobile(context) ? 12 : 15,
@@ -34,7 +37,10 @@ adminProfileshowlist(BuildContext context) {
         ),
         Center(
             child: Padding(
-          padding:  EdgeInsets.only(top: ResponsiveWebSite.isMobile(context) ? 45 : 65, left:  ResponsiveWebSite.isMobile(context) ? 90 : 125,),
+          padding: EdgeInsets.only(
+            top: ResponsiveWebSite.isMobile(context) ? 45 : 65,
+            left: ResponsiveWebSite.isMobile(context) ? 90 : 125,
+          ),
           child: Icon(
             Icons.edit_square,
             size: ResponsiveWebSite.isMobile(context) ? 15 : 18,
