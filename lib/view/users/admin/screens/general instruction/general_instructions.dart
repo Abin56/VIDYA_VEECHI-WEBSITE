@@ -109,10 +109,7 @@ class GeneralInsructions extends StatelessWidget {
                                                                       BorderRadius
                                                                           .circular(
                                                                               5),
-                                                                  color: Colors
-                                                                      .purple
-                                                                      .withOpacity(
-                                                                          0.1)),
+                                                                  color:adminePrimayColor),
                                                               height: 38,
                                                               width: 100,
                                                               child: Center(
@@ -133,9 +130,9 @@ class GeneralInsructions extends StatelessWidget {
 
                                               // sizedBoxH20,
 
-                                              Expanded(
+                                              Expanded(flex :9,
                                                 child: SizedBox(
-                                                  height: 400,
+                                                 
                                                   width: 400,
                                                   child: ListView.builder(
                                                     itemCount:
@@ -144,72 +141,80 @@ class GeneralInsructions extends StatelessWidget {
                                                             .length,
                                                     itemBuilder:
                                                         (context, index) {
-                                                      return Row(
+                                                      return Column(
                                                         children: [
-                                                          Text(
-                                                            '•${generalInsructionController.instructionList[index]}',
+                                                          Row(
+                                                            children: [
+                                                              Expanded(
+                                                                child: GooglePoppinsWidgets(
+                                                                 text: '•${generalInsructionController.instructionList[index]}',fontsize: 14,
+                                                                ),
+                                                              ),
+                                                              // const Spacer(),
+                                                              GestureDetector(
+                                                                  onTap: () {
+                                                                    customShowDilogBox(
+                                                                        context:
+                                                                            context,
+                                                                        title:
+                                                                            'Edit',
+                                                                        children: [
+                                                                          TextFormFiledBlueContainerWidget1(
+                                                                              hintText:
+                                                                                  'Enter your instruction',
+                                                                              title:
+                                                                                  'General Instruction')
+                                                                        ],
+                                                                        doyouwantActionButton:
+                                                                            true,
+                                                                        actiontext:
+                                                                            'Update');
+                                                                  },
+                                                                  child: Icon(
+                                                                    Icons.edit,
+                                                                    color: cgreen
+                                                                        .withOpacity(
+                                                                            1),
+                                                                  )),
+                                                              const SizedBox(
+                                                                width: 10,
+                                                              ),
+                                                              GestureDetector(
+                                                                child: Icon(
+                                                                  Icons.delete,
+                                                                  color: cred
+                                                                      .withOpacity(
+                                                                          1),
+                                                                ),
+                                                                onTap: () {
+                                                                  customShowDilogBox(
+                                                                      context:
+                                                                          context,
+                                                                      title:
+                                                                          'Delete',
+                                                                      children: [
+                                                                        GooglePoppinsWidgets(
+                                                                            text:
+                                                                                'Are you sure to want delete',
+                                                                            fontsize: ResponsiveWebSite.isMobile(context)
+                                                                                ? 12
+                                                                                : 15)
+                                                                      ],
+                                                                      doyouwantActionButton:
+                                                                          true);
+                                                                },
+                                                              )
+                                                            ],
                                                           ),
-                                                          const Spacer(),
-                                                          GestureDetector(
-                                                              onTap: () {
-                                                                customShowDilogBox(
-                                                                    context:
-                                                                        context,
-                                                                    title:
-                                                                        'Edit',
-                                                                    children: [
-                                                                      TextFormFiledBlueContainerWidget1(
-                                                                          hintText:
-                                                                              'Enter your instruction',
-                                                                          title:
-                                                                              'General Instruction')
-                                                                    ],
-                                                                    doyouwantActionButton:
-                                                                        true,
-                                                                    actiontext:
-                                                                        'Update');
-                                                              },
-                                                              child: Icon(
-                                                                Icons.edit,
-                                                                color: cgreen
-                                                                    .withOpacity(
-                                                                        1),
-                                                              )),
-                                                          const SizedBox(
-                                                            width: 10,
-                                                          ),
-                                                          GestureDetector(
-                                                            child: Icon(
-                                                              Icons.delete,
-                                                              color: cred
-                                                                  .withOpacity(
-                                                                      1),
-                                                            ),
-                                                            onTap: () {
-                                                              customShowDilogBox(
-                                                                  context:
-                                                                      context,
-                                                                  title:
-                                                                      'Delete',
-                                                                  children: [
-                                                                    GooglePoppinsWidgets(
-                                                                        text:
-                                                                            'Are you sure to want delete',
-                                                                        fontsize: ResponsiveWebSite.isMobile(context)
-                                                                            ? 12
-                                                                            : 15)
-                                                                  ],
-                                                                  doyouwantActionButton:
-                                                                      true);
-                                                            },
-                                                          )
+                                                         
                                                         ],
                                                       );
                                                     },
                                                   ),
                                                 ),
                                               ),
-                                             
+                                              Expanded(flex: 1,
+                                                child: Center(child: MaterialButton(onPressed: (){},color: adminePrimayColor,child: GooglePoppinsWidgets(text: 'Upload', fontsize: 15),)))
                                             ],
                                           );
                                         }),
@@ -224,7 +229,7 @@ class GeneralInsructions extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Colors.purple.withOpacity(0.1)),
+                              color: adminePrimayColor),
                           height: 38,
                           width: 100,
                           child: Center(

@@ -17,7 +17,7 @@ class CreateNotice extends StatefulWidget {
 }
 
 class _CreateNoticeState extends State<CreateNotice> {
-  bool? valuefirst = false;
+  bool? valuefirst = true;
   @override
   Widget build(BuildContext context) {
     List<Widget> textformWidget = [
@@ -26,8 +26,7 @@ class _CreateNoticeState extends State<CreateNotice> {
           Padding(
             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
             child: TextFormFiledBlueContainerWidget(
-              width:
-                   500,
+              width: 500,
               title: 'Heading',
               hintText: 'Heading', /////////////////////////////////////////0
             ),
@@ -35,8 +34,7 @@ class _CreateNoticeState extends State<CreateNotice> {
           Padding(
             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
             child: TextFormFiledBlueContainerWidget(
-              width:
-                  500,
+              width: 500,
               title: 'Custom Content',
               hintText:
                   'Custom Content', /////////////////////////////////////////1
@@ -48,7 +46,7 @@ class _CreateNoticeState extends State<CreateNotice> {
       Padding(
         padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
         child: TextFormFiledBlueContainerWidgetAchievement(
-          width:  500,
+          width: 500,
           hintText: 'Published Date',
           title: 'Published Date',
         ),
@@ -121,85 +119,83 @@ class _CreateNoticeState extends State<CreateNotice> {
                                   children: [
                                     Container(
                                       height: 900,
-                                      width: 300,
+                                      width: 500,
                                       margin: const EdgeInsets.only(top: 10),
                                       child:
                                           //  Obx(() {
                                           // return
                                           Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Checkbox(
-                                                  value: valuefirst,
-                                                  onChanged: (bool? value) {
-                                                    setState(() {
-                                                      valuefirst = value ??
-                                                          false; // Update the value of valuefirst
-                                                    });
-                                                  },
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Checkbox(
+                                                value: valuefirst,
+                                                onChanged: (bool? value) {
+                                                  setState(() {
+                                                    valuefirst = value ??
+                                                        false; // Update the value of valuefirst
+                                                  });
+                                                },
+                                              ),
+                                              GooglePoppinsWidgets(
+                                                text: 'Custom Content',
+                                                fontsize: 14,
+                                              ),
+                                            ],
+                                          ), //////////////////////////////////////////////////0
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: GooglePoppinsWidgets(
+                                                  text:
+                                                      '(If you select this, the other contents will disappear)',
+                                                  fontsize: 11,
                                                 ),
-                                                GooglePoppinsWidgets(
-                                                  text: 'Custom Content',
-                                                  fontsize: 14,
-                                                ),
-                                              ],
-                                            ), //////////////////////////////////////////////////0
-                                            Row(
-                                              children: [
-                                                Expanded(
-                                                  child: GooglePoppinsWidgets(
-                                                      text:
-                                                          '(If you select this, the other contents will disappear)',
-                                                      fontsize: 11),
-                                                )
-                                              ],
-                                            ), /////////////////////////////////////1
-                                            if (valuefirst == true)
-                                              Column(
-                                                children: [
-                                                  textformWidget[0],
-                                                  if (valuefirst = true)
-                                                    textformWidget[1],
-                                                ],
                                               )
-                                            else
-                                              Column(
-                                                children: [
-                                                  textformWidget[0],
-                                                  textformWidget[2],
-                                                  textformWidget[3],
-                                                  textformWidget[4],
-                                                  textformWidget[5],
-                                                  textformWidget[6],
-                                                 
-                                                ],
-                                              ),
-
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 10, bottom: 10),
-                                              child: Center(
-                                                child:
-                                                    NoticeButtonContainerWidget(
-                                                  text: 'Submit',
-                                                  width: 300,
-                                                  height: 50,
-                                                  fontSize: 18,
-                                                  onTap: () {},
-                                                  color:
-                                                      AppColors.darkBlueColor,
-                                                ),
-                                              ),
+                                            ],
+                                          ), /////////////////////////////////////1
+                                          if (valuefirst != null && valuefirst!)
+                                            Column(
+                                              children: [
+                                                textformWidget[0],
+                                                textformWidget[1],
+                                              ],
                                             )
-                                            // }),
-                                          ]),
+                                          else
+                                            Column(
+                                              children: [
+                                                textformWidget[0],
+                                                textformWidget[2],
+                                                textformWidget[3],
+                                                textformWidget[4],
+                                                textformWidget[5],
+                                                textformWidget[6],
+                                              ],
+                                            ),
+
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 10, bottom: 10),
+                                            child: Center(
+                                              child:
+                                                  NoticeButtonContainerWidget(
+                                                text: 'Submit',
+                                                width: 300,
+                                                height: 50,
+                                                fontSize: 18,
+                                                onTap: () {},
+                                                color: AppColors.darkBlueColor,
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
