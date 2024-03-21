@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/teacher_controller/teacher_controller.dart';
 import 'package:vidyaveechi_website/model/teacher_model/teacher_model.dart';
-import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/back_button/back_button_widget.dart';

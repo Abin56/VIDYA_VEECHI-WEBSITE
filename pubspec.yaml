@@ -89,6 +89,7 @@ dependencies:
   syncfusion_flutter_calendar:
   syncfusion_flutter_datagrid:
   syncfusion_flutter_gauges:
+  syncfusion_flutter_xlsio:
   percent_indicator:
   data_table_2: 
   flutter_svg:
