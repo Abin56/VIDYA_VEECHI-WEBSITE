@@ -1,11 +1,12 @@
-import 'package:awesome_side_sheet/Enums/sheet_position.dart';
-import 'package:awesome_side_sheet/side_sheet.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/new_admin_profile.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/message_showing.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
 
 class AppBarAdminPanel extends StatefulWidget {
   const AppBarAdminPanel({
@@ -141,115 +142,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                         child: IconButton(
                             focusNode: textButtonFocusNode,
                             onPressed: () {
-                              aweSideSheet(
-                                  context: context,
-                                  sheetPosition: SheetPosition.right,
-                                  showCloseButton: false,
-                                    title: "Messages",
-
-                                  body: SingleChildScrollView(
-                                    child: DefaultTabController(
-                                      length: 2,
-                                      child: Column(
-                                        children: [
-                                          const TabBar(
-                                            dividerColor: Colors.transparent,
-                                            tabs: <Widget>[
-                                              Tab(
-                                                text: 'All Messages',
-
-                                                // icon: Icon(Icons.flight),
-                                              ),
-                                              Tab(
-                                                text: 'New Messages',
-                                                // icon: Icon(Icons.luggage),
-                                              ),
-                                            ],
-                                          ),
-                                          Container(
-                                            height: 500,
-                                            child: TabBarView(children: [
-                                              Container(
-                                                color: themeColorGreen
-                                                    .withOpacity(0.1),
-                                                height: 300,
-                                                child: ListView.separated(
-                                                    itemBuilder:
-                                                        (context, index) {
-                                                      return GestureDetector(
-                                                        onTap: () {},
-                                                        child: const ListTile(
-                                                          title: Text(
-                                                            'Title',
-                                                            style: TextStyle(
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                          subtitle: Text(
-                                                            'Messages',
-                                                            style: TextStyle(
-                                                                fontSize: 11),
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
-                                                    separatorBuilder:
-                                                        (context, index) {
-                                                      return Container(
-                                                        height: 0.1,
-                                                        color: const Color
-                                                            .fromARGB(
-                                                            255, 12, 94, 14),
-                                                      );
-                                                    },
-                                                    itemCount: 20),
-                                              ),
-                                              Container(
-                                                color: themeColorGreen
-                                                    .withOpacity(0.1),
-                                                height: 300,
-                                                child: ListView.separated(
-                                                    itemBuilder:
-                                                        (context, index) {
-                                                      return GestureDetector(
-                                                        onTap: () {},
-                                                        child: const ListTile(
-                                                          title: Text(
-                                                            'Title',
-                                                            style: TextStyle(
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                          subtitle: Text(
-                                                            'Messages',
-                                                            style: TextStyle(
-                                                                fontSize: 11),
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
-                                                    separatorBuilder:
-                                                        (context, index) {
-                                                      return Container(
-                                                        height: 0.1,
-                                                        color: const Color
-                                                            .fromARGB(
-                                                            255, 12, 94, 14),
-                                                      );
-                                                    },
-                                                    itemCount: 20),
-                                              ),
-                                            ]),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  footer: Container());
+                              messagesShowingFunction(context);
                             },
                             icon: Icon(
                               Icons.mail_outline_outlined,
@@ -290,113 +183,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                         child: IconButton(
                             focusNode: textButtonFocusNode1,
                             onPressed: () {
-                              aweSideSheet(
-                                  context: context,
-                                  sheetPosition: SheetPosition.right,
-                                  title: "Notifications",
-                                  body: SingleChildScrollView(
-                                    child: DefaultTabController(
-                                      length: 2,
-                                      child: Column(
-                                        children: [
-                                          const TabBar(
-                                            dividerColor: Colors.transparent,
-                                            tabs: <Widget>[
-                                              Tab(
-                                                text: 'All Notifications',
-                                                // icon: Icon(Icons.flight),
-                                              ),
-                                              Tab(
-                                                text: 'New Notifications',
-                                                // icon: Icon(Icons.flight),
-                                              ),
-                                            ],
-                                          ),
-                                          Container(
-                                            height: 500,
-                                            child: TabBarView(children: [
-                                              Container(
-                                                color: themeColorGreen
-                                                    .withOpacity(0.1),
-                                                height: 300,
-                                                child: ListView.separated(
-                                                    itemBuilder:
-                                                        (context, index) {
-                                                      return GestureDetector(
-                                                        onTap: () {},
-                                                        child: const ListTile(
-                                                          title: Text(
-                                                            'Title',
-                                                            style: TextStyle(
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                          subtitle: Text(
-                                                            'Notifications',
-                                                            style: TextStyle(
-                                                                fontSize: 11),
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
-                                                    separatorBuilder:
-                                                        (context, index) {
-                                                      return Container(
-                                                        height: 0.1,
-                                                        color: const Color
-                                                            .fromARGB(
-                                                            255, 12, 94, 14),
-                                                      );
-                                                    },
-                                                    itemCount: 20),
-                                              ),
-                                              Container(
-                                                color: themeColorGreen
-                                                    .withOpacity(0.1),
-                                                height: 300,
-                                                child: ListView.separated(
-                                                    itemBuilder:
-                                                        (context, index) {
-                                                      return GestureDetector(
-                                                        onTap: () {},
-                                                        child: const ListTile(
-                                                          title: Text(
-                                                            'Title',
-                                                            style: TextStyle(
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                          subtitle: Text(
-                                                            'Notifications',
-                                                            style: TextStyle(
-                                                                fontSize: 11),
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
-                                                    separatorBuilder:
-                                                        (context, index) {
-                                                      return Container(
-                                                        height: 0.1,
-                                                        color: const Color
-                                                            .fromARGB(
-                                                            255, 12, 94, 14),
-                                                      );
-                                                    },
-                                                    itemCount: 20),
-                                              ),
-                                            ]),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  showCloseButton: false,
-                                  footer: Container());
+                            notificationShowingFunctionOnAppBar(context);
                             },
                             icon: Icon(
                               Icons.notifications_none_outlined,
