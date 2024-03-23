@@ -15,7 +15,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/e
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/general%20instruction/general_instructions.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_page.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_edit_remove.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/parents/all_parents_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
