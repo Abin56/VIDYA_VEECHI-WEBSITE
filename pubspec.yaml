@@ -89,7 +89,6 @@ dependencies:
   syncfusion_flutter_calendar:
   syncfusion_flutter_datagrid:
   syncfusion_flutter_gauges:
-  syncfusion_flutter_xlsio:
   percent_indicator:
   data_table_2: 
   flutter_svg:
@@ -100,6 +99,8 @@ dependencies:
   any_animated_button:
   progress_state_button: ^1.0.4
   skeletonizer: ^1.1.0
+  syncfusion_flutter_xlsio:
+
 
 dev_dependencies:
   flutter_test:
