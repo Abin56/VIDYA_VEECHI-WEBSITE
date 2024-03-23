@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:progress_state_button/progress_button.dart';
 import 'package:vidyaveechi_website/model/class_model/class_model.dart';
+import 'package:vidyaveechi_website/model/student_model/student_model.dart';
 import 'package:vidyaveechi_website/view/constant/const.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
@@ -13,10 +14,18 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 class ClassController extends GetxController {
   final TextEditingController classNameController = TextEditingController();
   final TextEditingController classNameEditController = TextEditingController();
+  final TextEditingController classFeeController = TextEditingController();
+  final TextEditingController classFeeEditController = TextEditingController();
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
+  List<StudentModel> allstudentList = [];
   List<ClassModel> allclassList = [];
+  List<ClassModel> classwiseSubjectList = [];
+  Rxn<ClassModel> classModelData = Rxn<ClassModel>();
+
   RxString className = ''.obs;
-  RxString classDocID = ''.obs;
+  RxString classDocID = 'dd'.obs;
+  RxString studentName = ''.obs;
+  RxString studentDocID = ''.obs;
   RxBool ontapClass = false.obs;
 
   final _schoolserver = server
@@ -28,6 +37,8 @@ class ClassController extends GetxController {
     buttonstate.value = ButtonState.loading;
     try {
       final data = ClassModel(
+          classfee: int.parse(classFeeController.text.trim()),
+          feeeditoption: false,
           editoption: false,
           docid: classNameController.text.trim() + uuid.v1(),
           className: classNameController.text.trim());
@@ -38,6 +49,7 @@ class ClassController extends GetxController {
           .then((value) async {
         buttonstate.value = ButtonState.success;
         classNameController.clear();
+        classFeeController.clear();
         await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
           buttonstate.value = ButtonState.idle;
         });
@@ -56,10 +68,14 @@ class ClassController extends GetxController {
     }
   }
 
-  setClassForbatchYear(String className, String docid) async {
+  setClassForbatchYear(String className, String docid, int classfee) async {
     try {
-      final data =
-          ClassModel(docid: docid, className: className, editoption: false);
+      final data = ClassModel(
+          docid: docid,
+          className: className,
+          editoption: false,
+          feeeditoption: false,
+          classfee: classfee);
       await _schoolserver
           .collection(UserCredentialsController.batchId!)
           .doc(UserCredentialsController.batchId!)
@@ -74,13 +90,37 @@ class ClassController extends GetxController {
   }
 
   Future<void> enableorDisableUpdate(
+    String data,
     String docid,
     bool status,
   ) async {
-    await _schoolserver
-        .collection("classes")
-        .doc(docid)
-        .update({'editoption': status});
+    await _schoolserver.collection("classes").doc(docid).update({data: status});
+  }
+
+  Future<void> updateClassFees(String docid) async {
+    //................. Update Class Name
+    //.... Update Class Name
+    try {
+      _schoolserver.collection("classes").doc(docid).update({
+        'classfee': int.parse(classFeeEditController.text.trim()),
+        'feeeditoption': false,
+      }).then((value) {
+        _schoolserver
+            .collection(UserCredentialsController.batchId!)
+            .doc(UserCredentialsController.batchId!)
+            .collection('classes')
+            .doc(docid)
+            .update({
+          'classfee': int.parse(classFeeEditController.text.trim())
+        }).then((value) => showToast(msg: 'Class Name Changed'));
+        classFeeEditController.clear();
+      });
+    } catch (e) {
+      showToast(msg: 'Somthing went wrong please try again');
+      if (kDebugMode) {
+        log(e.toString());
+      }
+    }
   }
 
   Future<void> updateClassName(String docid) async {
@@ -269,5 +309,55 @@ class ClassController extends GetxController {
       allclassList.add(list[i]);
     }
     return allclassList;
+  }
+
+  Future<List<StudentModel>> fetchAllStudents() async {
+    final firebase = await server
+        .collection('SchoolListCollection')
+        .doc(UserCredentialsController.schoolId)
+        .collection('AllStudents')
+        .get();
+
+    for (var i = 0; i < firebase.docs.length; i++) {
+      final list =
+          firebase.docs.map((e) => StudentModel.fromMap(e.data())).toList();
+      allstudentList.add(list[i]);
+    }
+    return allstudentList;
+  }
+
+  Future<void> addStudentToClassController(String classDocid) async {
+    try {
+      log("studentDocID.value ${studentDocID.value}");
+      log("sclassDocid $classDocid");
+      final studentResult = await _schoolserver
+          .collection('AllStudents')
+          .doc(studentDocID.value)
+          .get();
+      if (studentDocID.value != '') {
+        final data = StudentModel.fromMap(studentResult.data()!);
+        await _schoolserver
+            .collection('AllStudents')
+            .doc(studentDocID.value)
+            .update({'classId': classDocid}).then((value) async {
+          await _schoolserver
+              .collection(UserCredentialsController.batchId!)
+              .doc(UserCredentialsController.batchId!)
+              .collection('classes')
+              .doc(classDocid)
+              .collection('Students')
+              .doc(studentDocID.value)
+              .set(data.toMap())
+              .then((value) async {
+            showToast(msg: 'Added');
+            allstudentList.clear();
+          });
+        });
+      }
+    } catch (e) {
+      log(e.toString());
+      showToast(msg: 'Somthing went wrong please try again');
+      allstudentList.clear();
+    }
   }
 }

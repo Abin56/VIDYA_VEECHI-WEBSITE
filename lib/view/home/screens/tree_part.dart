@@ -59,10 +59,10 @@ class HomePageDesign extends StatelessWidget {
                     ? screenSize.width / 3.1
                     : 380,
 
-                // child: Image.asset("assets/images/bg.pn g"),
+                // child: Image.asset("webassets/images/bg.pn g"),
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/images/bg.png"))),
+                        image: AssetImage("webassets/images/bg.png"))),
                 child: Padding(
                   padding: EdgeInsets.only(
                       top: ResponsiveWebSite.isDesktop(context)

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:adaptive_ui_layout/flutter_responsive_layout.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
@@ -22,7 +23,7 @@ class FooterHomeP extends StatelessWidget {
   Uri _twitterUrl = Uri.parse('https://twitter.com/LeptonDujo');
   Uri _instaUrl = Uri.parse('https://www.instagram.com/leptondujo/');
   Uri _utubeUrl = Uri.parse('https://www.youtube.com/@LEPTONDUJO/featured');
-  Uri _leptonUrl = Uri.parse('http://www.leptoncommunications.com');
+  // Uri _leptonUrl = Uri.parse('http://www.leptoncommunications.com');
 
   Future<void> _launchFacebookUrl() async {
     if (!await launchUrl(_faceBookUrl)) {
@@ -297,7 +298,7 @@ class FooterHomeP extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(context, PrivacyPolicy.route);
+                              Get.toNamed('/PrivacyPolicy');
                             },
                             child: OnHoverText(
                               builder: (isHoverd) {

@@ -1,7 +1,6 @@
 import 'package:fab_circular_menu_plus/fab_circular_menu_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/get_firebase-data/get_firebase_data.dart';
 import 'package:vidyaveechi_website/controller/user_login_Controller/user_login_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
@@ -56,7 +55,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                     child: const Center(
                         child: Image(
                             image: AssetImage(
-                                'assets/flact_png/icons8-fingerprint-100.png'))),
+                                'webassets/flact_png/icons8-fingerprint-100.png'))),
                     // decoration: ,
                   ),
                   key: fabKey,
@@ -98,7 +97,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                 shape: BoxShape.circle,
                                 border: Border.all(color: themeColorBlue)),
                             child: Image.asset(
-                              "assets/flact_png/icons8-student-100.png",
+                              "webassets/flact_png/icons8-student-100.png",
                               scale: 1.5,
                             ),
                           ),
@@ -132,7 +131,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                 shape: BoxShape.circle,
                                 border: Border.all(color: themeColorBlue)),
                             child: Image.asset(
-                              "assets/flact_png/icons8-parent-100.png",
+                              "webassets/flact_png/icons8-parent-100.png",
                               scale: ResponsiveWebSite.isMobile(context)
                                   ? 0.9
                                   : 1.5,
@@ -172,7 +171,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                   shape: BoxShape.circle,
                                   border: Border.all(color: themeColorBlue)),
                               child: Image.asset(
-                                "assets/flact_png/icons8-teacher-100.png",
+                                "webassets/flact_png/icons8-teacher-100.png",
                                 scale: 1.5,
                               ),
                             ),
@@ -210,7 +209,7 @@ class _UserLoginPageScreenState extends State<UserLoginPageScreen>
                                   shape: BoxShape.circle,
                                   border: Border.all(color: themeColorBlue)),
                               child: Image.asset(
-                                "assets/flact_png/icons8-admin-100.png",
+                                "webassets/flact_png/icons8-admin-100.png",
                                 scale: 1.5,
                               ),
                             ),

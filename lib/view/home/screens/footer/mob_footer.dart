@@ -16,7 +16,7 @@ class FooterMob extends StatelessWidget {
   final Uri _instaUrl = Uri.parse('https://www.instagram.com/leptondujo/');
   final Uri _utubeUrl =
       Uri.parse('https://www.youtube.com/@LEPTONDUJO/featured');
-  final Uri _leptonUrl = Uri.parse('http://www.leptoncommunications.com');
+ // final Uri _leptonUrl = Uri.parse('http://www.leptoncommunications.com');
 
   Future<void> _launchFacebookUrl() async {
     if (!await launchUrl(_faceBookUrl)) {
@@ -46,7 +46,7 @@ class FooterMob extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
+  //  var screenSize = MediaQuery.of(context).size;
     return Container(
       //margin: EdgeInsets.only(left: 10.w),
       height: 178.h,

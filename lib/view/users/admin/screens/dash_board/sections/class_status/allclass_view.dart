@@ -148,7 +148,7 @@ class AllClassListViewContainer extends StatelessWidget {
                     height: ResponsiveWebSite.isMobile(context) ? 20 : 25,
                     width: ResponsiveWebSite.isMobile(context) ? 20 : 35,
                     child: Image.asset(
-                        'assets/stickers/icons8-school-director-100.png'),
+                        'webassets/stickers/icons8-school-director-100.png'),
                   ),
                   Expanded(
                     child: TextFontWidget(

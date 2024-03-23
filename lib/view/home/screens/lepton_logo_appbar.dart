@@ -3,8 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vidyaveechi_website/view/home/screens/appbar_row.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
-
-
 class LeptonLogoVidyaveechi extends StatelessWidget {
   const LeptonLogoVidyaveechi({
     super.key,
@@ -33,7 +31,7 @@ class LeptonLogoVidyaveechi extends StatelessWidget {
                             width: 80,
                             color: Colors.transparent,
                             child: Image.asset(
-                              "assets/images/logo5.png",
+                              "webassets/images/logo5.png",
                             ),
                           ),
                         ),
@@ -46,15 +44,14 @@ class LeptonLogoVidyaveechi extends StatelessWidget {
                         //     width: 140,
                         //     color: Colors.transparent,
                         //     child: Image.asset(
-                        //       "assets/images/vvl1.png",
+                        //       "webassets/images/vvl1.png",
                         //     ),
                         //   ),
                         // ),
                         Column(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 10, left: 20),
+                              padding: const EdgeInsets.only(top: 10, left: 20),
                               child: Text(
                                 "Lepton",
                                 style: GoogleFonts.dmSerifDisplay(
@@ -81,7 +78,7 @@ class LeptonLogoVidyaveechi extends StatelessWidget {
                     ),
                     Padding(
                       padding:
-                          EdgeInsets.only(top: 60, left:  screenSize.width / 17),
+                          EdgeInsets.only(top: 60, left: screenSize.width / 17),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -117,7 +114,6 @@ class LeptonLogoVidyaveechi extends StatelessWidget {
                     child: Container(
                       color: Colors.white,
                       height: 80,
-                      
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.,
                         children: [
@@ -136,7 +132,7 @@ class LeptonLogoVidyaveechi extends StatelessWidget {
                                     width: screenSize.width / 15,
                                     color: Colors.transparent,
                                     child: Image.asset(
-                                         "assets/images/logo5.png"),
+                                        "webassets/images/logo5.png"),
                                   ),
                                 ),
                                 // Padding(
@@ -148,7 +144,7 @@ class LeptonLogoVidyaveechi extends StatelessWidget {
                                 //     width: screenSize.width / 15,
                                 //     color: Colors.transparent,
                                 //     child: Image.asset(
-                                //         "assets/images/leptonlogo.png"),
+                                //         "webassets/images/leptonlogo.png"),
                                 //   ),
                                 // ),
                                 Column(

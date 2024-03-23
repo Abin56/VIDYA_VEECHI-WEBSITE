@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
@@ -8,6 +9,8 @@ import 'package:vidyaveechi_website/view/users/admin/screens/students/student_de
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/exam_history_status/exam_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/fess_history_status/fess_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
 class StudentDetailsContainer extends StatelessWidget {
   final StudentController studentController = Get.put(StudentController());
@@ -40,9 +43,45 @@ class StudentDetailsContainer extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20, left: 20, top: 20),
                 child: Container(
                   color: cWhite,
-                  height: 200,
+                  height: 260,
                   child: Column(
                     children: [
+                      Container(
+                        height: 60,
+                        width: double.infinity,
+                        color: Colors.white10,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 0),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        left: 08,
+                                        right: 05,
+                                      ),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          studentController.ontapStudent.value =
+                                              false;
+                                        },
+                                        child:
+                                            const RouteNonSelectedTextContainer(
+                                                title: 'Home'),
+                                      ),
+                                    ),
+                                    const RouteSelectedTextContainer(
+                                        width: 140, title: 'Student Deatils'),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                       Container(
                         width: double.infinity,
                         color: Colors.blue,
@@ -61,7 +100,7 @@ class StudentDetailsContainer extends StatelessWidget {
                                 child: CircleAvatar(
                                   radius: 78,
                                   backgroundImage:
-                                      AssetImage('assets/png/student.png'),
+                                      AssetImage('webassets/png/student.png'),
                                 ),
                               ),
                             ),
@@ -147,18 +186,41 @@ class StudentDetailsContainer extends StatelessWidget {
                                               const Icon(Icons.call),
                                               TextFontWidget(
                                                 text:
-                                                    " +91 ${data.parentPhoneNumber}",
+                                                    " +91 ${data.parentPhoneNumber} ",
                                                 fontsize: 12,
                                                 color: Colors.blue,
-                                              )
+                                              ),
+                                              const SizedBox(
+                                                width: 60,
+                                              ),
+                                              GestureDetector(
+                                                  onTap: () => Get.find<
+                                                              StudentController>()
+                                                          .enableorDisableUpdate(
+                                                        data.docid,
+                                                        true,
+                                                      ),
+                                                  child: CircleAvatar(
+                                                      child: Icon(
+                                                    Icons.edit_square,
+                                                    size: 21,
+                                                    color:
+                                                        cBlack.withOpacity(0.3),
+                                                  ))),
+                                              // Container(
+                                              //   height: 30,
+                                              //   width: 30,
+                                              //   decoration:  BoxDecoration(
+                                              //     color: cgreen.withOpacity(0.3),
+                                              //     borderRadius: const BorderRadius.all(Radius.circular(5))),
+                                              //     child: const Icon(Icons.edit,size: 16,),)
                                             ],
                                           ),
-                                          const Row(
+                                          Row(
                                             children: [
-                                              Icon(Icons.location_on),
+                                              const Icon(Icons.email),
                                               TextFontWidget(
-                                                text:
-                                                    " Lepton Communications, Trivandrum",
+                                                text: data.studentemail,
                                                 fontsize: 12,
                                                 color: Colors.blue,
                                               )
@@ -198,7 +260,7 @@ class StudentDetailsContainer extends StatelessWidget {
                             text: 'FEES',
                           ),
                           Tab(
-                            text: 'ATTENDENCE',
+                            text: 'ATTENDANCE',
                           ),
                           Tab(
                             text: 'EXAM ',

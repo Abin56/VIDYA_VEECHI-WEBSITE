@@ -184,7 +184,7 @@ class AllTeachersList extends StatelessWidget {
                                     padding: const EdgeInsets.all(8.0),
                                     alignment: Alignment.center,
                                     child: SvgPicture.asset(
-                                      'assets/svg/teacher-svgrepo-com.svg',
+                                      'webassets/svg/teacher-svgrepo-com.svg',
                                       height: 38,
                                       width: 38,
                                     ),
@@ -224,7 +224,7 @@ class AllTeachersList extends StatelessWidget {
                                   Container(
                                     alignment: Alignment.center,
                                     child: SvgPicture.asset(
-                                      'assets/svg/mail-svgrepo-com.svg',
+                                      'webassets/svg/mail-svgrepo-com.svg',
                                       height: 26,
                                       width: 26,
                                     ),
@@ -252,7 +252,7 @@ class AllTeachersList extends StatelessWidget {
                                   Container(
                                     alignment: Alignment.center,
                                     child: SvgPicture.asset(
-                                      'assets/svg/phone-android-svgrepo-com.svg',
+                                      'webassets/svg/phone-android-svgrepo-com.svg',
                                       height: 28,
                                       width: 28,
                                     ),
@@ -279,7 +279,7 @@ class AllTeachersList extends StatelessWidget {
                                   Container(
                                     alignment: Alignment.center,
                                     child: SvgPicture.asset(
-                                      'assets/svg/class-svgrepo-com.svg',
+                                      'webassets/svg/class-svgrepo-com.svg',
                                       height: 28,
                                       width: 28,
                                     ),
@@ -306,7 +306,7 @@ class AllTeachersList extends StatelessWidget {
                                   Container(
                                     alignment: Alignment.center,
                                     child: SvgPicture.asset(
-                                      'assets/svg/wrong-delete-remove-trash-minus-cancel-close-svgrepo-com.svg',
+                                      'webassets/svg/wrong-delete-remove-trash-minus-cancel-close-svgrepo-com.svg',
                                       height: 28,
                                       width: 28,
                                     ),
@@ -314,7 +314,7 @@ class AllTeachersList extends StatelessWidget {
                                   Container(
                                     alignment: Alignment.center,
                                     child: SvgPicture.asset(
-                                      'assets/svg/check-svgrepo-com.svg',
+                                      'webassets/svg/check-svgrepo-com.svg',
                                       height: 28,
                                       width: 28,
                                     ),
@@ -329,7 +329,7 @@ class AllTeachersList extends StatelessWidget {
                                   Container(
                                     alignment: Alignment.center,
                                     child: SvgPicture.asset(
-                                      'assets/svg/student-beans-svgrepo-com.svg',
+                                      'webassets/svg/student-beans-svgrepo-com.svg',
                                       height: 28,
                                       width: 28,
                                     ),

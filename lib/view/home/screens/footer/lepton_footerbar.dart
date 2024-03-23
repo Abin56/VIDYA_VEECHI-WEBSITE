@@ -9,8 +9,7 @@ class LeptonFooterBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration:  BoxDecoration(color: Colors.lightBlue[800]
-          ),
+      decoration: BoxDecoration(color: Colors.lightBlue[800]),
       height: ResponsiveWebSite.isMobile(context) ? 300 : 200,
       width: double.infinity,
       child: Column(
@@ -28,7 +27,8 @@ class LeptonFooterBar extends StatelessWidget {
                         width: 150,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/leptonlogo.png'),
+                            image:
+                                AssetImage('webassets/images/leptonlogo.png'),
                           ),
                         ),
                       ),
@@ -37,7 +37,8 @@ class LeptonFooterBar extends StatelessWidget {
                         height: 190,
                         width: 350,
                         child: Center(
-                          child: GooglePoppinsWidgets(color: cWhite,
+                          child: GooglePoppinsWidgets(
+                              color: cWhite,
                               text:
                                   'Lepton Plus Communications is a customer oriented company offering digital solutions in Healthcare,E-Commerce Applications\nHome Automation and Social Networking.\nWe are commited to providing high end sustainable products and services that\nenhances the quality of life',
                               fontsize: 12),
@@ -52,7 +53,8 @@ class LeptonFooterBar extends StatelessWidget {
                         width: 150,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/leptonlogo.png'),
+                            image:
+                                AssetImage('webassets/images/leptonlogo.png'),
                           ),
                         ),
                       ),
@@ -62,7 +64,8 @@ class LeptonFooterBar extends StatelessWidget {
                           child: SizedBox(
                             height: 150,
                             child: Center(
-                              child: GooglePoppinsWidgets(color: cWhite,
+                              child: GooglePoppinsWidgets(
+                                  color: cWhite,
                                   text:
                                       'Lepton Plus Communications is a customer oriented company offering digital solutions in Healthcare,E-Commerce Applications\nHome Automation and Social Networking.\nWe are commited to providing high end sustainable products and services that\nenhances the quality of life',
                                   fontsize: 15),

@@ -7,7 +7,6 @@ import 'dart:html' as html;
 import 'package:intl/intl.dart';
 import 'package:vidyaveechi_website/view/constant/const.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
-import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/users/teacher/teacher.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';

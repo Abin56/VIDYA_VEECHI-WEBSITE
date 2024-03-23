@@ -1,6 +1,6 @@
 import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -18,6 +18,9 @@ class StudentController extends GetxController {
   final TextEditingController stNameController = TextEditingController();
   final TextEditingController stEmailController = TextEditingController();
   final TextEditingController stPhoneController = TextEditingController();
+  final TextEditingController phoneNumberStdEditController =
+      TextEditingController();
+
   final Rx<String> dateofbithController = ''.obs;
   final Rx<String> gender = ''.obs;
   final Rxn<DateTime> selectedDOB = Rxn<DateTime>();
@@ -28,7 +31,9 @@ class StudentController extends GetxController {
   Rxn<StudentModel> studentModelData = Rxn<StudentModel>();
   final _randomstring = getRandomString(6);
   final _randomNum = getRandomNumber(4);
-
+//serach
+  List<StudentModel> studentProfileList = [];
+  RxBool onClassWiseSearch = false.obs;
   final _fbServer = server
       .collection('SchoolListCollection')
       .doc(UserCredentialsController.schoolId);
@@ -92,6 +97,16 @@ class StudentController extends GetxController {
     }
   }
 
+  Future<void> enableorDisableUpdate(
+    String docid,
+    bool status,
+  ) async {
+    await _fbServer
+        .collection("classes")
+        .doc(docid)
+        .update({'editoption': status});
+  }
+
   Future<void> manualCreateaNewStudent() async {
     buttonstate.value = ButtonState.loading;
     final studentEmail =
@@ -129,6 +144,8 @@ class StudentController extends GetxController {
               password: _randomstring)
           .then((value) async {
         stUID.value = value.user!.uid;
+        studentDetail.docid = value.user!.uid;
+        log("Student creation    ................${studentDetail.docid}");
         await Get.find<ParentController>()
             .createParentForStudent()
             .then((value) async {
@@ -240,7 +257,7 @@ class StudentController extends GetxController {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDOB.value ?? DateTime.now(),
-      firstDate: DateTime(2023),
+      firstDate: DateTime(1920),
       lastDate: DateTime(2100),
       // builder: (context, child) {
       //   return Container();
@@ -344,10 +361,23 @@ class StudentController extends GetxController {
     }
   }
 
+  Future<void> fetchAllStudents() async {
+    try {
+      log("fetchAllStudents......................");
+      final data = await _fbServer.collection('AllStudents').get();
+      studentProfileList =
+          data.docs.map((e) => StudentModel.fromMap(e.data())).toList();
+      print(studentProfileList[0]);
+    } catch (e) {
+      showToast(msg: "User Data Error");
+    }
+  }
+
   @override
   void onReady() async {
     print("On Ready");
     await getAdmissionNumber();
+    await fetchAllStudents();
 
     super.onReady();
   }
@@ -365,5 +395,32 @@ class StudentController extends GetxController {
       studentclasswiseList.add(list[i]);
     }
     return studentclasswiseList;
+  }
+
+  Future<void> updatePhoneNumber(String docid) async {
+    //................. Update Class Name
+    //.... Update Class Name
+    try {
+      _fbServer.collection("classes").doc(docid).update({
+        'phoneNumber': phoneNumberStdEditController.text.trim(),
+        'editoption': false,
+      }).then((value) {
+        _fbServer
+            .collection(UserCredentialsController.batchId!)
+            .doc(UserCredentialsController.batchId!)
+            .collection('phoneNumber')
+            .doc(docid)
+            .update({
+          'phoneNumberStdEditController':
+              phoneNumberStdEditController.text.trim()
+        }).then((value) => showToast(msg: 'Phone Number Changed'));
+        phoneNumberStdEditController.clear();
+      });
+    } catch (e) {
+      showToast(msg: 'Somthing went wrong please try again');
+      if (kDebugMode) {
+        log(e.toString());
+      }
+    }
   }
 }

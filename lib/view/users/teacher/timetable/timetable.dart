@@ -52,7 +52,18 @@ class _TimeTableState extends State<TimeTable> {
       ), ///////////////////////////////////////////////5
       const Padding(
         padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-        child:  TimeTableDropdownContainerWidgetColor(title: 'Select color *', color: [Colors.amber,Colors.pink],
+        child:  TimeTableDropdownContainerWidgetColor(title: 'Select color *', 
+        color: [ Colors.amber,
+                            Colors.red,
+                            Colors.green,
+                            Colors.blue,
+                            Colors.yellow,
+                            Colors.brown,
+                            Colors.deepOrange,
+                            Colors.deepPurple,
+                            Colors.lime,
+                            Colors.indigo,
+                            Colors.grey],
       ),), ////////////////////////////////////6
       Padding(
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
@@ -112,7 +123,7 @@ class _TimeTableState extends State<TimeTable> {
                                             width: 300,
                                             height: 50,
                                             fontSize: 18,
-                                            onTap: () {}, color: Colors.purple.withOpacity(0.3),)
+                                            onTap: () {}, color: themeColorBlue)
                                       ],
                                     ),
                                   ),
@@ -188,7 +199,7 @@ class _TimeTableState extends State<TimeTable> {
                                             width: 300,
                                             height: 50,
                                             fontSize: 18,
-                                            onTap: () {}, color: Colors.purple.withOpacity(0.3),)
+                                            onTap: () {}, color: themeColorBlue,)
                                       ],
                                     ),
                                   ),
@@ -207,6 +218,7 @@ class TimeTableDropdownContainerWidget extends StatelessWidget {
   const TimeTableDropdownContainerWidget({
     required this.title,
      this.items,
+     
    this.color,
     super.key,
   });
@@ -215,7 +227,7 @@ final List<String>? items ;
 final List<Color>? color ;
   @override
   Widget build(BuildContext context) {
-    return Container(width: ResponsiveWebSite.isMobile(context) ?double.infinity:400,
+    return Container(width: ResponsiveWebSite.isMobile(context) ?double.infinity:500,
       height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
       color: cWhite,
       child: Column(
@@ -279,6 +291,7 @@ final List<Color>? color ;
 
 
 
+// ignore: must_be_immutable
 class TextFormFiledBlueContainerWidget1 extends StatelessWidget {
   TextEditingController? controller = TextEditingController();
   final String title;

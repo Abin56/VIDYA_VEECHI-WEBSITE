@@ -8,7 +8,9 @@ import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 academicYearSettingFunction(BuildContext context) {
   final academicYearListWidegt = [
     GestureDetector(
-      onTap: () {},
+      onTap: () {
+        addAcademicYearFunction(context);
+      },
       child: Container(
         height: 40,
         width: 150,
@@ -28,7 +30,7 @@ academicYearSettingFunction(BuildContext context) {
     ), ///////////////////////.......0
     GestureDetector(
       onTap: () {
-        addAcademicYearFunction(context);
+        
       },
       child: Container(
         height: 40,
@@ -94,6 +96,7 @@ academicYearSettingFunction(BuildContext context) {
                     SizedBox(
                       height: 40,
                       child: DropdownSearch(
+                        selectedItem: '2024-2025',
                         items: const ['2024-2025', '2023-2024'],
                       ),
                     ),

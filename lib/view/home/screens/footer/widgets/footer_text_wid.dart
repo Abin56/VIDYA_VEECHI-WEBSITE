@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
@@ -88,7 +91,10 @@ class LegalWidget extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         if (index == 1) {
-                          Navigator.pushNamed(context, PrivacyPolicy.route);
+                          Get.toNamed('/PrivacyPolicy');
+                        } else if (index == 2) {
+                          log("privacy ..................");
+                          Get.toNamed('/PrivacyPolicy');
                         } else {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
@@ -247,8 +253,8 @@ List<String> constechDUjo = ['Who We Are', 'Why choose us'];
 List<String> connect = ['Facebook', 'Instagram', 'Twitter', 'Youtube'];
 List<String> legal = [
   'Terms & Conditions',
-  'Privacy Policy',
   'Family Policy',
+  'Privacy Policy',
   'Trademark Policy',
   'Refund and\nCancellation Policy'
 ];
@@ -301,8 +307,8 @@ var connectnav = [
 ];
 var legalnav = [
   const TermsAndConditions(),
-  const PrivacyPolicy(),
   const FamilyPolicyScreen(),
+  const PrivacyPolicy(),
   const TrademarkAndPolicy(),
   const CancellationPolicy(),
 ];

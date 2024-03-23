@@ -4,6 +4,7 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 
 
+// ignore: must_be_immutable
 class NoticeButtonContainerWidget extends StatelessWidget {
   void Function() onTap;
   final String text;
@@ -23,7 +24,7 @@ class NoticeButtonContainerWidget extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration:  BoxDecoration(
-          color: cBlue.withOpacity(0.9),
+        color: color,
           borderRadius:  BorderRadius.circular(5),
         ),
         width: width,
