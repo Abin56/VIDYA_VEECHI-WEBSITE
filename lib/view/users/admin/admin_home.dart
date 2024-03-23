@@ -128,8 +128,8 @@ List<Widget> pages = [
   const EventsEditREmove(),
   const EventsEditREmove(),
 
-  const MeetingCreatingPage(),
-  const MeetingCreatingPage(),
+   MeetingCreatingPage(),
+   MeetingCreatingPage(),
 
   const AdminDashBoardSections(),
 

@@ -65,7 +65,7 @@ class ParentDetailsContainer extends StatelessWidget {
                                       ),
                                       child: GestureDetector(
                                         onTap: () {
-                                          parentController.ontapParent.value =
+                                          parentController.ontapviewParent.value =
                                               false;
                                         },
                                         child:

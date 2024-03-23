@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/meeting_controller/meeting_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/home/screens/create_school/create_school.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/meeting/edit_delete/edit_delete.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledContainer.dart';
 
 class MeetingCreatingPage extends StatelessWidget {
-  const MeetingCreatingPage({super.key});
+  final MeetingController meetingController = Get.put(MeetingController());
+   final formKey = GlobalKey<FormState>();
+  MeetingCreatingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +28,7 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Topic"), //////.....1
 
       TextFormFiledContainerWidget(
+        validator: checkFieldEmpty,
           hintText: "Enter Topic Here",
           title: '',
           width: ResponsiveWebSite.isMobile(context)
@@ -31,10 +40,12 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "When"), //////.3
 
       TextFormFiledContainerWidget(
+        validator: checkFieldDateIsValid,
           hintText: "Date",
           title: '',
           width: ResponsiveWebSite.isTablet(context) ? 140 : 210), /////...4
       TextFormFiledContainerWidget(
+        validator: checkFieldEmpty,
           hintText: "Time",
           title: '',
           width: ResponsiveWebSite.isTablet(context) ? 140 : 210), /////....5
@@ -42,6 +53,7 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Category"), /////////.........6
 
       TextFormFiledContainerWidget(
+        validator: checkFieldEmpty,
           hintText: "Enter Category Here",
           title: '',
           width: ResponsiveWebSite.isMobile(context)
@@ -52,6 +64,7 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Members"), ////////////////,,,8
 
       TextFormFiledContainerWidget(
+        validator: checkFieldEmpty,
           hintText: "Expected Members",
           title: '',
           width: ResponsiveWebSite.isTablet(context) ? 140 : 210), ///////9
@@ -64,6 +77,7 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Venue"), ///////////////////11
 
       TextFormFiledContainerWidget(
+        validator: checkFieldEmpty,
           hintText: "Enter Venue Here",
           title: '',
           width: ResponsiveWebSite.isMobile(context)
@@ -85,21 +99,22 @@ class MeetingCreatingPage extends StatelessWidget {
           color: cWhite,
         )),
       ), ////////////////////////13
-     
     ];
     //////////////////////////////////////////////////////////////////////////////
     ///...............................................................///
     /////////////////////////////////////////////////////////////////
     //  final Size size = MediaQuery.of(context).size;
-    return 
-    // Obx(() = > parentController.ontapviewParent.value == true
-    //     ? MeetingEditRemove()
-    //     :
-         SingleChildScrollView(
+    return
+        Obx(() { return meetingController.ontapMeeting.value == true
+            ? const MeetingEditRemove()
+            :
+        SingleChildScrollView(
         child: Container(
-          color: screenContainerbackgroundColor,
-          height: 720,
-          width: double.infinity,
+        color: screenContainerbackgroundColor,
+        height: 720,
+        width: double.infinity,
+        child: Form(
+          key: meetingController.formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -120,11 +135,17 @@ class MeetingCreatingPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-          padding: EdgeInsets.only( right: 05,bottom: 5),
-          child: RouteSelectedTextContainer(
-            title: 'EDIT / DELETE'),
-        ),
+                     Padding(
+                      padding: const EdgeInsets.only(right: 05, bottom: 5),
+                      child: GestureDetector(
+                        onTap: () {
+                           meetingController.ontapMeeting.value =
+                                                false;
+                        },
+                        child: const RouteSelectedTextContainer(
+                          title: 'EDIT / DELETE'),
+                      ),
+                    ),
                     Container(
                       color: cWhite,
                       height: 540,
@@ -143,7 +164,8 @@ class MeetingCreatingPage extends StatelessWidget {
                                     color: cWhite,
                                     //  ),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         meetingListWidget[
                                             0], ///////////////////////heading.........................0
@@ -152,12 +174,13 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[
                                                     1] //////////////////topic.........................1,
                                                 ),
-                                            meetingListWidget[2] //////////topic field
+                                            meetingListWidget[
+                                                2] //////////topic field
                                           ],
                                         ),
                                         Row(
@@ -165,13 +188,15 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[3]),
                                             Column(
                                               children: [
-                                                meetingListWidget[4], //////......date
-                                                meetingListWidget[5], /////....time
+                                                meetingListWidget[
+                                                    4], //////......date
+                                                meetingListWidget[
+                                                    5], /////....time
                                               ],
                                             ),
                                           ],
@@ -181,8 +206,8 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[
                                                     6] ////.....category
                                                 ),
@@ -195,8 +220,8 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[
                                                     8] ///////////////////............members
                                                 ),
@@ -215,19 +240,21 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 20),
-                                              child:
-                                                  meetingListWidget[11], ///////venu
+                                              padding:
+                                                  const EdgeInsets.only(top: 20),
+                                              child: meetingListWidget[
+                                                  11], ///////venu
                                             ),
                                             meetingListWidget[
                                                 12] /////////////////venu field
                                           ],
                                         ),
-                    
+          
                                         Align(
                                           alignment: Alignment.center,
                                           child: Padding(
-                                              padding: const EdgeInsets.only(top: 20),
+                                              padding:
+                                                  const EdgeInsets.only(top: 20),
                                               child: meetingListWidget[
                                                   13] /////////////////button
                                               ),
@@ -253,7 +280,8 @@ class MeetingCreatingPage extends StatelessWidget {
                                     color: cWhite,
                                     //  ),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         meetingListWidget[
                                             0], ///////////////////////heading.........................0
@@ -262,12 +290,13 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[
                                                     1] //////////////////topic.........................1
                                                 ),
-                                            meetingListWidget[2] //////////topic field
+                                            meetingListWidget[
+                                                2] //////////topic field
                                           ],
                                         ),
                                         Row(
@@ -275,8 +304,8 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[
                                                     3] ///////.......whwn
                                                 ),
@@ -289,8 +318,8 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[
                                                     6] ////.....category
                                                 ),
@@ -303,8 +332,8 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                                padding:
-                                                    const EdgeInsets.only(top: 20),
+                                                padding: const EdgeInsets.only(
+                                                    top: 20),
                                                 child: meetingListWidget[
                                                     8] ///////////////////............member
                                                 ),
@@ -319,19 +348,21 @@ class MeetingCreatingPage extends StatelessWidget {
                                               MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 20),
-                                              child:
-                                                  meetingListWidget[11], ///////venue
+                                              padding:
+                                                  const EdgeInsets.only(top: 20),
+                                              child: meetingListWidget[
+                                                  11], ///////venue
                                             ),
                                             meetingListWidget[
                                                 12] /////////////////venu field
                                           ],
                                         ),
-                    
+          
                                         Align(
                                           alignment: Alignment.center,
                                           child: Padding(
-                                              padding: const EdgeInsets.only(top: 20),
+                                              padding:
+                                                  const EdgeInsets.only(top: 20),
                                               child: meetingListWidget[
                                                   13] /////////////////button
                                               ),
@@ -349,7 +380,9 @@ class MeetingCreatingPage extends StatelessWidget {
             ],
           ),
         ),
-    //  ),
+      ),
+         );
+         }
     );
   }
 }

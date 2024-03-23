@@ -76,7 +76,6 @@ class ClassWiseStudentCreation extends StatelessWidget {
                   top: ResponsiveWebSite.isMobile(context) ? 20 : 10),
               child: ResponsiveWebSite.isMobile(context)
                   ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         classSWiseCreationList[0], //////heading
                         Padding(
@@ -90,8 +89,11 @@ class ClassWiseStudentCreation extends StatelessWidget {
                             2], ////////////..............enter name
                         classSWiseCreationList[
                             3], ////////////........enter ph.no
-                        classSWiseCreationList[
-                            4], ////////////............create button
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: classSWiseCreationList[
+                              4],
+                        ), ////////////............create button
                       ],
                     )
                   : Padding(

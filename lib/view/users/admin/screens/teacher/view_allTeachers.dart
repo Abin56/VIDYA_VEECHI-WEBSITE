@@ -208,6 +208,7 @@ class AllTeacherListContainer extends StatelessWidget {
                     ),
                   ),
                 ),
-              ));
+              ),
+              );
   }
 }
