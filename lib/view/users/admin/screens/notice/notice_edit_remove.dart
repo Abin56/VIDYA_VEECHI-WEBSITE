@@ -1,13 +1,18 @@
+
+
+
+
+
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/events/create_event.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_create.dart';
 import 'package:vidyaveechi_website/view/widgets/custom_showdialouge/custom_showdialouge.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
-class EventsEditREmove extends StatefulWidget {
-  const EventsEditREmove({
+class NoticeEditRemove extends StatefulWidget {
+  const NoticeEditRemove({
     Key? key,
     // required this.schoolID
   }) : super(key: key);
@@ -15,16 +20,16 @@ class EventsEditREmove extends StatefulWidget {
   // String schoolID;
 
   @override
-  State<EventsEditREmove> createState() => _EventsEditREmoveState();
+  State<NoticeEditRemove> createState() => _NoticeEditRemoveState();
 }
 
-class _EventsEditREmoveState extends State<EventsEditREmove> {
+class _NoticeEditRemoveState extends State<NoticeEditRemove> {
   TextEditingController headingController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController venueController = TextEditingController();
   TextEditingController signedByController = TextEditingController();
-
+ bool? valuefirst = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,15 +42,15 @@ class _EventsEditREmoveState extends State<EventsEditREmove> {
           Padding(
             padding: const EdgeInsets.all(20),
             child: GooglePoppinsWidgets(
-              text: 'Events ',
+              text: 'Notice ',
               fontsize: 24,
               fontWeight: FontWeight.bold,
             ),
           ),
-           CreateEvent(),
+          const CreateNotice(),
           Expanded(
             child: GridView.count(
-              crossAxisCount: ResponsiveWebSite.isMobile(context) ? 2 :  ResponsiveWebSite.isTablet(context)?3:4,
+              crossAxisCount: ResponsiveWebSite.isMobile(context) ? 1 :  ResponsiveWebSite.isTablet(context)?2:3,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
               children: List.generate(20, (index) {
@@ -62,23 +67,63 @@ class _EventsEditREmoveState extends State<EventsEditREmove> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 10, left: 10),
+                                child: GooglePoppinsWidgets(
+                                  text: 'School arts',
+                                  fontsize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top:10,left: 10,right: 10,bottom: 5),
+                                child: GooglePoppinsWidgets(
+                                  text: 'Subject:Arts',
+                                  fontsize: 14,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 10, left: 10),
+                          padding: const EdgeInsets.only(top:10,left: 10,right: 10,bottom: 5),
                           child: GooglePoppinsWidgets(
-                            text: 'Event name',
-                            fontsize: 18,
-                            fontWeight: FontWeight.bold,
+                            text: 'Date:00/00/00',
+                            fontsize: 14,
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 10, top: 10),
+                          padding: const EdgeInsets.only(top:10,left: 10,right: 10,bottom: 5),
                           child: GooglePoppinsWidgets(
-                            text: 'School egdhfvehyfgvehrgferfgyhft',
+                            text: 'Venue:School',
+                            fontsize: 14,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top:10,left: 10,right: 10,bottom: 5),
+                          child: GooglePoppinsWidgets(
+                            text: 'Chief guest:Principal',
+                            fontsize: 14,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top:10,left: 10,right: 10,bottom: 5),
+                          child: GooglePoppinsWidgets(
+                            text: 'Signed by:Principal',
                             fontsize: 14,
                           ),
                         ),
                         const Spacer(),
-                        Padding(
+                         Padding(
                           padding: const EdgeInsets.only(
                             top: 10,
                             bottom: 10,
@@ -87,26 +132,29 @@ class _EventsEditREmoveState extends State<EventsEditREmove> {
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
+                                  padding:  const EdgeInsets.only(left: 10),
                                   child: MaterialButton(
                                     onPressed: () {customShowDilogBox(
                                   context: context,
                                   title: 'Edit',
                                   children: [
                                     TextFormFiledBlueContainerWidgetEvent(
-                                        hintText: 'Event',
-                                        title: 'Event'),
+                                        hintText: 'Heading',
+                                        title: 'Heading'),
                                     TextFormFiledBlueContainerWidgetEvent(
                                         hintText: 'Date',
                                         title: 'Date'),
+                                        TextFormFiledBlueContainerWidgetEvent(
+                                        hintText: 'Subject',
+                                        title: 'Subject'),
                                     TextFormFiledBlueContainerWidgetEvent(
                                         hintText: 'Venue', title: 'Venue'),
                                     TextFormFiledBlueContainerWidgetEvent(
-                                        hintText: 'Description',
-                                        title: 'Description'),
+                                        hintText: 'Cheif guest',
+                                        title: 'Cheif guest'),
                                         TextFormFiledBlueContainerWidgetEvent(
                                         hintText: 'Signed by',
-                                        title: 'Signed by')
+                                        title: 'Signed by'),
                                       
                                   ],
                                   doyouwantActionButton: true,

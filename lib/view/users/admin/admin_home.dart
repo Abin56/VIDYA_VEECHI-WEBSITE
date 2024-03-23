@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
-import 'package:vidyaveechi_website/view/create_teacher_profile/create_teacher_profile.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
-import 'package:vidyaveechi_website/view/teachers/teachers_all_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
 import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achievements.dart';
@@ -11,14 +9,13 @@ import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/s
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/teacher_attendance/all_teachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/batch_histroy/batch_history_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_listscreen.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/class/class_details/class_details.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/events/events.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/general%20instruction/general_instructions.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_page.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_edit_remove.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/parents/all_parents_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
@@ -131,8 +128,8 @@ List<Widget> pages = [
   const EventsEditREmove(),
   const EventsEditREmove(),
 
-  const MeetingCreatingPage(),
-  const MeetingCreatingPage(),
+   MeetingCreatingPage(),
+   MeetingCreatingPage(),
 
   const AdminDashBoardSections(),
 

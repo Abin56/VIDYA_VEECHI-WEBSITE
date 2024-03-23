@@ -129,13 +129,11 @@ class AllParentsListContainer extends StatelessWidget {
                                     SizedBox(
                                       width: 02,
                                     ),
-                                    SizedBox(
-                                      width: 02,
-                                    ),
+                                  
                                     Expanded(
                                         flex: 3,
                                         child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'Status')),
+                                            headerTitle: 'Class')),
                                     SizedBox(
                                       width: 02,
                                     ),
@@ -162,7 +160,7 @@ class AllParentsListContainer extends StatelessWidget {
                                     stream: server
                                         .collection('SchoolListCollection')
                                         .doc(UserCredentialsController.schoolId)
-                                        .collection('Parents')
+                                        .collection('AllParents')
                                         .snapshots(),
                                     builder: (context, snaPS) {
                                       if (snaPS.hasData) {
@@ -181,7 +179,7 @@ class AllParentsListContainer extends StatelessWidget {
                                                 },
                                                 child: AllParentsDataList(
                                                   index: index,
-                                                //  data: data,
+                                                data: data,
                                                 ),
                                               );
                                             },

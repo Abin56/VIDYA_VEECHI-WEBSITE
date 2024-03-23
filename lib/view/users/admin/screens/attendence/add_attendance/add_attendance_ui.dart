@@ -9,7 +9,7 @@ addAttendance(BuildContext context) {
     const BackButton(), //////////////////////..............0
     GooglePoppinsWidgets(
       text: "ADD ATTENDANCE",
-      fontsize: 17,
+      fontsize:ResponsiveWebSite.isMobile(context)?14: 17,
       fontWeight: FontWeight.bold,
     ), ////////////////................1
     Column(

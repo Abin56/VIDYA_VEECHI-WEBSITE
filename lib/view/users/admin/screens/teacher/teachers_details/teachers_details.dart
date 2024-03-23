@@ -7,7 +7,6 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/asign_subject/asign_subject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/attendence_history_status/attendence_history_status.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/teacher/class_access/class_access.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/salary_history_status/salary_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/widgets/detail_tileContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
