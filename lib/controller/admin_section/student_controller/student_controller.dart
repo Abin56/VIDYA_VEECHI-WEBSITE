@@ -18,7 +18,8 @@ class StudentController extends GetxController {
   final TextEditingController stNameController = TextEditingController();
   final TextEditingController stEmailController = TextEditingController();
   final TextEditingController stPhoneController = TextEditingController();
-    final TextEditingController phoneNumberStdEditController = TextEditingController();
+  final TextEditingController phoneNumberStdEditController =
+      TextEditingController();
 
   final Rx<String> dateofbithController = ''.obs;
   final Rx<String> gender = ''.obs;
@@ -95,7 +96,8 @@ class StudentController extends GetxController {
       log("Error .... $e");
     }
   }
- Future<void> enableorDisableUpdate(
+
+  Future<void> enableorDisableUpdate(
     String docid,
     bool status,
   ) async {
@@ -104,6 +106,7 @@ class StudentController extends GetxController {
         .doc(docid)
         .update({'editoption': status});
   }
+
   Future<void> manualCreateaNewStudent() async {
     buttonstate.value = ButtonState.loading;
     final studentEmail =
@@ -141,6 +144,8 @@ class StudentController extends GetxController {
               password: _randomstring)
           .then((value) async {
         stUID.value = value.user!.uid;
+        studentDetail.docid = value.user!.uid;
+        log("Student creation    ................${studentDetail.docid}");
         await Get.find<ParentController>()
             .createParentForStudent()
             .then((value) async {
@@ -392,7 +397,7 @@ class StudentController extends GetxController {
     return studentclasswiseList;
   }
 
-   Future<void> updatePhoneNumber(String docid) async {
+  Future<void> updatePhoneNumber(String docid) async {
     //................. Update Class Name
     //.... Update Class Name
     try {
@@ -405,8 +410,10 @@ class StudentController extends GetxController {
             .doc(UserCredentialsController.batchId!)
             .collection('phoneNumber')
             .doc(docid)
-            .update({'phoneNumberStdEditController': phoneNumberStdEditController.text.trim()}).then(
-                (value) => showToast(msg: 'Phone Number Changed'));
+            .update({
+          'phoneNumberStdEditController':
+              phoneNumberStdEditController.text.trim()
+        }).then((value) => showToast(msg: 'Phone Number Changed'));
         phoneNumberStdEditController.clear();
       });
     } catch (e) {
