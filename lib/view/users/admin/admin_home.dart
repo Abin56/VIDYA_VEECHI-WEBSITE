@@ -1,8 +1,12 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
+import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/new_admin_page_create.dart';
 import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achievements.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/all_students.dart';
@@ -105,6 +109,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
+  AdminCreatePage(),
   const AdminDashBoardSections(),
 
   AllClassListView(),
