@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/model/timetable_model/timetable_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class AllClassTimeTableList extends StatelessWidget {
-  const AllClassTimeTableList({super.key});
+  final TimeTableModel? data;
+  final int index;
+  const AllClassTimeTableList({
+    required this.index,
+      this.data,
+    super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +42,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                                 rowMainAccess: MainAxisAlignment.center,
                                                 color: cWhite,
                                                 index: index,
-                                                headerTitle: "Class XII"),
+                                                headerTitle: "${data!.selectClass}"),
                                           ), //................................................. Months
                                           const SizedBox(
                                             width: 02,
@@ -69,9 +75,9 @@ class AllClassTimeTableList extends StatelessWidget {
                                                               border: Border.all(color: cBlack .withOpacity(0.2))),
                                                           height: 22.5,
                                                           width: 71.5,
-                                                          child: const Center(
+                                                          child:  Center(
                                                             child: TextFontWidget(
-                                                              text: " Annie",
+                                                              text: " ${data!.teacherName}",
                                                               fontsize: 10,
                                                               overflow: TextOverflow.ellipsis,
                                                             ),
@@ -82,9 +88,9 @@ class AllClassTimeTableList extends StatelessWidget {
                                                               border: Border.all( color: cBlack .withOpacity(0.2))),
                                                           height: 22.5,
                                                           width: 71.5,
-                                                          child: const Center(
+                                                          child:  Center(
                                                             child: TextFontWidget(
-                                                              text: " English",
+                                                              text: " ${data!.teacherName}",
                                                               fontsize: 10,
                                                               overflow: TextOverflow.ellipsis,
                                                             ),
@@ -108,7 +114,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                                 rowMainAccess:MainAxisAlignment.center,
                                                 color: cWhite,
                                                 index: index,
-                                                headerTitle: "11:30"),
+                                                headerTitle: "${data!.startTime}"),
                                           ), //....................................... starting tim e
                                           const SizedBox(
                                             width: 02,
@@ -119,7 +125,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                                 rowMainAccess:MainAxisAlignment.center,
                                                 color: cWhite,
                                                 index: index,
-                                                headerTitle: "12:30"),
+                                                headerTitle: "${data!.endTime}"),
                                           ), //.......................................ending time
                                           const SizedBox(
                                             width: 02,

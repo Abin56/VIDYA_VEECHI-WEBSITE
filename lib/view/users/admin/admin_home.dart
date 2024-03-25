@@ -110,8 +110,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  PeriodWiseStudentsAttendance(),
- // ViewTimeTable(),
+  //PeriodWiseStudentsAttendance(),
+  ViewTimeTable(),
   //TherapyManagement(),
  // const AdminDashBoardSections(),
 
@@ -158,7 +158,7 @@ List<Widget> pages = [
 
   const BatchHistroyListPage(),
 
-  const TimeTable(),
+   TimeTable(),
 
   // AllClassListView(),
   // TeachersDetailsContainer(),

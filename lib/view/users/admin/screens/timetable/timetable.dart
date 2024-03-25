@@ -1,5 +1,7 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/time_table_controller/timetable_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
@@ -7,11 +9,14 @@ import 'package:vidyaveechi_website/view/users/admin/screens/notice/noticebutton
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class TimeTable extends StatefulWidget {
-  const TimeTable({super.key});
+   TimeTable({super.key});                                 
+    final TimeTableController timetableController = Get.put(TimeTableController());
+
 
   @override
   State<TimeTable> createState() => _TimeTableState();
 }
+
 
 class _TimeTableState extends State<TimeTable> {
   bool? valuefirst = false; 
