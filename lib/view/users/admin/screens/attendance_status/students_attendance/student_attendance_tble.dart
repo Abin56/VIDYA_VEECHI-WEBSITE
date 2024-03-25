@@ -18,8 +18,8 @@ class StudentAttendanceDataList extends StatelessWidget {
    // scrollDirection: Axis.horizontal,
       child: SizedBox(
         height: 580,
-        width: ResponsiveWebSite.isMobile(context)? double.infinity:1100,
-      // width: ResponsiveWebSite.isMobile(context)?500: ResponsiveWebSite.isTablet(context)?800: 1200,
+        width: ResponsiveWebSite.isMobile(context)? double.infinity:1300,
+        // width: ResponsiveWebSite.isMobile(context)?500: ResponsiveWebSite.isTablet(context)?800: 1200,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -37,7 +37,16 @@ class StudentAttendanceDataList extends StatelessWidget {
                       child:ResultTableHeaderWidget(headerTitle: "Class")),SizedBox(width: 1,),
                   Expanded(
                       flex: 2,
-                      child:ResultTableHeaderWidget(headerTitle: "Status")),
+                      child:ResultTableHeaderWidget(headerTitle: "Date")),SizedBox(width: 1,),
+                        Expanded(
+                      flex: 2,
+                      child:ResultTableHeaderWidget(headerTitle: "Time")),SizedBox(width: 1,),
+                  Expanded(
+                      flex: 2,
+                      child:ResultTableHeaderWidget(headerTitle: "Status from app")),SizedBox(width: 1,),
+                       Expanded(
+                      flex: 2,
+                      child:ResultTableHeaderWidget(headerTitle: "Status from machine")),
                 ],
               ),
               SizedBox(
@@ -72,6 +81,33 @@ class StudentAttendanceDataList extends StatelessWidget {
                                 index: index,
                                 headerTitle: " VIII"),
                           ),const SizedBox(width: 1,),
+                          Expanded(
+                            flex: 2,
+                            child: DataContainerMarksWidget(
+                                rowMainAccess: MainAxisAlignment.start,
+                                color: cWhite,
+                                index: index,
+                                headerTitle: " 23/04/2024"),
+                          ),
+                          const SizedBox(width: 1,),
+                          Expanded(
+                            flex: 2,
+                            child: DataContainerMarksWidget(
+                                rowMainAccess: MainAxisAlignment.start,
+                                color: cWhite,
+                                index: index,
+                                headerTitle: " 11:30"),
+                          ),
+                          const SizedBox(width: 1,),
+                          Expanded(
+                            flex: 2,
+                            child: DataContainerMarksWidget(
+                                rowMainAccess: MainAxisAlignment.start,
+                                color: cWhite,
+                                index: index,
+                                headerTitle: " Present"),
+                          ),
+                          const SizedBox(width: 1,),
                           Expanded(
                             flex: 2,
                             child: DataContainerMarksWidget(

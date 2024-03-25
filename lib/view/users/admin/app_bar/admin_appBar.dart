@@ -1,5 +1,4 @@
-import 'package:awesome_side_sheet/Enums/sheet_position.dart';
-import 'package:awesome_side_sheet/side_sheet.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
@@ -8,11 +7,16 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/academic_year.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
+import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/academic_year.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/new_admin_profile.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/message_showing.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_setting/notification.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/message_showing.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
 
 class AppBarAdminPanel extends StatefulWidget {
   const AppBarAdminPanel({
@@ -67,7 +71,11 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
+<<<<<<<<< Temporary merge branch 1
+        height: 70,
+=========
         height: 105,
+>>>>>>>>> Temporary merge branch 2
         width: double.infinity,
         child: Column(
           children: [
@@ -131,7 +139,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    adminProfileshowlist(context);
+                    adminProfileShowingFunction(context);
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
@@ -154,7 +162,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                             child: IconButton(
                                 focusNode: textButtonFocusNode,
                                 onPressed: () {
-                                  messagesShowingFunction(context);
+
+                              messagesShowingFunction(context);
                                 },
                                 icon: Icon(
                                   Icons.mail_outline_outlined,
@@ -195,10 +204,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                             child: IconButton(
                                 focusNode: textButtonFocusNode1,
                                 onPressed: () {
-                                  notificationShowingFunctionOnAppBar(context);
-                                  // aweSideSheet(
-                                  //     context: context,
-                                  //     sheetPosition: SheetPosition.right);
+                                   notificationShowingFunctionOnAppBar(context);
                                 },
                                 icon: Icon(
                                   Icons.notifications_none_outlined,
@@ -280,6 +286,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 ),
               ],
             )
+            ),/////////////////////////////////////////////////////////////////////
+
           ],
         ),
       ),
@@ -290,6 +298,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
     Container(height: 40, width: 60, color: Colors.transparent),
     Container(height: 40, width: 60, color: Colors.transparent),
     Container(height: 40, width: 60, color: Colors.transparent),
+<<<<<<<<< Temporary merge branch 1
+=========
     Column(
       children: [
         Container(
@@ -484,6 +494,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
         ),
       ],
     ),
+>>>>>>>>> Temporary merge branch 2
   ];
   void _showOverlay(BuildContext context, int index) async {
     overlayState = Overlay.of(context);

@@ -1,12 +1,9 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
-import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
-import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/new_admin_page_create.dart';
+import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/create_admin.dart';
 import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achievements.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/all_students.dart';
@@ -20,11 +17,14 @@ import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bil
 import 'package:vidyaveechi_website/view/users/admin/screens/general%20instruction/general_instructions.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_edit_remove.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/notifications/admin_notification_create.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/parents/all_parents_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
-import 'package:vidyaveechi_website/view/users/teacher/timetable/timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_management.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable/view_timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AdminHomeScreen extends StatefulWidget {
@@ -109,7 +109,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  AdminCreatePage(),
+  ViewTimeTable(),
+  //TherapyManagement(),
   const AdminDashBoardSections(),
 
   AllClassListView(),
@@ -136,7 +137,7 @@ List<Widget> pages = [
    MeetingCreatingPage(),
    MeetingCreatingPage(),
 
-  const AdminDashBoardSections(),
+  const AdminNotificationCreate(),
 
   AllStudentListContainer(),
 
@@ -144,7 +145,7 @@ List<Widget> pages = [
 
   AllParentsListContainer(),
 
-  GeneralInsructions(),
+  CreateAdmin(),
 
   ///create admin eduknm
   GeneralInsructions(),
