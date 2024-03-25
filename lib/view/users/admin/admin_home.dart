@@ -24,7 +24,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allSt
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_management.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable/view_timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AdminHomeScreen extends StatefulWidget {
