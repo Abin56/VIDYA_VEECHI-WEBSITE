@@ -7,7 +7,7 @@ import 'package:vidyaveechi_website/controller/general%20instruction/general_ins
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/teacher/timetable/timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/custom_showdialouge/custom_showdialouge.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledContainer.dart';
@@ -50,7 +50,7 @@ class GeneralInsructions extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     SizedBox(
-                                      height: 600,
+                                      height: 550,
                                       child: Container(
                                         margin: const EdgeInsets.only(top: 10),
                                         child: Obx(() {
@@ -109,7 +109,8 @@ class GeneralInsructions extends StatelessWidget {
                                                                       BorderRadius
                                                                           .circular(
                                                                               5),
-                                                                  color:adminePrimayColor),
+                                                                  color:
+                                                                      adminePrimayColor),
                                                               height: 38,
                                                               width: 100,
                                                               child: Center(
@@ -130,9 +131,9 @@ class GeneralInsructions extends StatelessWidget {
 
                                               // sizedBoxH20,
 
-                                              Expanded(flex :9,
+                                              Expanded(
+                                                flex: 9,
                                                 child: SizedBox(
-                                                 
                                                   width: 400,
                                                   child: ListView.builder(
                                                     itemCount:
@@ -146,8 +147,11 @@ class GeneralInsructions extends StatelessWidget {
                                                           Row(
                                                             children: [
                                                               Expanded(
-                                                                child: GooglePoppinsWidgets(
-                                                                 text: '•${generalInsructionController.instructionList[index]}',fontsize: 14,
+                                                                child:
+                                                                    GooglePoppinsWidgets(
+                                                                  text:
+                                                                      '•${generalInsructionController.instructionList[index]}',
+                                                                  fontsize: 14,
                                                                 ),
                                                               ),
                                                               // const Spacer(),
@@ -160,10 +164,8 @@ class GeneralInsructions extends StatelessWidget {
                                                                             'Edit',
                                                                         children: [
                                                                           TextFormFiledBlueContainerWidget1(
-                                                                              hintText:
-                                                                                  'Enter your instruction',
-                                                                              title:
-                                                                                  'General Instruction')
+                                                                              hintText: 'Enter your instruction',
+                                                                              title: 'General Instruction')
                                                                         ],
                                                                         doyouwantActionButton:
                                                                             true,
@@ -206,15 +208,22 @@ class GeneralInsructions extends StatelessWidget {
                                                               )
                                                             ],
                                                           ),
-                                                         
                                                         ],
                                                       );
                                                     },
                                                   ),
                                                 ),
                                               ),
-                                              Expanded(flex: 1,
-                                                child: Center(child: MaterialButton(onPressed: (){},color: adminePrimayColor,child: GooglePoppinsWidgets(text: 'Upload', fontsize: 15),)))
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: Center(
+                                                      child: MaterialButton(
+                                                    onPressed: () {},
+                                                    color: adminePrimayColor,
+                                                    child: GooglePoppinsWidgets(
+                                                        text: 'Upload',
+                                                        fontsize: 15),
+                                                  )))
                                             ],
                                           );
                                         }),

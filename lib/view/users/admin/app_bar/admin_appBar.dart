@@ -1,5 +1,4 @@
-import 'package:awesome_side_sheet/Enums/sheet_position.dart';
-import 'package:awesome_side_sheet/side_sheet.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
@@ -10,6 +9,8 @@ import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/acade
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_setting/notification.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/message_showing.dart';
+import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
 
 class AppBarAdminPanel extends StatefulWidget {
   const AppBarAdminPanel({
@@ -150,7 +151,10 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                             padding: const EdgeInsets.only(top: 15, right: 10),
                             child: IconButton(
                                 focusNode: textButtonFocusNode,
-                                onPressed: () {},
+                                onPressed: () {
+                                  
+                              messagesShowingFunction(context);
+                                },
                                 icon: Icon(
                                   Icons.mail_outline_outlined,
                                   color: cBlack.withOpacity(0.4),
@@ -190,10 +194,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                             child: IconButton(
                                 focusNode: textButtonFocusNode1,
                                 onPressed: () {
-                                  print("object");
-                                  aweSideSheet(
-                                      context: context,
-                                      sheetPosition: SheetPosition.right);
+                                   notificationShowingFunctionOnAppBar(context);
                                 },
                                 icon: Icon(
                                   Icons.notifications_none_outlined,
@@ -274,7 +275,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                   ),
                 ),
               ],
-            )
+            ),/////////////////////////////////////////////////////////////////////
+ 
           ],
         ),
       ),

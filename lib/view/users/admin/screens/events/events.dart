@@ -42,7 +42,7 @@ class _EventsEditREmoveState extends State<EventsEditREmove> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const CreateEvent(),
+           CreateEvent(),
           Expanded(
             child: GridView.count(
               crossAxisCount: ResponsiveWebSite.isMobile(context) ? 2 :  ResponsiveWebSite.isTablet(context)?3:4,

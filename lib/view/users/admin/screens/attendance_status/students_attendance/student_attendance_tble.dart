@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/widget/data_container_marks.dart';
-import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 
@@ -17,9 +17,9 @@ class StudentAttendanceDataList extends StatelessWidget {
     return SingleChildScrollView(
    // scrollDirection: Axis.horizontal,
       child: SizedBox(
-        height: 580,
-        width: ResponsiveWebSite.isMobile(context)? double.infinity:1100,
-      // width: ResponsiveWebSite.isMobile(context)?500: ResponsiveWebSite.isTablet(context)?800: 1200,
+        height: 550,
+        width: ResponsiveWebSite.isMobile(context)? double.infinity:1300,
+        // width: ResponsiveWebSite.isMobile(context)?500: ResponsiveWebSite.isTablet(context)?800: 1200,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -27,17 +27,26 @@ class StudentAttendanceDataList extends StatelessWidget {
               const Row(
                 children: [
                    Expanded(
-                      flex: 1, child: TableHeaderWidget(headerTitle: 'No')),
+                      flex: 1, child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
                       SizedBox(width: 1,),
                   Expanded(
                       flex: 6,
-                      child:ResultTableHeaderWidget(headerTitle: "Student Name")), SizedBox(width: 1,),
+                      child:CatrgoryTableHeaderWidget(headerTitle: "Student Name")), SizedBox(width: 1,),
                         Expanded(
                       flex: 2,
-                      child:ResultTableHeaderWidget(headerTitle: "Class")),SizedBox(width: 1,),
+                      child:CatrgoryTableHeaderWidget(headerTitle: "Class")),SizedBox(width: 1,),
                   Expanded(
                       flex: 2,
-                      child:ResultTableHeaderWidget(headerTitle: "Status")),
+                      child:CatrgoryTableHeaderWidget(headerTitle: "Date")),SizedBox(width: 1,),
+                        Expanded(
+                      flex: 2,
+                      child:CatrgoryTableHeaderWidget(headerTitle: "Time")),SizedBox(width: 1,),
+                  Expanded(
+                      flex: 2,
+                      child:CatrgoryTableHeaderWidget(headerTitle: "Status from app")),SizedBox(width: 1,),
+                       Expanded(
+                      flex: 2,
+                      child:CatrgoryTableHeaderWidget(headerTitle: "Status from machine")),
                 ],
               ),
               SizedBox(
@@ -72,6 +81,33 @@ class StudentAttendanceDataList extends StatelessWidget {
                                 index: index,
                                 headerTitle: " VIII"),
                           ),const SizedBox(width: 1,),
+                          Expanded(
+                            flex: 2,
+                            child: DataContainerMarksWidget(
+                                rowMainAccess: MainAxisAlignment.start,
+                                color: cWhite,
+                                index: index,
+                                headerTitle: " 23/04/2024"),
+                          ),
+                          const SizedBox(width: 1,),
+                          Expanded(
+                            flex: 2,
+                            child: DataContainerMarksWidget(
+                                rowMainAccess: MainAxisAlignment.start,
+                                color: cWhite,
+                                index: index,
+                                headerTitle: " 11:30"),
+                          ),
+                          const SizedBox(width: 1,),
+                          Expanded(
+                            flex: 2,
+                            child: DataContainerMarksWidget(
+                                rowMainAccess: MainAxisAlignment.start,
+                                color: cWhite,
+                                index: index,
+                                headerTitle: " Present"),
+                          ),
+                          const SizedBox(width: 1,),
                           Expanded(
                             flex: 2,
                             child: DataContainerMarksWidget(

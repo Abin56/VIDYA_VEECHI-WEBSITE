@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:vidyaveechi_website/model/parent_model/parent_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class AllParentsDataList extends StatelessWidget {
   final int index;
+ final ParentModel data;
   const AllParentsDataList({
     required this.index,
+    required this.data,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 45,
+       decoration: BoxDecoration(
+        color: index % 2 == 0
+            ? const Color.fromARGB(255, 246, 246, 246)
+            : Colors.blue[50],
+      ),
       child: Row(
         children: [
           Expanded(
@@ -76,9 +84,9 @@ class AllParentsDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                   child: TextFontWidget(
-                    text: "  reshmaSuresh",
+                    text: "  ${data.parentName}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -101,9 +109,9 @@ class AllParentsDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                   child: TextFontWidget(
-                    text: "  +9180892625634",
+                    text: "  ${data.parentPhoneNumber}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -121,7 +129,7 @@ class AllParentsDataList extends StatelessWidget {
                 color: cWhite,
                 // width: 150,
                 index: index,
-                headerTitle: 'Class '),
+                headerTitle: '{class}'),
           ), //............................. Student Class
 
           const SizedBox(

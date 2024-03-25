@@ -5,7 +5,7 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achievment_view_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/noticebutton_container.dart';
-import 'package:vidyaveechi_website/view/users/teacher/timetable/timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 

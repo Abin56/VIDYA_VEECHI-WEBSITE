@@ -91,7 +91,7 @@ class LegalWidget extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         if (index == 1) {
-                          Get.toNamed('/PrivacyPolicy');
+                       Get.toNamed('/PrivacyPolicy');
                         } else if (index == 2) {
                           log("privacy ..................");
                           Get.toNamed('/PrivacyPolicy');
