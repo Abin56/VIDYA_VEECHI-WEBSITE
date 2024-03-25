@@ -2,8 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/admin_login_screen/admin_login_screen_controller.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
 
 var allTeachersListValue;
@@ -11,6 +10,7 @@ var allTeachersListValue;
 // ignore: must_be_immutable
 class GetAllTeachersListDropDownButton extends StatefulWidget {
   var schoolID;
+  
   GetAllTeachersListDropDownButton({required this.schoolID, Key? key})
       : super(key: key);
 
@@ -21,16 +21,18 @@ class GetAllTeachersListDropDownButton extends StatefulWidget {
 
 class _GeClasseslListDropDownButtonState
     extends State<GetAllTeachersListDropDownButton> {
+      
   @override
   Widget build(BuildContext context) {
     return dropDownButton();
   }
 
   StreamBuilder<QuerySnapshot<Map<String, dynamic>>> dropDownButton() {
+    // Get.put(AdminLoginScreenController());
     return StreamBuilder(
         stream: FirebaseFirestore.instance
             .collection("SchoolListCollection")
-            .doc(Get.find<AdminLoginScreenController>().schoolID)
+            .doc(UserCredentialsController.schoolId)
             .collection("Teachers")
             .snapshots(),
         builder: (context, snapshot) {
