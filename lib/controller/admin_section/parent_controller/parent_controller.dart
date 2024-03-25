@@ -16,14 +16,14 @@ class ParentController extends GetxController {
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
   final docUID = uuid.v1();
 
- final Rx<String> studentName = ''.obs;
+  final Rx<String> studentName = ''.obs;
   RxBool ontapParent = false.obs;
   RxString dobSelectedDate = ''.obs;
   RxString joiningSelectedDate = ''.obs;
   RxString stParentUID = ''.obs; // Parent Email Auth ID
   RxString stParnetEmail = ''.obs;
-   RxBool ontapviewParent = false.obs;
-    Rxn<ParentModel> parentModelData = Rxn<ParentModel>();
+  RxBool ontapviewParent = false.obs;
+  Rxn<ParentModel> parentModelData = Rxn<ParentModel>();
 
 //......................  Add Parent Section
 
@@ -49,6 +49,8 @@ class ParentController extends GetxController {
           .then((value) async {
         stParentUID.value = value.user!.uid;
         stParnetEmail.value = camelCaseText;
+        parentDetail.docid = value.user!.uid;
+        log("Parent creation    ................${parentDetail.docid}");
         await _fbServer
             .collection('AllParents')
             .doc(stParentUID.value)
