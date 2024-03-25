@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/model/exam_notification/exam_notification.dart';
@@ -13,8 +14,8 @@ class ExamNotificationController extends GetxController {
   String startDate = '';
   String endDate = '';
 
-  Rx<TimeOfDay> startTime = Rx(TimeOfDay.now());
-  Rx<TimeOfDay> endTime = Rx(TimeOfDay.now());
+  // Rx<TimeOfDay> startTime = Rx(TimeOfDay.now());
+  // Rx<TimeOfDay> endTime = Rx(TimeOfDay.now());
 
   TextEditingController examNameCtr = TextEditingController();
   TextEditingController startDateCtr = TextEditingController();
@@ -37,12 +38,14 @@ class ExamNotificationController extends GetxController {
     Duration differents =
         DateTime.parse(endDate).difference(DateTime.parse(startDate));
     final totalDays = differents.inDays + 1;
+    final publishDate = DateTime.now().toString();
     final docId = const Uuid().v1();
     final examData = ExamNotificationModel(
         examName: examName,
         startDate: startDate,
         endDate: endDate,
         docId: docId,
+        publishDate: publishDate,
         totalDays: totalDays);
     await server
         .collection('SchoolListCollection')
@@ -143,8 +146,10 @@ class ExamNotificationController extends GetxController {
     Duration differents =
         DateTime.parse(endDate).difference(DateTime.parse(startDate));
     final totalDays = differents.inDays + 1;
+    final publishDate = DateTime.now().toString();
     final examData = ExamNotificationModel(
         examName: examName,
+        publishDate: publishDate,
         startDate: startDate,
         endDate: endDate,
         docId: docId,
@@ -191,7 +196,8 @@ class ExamNotificationController extends GetxController {
     );
 
     if (timeData != null) {
-      startTime.value = timeData;
+      // startTime.value = timeData;
+      startTimeCtr.text = timeData.format(context);
     }
   }
 
@@ -202,22 +208,31 @@ class ExamNotificationController extends GetxController {
     );
 
     if (timeData != null) {
-      endTime.value = timeData;
+      // endTime.value = timeData;
+      endTimeCtr.text = timeData.format(context);
     }
   }
 
   void addExamTimeTable(
-      {required String subject,
+      {required String examId,
+      required String subject,
       required String date,
       required String startTime,
       required String endTime}) async {
+    final createDate = DateTime.now().toString();
     final uuid = const Uuid().v1();
-    final examData = ExamTimeTableModel(
+    print(startTime);
+    // final hours = calculateDuration(startTime, endTime).inHours.toString();
+    final hours =
+        formatDuration(calculateDuration(startTime, endTime)).toString();
+    final examData = AddExamTimeTableModel(
+        hours: hours,
         subject: subject,
-        docId: uuid,
-        startTime: startTime,
-        endTime: endTime,
-        date: date);
+        createDate: createDate,
+        docid: uuid,
+        startingtime: startTime,
+        endingtime: endTime,
+        examDate: date);
 
     try {
       final existdata = await firebaseClassPath
@@ -229,6 +244,8 @@ class ExamNotificationController extends GetxController {
         await firebaseClassPath
             .doc(Get.find<ClassController>().classDocID.value)
             .collection('ExamTimeTable')
+            .doc(examId)
+            .collection('subjects')
             .doc(uuid)
             .set(examData.toMap())
             .then((value) {
@@ -242,11 +259,14 @@ class ExamNotificationController extends GetxController {
     }
   }
 
-  void deleteExamTibleTable({required String docId}) async {
+  void deleteExamTibleTable(
+      {required String examId, required String docId}) async {
     try {
       await firebaseClassPath
           .doc(Get.find<ClassController>().classDocID.value)
           .collection('ExamTimeTable')
+          .doc(examId)
+          .collection('subjects')
           .doc(docId)
           .delete()
           .then((value) {
@@ -258,24 +278,75 @@ class ExamNotificationController extends GetxController {
   }
 
   void editExamTimeTable(
-      {required String docId,
+      {required String examId,
+      required String docId,
       required String date,
       required String startTime,
       required String endTime}) async {
+    final hours =
+        formatDuration(calculateDuration(startTime, endTime)).toString();
+
     try {
       await firebaseClassPath
           .doc(Get.find<ClassController>().classDocID.value)
           .collection('ExamTimeTable')
+          .doc(examId)
+          .collection('subjects')
           .doc(docId)
           .update({
-        'startTime': startTime,
-        'endTime': endTime,
-        'date': date
+        'hours': hours,
+        'startingtime': startTime,
+        'endingtime': endTime,
+        'examDate': date
       }).then((value) {
         showToast(msg: "Timetable updated");
       });
     } catch (e) {
       showToast(msg: "Error occurred");
     }
+  }
+
+  Duration calculateDuration(String startTimeString, String endTimeString) {
+    // Parse start and end times
+    // TimeOfDay startTime = parseTime(startTimeString);
+    // TimeOfDay endTime = parseTime(endTimeString);
+
+    // Convert TimeOfDay to DateTime
+    // DateTime startDate = DateTime(1, 1, 1, startTime.hour, startTime.minute);
+    // DateTime endDate = DateTime(1, 1, 1, endTime.hour, endTime.minute);
+    DateTime startDate = parseTimeString(startTimeString);
+    DateTime endDate = parseTimeString(endTimeString);
+
+    // Calculate the duration between start time and end time
+    Duration duration = endDate.difference(startDate);
+
+    return duration;
+  }
+
+// Function to parse time string to TimeOfDay object
+  TimeOfDay parseTime(String timeString) {
+    final format = DateFormat.jm(); // Format for parsing time
+    final time = format.parse(timeString); // Parse time string
+    return TimeOfDay.fromDateTime(time); // Convert DateTime to TimeOfDay
+  }
+
+  DateTime parseTimeString(String timeString) {
+    final format = DateFormat('h:mm a');
+    return format.parse(timeString);
+  }
+
+  String formatDuration(Duration duration) {
+    // Calculate total hours and remaining minutes
+    int totalHours = duration.inHours;
+    int remainingMinutes = duration.inMinutes.remainder(60);
+
+    // Construct the formatted duration string
+    String formattedDuration = '$totalHours:';
+    if (remainingMinutes < 10) {
+      formattedDuration += '0'; // Add leading zero for single digit minutes
+    }
+    formattedDuration += '$remainingMinutes hrs';
+
+    return formattedDuration;
   }
 }

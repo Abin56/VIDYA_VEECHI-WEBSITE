@@ -3,12 +3,14 @@ import 'dart:convert';
 
 class ExamNotificationModel {
   String examName;
+  String publishDate;
   String startDate;
   String endDate;
   String docId;
   int totalDays;
   ExamNotificationModel({
     required this.examName,
+    required this.publishDate,
     required this.startDate,
     required this.endDate,
     required this.docId,
@@ -17,6 +19,7 @@ class ExamNotificationModel {
 
   ExamNotificationModel copyWith({
     String? examName,
+    String? publishDate,
     String? startDate,
     String? endDate,
     String? docId,
@@ -24,6 +27,7 @@ class ExamNotificationModel {
   }) {
     return ExamNotificationModel(
       examName: examName ?? this.examName,
+      publishDate: publishDate ?? this.publishDate,
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
       docId: docId ?? this.docId,
@@ -34,6 +38,7 @@ class ExamNotificationModel {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'examName': examName,
+      'publishDate': publishDate,
       'startDate': startDate,
       'endDate': endDate,
       'docId': docId,
@@ -44,6 +49,7 @@ class ExamNotificationModel {
   factory ExamNotificationModel.fromMap(Map<String, dynamic> map) {
     return ExamNotificationModel(
       examName: map['examName'] as String,
+      publishDate: map['publishDate'] as String,
       startDate: map['startDate'] as String,
       endDate: map['endDate'] as String,
       docId: map['docId'] as String,
@@ -57,7 +63,7 @@ class ExamNotificationModel {
 
   @override
   String toString() {
-    return 'ExamNotificationModel(examName: $examName, startDate: $startDate, endDate: $endDate, docId: $docId, totalDays: $totalDays)';
+    return 'ExamNotificationModel(examName: $examName, publishDate: $publishDate, startDate: $startDate, endDate: $endDate, docId: $docId, totalDays: $totalDays)';
   }
 
   @override
@@ -66,6 +72,7 @@ class ExamNotificationModel {
   
     return 
       other.examName == examName &&
+      other.publishDate == publishDate &&
       other.startDate == startDate &&
       other.endDate == endDate &&
       other.docId == docId &&
@@ -75,6 +82,7 @@ class ExamNotificationModel {
   @override
   int get hashCode {
     return examName.hashCode ^
+      publishDate.hashCode ^
       startDate.hashCode ^
       endDate.hashCode ^
       docId.hashCode ^

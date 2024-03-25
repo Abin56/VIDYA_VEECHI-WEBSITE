@@ -9,6 +9,7 @@ import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/drop_down/class_wise_subject.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledBlueContainer.dart';
@@ -18,9 +19,11 @@ class ExamTimeTableAddWidget extends StatelessWidget {
     super.key,
     required this.size,
     required this.getExamNotificationCtr,
+    required this.examId,
   });
 
   final Size size;
+  final String examId;
   final GlobalKey<FormState> fkey = GlobalKey<FormState>();
   final ExamNotificationController getExamNotificationCtr;
 
@@ -43,7 +46,7 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                   width: double.infinity,
                   height: 60,
                   color: screenContainerbackgroundColor,
-                  child: const Center(
+                  child: Center(
                     child:
                         TextFontWidget(text: 'Create Time Table', fontsize: 25),
                   ),
@@ -87,21 +90,29 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                                 },
                                 child: AbsorbPointer(
                                   absorbing: true,
-                                  child: Obx(
-                                    () {
-                                      getExamNotificationCtr.startTimeCtr.text =
-                                          getExamNotificationCtr.startTime.value
-                                              .format(context);
-                                      return TextFormFiledBlueContainerWidget(
-                                        hintText: "  Start Time",
-                                        title: 'Select Start Time🗓️ ',
-                                        validator: checkFieldEmpty,
-                                        // readOnly: true,
-                                        controller:
-                                            getExamNotificationCtr.startTimeCtr,
-                                      );
-                                    },
+                                  child: TextFormFiledBlueContainerWidget(
+                                    hintText: "  Start Time",
+                                    title: 'Select Start Time🗓️ ',
+                                    validator: checkFieldEmpty,
+                                    // readOnly: true,
+                                    controller:
+                                        getExamNotificationCtr.startTimeCtr,
                                   ),
+                                  //  Obx(
+                                  //   () {
+                                  //     getExamNotificationCtr.startTimeCtr.text =
+                                  //         getExamNotificationCtr.startTime.value
+                                  //             .format(context);
+                                  //     return TextFormFiledBlueContainerWidget(
+                                  //       hintText: "  Start Time",
+                                  //       title: 'Select Start Time🗓️ ',
+                                  //       validator: checkFieldEmpty,
+                                  //       // readOnly: true,
+                                  //       controller:
+                                  //           getExamNotificationCtr.startTimeCtr,
+                                  //     );
+                                  //   },
+                                  // ),
                                 ),
                               ),
                               GestureDetector(
@@ -110,21 +121,30 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                                 },
                                 child: AbsorbPointer(
                                   absorbing: true,
-                                  child: Obx(
-                                    () {
-                                      getExamNotificationCtr.endTimeCtr.text =
-                                          getExamNotificationCtr.endTime.value
-                                              .format(context);
-                                      return TextFormFiledBlueContainerWidget(
-                                        hintText: "  End Time",
-                                        title: 'Select End Time🗓️ ',
-                                        validator: checkFieldEmpty,
-                                        // readOnly: true,
-                                        controller:
-                                            getExamNotificationCtr.endTimeCtr,
-                                      );
-                                    },
+                                  child: TextFormFiledBlueContainerWidget(
+                                    hintText: "  End Time",
+                                    title: 'Select End Time🗓️ ',
+                                    validator: checkFieldEmpty,
+                                    // readOnly: true,
+                                    controller:
+                                        getExamNotificationCtr.endTimeCtr,
                                   ),
+
+                                  // Obx(
+                                  //   () {
+                                  //     getExamNotificationCtr.endTimeCtr.text =
+                                  //         getExamNotificationCtr.endTime.value
+                                  //             .format(context);
+                                  //     return TextFormFiledBlueContainerWidget(
+                                  //       hintText: "  End Time",
+                                  //       title: 'Select End Time🗓️ ',
+                                  //       validator: checkFieldEmpty,
+                                  //       // readOnly: true,
+                                  //       controller:
+                                  //           getExamNotificationCtr.endTimeCtr,
+                                  //     );
+                                  //   },
+                                  // ),
                                 ),
                               ),
                               Row(
@@ -142,6 +162,7 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                                                 false) {
                                               getExamNotificationCtr
                                                   .addExamTimeTable(
+                                                      examId: examId,
                                                       subject: Get.find<
                                                               SubjectController>()
                                                           .subjectName
@@ -194,6 +215,7 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            sh10,
                             Expanded(
                               child: Obx(
                                 () {
@@ -204,6 +226,8 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                                             .classDocID
                                             .value)
                                         .collection('ExamTimeTable')
+                                        .doc(examId)
+                                        .collection('subjects')
                                         .snapshots(),
                                     builder: (context, snapshot) {
                                       if (snapshot.connectionState ==
@@ -225,70 +249,85 @@ class ExamTimeTableAddWidget extends StatelessWidget {
                                         return ListView.separated(
                                           itemBuilder: (context, index) {
                                             final examData =
-                                                ExamTimeTableModel.fromMap(
+                                                AddExamTimeTableModel.fromMap(
                                                     snapshot.data!.docs[index]
                                                         .data());
-                                            return ListTile(
-                                              title: TextFontWidget(
-                                                  text: examData.subject,
-                                                  fontsize: 16),
-                                              subtitle: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  TextFontWidget(
-                                                      text: examData.date,
-                                                      fontsize: 12.5),
-                                                  TextFontWidget(
-                                                      text:
-                                                          'Start time : ${examData.startTime} End time : ${examData.endTime}',
-                                                      fontsize: 12.5),
-                                                ],
-                                              ),
-                                              trailing: PopupMenuButton(
-                                                tooltip: "Filter Option",
-                                                position:
-                                                    PopupMenuPosition.under,
-                                                itemBuilder: (context) {
-                                                  return [
-                                                    PopupMenuItem(
-                                                        onTap: () {
-                                                          showDialog(
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return EditExamTimeTableAddWidget(
-                                                                examData:
-                                                                    examData,
-                                                                size: size,
-                                                              );
-                                                            },
-                                                          );
-                                                        },
-                                                        child:
-                                                            const TextFontWidget(
-                                                          text: "Edit",
-                                                          fontsize: 16,
-                                                        )),
-                                                    PopupMenuItem(
-                                                        onTap: () {
-                                                          showDialogWidget(
+                                            return Container(
+                                              color: index % 2 == 0
+                                                  ? const Color.fromARGB(
+                                                      255, 246, 246, 246)
+                                                  : Colors.blue[50],
+                                              child: ListTile(
+                                                // tileColor: index % 2 == 0
+                                                //     ? const Color.fromARGB(
+                                                //         255, 246, 246, 246)
+                                                //     : Colors.blue[50],
+                                                title: TextFontWidget(
+                                                    text: examData.subject,
+                                                    fontsize: 16),
+                                                subtitle: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    TextFontWidget(
+                                                        text: examData.examDate,
+                                                        fontsize: 12.5),
+                                                    TextFontWidget(
+                                                        text:
+                                                            'Start time : ${examData.startingtime} End time : ${examData.endingtime}',
+                                                        fontsize: 12.5),
+                                                  ],
+                                                ),
+                                                trailing: PopupMenuButton(
+                                                  tooltip: "Filter Option",
+                                                  position:
+                                                      PopupMenuPosition.under,
+                                                  itemBuilder: (context) {
+                                                    return [
+                                                      PopupMenuItem(
+                                                          onTap: () {
+                                                            showDialog(
                                                               context: context,
-                                                              title:
-                                                                  'Are you sure to Delete',
-                                                              function: () {
-                                                                getExamNotificationCtr
-                                                                    .deleteExamTibleTable(
-                                                                        docId: examData
-                                                                            .docId);
-                                                              });
-                                                        },
-                                                        child:
-                                                            const TextFontWidget(
-                                                          text: " Delete",
-                                                          fontsize: 16,
-                                                        )),
-                                                  ];
-                                                },
+                                                              builder:
+                                                                  (context) {
+                                                                return EditExamTimeTableAddWidget(
+                                                                  examId:
+                                                                      examId,
+                                                                  examData:
+                                                                      examData,
+                                                                  size: size,
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                          child:
+                                                              const TextFontWidget(
+                                                            text: "Edit",
+                                                            fontsize: 16,
+                                                          )),
+                                                      PopupMenuItem(
+                                                          onTap: () {
+                                                            showDialogWidget(
+                                                                context:
+                                                                    context,
+                                                                title:
+                                                                    'Are you sure to Delete',
+                                                                function: () {
+                                                                  getExamNotificationCtr.deleteExamTibleTable(
+                                                                      examId:
+                                                                          examId,
+                                                                      docId: examData
+                                                                          .docid);
+                                                                });
+                                                          },
+                                                          child:
+                                                              const TextFontWidget(
+                                                            text: " Delete",
+                                                            fontsize: 16,
+                                                          )),
+                                                    ];
+                                                  },
+                                                ),
                                               ),
                                             );
                                           },
@@ -323,22 +362,23 @@ class EditExamTimeTableAddWidget extends StatelessWidget {
     super.key,
     required this.size,
     required this.examData,
+    required this.examId,
+
     // required this.getExamNotificationCtr,
   });
-
+  final String examId;
   final Size size;
   final GlobalKey<FormState> fkey = GlobalKey<FormState>();
-  final ExamTimeTableModel examData;
+  final AddExamTimeTableModel examData;
   // final ExamNotificationController getExamNotificationCtr;
   final ExamNotificationController getExamNotificationCtr =
       ExamNotificationController();
 
   @override
   Widget build(BuildContext context) {
-    print(examData.startTime);
-    getExamNotificationCtr.startDateCtr.text = examData.date;
-    getExamNotificationCtr.startTimeCtr.text = examData.startTime;
-    getExamNotificationCtr.endTimeCtr.text = examData.endTime;
+    getExamNotificationCtr.startDateCtr.text = examData.examDate;
+    getExamNotificationCtr.startTimeCtr.text = examData.startingtime;
+    getExamNotificationCtr.endTimeCtr.text = examData.endingtime;
 
     return AlertDialog(
       contentPadding:
@@ -388,20 +428,27 @@ class EditExamTimeTableAddWidget extends StatelessWidget {
                         },
                         child: AbsorbPointer(
                           absorbing: true,
-                          child: Obx(
-                            () {
-                              getExamNotificationCtr.startTimeCtr.text =
-                                  getExamNotificationCtr.startTime.value
-                                      .format(context);
-                              return TextFormFiledBlueContainerWidget(
-                                hintText: "  Start Time",
-                                title: 'Select Start Time🗓️ ',
-                                validator: checkFieldEmpty,
-                                // readOnly: true,
-                                controller: getExamNotificationCtr.startTimeCtr,
-                              );
-                            },
+                          child: TextFormFiledBlueContainerWidget(
+                            hintText: "  Start Time",
+                            title: 'Select Start Time🗓️ ',
+                            validator: checkFieldEmpty,
+                            // readOnly: true,
+                            controller: getExamNotificationCtr.startTimeCtr,
                           ),
+                          // Obx(
+                          //   () {
+                          //     getExamNotificationCtr.startTimeCtr.text =
+                          //         getExamNotificationCtr.startTime.value
+                          //             .format(context);
+                          //     return TextFormFiledBlueContainerWidget(
+                          //       hintText: "  Start Time",
+                          //       title: 'Select Start Time🗓️ ',
+                          //       validator: checkFieldEmpty,
+                          //       // readOnly: true,
+                          //       controller: getExamNotificationCtr.startTimeCtr,
+                          //     );
+                          //   },
+                          // ),
                         ),
                       ),
                       GestureDetector(
@@ -410,20 +457,27 @@ class EditExamTimeTableAddWidget extends StatelessWidget {
                         },
                         child: AbsorbPointer(
                           absorbing: true,
-                          child: Obx(
-                            () {
-                              getExamNotificationCtr.endTimeCtr.text =
-                                  getExamNotificationCtr.endTime.value
-                                      .format(context);
-                              return TextFormFiledBlueContainerWidget(
-                                hintText: "  End Time",
-                                title: 'Select End Time🗓️ ',
-                                validator: checkFieldEmpty,
-                                // readOnly: true,
-                                controller: getExamNotificationCtr.endTimeCtr,
-                              );
-                            },
+                          child: TextFormFiledBlueContainerWidget(
+                            hintText: "  End Time",
+                            title: 'Select End Time🗓️ ',
+                            validator: checkFieldEmpty,
+                            // readOnly: true,
+                            controller: getExamNotificationCtr.endTimeCtr,
                           ),
+                          //  Obx(
+                          //   () {
+                          //     getExamNotificationCtr.endTimeCtr.text =
+                          //         getExamNotificationCtr.endTime.value
+                          //             .format(context);
+                          //     return TextFormFiledBlueContainerWidget(
+                          //       hintText: "  End Time",
+                          //       title: 'Select End Time🗓️ ',
+                          //       validator: checkFieldEmpty,
+                          //       // readOnly: true,
+                          //       controller: getExamNotificationCtr.endTimeCtr,
+                          //     );
+                          //   },
+                          // ),
                         ),
                       ),
                       Row(
@@ -440,7 +494,8 @@ class EditExamTimeTableAddWidget extends StatelessWidget {
                                     if (fkey.currentState?.validate() ??
                                         false) {
                                       getExamNotificationCtr.editExamTimeTable(
-                                          docId: examData.docId,
+                                          examId: examId,
+                                          docId: examData.docid,
                                           date: getExamNotificationCtr
                                               .startDateCtr.text,
                                           startTime: getExamNotificationCtr

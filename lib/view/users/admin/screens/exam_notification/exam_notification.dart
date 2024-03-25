@@ -150,7 +150,7 @@ class AllExamNotificationListView extends StatelessWidget {
                                             .startTimeCtr.text = '';
                                         getExamNotificationCtr.endTimeCtr.text =
                                             '';
-                                        return ExamTimeTableAddWidget(
+                                        return ExamTimeTableAddWidget(examId: data.docId,
                                             size: size,
                                             getExamNotificationCtr:
                                                 getExamNotificationCtr);
