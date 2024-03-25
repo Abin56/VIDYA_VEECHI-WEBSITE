@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/widget/data_container_marks.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
+import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textformFiledBlueContainer.dart';
 
 class TherapyManagement extends StatelessWidget {
   const TherapyManagement({super.key});
@@ -49,21 +51,14 @@ class TherapyManagement extends StatelessWidget {
                               width: 250,
                               height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
                               color: cWhite,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const TextFontWidget(
-                                      text: 'Therapy Type *', fontsize: 12.5),
-                                  const SizedBox(
-                                    height: 05,
-                                  ),
-                                  SizedBox(
-                                    height: 40,
-                                    child: DropdownSearch(
-                                      items: const ['Physical Theray', 'Mental Therapy'],
+                              child:  Padding(
+                                padding: const EdgeInsets.only(top: 10,bottom: 10),
+                                child: TextFormFiledBlueContainerWidget(
+                                      // controller: studentController.stNameController,
+                                      hintText: "Enter Therapy Type",
+                                      title: 'Therapy Type ',
+                                      validator: checkFieldEmpty,
                                     ),
-                                  ),
-                                ],
                               ),
                             ),
                           ),
@@ -180,13 +175,16 @@ class TherapyManagement extends StatelessWidget {
                                           ),
                                           Expanded(
                                             flex: 2,
-                                            child: DataContainerMarksWidget(
-                                                rowMainAccess:
-                                                    MainAxisAlignment.start,
-                                                color: cWhite,
-                                                index: index,
-                                                headerTitle: " Type"),
-                                          ),
+                                            child: Container(
+                                              height: 30,
+                                             decoration: BoxDecoration(
+                                             color: index % 2 == 0
+                                              ? const Color.fromARGB(255, 246, 246, 246)
+                                              : Colors.blue[50],
+                                           ), child: DropdownSearch(
+                                      items: const ['Physio Theray', 'Mental Therapy'],
+                                    ),
+                                          ),),
                                           const SizedBox(
                                             width: 1,
                                           ),

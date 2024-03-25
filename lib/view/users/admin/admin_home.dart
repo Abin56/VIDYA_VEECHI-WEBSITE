@@ -22,8 +22,9 @@ import 'package:vidyaveechi_website/view/users/admin/screens/parents/all_parents
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
-import 'package:vidyaveechi_website/view/users/admin/therapy_management/therapy_management.dart';
-import 'package:vidyaveechi_website/view/users/teacher/timetable/timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_management.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AdminHomeScreen extends StatefulWidget {
@@ -108,7 +109,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  TherapyManagement(),
+  ViewTimeTable(),
+  //TherapyManagement(),
   const AdminDashBoardSections(),
 
   AllClassListView(),
