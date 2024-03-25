@@ -7,6 +7,7 @@ import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/creat
 import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achievements.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/all_students.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/period_wise.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/teacher_attendance/all_teachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/batch_histroy/batch_history_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_listscreen.dart';
@@ -109,9 +110,10 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  ViewTimeTable(),
+  PeriodWiseStudentsAttendance(),
+ // ViewTimeTable(),
   //TherapyManagement(),
-  const AdminDashBoardSections(),
+ // const AdminDashBoardSections(),
 
   AllClassListView(),
 
