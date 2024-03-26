@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
@@ -12,52 +10,21 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/message_showing.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
 
-class AppBarAdminPanel extends StatefulWidget {
-  const AppBarAdminPanel({
+// ignore: must_be_immutable
+class AppBarAdminPanel extends StatelessWidget {
+  AppBarAdminPanel({
     super.key,
   });
 
-  @override
-  State<AppBarAdminPanel> createState() => _AppBarAdminPanelState();
-}
+  final int index = 0;
 
-class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
-  OverlayState? overlayState;
-  OverlayEntry? overlayEntry;
-  OverlayEntry? overlayEntry2;
-  OverlayEntry? overlayEntry3;
-  bool showOverlay = false;
-  int index = 0;
   final layerLink = LayerLink();
-  final textButtonFocusNode = FocusNode();
-  final textButtonFocusNode1 = FocusNode();
-  final textButtonFocusNode2 = FocusNode();
 
-  @override
-  void initState() {
-    textButtonFocusNode.addListener(() {
-      if (textButtonFocusNode.hasFocus) {
-        _showOverlay(context, 0);
-      } else {
-        removeOverlay();
-      }
-    });
-    textButtonFocusNode1.addListener(() {
-      if (textButtonFocusNode1.hasFocus) {
-        _showOverlay(context, 1);
-      } else {
-        removeOverlay();
-      }
-    });
-    textButtonFocusNode2.addListener(() {
-      if (textButtonFocusNode2.hasFocus) {
-        _showOverlay(context, 2);
-      } else {
-        removeOverlay();
-      }
-    });
-    super.initState();
-  }
+  final textButtonFocusNode = FocusNode();
+
+  final textButtonFocusNode1 = FocusNode();
+
+  final textButtonFocusNode2 = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +54,61 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 const Spacer(),
                 ////
                 ///....
+                ///
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 5,
+                      ),
+                      child: Container(
+                        height: 45,
+                        width: 280,
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          children: [
+                            // const TextFontWidget(text: '🗓️', fontsize: 12),
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.calendar_month_outlined),
+                            ),
+                            TextFontWidget(
+                                text: '${UserCredentialsController.batchId}',
+                                fontsize: 12),
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: GestureDetector(
+                                onTap: () =>
+                                    academicYearSettingFunction(context),
+                                child: Container(
+                                  height: 34,
+                                  width: 34,
+                                  decoration: BoxDecoration(
+                                      color: cWhite,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.settings_outlined,
+                                      color: cBlack,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
                 SizedBox(
                   width: 109,
                   child: Column(
@@ -152,8 +174,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                             child: IconButton(
                                 focusNode: textButtonFocusNode,
                                 onPressed: () {
-                                  
-                              messagesShowingFunction(context);
+                                  messagesShowingFunction(context);
                                 },
                                 icon: Icon(
                                   Icons.mail_outline_outlined,
@@ -194,7 +215,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                             child: IconButton(
                                 focusNode: textButtonFocusNode1,
                                 onPressed: () {
-                                   notificationShowingFunctionOnAppBar(context);
+                                  notificationShowingFunctionOnAppBar(context);
                                 },
                                 icon: Icon(
                                   Icons.notifications_none_outlined,
@@ -226,57 +247,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 5,
-                  ),
-                  child: Container(
-                    height: 45,
-                    width: 280,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Row(
-                      children: [
-                        // const TextFontWidget(text: '🗓️', fontsize: 12),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(Icons.calendar_month_outlined),
-                        ),
-                        TextFontWidget(
-                            text: '${UserCredentialsController.batchId}',
-                            fontsize: 12),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: GestureDetector(
-                            onTap: () => academicYearSettingFunction(context),
-                            child: Container(
-                              height: 34,
-                              width: 34,
-                              decoration: BoxDecoration(
-                                  color: cWhite,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.settings_outlined,
-                                  color: cBlack,
-                                ),
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),/////////////////////////////////////////////////////////////////////
- 
+            /////////////////////////////////////////////////////////////////////
           ],
         ),
       ),
@@ -482,89 +453,4 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       ],
     ),
   ];
-  void _showOverlay(BuildContext context, int index) async {
-    overlayState = Overlay.of(context);
-
-    overlayEntry = OverlayEntry(
-        maintainState: true,
-        builder: (context) {
-          return Positioned(
-            right: index == 0
-                ? 160
-                : index == 2
-                    ? 100
-                    : 120,
-            top: 60,
-            child: TextButton(
-              onPressed: () {},
-              onHover: (val) {
-                if (val && showOverlay) {
-                  if (index == 0) {
-                    textButtonFocusNode.requestFocus();
-                  } else if (index == 1) {
-                    textButtonFocusNode1.requestFocus();
-                  } else if (index == 2) {
-                    textButtonFocusNode2.requestFocus();
-                  }
-                } else {
-                  if (index == 0) {
-                    textButtonFocusNode.unfocus();
-                  } else if (index == 1) {
-                    textButtonFocusNode1.unfocus();
-                  } else if (index == 2) {
-                    textButtonFocusNode2.unfocus();
-                  }
-                }
-              },
-              child: widgets[index],
-            ),
-          );
-        });
-
-    overlayEntry2 = OverlayEntry(
-        maintainState: true,
-        builder: (context) {
-          return Positioned(
-            right: index == 0
-                ? 160
-                : index == 2
-                    ? 230
-                    : 120,
-            top: 60,
-            child: TextButton(
-              onPressed: () {},
-              onHover: (val) {
-                if (val && showOverlay) {
-                  if (index == 0) {
-                    textButtonFocusNode.requestFocus();
-                  } else if (index == 1) {
-                    textButtonFocusNode1.requestFocus();
-                  } else if (index == 2) {
-                    textButtonFocusNode2.requestFocus();
-                  }
-                } else {
-                  if (index == 0) {
-                    textButtonFocusNode.unfocus();
-                  } else if (index == 1) {
-                    textButtonFocusNode1.unfocus();
-                  } else if (index == 2) {
-                    textButtonFocusNode2.unfocus();
-                  }
-                }
-              },
-              child: widgets[index + 3],
-            ),
-          );
-        });
-
-    overlayState!.insertAll([
-      overlayEntry!,
-      overlayEntry2!,
-    ]);
-  }
-
-  void removeOverlay() {
-    overlayEntry!.remove();
-    overlayEntry2!.remove();
-  }
 }
