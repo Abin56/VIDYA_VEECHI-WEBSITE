@@ -2,41 +2,38 @@
 
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
-import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
-
+import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 
 class BlueContainerWidget extends StatelessWidget {
   String title;
   double fontSize;
-  FontWeight?fontWeight;
+  FontWeight? fontWeight;
   Color color;
   double width;
-  
 
-   BlueContainerWidget({
-    required this.title,
-    required this.fontSize,
-    required this.color,
-    required this.width,
-    this.fontWeight,
-    super.key});
+  BlueContainerWidget(
+      {required this.title,
+      required this.fontSize,
+      required this.color,
+      required this.width,
+      this.fontWeight,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Container(
-        height: 30,
-        width: width,
-        decoration:  BoxDecoration(
-          color: color,
-        ),
-        child: Center(
-          child: GooglePoppinsWidgets(
-              text: title,
-              fontsize: fontSize,
-              color: cWhite,
-              fontWeight: fontWeight),
-        ),
-      );
+    return Container(
+      height: 30,
+      width: width,
+      decoration: BoxDecoration(
+        color: color,
+      ),
+      child: Center(
+        child: TextFontWidget(
+            text: title,
+            fontsize: fontSize,
+            color: cWhite,
+            fontWeight: fontWeight),
+      ),
+    );
   }
 }

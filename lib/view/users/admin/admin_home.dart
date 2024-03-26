@@ -45,7 +45,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
         child: SidebarDrawer(
             body: ListView(
               children: [
-                const AppBarAdminPanel(),
+                 AppBarAdminPanel(),
                 pages[selectedIndex],
               ],
             ),
@@ -110,11 +110,14 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  
+
   const AdminDashBoardSections(),
   //PeriodWiseStudentsAttendance(),
   ViewTimeTable(),
+   PeriodWiseStudentsAttendance(),
+  // ViewTimeTable(),
   //TherapyManagement(),
+ // const AdminDashBoardSections(),
 
   AllClassListView(),
 
@@ -137,8 +140,8 @@ List<Widget> pages = [
   const EventsEditREmove(),
   const EventsEditREmove(),
 
-   MeetingCreatingPage(),
-   MeetingCreatingPage(),
+  MeetingCreatingPage(),
+  MeetingCreatingPage(),
 
   const AdminNotificationCreate(),
 
