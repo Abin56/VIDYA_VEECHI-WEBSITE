@@ -14,8 +14,10 @@ import 'package:vidyaveechi_website/view/users/admin/screens/notice/noticebutton
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/get_allTeachers.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
-import '../../../../controller/subject_controller/subject_controller.dart';
-import '../../../utils/shared_pref/user_auth/user_credentials.dart';
+import '../../../../../controller/subject_controller/subject_controller.dart';
+import '../../../../utils/shared_pref/user_auth/user_credentials.dart';
+
+
 
 class TimeTable extends StatefulWidget {
   String firebaseColor = '';
