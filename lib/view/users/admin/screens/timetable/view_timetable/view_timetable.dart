@@ -237,8 +237,10 @@ class ViewTimeTable extends StatelessWidget {
                                 ),
                               ),
                             ), ///////////////////////////////////////////////////////////////////////////////////////////////
+                           // Container(width: 1120,height: 600, color: cBlue,)
                              SizedBox(
-                                  // width: 1100,
+                                 width: 1200,
+                                 height: 600,
                                   child: StreamBuilder(
                                     stream: server
                                         .collection('SchoolListCollection')
@@ -260,7 +262,9 @@ class ViewTimeTable extends StatelessWidget {
                                                   //     .ontapview
                                                   //     .value = true;
                                                 },
-                                                child:  AllClassTimeTableList(index: index,data: data,)
+                                                child:  AllClassTimeTableList(
+                                                 // index: index,data: data,
+                                                  )
                                               );
                                             },
                                             separatorBuilder: (context, index) {
@@ -273,12 +277,9 @@ class ViewTimeTable extends StatelessWidget {
                                         return const LoadingWidget();
                                       }
                                     },
-                                  ),
+                                  ),//
                                 ),
-
-
-                           
-                          ],
+                                ],
                         ),
                       ),
                     )
