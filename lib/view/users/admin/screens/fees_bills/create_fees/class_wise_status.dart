@@ -135,7 +135,7 @@ class ClassWiseFeesDataListContainer extends StatelessWidget {
                 rowMainAccess: MainAxisAlignment.center,
                 color: cWhite,
                 index: index,
-                headerTitle: "Januvary"),
+                headerTitle: "January"),
           ), //................................................. Months
           const SizedBox(
             width: 02,

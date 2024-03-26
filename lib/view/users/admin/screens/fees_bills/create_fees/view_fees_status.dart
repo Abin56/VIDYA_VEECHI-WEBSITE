@@ -10,98 +10,92 @@ import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_containe
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class CreatedFeesStatus extends StatelessWidget {
-  
-  final FeesAndBillsController feesAndBillsController = Get.put(FeesAndBillsController());
-   CreatedFeesStatus({super.key});
+  final FeesAndBillsController feesAndBillsController =
+      Get.put(FeesAndBillsController());
+  CreatedFeesStatus({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Obx(() => feesAndBillsController.ontapviewclasswiseFees.value == true
         ? ClassWiseFeesStatus()
-        : 
-     Container(
-        width: double.infinity,
-              height:ResponsiveWebSite.isMobile(context)?800: 500,
-              color: cWhite,
-                child: Column(
-                  children: [ 
-                     const Row(
-                        children: [
-                          Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 4,
-                              child: CatrgoryTableHeaderWidget(headerTitle: 'No. of Class')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 2,
-                              child: CatrgoryTableHeaderWidget(
-                                  headerTitle: 'Class Name')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 3,
-                              child: CatrgoryTableHeaderWidget(headerTitle: 'Fee Amount')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(headerTitle: 'Collected')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                            Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(headerTitle: 'Pending')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                        child: SizedBox(
-                          width: 1200,
-                          child: 
-                                  ListView.separated(
-                                      itemBuilder: (context, index) {
-                                        return 
-                                          GestureDetector(
-                                            onTap: () {
-                                               feesAndBillsController.ontapviewclasswiseFees.value = true;
-                                            },
-                                            child: AllClassessFeesDataList(
-                                             // data: data,
-                                              index: index,
-                                                                                
-                                                                                    ),
-                                          );
-                                      },
-                                      separatorBuilder: (context, index) {
-                                        return const SizedBox(
-                                          height: 02,
-                                        );
-                                      },
-                                      itemCount: 10)
-                          
-                        ),
-                      )
+        : Container(
+            width: double.infinity,
+            height: ResponsiveWebSite.isMobile(context) ? 800 : 500,
+            color: cWhite,
+            child: Column(
+              children: [
+                const Row(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
+                    SizedBox(
+                      width: 01,
+                    ),
+                    Expanded(
+                        flex: 4,
+                        child: CatrgoryTableHeaderWidget(
+                            headerTitle: 'No. of Class')),
+                    SizedBox(
+                      width: 01,
+                    ),
+                    Expanded(
+                        flex: 2,
+                        child: CatrgoryTableHeaderWidget(
+                            headerTitle: 'Class Name')),
+                    SizedBox(
+                      width: 01,
+                    ),
+                    Expanded(
+                        flex: 3,
+                        child: CatrgoryTableHeaderWidget(
+                            headerTitle: 'Fee Amount')),
+                    SizedBox(
+                      width: 01,
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: CatrgoryTableHeaderWidget(
+                            headerTitle: 'Collected')),
+                    SizedBox(
+                      width: 01,
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child:
+                            CatrgoryTableHeaderWidget(headerTitle: 'Pending')),
+                    SizedBox(
+                      width: 01,
+                    ),
                   ],
+                ),
+                Expanded(
+                  child: SizedBox(
+                      width: 1200,
+                      child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                feesAndBillsController
+                                    .ontapviewclasswiseFees.value = true;
+                              },
+                              child: AllClassessFeesDataList(
+                                // data: data,
+                                index: index,
+                              ),
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return const SizedBox(
+                              height: 02,
+                            );
+                          },
+                          itemCount: 10)),
                 )
-     )
-    );
+              ],
+            )));
   }
 }
-
-
-
 
 class AllClassessFeesDataList extends StatelessWidget {
   final int index;
@@ -112,7 +106,7 @@ class AllClassessFeesDataList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
+    return SizedBox(
       height: 45,
       child: Row(
         children: [
@@ -147,7 +141,7 @@ class AllClassessFeesDataList extends StatelessWidget {
                 // width: 150,
                 index: index,
                 headerTitle: '   XII'),
-          ), // ...................................Total Number 
+          ), // ...................................Total Number
           const SizedBox(
             width: 01,
           ),
@@ -171,8 +165,8 @@ class AllClassessFeesDataList extends StatelessWidget {
                 // width: 150,
                 index: index,
                 headerTitle: '   1000'),
-          ),/////////////...............................collected
-           const SizedBox(
+          ), /////////////...............................collected
+          const SizedBox(
             width: 01,
           ),
           Expanded(
