@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/widget/data_container_marks.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
@@ -24,6 +25,93 @@ class StudentAttendanceDataList extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                                              padding: const EdgeInsets.only( left: 5,top: 0,),
+                                              child: Container(
+                                                height: 155,
+                                                width: 250,
+                                                decoration: const BoxDecoration(),
+                                                child: const Padding(
+                                                  padding: EdgeInsets.all(8.0),
+                                                  child: Column(
+                                                    mainAxisAlignment: MainAxisAlignment .spaceAround,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      TextFontWidget(
+                                                        text: 'Class VII',
+                                                        fontsize: 25,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:   MainAxisAlignment .spaceBetween,
+                                                        children: [
+                                                          TextFontWidget(
+                                                            text: 'Subject',
+                                                            fontsize: 15,
+                                                            fontWeight:FontWeight.w500,
+                                                          ),
+                                                          TextFontWidget(
+                                                            text: 'English',
+                                                            fontsize: 15,
+                                                            fontWeight:FontWeight.w500,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        children: [
+                                                          TextFontWidget(
+                                                            text: 'Total Students',
+                                                            fontsize: 15,
+                                                            fontWeight:  FontWeight.w500,
+                                                          ),
+                                                          TextFontWidget(
+                                                            text: '50',
+                                                            fontsize: 15,
+                                                            fontWeight:FontWeight.w500,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:MainAxisAlignment   .spaceBetween,
+                                                        children: [
+                                                          TextFontWidget(
+                                                            text:'Present Students',
+                                                            fontsize: 15,
+                                                            fontWeight: FontWeight.w500,
+                                                          ),
+                                                          TextFontWidget(
+                                                            text: '50',
+                                                            fontsize: 15,
+                                                            fontWeight:FontWeight.w500,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:  MainAxisAlignment .spaceBetween,
+                                                        children: [
+                                                          TextFontWidget(
+                                                            text: 'Absent Students',
+                                                            fontsize: 15,
+                                                            fontWeight: FontWeight.w500,
+                                                          ),
+                                                          TextFontWidget(
+                                                            text: '0',
+                                                            fontsize: 15,
+                                                            fontWeight:FontWeight.w500,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                ],
+              ),
               const Row(
                 children: [
                    Expanded(
