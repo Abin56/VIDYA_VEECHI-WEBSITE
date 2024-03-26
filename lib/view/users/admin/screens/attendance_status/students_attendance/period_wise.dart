@@ -76,8 +76,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                       height: ResponsiveWebSite.isMobile(context) ? 750 : 680,
                       width: double.infinity,
                       child: StreamBuilder(
-                          stream: attendenceController.todayAttendence.value ==
-                                  true
+                          stream: attendenceController.todayAttendence.value ==  true
                               ? server
                                   .collection('SchoolListCollection')
                                   .doc(UserCredentialsController.schoolId)
@@ -123,14 +122,10 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.only(
-                                            left: 5,
-                                            top: 0,
-                                          ),
+                                          padding: const EdgeInsets.only( left: 5,top: 0,),
                                           child: Container(
                                             height: 155,
                                             width: 250,
@@ -138,11 +133,8 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                             child: const Padding(
                                               padding: EdgeInsets.all(8.0),
                                               child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment .spaceAround,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   TextFontWidget(
                                                     text: 'Class VII',
@@ -150,79 +142,62 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                   Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    mainAxisAlignment:   MainAxisAlignment .spaceBetween,
                                                     children: [
                                                       TextFontWidget(
                                                         text: 'Subject',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight:FontWeight.w500,
                                                       ),
                                                       TextFontWidget(
                                                         text: 'English',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight:FontWeight.w500,
                                                       ),
                                                     ],
                                                   ),
                                                   Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                     children: [
                                                       TextFontWidget(
                                                         text: 'Total Students',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight:  FontWeight.w500,
                                                       ),
                                                       TextFontWidget(
                                                         text: '50',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight:FontWeight.w500,
                                                       ),
                                                     ],
                                                   ),
                                                   Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    mainAxisAlignment:MainAxisAlignment   .spaceBetween,
                                                     children: [
                                                       TextFontWidget(
-                                                        text:
-                                                            'Present Students',
+                                                        text:'Present Students',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight: FontWeight.w500,
                                                       ),
                                                       TextFontWidget(
                                                         text: '50',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight:FontWeight.w500,
                                                       ),
                                                     ],
                                                   ),
                                                   Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                    mainAxisAlignment:  MainAxisAlignment .spaceBetween,
                                                     children: [
                                                       TextFontWidget(
                                                         text: 'Absent Students',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight: FontWeight.w500,
                                                       ),
                                                       TextFontWidget(
                                                         text: '0',
                                                         fontsize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                        fontWeight:FontWeight.w500,
                                                       ),
                                                     ],
                                                   ),
@@ -232,9 +207,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                           ),
                                         ),
                                         const Spacer(),
-                                        attendenceController
-                                                    .todayAttendence.value ==
-                                                true
+                                        attendenceController.todayAttendence.value == true
                                             ? Row(
                                                 children: [
                                                   BlueContainerWidget(
@@ -248,9 +221,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                                   Checkbox(
                                                     value: true,
                                                     onChanged: (value) {
-                                                      attendenceController
-                                                          .todayAttendence
-                                                          .value = false;
+                                                      attendenceController.todayAttendence.value = false;
                                                     },
                                                   )
                                                 ],
@@ -258,70 +229,48 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                             : Row(
                                                 children: [
                                                   Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            8.0),
+                                                    padding:const EdgeInsets.all( 8.0),
                                                     child: Container(
                                                       width: 250,
-                                                      height: ResponsiveWebSite
-                                                              .isMobile(context)
-                                                          ? 80
-                                                          : 100,
+                                                      height: ResponsiveWebSite.isMobile(context)? 80: 100,
                                                       color: cWhite,
                                                       child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
+                                                        crossAxisAlignment:CrossAxisAlignment.start,
                                                         children: [
                                                           const TextFontWidget(
                                                               text: 'Month *',
                                                               fontsize: 12.5),
-                                                          const SizedBox(
-                                                            height: 05,
-                                                          ),
+                                                          const SizedBox(height: 05, ),
                                                           SizedBox(
                                                             height: 40,
-                                                            child:
-                                                                SelectClassAttendenceMonthDropDown(),
+                                                            child: SelectClassAttendenceMonthDropDown(),
                                                           ),
                                                         ],
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            8.0),
+                                                    padding:const EdgeInsets.all(8.0),
                                                     child: Container(
                                                       width: 200,
-                                                      height: ResponsiveWebSite
-                                                              .isMobile(context)
-                                                          ? 80
-                                                          : 100,
+                                                      height: ResponsiveWebSite.isMobile(context)? 80: 100,
                                                       color: cWhite,
                                                       child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
+                                                        crossAxisAlignment:CrossAxisAlignment.start,
                                                         children: [
                                                           const TextFontWidget(
                                                               text: 'Date *',
                                                               fontsize: 12.5),
-                                                          const SizedBox(
-                                                            height: 05,
-                                                          ),
+                                                          const SizedBox(height: 05,),
                                                           SizedBox(
                                                             height: 40,
-                                                            child:
-                                                                SelectClassAttendenceDayDropDown(),
+                                                            child:SelectClassAttendenceDayDropDown(),
                                                           ),
                                                         ],
                                                       ),
                                                     ),
                                                   ),
-                                                  const SizedBox(
-                                                    width: 20,
-                                                  ),
+                                                  const SizedBox(width: 20,),
                                                   BlueContainerWidget(
                                                       title: "Today ? ",
                                                       fontSize: 12,
@@ -330,9 +279,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                                   Checkbox(
                                                     value: false,
                                                     onChanged: (value) {
-                                                      attendenceController
-                                                          .todayAttendence
-                                                          .value = true;
+                                                      attendenceController.todayAttendence.value = true;
                                                     },
                                                   )
                                                 ],
@@ -340,8 +287,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 10, left: 20, right: 20),
+                                      padding: const EdgeInsets.only(  top: 10, left: 20, right: 20),
                                       child: Column(
                                         children: [
                                           Container(
@@ -384,13 +330,11 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                         height: 470,
                                         color: cWhite,
                                         // color: Colors.amber,
-
-                                        // height: 300,
+                                        //// height: 300,
                                         child: TabBarView(
                                             children: List.generate(
                                                 snaps.data!.docs.length,
-                                                (index) =>
-                                                    const StudentAttendanceDataList())),
+                                                (index) =>const StudentAttendanceDataList())),
                                       ),
                                     )
                                   ],
