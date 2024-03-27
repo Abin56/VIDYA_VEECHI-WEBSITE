@@ -57,7 +57,7 @@ class AllTeachersAttendance extends StatelessWidget {
     ];
     return Container(
         color: screenContainerbackgroundColor,
-        height: 820,
+        height: ResponsiveWebSite.isMobile(context)?840: 820,
         width: double.infinity,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Padding(
@@ -75,7 +75,7 @@ class AllTeachersAttendance extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 color: cWhite,
-                height: 700,
+                height: ResponsiveWebSite.isMobile(context)?750: 700,
                 width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -134,9 +134,7 @@ class AllTeacherListContainer extends StatelessWidget {
                                     SizedBox(
                                       width: 02,
                                     ),
-                                    SizedBox(
-                                      width: 02,
-                                    ),
+                                   
                                     Expanded(
                                         flex: 3,
                                         child: CatrgoryTableHeaderWidget(
@@ -210,6 +208,7 @@ class AllTeacherListContainer extends StatelessWidget {
                     ),
                   ),
                 ),
-              ));
+              ),
+              );
   }
 }
