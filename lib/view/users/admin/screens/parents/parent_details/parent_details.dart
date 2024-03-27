@@ -282,7 +282,7 @@ class ParentDetailsContainer extends StatelessWidget {
                   // color: Colors.amber,
 
                   // height: 300,
-                  child: const TabBarView(children: [
+                  child: TabBarView(children: [
                     PerStudentFeesHistory(), //........................ Student FEES
                     PerStudentAttendenceHistory(), //.......................... Student Attendence
                     PerStudentExamHistory() //............................ Student Exam History

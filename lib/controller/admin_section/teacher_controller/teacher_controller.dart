@@ -165,4 +165,7 @@ class TeacherController extends GetxController {
     teacherPhoneNumeber.clear();
     teacherIDController.clear();
   }
+
+
+  
 }
