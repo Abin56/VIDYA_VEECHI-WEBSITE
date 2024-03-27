@@ -82,21 +82,21 @@ class ViewTimeTable extends StatelessWidget {
                               width: 02,
                             ),
                             const Expanded(
-                                flex: 1,
+                                flex: 2,
                                 child: CatrgoryTableHeaderWidget(
                                     headerTitle: 'Class')),
                             const SizedBox(
                               width: 02,
                             ),
                             const Expanded(
-                                flex: 1,
+                                flex: 2,
                                 child: CatrgoryTableHeaderWidget(
                                     headerTitle: 'Period')),
                             const SizedBox(
                               width: 02,
                             ),
                             Expanded(
-                              flex: 5,
+                              flex: 12,
                               child: Container(
                                 height: 30,
                                 decoration: const BoxDecoration(
@@ -110,7 +110,7 @@ class ViewTimeTable extends StatelessWidget {
                                       return Container(
                                         decoration: BoxDecoration(
                                             border: Border.all( color:cBlack.withOpacity(0.2))),
-                                        width: 71.5,
+                                        width: 82,
                                         child: Center(
                                           child: TextFontWidget(
                                             text: days[index],
@@ -134,14 +134,14 @@ class ViewTimeTable extends StatelessWidget {
                               width: 02,
                             ),
                             const Expanded(
-                                flex: 1,
+                                flex: 2,
                                 child: CatrgoryTableHeaderWidget(
                                     headerTitle: 'Starting Time')),
                             const SizedBox(
                               width: 02,
                             ),
                             const Expanded(
-                                flex: 1,
+                                flex: 2,
                                 child: CatrgoryTableHeaderWidget(
                                     headerTitle: 'Ending Time')),
                             const SizedBox(

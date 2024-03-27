@@ -6,6 +6,7 @@ import 'package:vidyaveechi_website/firebase_options.dart';
 import 'package:vidyaveechi_website/view/home/screens/footer/privacypolicy.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable/teacher_time_table_edit.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
 
@@ -37,8 +38,8 @@ class MyApp extends StatelessWidget {
             },
 
             home: 
-            // AppBarAdminPanel(),
-           SplashScreen(),
+            //  TimeTableEdit(),
+            SplashScreen(),
             theme: ThemeData(
                 inputDecorationTheme: InputDecorationTheme(
                     border: OutlineInputBorder(

@@ -71,11 +71,8 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-<<<<<<<<< Temporary merge branch 1
-        height: 70,
-=========
+       // height: 70,
         height: 105,
->>>>>>>>> Temporary merge branch 2
         width: double.infinity,
         child: Column(
           children: [
@@ -139,7 +136,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    adminProfileShowingFunction(context);
+                    adminProfileshowlist(context);
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
@@ -285,11 +282,11 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
                   ),
                 ),
               ],
-            )
+            )]
             ),/////////////////////////////////////////////////////////////////////
 
-          ],
-        ),
+          
+        
       ),
     );
   }
@@ -298,8 +295,7 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
     Container(height: 40, width: 60, color: Colors.transparent),
     Container(height: 40, width: 60, color: Colors.transparent),
     Container(height: 40, width: 60, color: Colors.transparent),
-<<<<<<<<< Temporary merge branch 1
-=========
+
     Column(
       children: [
         Container(
@@ -494,7 +490,6 @@ class _AppBarAdminPanelState extends State<AppBarAdminPanel> {
         ),
       ],
     ),
->>>>>>>>> Temporary merge branch 2
   ];
   void _showOverlay(BuildContext context, int index) async {
     overlayState = Overlay.of(context);
