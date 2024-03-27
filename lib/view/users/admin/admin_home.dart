@@ -13,6 +13,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/class/allclass_list
 import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_dashboard.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/events/events.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/create_fees/view_fees_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/general%20instruction/general_instructions.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
@@ -107,7 +108,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  PeriodWiseStudentsAttendance(),
+ // PeriodWiseStudentsAttendance(),
   const AdminDashBoardSections(),
   // ViewTimeTable(),
   //TherapyManagement(),
@@ -152,8 +153,8 @@ List<Widget> pages = [
   GeneralInsructions(),
 
   const Achievements(),
-
-  const FeesAndBillsPage(),
+CreatedFeesStatus(),
+ // const FeesAndBillsPage(),
 
   const BatchHistroyListPage(),
 
