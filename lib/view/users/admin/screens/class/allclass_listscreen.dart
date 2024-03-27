@@ -29,9 +29,9 @@ class AllClassListView extends StatelessWidget {
           : SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(
-                color: cWhite,
+                color: screenContainerbackgroundColor,
                 height: 1000,
-                width: 1000,
+                width: 1150,
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 0,
@@ -40,9 +40,9 @@ class AllClassListView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(left: 25, top: 25),
+                        padding: EdgeInsets.only(left: 15, top: 5),
                         child: SizedBox(
-                          height: 60,
+                          height: 40,
                           width: double.infinity,
                           child: TextFontWidget(
                             text: 'All Classes List',
@@ -52,11 +52,11 @@ class AllClassListView extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
+                        padding: const EdgeInsets.only(bottom: 5),
                         child: Row(
                           children: [
                             const Padding(
-                              padding: EdgeInsets.only(left: 05, right: 05),
+                              padding: EdgeInsets.only(left: 15, right: 05),
                               child: RouteSelectedTextContainer(
                                   title: 'All Classes'),
                             ),
@@ -65,106 +65,125 @@ class AllClassListView extends StatelessWidget {
                               onTap: () {
                                 createClassFunction(context);
                               },
-                              child: ButtonContainerWidget(
-                                  curving: 30,
-                                  colorindex: 0,
-                                  height: 40,
-                                  width: 180,
-                                  child: const Center(
-                                    child: TextFontWidget(
-                                      text: 'Create / E D I T',
-                                      fontsize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: cWhite,
-                                    ),
-                                  )),
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 15,bottom: 5),
+                                child: ButtonContainerWidget(
+                                    curving: 30,
+                                    colorindex: 0,
+                                    height: 40,
+                                    width: 180,
+                                    child: const Center(
+                                      child: TextFontWidget(
+                                        text: 'Create / E D I T',
+                                        fontsize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: cWhite,
+                                      ),
+                                    )),
+                              ),
                             )
                           ],
                         ),
                       ),
-                      const Row(
-                        children: [
-                          Expanded(
-                              flex: 1,
-                              child: TableHeaderWidget(headerTitle: 'No')),
-                          SizedBox(
-                            width: 01,
+                      Padding(
+                         padding: const EdgeInsets.only(left: 15,right: 15),
+                        child: Container(
+                          color: cWhite,
+                          child: const Padding(
+                            padding: EdgeInsets.only(left: 15,right: 15,top: 10),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                    flex: 1,
+                                    child: TableHeaderWidget(headerTitle: 'No')),
+                                SizedBox(
+                                  width: 01,
+                                ),
+                                Expanded(
+                                    flex: 4,
+                                    child: TableHeaderWidget(headerTitle: 'Class')),
+                                SizedBox(
+                                  width: 01,
+                                ),
+                                Expanded(
+                                    flex: 2,
+                                    child: TableHeaderWidget(
+                                        headerTitle: 'TotalStudents')),
+                                SizedBox(
+                                  width: 01,
+                                ),
+                                Expanded(
+                                    flex: 3,
+                                    child: TableHeaderWidget(headerTitle: 'Status')),
+                                SizedBox(
+                                  width: 01,
+                                ),
+                                Expanded(
+                                    flex: 1,
+                                    child: TableHeaderWidget(headerTitle: 'Options')),
+                                SizedBox(
+                                  width: 01,
+                                ),
+                              ],
+                            ),
                           ),
-                          Expanded(
-                              flex: 4,
-                              child: TableHeaderWidget(headerTitle: 'Class')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 2,
-                              child: TableHeaderWidget(
-                                  headerTitle: 'TotalStudents')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 3,
-                              child: TableHeaderWidget(headerTitle: 'Status')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: TableHeaderWidget(headerTitle: 'Options')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                        ],
+                        ),
                       ),
                       Expanded(
-                        child: SizedBox(
-                          width: 1200,
-                          child: StreamBuilder(
-                            stream: server
-                                .collection('SchoolListCollection')
-                                .doc(UserCredentialsController.schoolId)
-                                .collection(UserCredentialsController.batchId!)
-                                .doc(UserCredentialsController.batchId!)
-                                .collection('classes')
-                                .snapshots(),
-                            builder: (context, snaps) {
-                              if (snaps.hasData) {
-                                if (snaps.data!.docs.isEmpty) {
-                                  return const Center(
-                                    child: TextFontWidget(
-                                        text: "No class found add new classes",
-                                        fontsize: 12.5),
-                                  );
-                                } else {
-                                  return ListView.separated(
-                                      itemBuilder: (context, index) {
-                                        final data = ClassModel.fromMap(
-                                            snaps.data!.docs[index].data());
-                                        return GestureDetector(
-                                          onTap: () {
-                                            classController
-                                                .classModelData.value = data;
-                                            classController.ontapClass.value =
-                                                true;
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15,right: 15),
+                          child: Container(
+                            width: 1200,
+                            color: cWhite,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 15,right: 15,top: 10),
+                              child: StreamBuilder(
+                                stream: server
+                                    .collection('SchoolListCollection')
+                                    .doc(UserCredentialsController.schoolId)
+                                    .collection(UserCredentialsController.batchId!)
+                                    .doc(UserCredentialsController.batchId!)
+                                    .collection('classes')
+                                    .snapshots(),
+                                builder: (context, snaps) {
+                                  if (snaps.hasData) {
+                                    if (snaps.data!.docs.isEmpty) {
+                                      return const Center(
+                                        child: TextFontWidget(
+                                            text: "No class found add new classes",
+                                            fontsize: 12.5),
+                                      );
+                                    } else {
+                                      return ListView.separated(
+                                          itemBuilder: (context, index) {
+                                            final data = ClassModel.fromMap(
+                                                snaps.data!.docs[index].data());
+                                            return GestureDetector(
+                                              onTap: () {
+                                                classController
+                                                    .classModelData.value = data;
+                                                classController.ontapClass.value =
+                                                    true;
+                                              },
+                                              child: ClassDataListWidget(
+                                                data: data,
+                                                index: index,
+                                              ),
+                                            );
                                           },
-                                          child: ClassDataListWidget(
-                                            data: data,
-                                            index: index,
-                                          ),
-                                        );
-                                      },
-                                      separatorBuilder: (context, index) {
-                                        return const SizedBox(
-                                          height: 02,
-                                        );
-                                      },
-                                      itemCount: snaps.data!.docs.length);
-                                }
-                              } else {
-                                return circularProgressIndicator;
-                              }
-                            },
+                                          separatorBuilder: (context, index) {
+                                            return const SizedBox(
+                                              height: 02,
+                                            );
+                                          },
+                                          itemCount: snaps.data!.docs.length);
+                                    }
+                                  } else {
+                                    return circularProgressIndicator;
+                                  }
+                                },
+                              ),
+                            ),
                           ),
                         ),
                       )
