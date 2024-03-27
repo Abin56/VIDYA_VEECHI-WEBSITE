@@ -55,91 +55,94 @@ class ClassWiseFeesStatus extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              color: cWhite,
-              width: double.infinity,
-              height: ResponsiveWebSite.isMobile(context) ? 800 : 500,
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10, right: 10, top: 20),
-                    child: Container(
-                      color: cWhite,
-                      height: 40,
-                      child: const Row(
-                        children: [
-                          Expanded(
-                              flex: 1,
-                              child:
-                                  CatrgoryTableHeaderWidget(headerTitle: 'No')),
-                          SizedBox(
-                            width: 02,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(
-                                  headerTitle: 'Month')),
-                          SizedBox(
-                            width: 02,
-                          ),
-                          Expanded(
-                              flex: 5,
-                              child: CatrgoryTableHeaderWidget(
-                                  headerTitle: 'Subjects')),
-                          SizedBox(
-                            width: 02,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(
-                                  headerTitle: 'Fees Required')),
-                          SizedBox(
-                            width: 02,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(
-                                  headerTitle: 'Fess Collected')),
-                          SizedBox(
-                            width: 02,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(
-                                  headerTitle: 'Fess pending')),
-                          SizedBox(
-                            width: 02,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: CatrgoryTableHeaderWidget(
-                                  headerTitle: 'Status')),
-                          SizedBox(
-                            width: 02,
-                          ),
-                        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                color: cWhite,
+                width: double.infinity,
+                height: ResponsiveWebSite.isMobile(context) ? 800 : 500,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 10, right: 10, top: 20),
+                      child: Container(
+                        color: cWhite,
+                        height: 40,
+                        child: const Row(
+                          children: [
+                            Expanded(
+                                flex: 1,
+                                child:
+                                    CatrgoryTableHeaderWidget(headerTitle: 'No')),
+                            SizedBox(
+                              width: 02,
+                            ),
+                            Expanded(
+                                flex: 1,
+                                child: CatrgoryTableHeaderWidget(
+                                    headerTitle: 'Month')),
+                            SizedBox(
+                              width: 02,
+                            ),
+                            Expanded(
+                                flex: 5,
+                                child: CatrgoryTableHeaderWidget(
+                                    headerTitle: 'Subjects')),
+                            SizedBox(
+                              width: 02,
+                            ),
+                            Expanded(
+                                flex: 1,
+                                child: CatrgoryTableHeaderWidget(
+                                    headerTitle: 'Fees Required')),
+                            SizedBox(
+                              width: 02,
+                            ),
+                            Expanded(
+                                flex: 1,
+                                child: CatrgoryTableHeaderWidget(
+                                    headerTitle: 'Fess Collected')),
+                            SizedBox(
+                              width: 02,
+                            ),
+                            Expanded(
+                                flex: 1,
+                                child: CatrgoryTableHeaderWidget(
+                                    headerTitle: 'Fess pending')),
+                            SizedBox(
+                              width: 02,
+                            ),
+                            Expanded(
+                                flex: 1,
+                                child: CatrgoryTableHeaderWidget(
+                                    headerTitle: 'Status')),
+                            SizedBox(
+                              width: 02,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                      child: SizedBox(
-                          child: ListView.separated(
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 10, right: 10),
-                                  child: ClassWiseFeesDataListContainer(
-                                      index: index),
-                                );
-                              },
-                              separatorBuilder: (context, index) {
-                                return const SizedBox(
-                                  height: 02,
-                                );
-                              },
-                              itemCount: 100)))
-                ],
+                    Expanded(
+                        child: SizedBox(
+                            child: ListView.separated(
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 10, right: 10),
+                                    child: ClassWiseFeesDataListContainer(
+                                        index: index),
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(
+                                    height: 02,
+                                  );
+                                },
+                                itemCount: 100)))
+                  ],
+                ),
               ),
             ),
           ],
