@@ -263,7 +263,8 @@ class ViewTimeTable extends StatelessWidget {
                                                   //     .value = true;
                                                 },
                                                 child:  AllClassTimeTableList(
-                                                 // index: index,data: data,
+                                                index: index,
+                                                 //data: data,
                                                   )
                                               );
                                             },

@@ -246,7 +246,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           top: 0, left: 20, right: 20),
                                       child: Container(
-                                        height: 470,
+                                        height: 480,
                                         color: cWhite,
                                         // color: Colors.amber,
                                         //// height: 300,

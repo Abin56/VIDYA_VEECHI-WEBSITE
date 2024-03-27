@@ -17,7 +17,7 @@ class StudentAttendanceDataList extends StatelessWidget {
     return SingleChildScrollView(
       // scrollDirection: Axis.horizontal,
       child: SizedBox(
-        height: 550,
+        height: 450,
         width: ResponsiveWebSite.isMobile(context) ? double.infinity : 1300,
         // width: ResponsiveWebSite.isMobile(context)?500: ResponsiveWebSite.isTablet(context)?800: 1200,
         child: Padding(
