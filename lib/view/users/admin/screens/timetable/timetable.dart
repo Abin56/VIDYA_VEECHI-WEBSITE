@@ -17,9 +17,9 @@ import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import '../../../../../controller/subject_controller/subject_controller.dart';
 
 class TimeTable extends StatefulWidget {
-  String firebaseColor = '';
+ final String firebaseColor = '';
 
-  TimeTable({super.key});
+  const TimeTable({super.key});
 
   @override
   State<TimeTable> createState() => _TimeTableState();

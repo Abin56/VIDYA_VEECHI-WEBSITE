@@ -133,10 +133,8 @@ class ClassDetailsContainer extends StatelessWidget {
                                             child: SizedBox(
                                               width: 500,
                                               child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   StudentDetailTileContainer(
                                                     flex: 1,
@@ -145,7 +143,7 @@ class ClassDetailsContainer extends StatelessWidget {
                                                   ),
                                                   StudentDetailTileContainer(
                                                     flex: 1,
-                                                    title: 'Presnt Today',
+                                                    title: 'Present Today',
                                                     subtitle: "49",
                                                   ),
                                                   //         // const StudentDetailTileContainer(

@@ -5,7 +5,6 @@ import 'package:vidyaveechi_website/controller/meeting_controller/meeting_contro
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/home/screens/create_school/create_school.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/edit_delete/edit_delete.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
@@ -13,7 +12,7 @@ import 'package:vidyaveechi_website/view/widgets/textformFiledContainer/textform
 
 class MeetingCreatingPage extends StatelessWidget {
   final MeetingController meetingController = Get.put(MeetingController());
-   final formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   MeetingCreatingPage({super.key});
 
   @override
@@ -28,7 +27,8 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Topic"), //////.....1
 
       TextFormFiledContainerWidget(
-        validator: checkFieldEmpty,
+        controller: meetingController.topicController,
+          validator: checkFieldEmpty,
           hintText: "Enter Topic Here",
           title: '',
           width: ResponsiveWebSite.isMobile(context)
@@ -40,12 +40,14 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "When"), //////.3
 
       TextFormFiledContainerWidget(
-        validator: checkFieldDateIsValid,
+        controller: meetingController.dateController,
+          validator: checkFieldDateIsValid,
           hintText: "Date",
           title: '',
           width: ResponsiveWebSite.isTablet(context) ? 140 : 210), /////...4
       TextFormFiledContainerWidget(
-        validator: checkFieldEmpty,
+        controller: meetingController.timeController,
+          validator: checkFieldEmpty,
           hintText: "Time",
           title: '',
           width: ResponsiveWebSite.isTablet(context) ? 140 : 210), /////....5
@@ -53,7 +55,8 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Category"), /////////.........6
 
       TextFormFiledContainerWidget(
-        validator: checkFieldEmpty,
+        controller: meetingController.categoryController,
+          validator: checkFieldEmpty,
           hintText: "Enter Category Here",
           title: '',
           width: ResponsiveWebSite.isMobile(context)
@@ -64,12 +67,14 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Members"), ////////////////,,,8
 
       TextFormFiledContainerWidget(
-        validator: checkFieldEmpty,
+        controller: meetingController.memberController,
+          validator: checkFieldEmpty,
           hintText: "Expected Members",
           title: '',
           width: ResponsiveWebSite.isTablet(context) ? 140 : 210), ///////9
 
       TextFormFiledContainerWidget(
+        controller: meetingController.specialguestController,
           hintText: "Special Guest",
           title: '',
           width: ResponsiveWebSite.isTablet(context) ? 140 : 210), //////////10
@@ -77,7 +82,8 @@ class MeetingCreatingPage extends StatelessWidget {
       const ContainerTitleWidget(text: "Venue"), ///////////////////11
 
       TextFormFiledContainerWidget(
-        validator: checkFieldEmpty,
+        controller: meetingController.venueController,
+          validator: checkFieldEmpty,
           hintText: "Enter Venue Here",
           title: '',
           width: ResponsiveWebSite.isMobile(context)
@@ -104,286 +110,313 @@ class MeetingCreatingPage extends StatelessWidget {
     ///...............................................................///
     /////////////////////////////////////////////////////////////////
     //  final Size size = MediaQuery.of(context).size;
-    return
-        Obx(() { return meetingController.ontapMeeting.value == true
-            ? const MeetingEditRemove()
-            :
-        SingleChildScrollView(
-        child: Container(
-        color: screenContainerbackgroundColor,
-        height: 720,
-        width: double.infinity,
-        child: Form(
-          key: meetingController.formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 25, top: 25),
-                child: TextFontWidget(
-                  text: "Meeting",
-                  fontsize: 21,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 80,
-                  left: 8,
-                  right: 8,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                     Padding(
-                      padding: const EdgeInsets.only(right: 05, bottom: 5),
-                      child: GestureDetector(
-                        onTap: () {
-                           meetingController.ontapMeeting.value =
-                                                false;
-                        },
-                        child: const RouteSelectedTextContainer(
-                          title: 'EDIT / DELETE'),
+    return Obx(() {
+      return meetingController.ontapMeeting.value == true
+          ? const MeetingEditRemove()
+          : SingleChildScrollView(
+              child: Container(
+                color: screenContainerbackgroundColor,
+                height: 720,
+                width: double.infinity,
+                child: Form(
+                  key: meetingController.formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 25, top: 25),
+                        child: TextFontWidget(
+                          text: "Meeting",
+                          fontsize: 21,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Container(
-                      color: cWhite,
-                      height: 540,
-                      alignment: Alignment.topLeft,
-                      child: ResponsiveWebSite.isMobile(context)
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Container(
-                                    height: 550,
-                                    width: 280,
-                                    // decoration: BoxDecoration(border: Border.all(width: 2,color: Colors.grey.withOpacity(0.2)),
-                                    // boxShadow: const [BoxShadow(blurRadius: 2)],
-                                    color: cWhite,
-                                    //  ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        meetingListWidget[
-                                            0], ///////////////////////heading.........................0
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[
-                                                    1] //////////////////topic.........................1,
-                                                ),
-                                            meetingListWidget[
-                                                2] //////////topic field
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[3]),
-                                            Column(
-                                              children: [
-                                                meetingListWidget[
-                                                    4], //////......date
-                                                meetingListWidget[
-                                                    5], /////....time
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[
-                                                    6] ////.....category
-                                                ),
-                                            meetingListWidget[
-                                                7] //////////////..........................categroy field
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[
-                                                    8] ///////////////////............members
-                                                ),
-                                            Column(
-                                              children: [
-                                                meetingListWidget[
-                                                    9], ////////...........expected members
-                                                meetingListWidget[
-                                                    10], /////////special guest
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 20),
-                                              child: meetingListWidget[
-                                                  11], ///////venu
-                                            ),
-                                            meetingListWidget[
-                                                12] /////////////////venu field
-                                          ],
-                                        ),
-          
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 20),
-                                              child: meetingListWidget[
-                                                  13] /////////////////button
-                                              ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ) ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                          : Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(65.0),
-                                  child: Container(
-                                    height: 400,
-                                    width: ResponsiveWebSite.isTablet(context)
-                                        ? 400
-                                        : 600,
-                                    // decoration: BoxDecoration(border: Border.all(width: 2,color: Colors.grey.withOpacity(0.2)),
-                                    // boxShadow: const [BoxShadow(blurRadius: 2)],
-                                    color: cWhite,
-                                    //  ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        meetingListWidget[
-                                            0], ///////////////////////heading.........................0
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[
-                                                    1] //////////////////topic.........................1
-                                                ),
-                                            meetingListWidget[
-                                                2] //////////topic field
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[
-                                                    3] ///////.......whwn
-                                                ),
-                                            meetingListWidget[4], //////......date
-                                            meetingListWidget[5], /////....time
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[
-                                                    6] ////.....category
-                                                ),
-                                            meetingListWidget[
-                                                7] /////////....category field
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20),
-                                                child: meetingListWidget[
-                                                    8] ///////////////////............member
-                                                ),
-                                            meetingListWidget[
-                                                9], ////////...........expected members
-                                            meetingListWidget[
-                                                10], /////////special guest
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 20),
-                                              child: meetingListWidget[
-                                                  11], ///////venue
-                                            ),
-                                            meetingListWidget[
-                                                12] /////////////////venu field
-                                          ],
-                                        ),
-          
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Padding(
-                                              padding:
-                                                  const EdgeInsets.only(top: 20),
-                                              child: meetingListWidget[
-                                                  13] /////////////////button
-                                              ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 40,
+                          left: 8,
+                          right: 8,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 05, bottom: 5),
+                              child: GestureDetector(
+                                onTap: () {
+                                  meetingController.ontapMeeting.value = false;
+                                },
+                                child: const RouteSelectedTextContainer(
+                                    title: 'EDIT / DELETE'),
+                              ),
                             ),
-                    ),
-                  ],
+                            Container(
+                              color: cWhite,
+                              height: 540,
+                              alignment: Alignment.topLeft,
+                              child: ResponsiveWebSite.isMobile(context)
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Container(
+                                            height: 550,
+                                            width: 280,
+                                            // decoration: BoxDecoration(border: Border.all(width: 2,color: Colors.grey.withOpacity(0.2)),
+                                            // boxShadow: const [BoxShadow(blurRadius: 2)],
+                                            color: cWhite,
+                                            //  ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                meetingListWidget[
+                                                    0], ///////////////////////heading.........................0
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child: meetingListWidget[
+                                                            1] //////////////////topic.........................1,
+                                                        ),
+                                                    meetingListWidget[
+                                                        2] //////////topic field
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child:
+                                                            meetingListWidget[
+                                                                3]),
+                                                    Column(
+                                                      children: [
+                                                        meetingListWidget[
+                                                            4], //////......date
+                                                        meetingListWidget[
+                                                            5], /////....time
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child: meetingListWidget[
+                                                            6] ////.....category
+                                                        ),
+                                                    meetingListWidget[
+                                                        7] //////////////..........................categroy field
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child: meetingListWidget[
+                                                            8] ///////////////////............members
+                                                        ),
+                                                    Column(
+                                                      children: [
+                                                        meetingListWidget[
+                                                            9], ////////...........expected members
+                                                        meetingListWidget[
+                                                            10], /////////special guest
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 20),
+                                                      child: meetingListWidget[
+                                                          11], ///////venu
+                                                    ),
+                                                    meetingListWidget[
+                                                        12] /////////////////venu field
+                                                  ],
+                                                ),
+
+                                                Align(
+                                                  alignment: Alignment.center,
+                                                  child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 20),
+                                                      child: meetingListWidget[
+                                                          13] /////////////////button
+                                                      ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ) ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                  : Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(left:  65.0,top: 35,right: 65),
+                                          child: Container(
+                                            height: 400,
+                                            width: ResponsiveWebSite.isTablet(
+                                                    context)
+                                                ? 400
+                                                : 600,
+                                            // decoration: BoxDecoration(border: Border.all(width: 2,color: Colors.grey.withOpacity(0.2)),
+                                            // boxShadow: const [BoxShadow(blurRadius: 2)],
+                                            color: cWhite,
+                                            //  ),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                meetingListWidget[
+                                                    0], ///////////////////////heading.........................0
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child: meetingListWidget[
+                                                            1] //////////////////topic.........................1
+                                                        ),
+                                                    meetingListWidget[
+                                                        2] //////////topic field
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child: meetingListWidget[
+                                                            3] ///////.......whwn
+                                                        ),
+                                                    meetingListWidget[
+                                                        4], //////......date
+                                                    meetingListWidget[
+                                                        5], /////....time
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child: meetingListWidget[
+                                                            6] ////.....category
+                                                        ),
+                                                    meetingListWidget[
+                                                        7] /////////....category field
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 20),
+                                                        child: meetingListWidget[
+                                                            8] ///////////////////............member
+                                                        ),
+                                                    meetingListWidget[
+                                                        9], ////////...........expected members
+                                                    meetingListWidget[
+                                                        10], /////////special guest
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 20),
+                                                      child: meetingListWidget[
+                                                          11], ///////venue
+                                                    ),
+                                                    meetingListWidget[
+                                                        12] /////////////////venu field
+                                                  ],
+                                                ),
+
+                                                Align(
+                                                  alignment: Alignment.center,
+                                                  child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 20),
+                                                      child: meetingListWidget[
+                                                          13] /////////////////button
+                                                      ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
-         );
-         }
-    );
+            );
+    });
   }
 }
 

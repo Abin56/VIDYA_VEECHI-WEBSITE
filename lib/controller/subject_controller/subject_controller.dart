@@ -110,7 +110,7 @@ class SubjectController extends GetxController {
     return classwiseSubjectList;
   }
 
-  Future<void> enableorDisableUpdate(
+  Future<void> enableorDisableUpdate( 
     String docid,
     bool status,
   ) async {

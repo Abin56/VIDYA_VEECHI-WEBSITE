@@ -158,7 +158,7 @@ createExamNotificationFunction(BuildContext context) {
                 ],
               ),
             ),
-          ),///////////////////////////..............................................
+          ), ///////////////////////////..............................................
           Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
@@ -173,135 +173,99 @@ createExamNotificationFunction(BuildContext context) {
                   buttonstate: Get.find<ClassController>().buttonstate.value,
                   text: ' Exam')),
             ),
-          ),///////////////////////////////////////////////......................................
+          ), ///////////////////////////////////////////////......................................
           SizedBox(
-            //color: cBlue,
-            height: ResponsiveWebSite.isDesktop(context) ? 350 : 240,
-            child:
-            //  StreamBuilder(
-            //     stream: server
-            //         .collection('SchoolListCollection')
-            //         .doc(UserCredentialsController.schoolId)
-            //         .collection('classes')
-            //         .snapshots(),
-            //     builder: (context, snap) {
-            //       if (snap.hasData) {
-            //         if (snap.data!.docs.isEmpty) {
-            //           return const Center(
-            //             child: TextFontWidget(
-            //                 text: "No Exam found, add new exams",
-            //                 fontsize: 12.5),
-            //           );
-            //         } else {
-            //           return 
-                      ListView.separated(
-                          itemBuilder: (context, index) {
-                            //final data = ClassModel.fromMap(
-                            //    snap.data!.docs[index].data());
-                            return Padding(
-                              padding: const EdgeInsets.only(left: 10, top: 08),
-                              child:
-                              //  data.editoption == true
-                              //     ? ClassNameEditWidget(
-                              //         docid: data.docid,
-                              //       )
-                              //     :
-                                   Container(
-                                      color: Colors.blue.withOpacity(0.2),
-                                      height: 35,
-                                      width: double.infinity,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          const Expanded(
-                                            flex: 3,
-                                            child: SizedBox(
-                                              height: 35,
-                                              child: Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: TextFontWidget(
-                                                  text: 'data.classNameb husdgj kjndck kjsndk sgdb sfhbk sfkkhk',
-                                                  fontsize: 13,
-                                                  fontWeight: FontWeight.w600,
-                                                  overflow: TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                            ),
+              //color: cBlue,
+              height: ResponsiveWebSite.isDesktop(context) ? 280 : 240,
+              child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 08),
+                      child: Container(
+                        color: Colors.blue.withOpacity(0.2),
+                        height: 35,
+                        width: double.infinity,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Expanded(
+                              flex: 3,
+                              child: SizedBox(
+                                height: 35,
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: TextFontWidget(
+                                    text:
+                                        'data.classNameb husdgj kjndck kjsndk sgdb sfhbk sfkkhk',
+                                    fontsize: 13,
+                                    fontWeight: FontWeight.w600,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                  color: screenContainerbackgroundColor,
+                                  height: 35,
+                                  //   width: 90,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Tooltip(
+                                        message: 'Add Exam to this batch year',
+                                        child: GestureDetector(
+                                          onTap: () {},
+                                          child: const Icon(
+                                            weight: 50,
+                                            Icons.add,
+                                            color: themeColorBlue,
+                                            size: 18,
                                           ),
-                                          Expanded(
-                                            flex: 1,
-                                            child: Container(
-                                                color:screenContainerbackgroundColor,
-                                                height: 35,
-                                             //   width: 90,
-                                                child: Row(
-                                                  mainAxisAlignment:MainAxisAlignment.spaceAround,
-                                                  children: [
-                                                    Tooltip(
-                                                      message:'Add Exam to this batch year',
-                                                      child: GestureDetector(
-                                                        onTap: () {},
-                                                        //  => Get.find<
-                                                        //         ClassController>()
-                                                        //     .setClassForbatchYear(
-                                                        //         data.className,
-                                                        //         data.docid),
-                                                        child: const Icon(
-                                                          weight: 50,
-                                                          Icons.add,
-                                                          color: themeColorBlue,
-                                                          size: 18,
-                                                        ),
-                                                      ),
-                                                    ), ///////////////////////////................add
-                                                    Container(
-                                                      width: 1,
-                                                      color: cWhite,
-                                                    ),
-                                                    GestureDetector(
-                                                      onTap: () { editFunctionOfExam( context);
-                                                      },
-                                                      child: const Icon(
-                                                        Icons.edit,
-                                                        color: cgreen,
-                                                        size: 18,
-                                                      ),
-                                                    ), ///////////////////////////...edit
-                                                    Container(
-                                                      width: 1,
-                                                      color: cWhite,
-                                                    ),
-                                                    GestureDetector(
-                                                      onTap: () {
-                                                        // Get.find<
-                                                        //         ClassController>()
-                                                        //     .deleteClass(
-                                                        //         data.docid,
-                                                        //         context);
-                                                      },
-                                                      child: const Icon(
-                                                        Icons.delete,
-                                                        color: cred,
-                                                        size: 18,
-                                                      ),
-                                                    ), /////////////////////////delete
-                                                  ],
-                                                )),
-                                          ),
-                                        ],
+                                        ),
+                                      ), ///////////////////////////................add
+                                      Container(
+                                        width: 1,
+                                        color: cWhite,
                                       ),
-                                    ),
-                            );
-                          },
-                          separatorBuilder: (context, index) => const SizedBox(height: 1,),
-                          itemCount: 10)
-                //     }//
-                //   } else {
-                //     return circularProgressIndicator;
-                //   }
-                // }),//
-          ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          editFunctionOfExam(context);
+                                        },
+                                        child: const Icon(
+                                          Icons.edit,
+                                          color: cgreen,
+                                          size: 18,
+                                        ),
+                                      ), ///////////////////////////...edit
+                                      Container(
+                                        width: 1,
+                                        color: cWhite,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: const Icon(
+                                          Icons.delete,
+                                          color: cred,
+                                          size: 18,
+                                        ),
+                                      ), /////////////////////////delete
+                                    ],
+                                  )),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) => const SizedBox(
+                        height: 1,
+                      ),
+                  itemCount: 10)
+              //
+              ),
         ],
       ));
 }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -238,47 +239,53 @@ class ViewTimeTable extends StatelessWidget {
                                 ),
                               ),
                             ), ///////////////////////////////////////////////////////////////////////////////////////////////
-                             SizedBox(
-                                  // width: 1100,
-                                  child: StreamBuilder(
-                                    stream: server
-                                        .collection('SchoolListCollection')
-                                        .doc(UserCredentialsController.schoolId)
-                                        .collection('timetables')
-                                        .snapshots(),
-                                    builder: (context, snaPS) {
-                                      if (snaPS.hasData) {
-                                        return ListView.separated(
-                                            itemBuilder: (context, index) {
-                                              final data = TimeTableModel.fromMap(
-                                                  snaPS.data!.docs[index].data());
-                                              return GestureDetector(
-                                                onTap: () {
-                                                  // timetableController 
-                                                  //     .timetableModelData
-                                                  //     .value = data;
-                                                  // timetableController
-                                                  //     .ontapview
-                                                  //     .value = true;
-                                                },
-                                                child:  AllClassTimeTableList(index: index,data: data,)
-                                              );
-                                            },
-                                            separatorBuilder: (context, index) {
-                                              return const SizedBox(
-                                                height: 02,
-                                              );
-                                            },
-                                            itemCount: snaPS.data!.docs.length);
-                                      } else {
-                                        return const LoadingWidget();
-                                      }
-                                    },
-                                  ),
-                                ),
-
-
-                           
+                            // Container(width: 1120,height: 600, color: cBlue,)
+                            SizedBox(
+                              // width: 1200,
+                              height: 600,
+                              child: StreamBuilder(
+                                stream: FirebaseFirestore.instance
+                                    .collection('SchoolListCollection')
+                                    .doc(UserCredentialsController.schoolId)
+                                    .collection(
+                                        UserCredentialsController.batchId!)
+                                    .doc(UserCredentialsController.batchId!)
+                                    .collection('classes')
+                                    .doc(classCtrl.classDocID.value)
+                                    .collection('timetables')
+                                    .snapshots(),
+                                builder: (context, snaPS) {
+                                  if (snaPS.hasData) {
+                                    return ListView.separated(
+                                        itemBuilder: (context, index) {
+                                          final data = TimeTableModel.fromMap(
+                                              snaPS.data!.docs[index].data());
+                                          return GestureDetector(
+                                              onTap: () {
+                                                // timetableController
+                                                //     .timetableModelData
+                                                //     .value = data;
+                                                // timetableController
+                                                //     .ontapview
+                                                //     .value = true;
+                                              },
+                                              child: AllClassTimeTableList(
+                                                index: index,
+                                                data: data,
+                                              ));
+                                        },
+                                        separatorBuilder: (context, index) {
+                                          return const SizedBox(
+                                            height: 02,
+                                          );
+                                        },
+                                        itemCount: snaPS.data!.docs.length);
+                                  } else {
+                                    return const LoadingWidget();
+                                  }
+                                },
+                              ), //
+                            ),
                           ],
                         ),
                       ),

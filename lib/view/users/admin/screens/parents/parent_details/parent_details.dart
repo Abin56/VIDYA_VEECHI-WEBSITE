@@ -5,10 +5,12 @@ import 'package:vidyaveechi_website/controller/admin_section/parent_controller/p
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/parents/add_parent/add_parent_functio.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/attendence_history_status/attendence_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/exam_history_status/exam_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/fess_history_status/fess_history_status.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/detail_tileContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
@@ -201,6 +203,21 @@ class ParentDetailsContainer extends StatelessWidget {
                                                     Icons.edit_square,
                                                     size: 21,
                                                   ))),
+                                                  const Spacer(),
+                                              GestureDetector(
+                                                onTap: () {
+                                                  addParentToClass(context);
+                                                },
+                                                //  addStudentToClass(
+                                                //     context, data!.docid),
+                                                child: BlueContainerWidget(
+                                                  color: themeColorBlue,
+                                                  fontSize: 12,
+                                                  title: '🔗 Add Parent',
+                                                  width: 120,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
                                               // Container(
                                               //   height: 30,
                                               //   width: 30,
