@@ -242,18 +242,20 @@ class ViewTimeTable extends StatelessWidget {
                              SizedBox(
                                 // width: 1200,
                                  height: 600,
-                                  child: StreamBuilder(
-                                    stream: server
-                                        .collection('SchoolListCollection')
-                                        .doc(UserCredentialsController.schoolId)
-                                        .collection('timetables')
-                                        .snapshots(),
-                                    builder: (context, snaPS) {
-                                      if (snaPS.hasData) {
-                                        return ListView.separated(
+                                  child:
+                                  //  StreamBuilder(
+                                  //   stream: server
+                                  //       .collection('SchoolListCollection')
+                                  //       .doc(UserCredentialsController.schoolId)
+                                  //       .collection('timetables')
+                                  //       .snapshots(),
+                                  //   builder: (context, snaPS) {
+                                     // if (snaPS.hasData) {
+                                    //    return 
+                                        ListView.separated(
                                             itemBuilder: (context, index) {
-                                              final data = TimeTableModel.fromMap(
-                                                  snaPS.data!.docs[index].data());
+                                              // final data = TimeTableModel.fromMap(
+                                              //     snaPS.data!.docs[index].data());
                                               return GestureDetector(
                                                 onTap: () {
                                                   // timetableController 
@@ -274,12 +276,13 @@ class ViewTimeTable extends StatelessWidget {
                                                 height: 02,
                                               );
                                             },
-                                            itemCount: snaPS.data!.docs.length);
-                                      } else {
-                                        return const LoadingWidget();
-                                      }
-                                    },
-                                  ),//
+                                            itemCount: 20)
+                                            //snaPS.data!.docs.length);
+                                      // } else {
+                                      //   return const LoadingWidget();
+                                      // }
+                                  //   },
+                                  // ),//
                                 ),
                                 ],
                         ),

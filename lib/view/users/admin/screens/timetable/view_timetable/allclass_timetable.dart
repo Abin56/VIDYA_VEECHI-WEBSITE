@@ -6,8 +6,11 @@ import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_containe
 
 class AllClassTimeTableList extends StatelessWidget {
   final TimeTableModel? data;
-  final int? index;
-  const AllClassTimeTableList({this.index, this.data, super.key});
+  final int index;
+  const AllClassTimeTableList({
+    required this.index,
+     this.data, 
+     super.key});
 
   @override
   Widget build(BuildContext context) {

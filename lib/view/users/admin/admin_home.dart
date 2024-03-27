@@ -24,6 +24,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/result/student_resu
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable/view_timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AdminHomeScreen extends StatefulWidget {
@@ -157,8 +158,8 @@ CreatedFeesStatus(),
  // const FeesAndBillsPage(),
 
   const BatchHistroyListPage(),
-
-  TimeTable(),
+ ViewTimeTable()
+ // TimeTable(),
 ];
 List<String> sideMenu = [
   'Attendence',
