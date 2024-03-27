@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
 import 'package:vidyaveechi_website/controller/timetable_controller/timetable_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
@@ -143,7 +144,27 @@ class _TimeTableState extends State<TimeTable> {
           controller: timetableCtrl.startTimeController,
           width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
           hintText: 'Start time',
-          title: 'Start time',
+          title: 'Start time',onTap: ()async{
+            DateTime? pickedDate = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2000),
+                                lastDate: DateTime(2101));
+
+                            if (pickedDate != null) {
+                              print(pickedDate);
+                              String formattedDate =
+                                  DateFormat('dd-mm-yyyy').format(pickedDate);
+                              print(formattedDate);
+
+                              setState(() {
+                                timetableCtrl.startTimeController.text =
+                                    formattedDate;
+                              });
+                            } else {
+                              print("Date is not selected");
+                            }
+          },
         ),
       ), 
         Padding(
@@ -152,7 +173,27 @@ class _TimeTableState extends State<TimeTable> {
           controller: timetableCtrl.endTimeController,
           width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
           hintText: 'End time',
-          title: 'End time',
+          title: 'End time',onTap: ()async{
+             DateTime? pickedDate = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(2000),
+                                lastDate: DateTime(2101));
+
+                            if (pickedDate != null) {
+                              print(pickedDate);
+                              String formattedDate =
+                                  DateFormat('dd-mm-yyyy').format(pickedDate);
+                              print(formattedDate);
+
+                              setState(() {
+                                timetableCtrl.endTimeController.text =
+                                    formattedDate;
+                              });
+                            } else {
+                              print("Date is not selected");
+                            }
+          },
         ),
       ), ////////////////////////////////////////////////////////5
 Padding(
