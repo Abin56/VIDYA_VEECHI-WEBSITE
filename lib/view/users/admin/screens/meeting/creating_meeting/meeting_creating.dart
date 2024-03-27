@@ -105,14 +105,29 @@ class MeetingCreatingPage extends StatelessWidget {
           color: cWhite,
         )),
       ), ////////////////////////13
+      Padding(
+        padding: const EdgeInsets.only(top: 5),
+        child: Row(mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+          Checkbox(value: true, onChanged: (value) {
+          
+        },),TextFontWidget(text: "Students", fontsize: 12),
+         Checkbox(value: true, onChanged: (value) {
+          
+        },),TextFontWidget(text: "Parents", fontsize: 12),
+         Checkbox(value: true, onChanged: (value) {
+          
+        },),TextFontWidget(text: "Teachers", fontsize: 12),
+        ],),
+      )///////////////////14
     ];
     //////////////////////////////////////////////////////////////////////////////
     ///...............................................................///
     /////////////////////////////////////////////////////////////////
     //  final Size size = MediaQuery.of(context).size;
-    return Obx(() {
-      return meetingController.ontapMeeting.value == true
-          ? const MeetingEditRemove()
+    return Obx(() =>
+       meetingController.ontapMeeting.value == true
+          ?  MeetingEditRemove()
           : SingleChildScrollView(
               child: Container(
                 color: screenContainerbackgroundColor,
@@ -145,7 +160,7 @@ class MeetingCreatingPage extends StatelessWidget {
                                   const EdgeInsets.only(right: 05, bottom: 5),
                               child: GestureDetector(
                                 onTap: () {
-                                  meetingController.ontapMeeting.value = false;
+                                  meetingController.ontapMeeting.value = true;
                                 },
                                 child: const RouteSelectedTextContainer(
                                     title: 'EDIT / DELETE'),
@@ -153,7 +168,7 @@ class MeetingCreatingPage extends StatelessWidget {
                             ),
                             Container(
                               color: cWhite,
-                              height: 540,
+                              height: 560,
                               alignment: Alignment.topLeft,
                               child: ResponsiveWebSite.isMobile(context)
                                   ? Row(
@@ -267,6 +282,7 @@ class MeetingCreatingPage extends StatelessWidget {
                                                         12] /////////////////venu field
                                                   ],
                                                 ),
+                                                meetingListWidget[14],
 
                                                 Align(
                                                   alignment: Alignment.center,
@@ -291,7 +307,7 @@ class MeetingCreatingPage extends StatelessWidget {
                                         Padding(
                                           padding: const EdgeInsets.only(left:  65.0,top: 35,right: 65),
                                           child: Container(
-                                            height: 400,
+                                            height: 450,
                                             width: ResponsiveWebSite.isTablet(
                                                     context)
                                                 ? 400
@@ -390,6 +406,7 @@ class MeetingCreatingPage extends StatelessWidget {
                                                         12] /////////////////venu field
                                                   ],
                                                 ),
+                                                 meetingListWidget[14],
 
                                                 Align(
                                                   alignment: Alignment.center,
@@ -415,8 +432,8 @@ class MeetingCreatingPage extends StatelessWidget {
                   ),
                 ),
               ),
-            );
-    });
+            )
+    );
   }
 }
 

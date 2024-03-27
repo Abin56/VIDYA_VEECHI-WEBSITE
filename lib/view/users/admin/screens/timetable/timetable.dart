@@ -20,7 +20,7 @@ import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/rout
 import '../../../../../controller/subject_controller/subject_controller.dart';
 
 class TimeTable extends StatefulWidget {
- final String firebaseColor = '';
+  final String firebaseColor = '';
 
   const TimeTable({super.key});
 
@@ -146,103 +146,104 @@ class _TimeTableState extends State<TimeTable> {
           controller: timetableCtrl.startTimeController,
           width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
           hintText: 'Start time',
-          title: 'Start time',onTap: ()async{
+          title: 'Start time',
+          onTap: () async {
             DateTime? pickedDate = await showDatePicker(
-                                context: context,
-                                initialDate: DateTime.now(),
-                                firstDate: DateTime(2000),
-                                lastDate: DateTime(2101));
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2101));
 
-                            if (pickedDate != null) {
-                              print(pickedDate);
-                              String formattedDate =
-                                  DateFormat('dd-mm-yyyy').format(pickedDate);
-                              print(formattedDate);
+            if (pickedDate != null) {
+              print(pickedDate);
+              String formattedDate =
+                  DateFormat('dd-mm-yyyy').format(pickedDate);
+              print(formattedDate);
 
-                              setState(() {
-                                timetableCtrl.startTimeController.text =
-                                    formattedDate;
-                              });
-                            } else {
-                              print("Date is not selected");
-                            }
+              setState(() {
+                timetableCtrl.startTimeController.text = formattedDate;
+              });
+            } else {
+              print("Date is not selected");
+            }
           },
         ),
-      ), 
-        Padding(
+      ),
+      Padding(
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: TextFormFiledBlueContainerWidget1(
           controller: timetableCtrl.endTimeController,
           width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
           hintText: 'End time',
-          title: 'End time',onTap: ()async{
-             DateTime? pickedDate = await showDatePicker(
-                                context: context,
-                                initialDate: DateTime.now(),
-                                firstDate: DateTime(2000),
-                                lastDate: DateTime(2101));
+          title: 'End time',
+          onTap: () async {
+            DateTime? pickedDate = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2101));
 
-                            if (pickedDate != null) {
-                              print(pickedDate);
-                              String formattedDate =
-                                  DateFormat('dd-mm-yyyy').format(pickedDate);
-                              print(formattedDate);
+            if (pickedDate != null) {
+              print(pickedDate);
+              String formattedDate =
+                  DateFormat('dd-mm-yyyy').format(pickedDate);
+              print(formattedDate);
 
-                              setState(() {
-                                timetableCtrl.endTimeController.text =
-                                    formattedDate;
-                              });
-                            } else {
-                              print("Date is not selected");
-                            }
+              setState(() {
+                timetableCtrl.endTimeController.text = formattedDate;
+              });
+            } else {
+              print("Date is not selected");
+            }
           },
         ),
       ), ////////////////////////////////////////////////////////5
-Padding(
-  padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-  child: Obx(
-    () => Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.black, width: 0.5),
-      ),
-      width: 360,
-      child: DropdownButtonFormField<Color>(
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.zero,
-        ),
-        value: timetableCtrl.selectColor.value,
-        onChanged: (Color? newValue) {
-          timetableCtrl.selectColor.value = newValue ?? Colors.amber; // Update selectColor in controller
-          log('COL :${newValue?.value.toRadixString(16)}');
-        },
-        items: [
-          Colors.amber,
-          Colors.red,
-          Colors.green,
-          Colors.blue,
-          Colors.yellow,
-          Colors.brown,
-          Colors.deepOrange,
-          Colors.deepPurple,
-          Colors.lime,
-          Colors.indigo,
-          Colors.grey
-        ].map<DropdownMenuItem<Color>>((Color value) {
-          return DropdownMenuItem<Color>(
-            value: value,
-            child: Container(
-              height: 50,
-              width: 50,
-              color: value,
+      Padding(
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+        child: Obx(
+          () => Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Colors.black, width: 0.5),
             ),
-          );
-        }).toList(),
+            width: 360,
+            child: DropdownButtonFormField<Color>(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.zero,
+              ),
+              value: timetableCtrl.selectColor.value,
+              onChanged: (Color? newValue) {
+                timetableCtrl.selectColor.value = newValue ??
+                    Colors.amber; // Update selectColor in controller
+                log('COL :${newValue?.value.toRadixString(16)}');
+              },
+              items: [
+                Colors.amber,
+                Colors.red,
+                Colors.green,
+                Colors.blue,
+                Colors.yellow,
+                Colors.brown,
+                Colors.deepOrange,
+                Colors.deepPurple,
+                Colors.lime,
+                Colors.indigo,
+                Colors.grey
+              ].map<DropdownMenuItem<Color>>((Color value) {
+                return DropdownMenuItem<Color>(
+                  value: value,
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    color: value,
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ),
       ),
-    ),
-  ),
-),
 
       Padding(
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
@@ -269,29 +270,28 @@ Padding(
                   fontsize: 18,
                   fontWeight: FontWeight.bold,
                 ),
-                 Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 08,
-                                        right: 05,
-                                      ),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          timetableCtrl.ontapTimetable.value = false;
-                                        },
-                                        child:
-                                            const RouteNonSelectedTextContainer(
-                                                title: 'Home'),
-                                      ),
-                                    ),
-                                    const RouteSelectedTextContainer(
-                                        width: 140, title: 'Timetable Deatils'),
-                                  ],
-                                ),
-                              ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 08,
+                          right: 05,
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            timetableCtrl.ontapTimetable.value = false;
+                          },
+                          child: const RouteNonSelectedTextContainer(
+                              title: 'Home'),
+                        ),
+                      ),
+                      const RouteSelectedTextContainer(
+                          width: 140, title: 'Timetable Deatils'),
+                    ],
+                  ),
+                ),
                 ResponsiveWebSite.isMobile(context)
                     ? Column(
                         children: [
@@ -403,8 +403,8 @@ Padding(
                                     height: 50,
                                     fontSize: 18,
                                     onTap: () async {
-                                    timetableCtrl. addTimeTableDataToFirebase();
-                                     
+                                      timetableCtrl
+                                          .addTimeTableDataToFirebase();
                                     },
                                     color: themeColorBlue,
                                   )

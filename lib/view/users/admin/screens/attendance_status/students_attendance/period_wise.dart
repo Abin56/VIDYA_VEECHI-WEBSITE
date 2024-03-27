@@ -9,8 +9,10 @@ import 'package:vidyaveechi_website/view/drop_down/attendence/month_dropdown.dar
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/student_attendance_tble.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/attendence/attendence_adding_view.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import '../../../../../widgets/blue_Container_widget/blue_Container_widget.dart';
@@ -27,7 +29,10 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
     String monthwise = month.format(parseDate);
     final DateFormat formatter = DateFormat('dd-MM-yyyy');
     String formatted = formatter.format(parseDate);
-    return Obx(() => SingleChildScrollView(
+    return Obx(() => 
+    attendenceController.ontapaddAttendence.value == true
+        ? AttendanceAddingList(): 
+        SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Container(
             color: screenContainerbackgroundColor,
@@ -47,6 +52,27 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
+                     Padding(
+                          padding: const EdgeInsets.only(top: 20, right: 25),
+                          child: GestureDetector(
+                            onTap: () {
+                              attendenceController.ontapaddAttendence.value = true;
+                            },
+                            child: ButtonContainerWidget(
+                                curving: 30,
+                                colorindex: 0,
+                                height: 40,
+                                width: 180,
+                                child: const Center(
+                                  child: TextFontWidget(
+                                    text: 'Add Attendance ',
+                                    fontsize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: cWhite,
+                                  ),
+                                )),
+                          ),
+                        ),
                     Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: SizedBox(

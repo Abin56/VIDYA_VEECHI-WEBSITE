@@ -11,6 +11,7 @@ class AttendenceController extends GetxController {
   List<String> fetchClassWiseMonth = [];
   List<String> fetchClassWiseDate = [];
   RxBool todayAttendence = true.obs;
+   RxBool ontapaddAttendence = false.obs;
   RxBool fetchClassMonthActivate = false.obs;
   RxString fetchClassWiseMonthvalue = 'dd'.obs;
   RxString fetchClassWiseDatevalue = 'dd'.obs;

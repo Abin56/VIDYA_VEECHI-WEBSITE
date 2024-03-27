@@ -13,7 +13,6 @@ import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable/allclass_timetable.dart';
-import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
@@ -166,21 +165,21 @@ class ViewTimeTable extends StatelessWidget {
                                       width: 02,
                                     ),
                                     const Expanded(
-                                        flex: 1,
+                                        flex: 2,
                                         child: CatrgoryTableHeaderWidget(
                                             headerTitle: 'Class')),
                                     const SizedBox(
                                       width: 02,
                                     ),
                                     const Expanded(
-                                        flex: 1,
+                                        flex: 2,
                                         child: CatrgoryTableHeaderWidget(
                                             headerTitle: 'Period')),
                                     const SizedBox(
                                       width: 02,
                                     ),
                                     Expanded(
-                                      flex: 5,
+                                      flex: 12,
                                       child: Container(
                                         height: 30,
                                         decoration: const BoxDecoration(
@@ -197,7 +196,7 @@ class ViewTimeTable extends StatelessWidget {
                                                     border: Border.all(
                                                         color: cBlack
                                                             .withOpacity(0.2))),
-                                                width: 71.5,
+                                                width: 82,
                                                 child: Center(
                                                   child: TextFontWidget(
                                                     text: days[index],
@@ -222,14 +221,14 @@ class ViewTimeTable extends StatelessWidget {
                                       width: 02,
                                     ),
                                     const Expanded(
-                                        flex: 1,
+                                        flex: 2,
                                         child: CatrgoryTableHeaderWidget(
                                             headerTitle: 'Starting Time')),
                                     const SizedBox(
                                       width: 02,
                                     ),
                                     const Expanded(
-                                        flex: 1,
+                                        flex: 2,
                                         child: CatrgoryTableHeaderWidget(
                                             headerTitle: 'Ending Time')),
                                     const SizedBox(
@@ -242,26 +241,24 @@ class ViewTimeTable extends StatelessWidget {
                             // Container(width: 1120,height: 600, color: cBlue,)
                             SizedBox(
                               // width: 1200,
-                              height: 600,
-                              child: 
-                              // StreamBuilder(
-                              //   stream: FirebaseFirestore.instance
-                              //       .collection('SchoolListCollection')
-                              //       .doc(UserCredentialsController.schoolId)
-                              //       .collection(
-                              //           UserCredentialsController.batchId!)
-                              //       .doc(UserCredentialsController.batchId!)
-                              //       .collection('classes')
-                              //       .doc(classCtrl.classDocID.value)
-                              //       .collection('timetables')
-                              //       .snapshots(),
-                                // builder: (context, snaPS) {
-                                //   if (snaPS.hasData) {
-                                 //   return 
-                                    ListView.separated(
-                                       itemBuilder: (context, index) {
-                                          // final data = TimeTableModel.fromMap(
-                                          //     snaPS.data!.docs[index].data());
+                              height: 520,
+                              child: StreamBuilder(
+                                stream: FirebaseFirestore.instance
+                                    .collection('SchoolListCollection')
+                                    .doc(UserCredentialsController.schoolId)
+                                    .collection(
+                                        UserCredentialsController.batchId!)
+                                    .doc(UserCredentialsController.batchId!)
+                                    .collection('classes')
+                                    .doc(classCtrl.classDocID.value)
+                                    .collection('timetables')
+                                    .snapshots(),
+                                builder: (context, snaPS) {
+                                  if (snaPS.hasData) {
+                                    return ListView.separated(
+                                        itemBuilder: (context, index) {
+                                          final data = TimeTableModel.fromMap(
+                                              snaPS.data!.docs[index].data());
                                           return GestureDetector(
                                               onTap: () {
                                                 // timetableController
@@ -273,21 +270,20 @@ class ViewTimeTable extends StatelessWidget {
                                               },
                                               child: AllClassTimeTableList(
                                                 index: index,
-                                              //  data: data,
+                                                data: data,
                                               ));
-                                       },
+                                        },
                                         separatorBuilder: (context, index) {
                                           return const SizedBox(
                                             height: 02,
                                           );
                                         },
-                                        itemCount: 20)
-                                        //snaPS.data!.docs.length);
-                                //   } else {
-                                //     return const LoadingWidget();
-                                //   }
-                                // },
-                            //  ), //
+                                        itemCount: snaPS.data!.docs.length);
+                                  } else {
+                                    return const LoadingWidget();
+                                  }
+                                },
+                              ), //
                             ),
                           ],
                         ),

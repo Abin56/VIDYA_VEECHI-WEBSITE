@@ -6,6 +6,7 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/result/result_listing_table.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class StudentExamResult extends StatelessWidget {
   const StudentExamResult({super.key});
@@ -72,9 +73,13 @@ class StudentExamResult extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),/////////////////////////////................common
+          const Padding(
+                      padding: EdgeInsets.only(left: 25, top: 25, right: 05),
+                      child: RouteSelectedTextContainer(title: 'All Results'),
+                    ),
           Padding(
             padding: EdgeInsets.only(
-                top: ResponsiveWebSite.isMobile(context) ? 20 : 50),
+                top: ResponsiveWebSite.isMobile(context) ? 20 : 20),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(

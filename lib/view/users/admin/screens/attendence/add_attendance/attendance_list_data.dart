@@ -70,9 +70,14 @@ class AllAttendanceDataList extends StatelessWidget {
             width: 01,
           ),
           Expanded(
-            flex: 4,
+            flex: 3,
             child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Checkbox(checkColor: cWhite,activeColor: cgreen,
+                value: true, onChanged: (value) {
+                  
+                },),
                 SizedBox(
                   width: 15,
                   child: Center(
@@ -81,12 +86,10 @@ class AllAttendanceDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
-                  child: TextFontWidget(
-                    text: "  Present",
-                    fontsize: 12,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                TextFontWidget(
+                  text: "  Present",
+                  fontsize: 12,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
@@ -97,7 +100,12 @@ class AllAttendanceDataList extends StatelessWidget {
           Expanded(
             flex: 3,
             child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Checkbox(checkColor: cWhite,activeColor: cred,
+                value: true, onChanged: (value) {
+                  
+                },),
                 SizedBox(
                   width: 15,
                   child: Center(
@@ -106,12 +114,10 @@ class AllAttendanceDataList extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
-                  child: TextFontWidget(
-                    text: " Absent",
-                    fontsize: 12,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                TextFontWidget(
+                  text: " Absent",
+                  fontsize: 12,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
@@ -144,7 +150,7 @@ class AllAttendanceDataList extends StatelessWidget {
                   ),
                 ),
                 const TextFontWidget(
-                  text: "   ",
+                  text: "  Present ",
                   fontsize: 12,
                   overflow: TextOverflow.ellipsis,
                 ),

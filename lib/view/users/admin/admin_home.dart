@@ -14,7 +14,6 @@ import 'package:vidyaveechi_website/view/users/admin/screens/dash_board/admin_da
 import 'package:vidyaveechi_website/view/users/admin/screens/events/events.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/create_fees/view_fees_status.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/fees_bills/fees_bills.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/general%20instruction/general_instructions.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/meeting/creating_meeting/meeting_creating.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_edit_remove.dart';
@@ -23,7 +22,6 @@ import 'package:vidyaveechi_website/view/users/admin/screens/parents/all_parents
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable/view_timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 

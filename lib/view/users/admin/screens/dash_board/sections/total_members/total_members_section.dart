@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/attendence/add_attendance/add_attendance_ui.dart';
 
 class TotalMembersSection extends StatelessWidget {
   const TotalMembersSection({super.key});
@@ -16,7 +15,7 @@ class TotalMembersSection extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              addAttendance(context);
+            //  addAttendance(context);
             },
             child: TotalMemberContainerWidget(
                 imageradius: 20,

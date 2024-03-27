@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/meeting_controller/meeting_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/custom_showdialouge/custom_showdialouge.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
-class MeetingEditRemove extends StatefulWidget {
-  const MeetingEditRemove({
+class MeetingEditRemove extends StatelessWidget {
+  final MeetingController meetingController = Get.put(MeetingController());
+  MeetingEditRemove({
     Key? key,
     // required this.schoolID
   }) : super(key: key);
@@ -14,195 +19,244 @@ class MeetingEditRemove extends StatefulWidget {
   // String schoolID;
 
   @override
-  State<MeetingEditRemove> createState() => _MeetingEditRemoveState();
-}
-
-class _MeetingEditRemoveState extends State<MeetingEditRemove> {
-  // TextEditingController headingController = TextEditingController();
-  // TextEditingController dateController = TextEditingController();
-  // TextEditingController descriptionController = TextEditingController();
-  // TextEditingController venueController = TextEditingController();
-  // TextEditingController signedByController = TextEditingController();
-
-  @override
   Widget build(BuildContext context) {
-    return Container(
-      color: cWhite,
-      height: 800,
-      width: 1000,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(20),
-            child: TextFontWidget(
-              text: 'Meeting ',
-              fontsize: 20,
-              fontWeight: FontWeight.bold,
+    return SingleChildScrollView(
+      child: Container(
+        color: screenContainerbackgroundColor,
+        height: 800,
+        width: 1200,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 25, top: 25),
+              child: TextFontWidget(
+                text: 'Edit & Delete',
+                fontsize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: ResponsiveWebSite.isMobile(context)
-                  ? 1
-                  : ResponsiveWebSite.isTablet(context) ? 3 : 4,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-              children: List.generate(20, (index) {
-                return Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Container(
-                    height: 200,
-                    width: 300,
-                    decoration:   const BoxDecoration(color: cWhite,
-                    //Color.fromARGB(255, 245,252,255), 
-                    boxShadow: [
-                      BoxShadow(blurRadius: 1, offset: Offset(3, 3),),
-                      BoxShadow(blurRadius: 1, offset: Offset(1, 1),)
-                    ]),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10, left: 10),
-                          child: TextFontWidget(
-                            text: 'Meeting Topic ',
-                            fontsize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10, top: 10),
-                          child: TextFontWidget(
-                            text: 'When',
-                            fontsize: 14,
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 10, top: 10),
-                          child: TextFontWidget(
-                            text: 'Venue',
-                            fontsize: 14,
-                          ),
-                        ),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 10,
-                            bottom: 10,
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: MaterialButton(
-                                    onPressed: () {
-                                      customShowDilogBox(
-                                        context: context,
-                                        title: 'Edit Meeting',
-                                        children: [
-                                          TextFormFiledBlueContainerWidgetMeeting(
-                                              hintText: 'Topic',
-                                              title: 'Topic'),
-                                          TextFormFiledBlueContainerWidgetMeeting(
-                                              hintText: 'Date', title: 'Date'),
-                                          TextFormFiledBlueContainerWidgetMeeting(
-                                              hintText: 'Time ',
-                                              title: 'Time '),
-                                          TextFormFiledBlueContainerWidgetMeeting(
-                                              hintText: 'Category',
-                                              title: 'Category'),
-                                          TextFormFiledBlueContainerWidgetMeeting(
-                                              hintText: 'Venue',
-                                              title: 'Venue'),
-                                          TextFormFiledBlueContainerWidgetMeeting(
-                                              hintText: 'Expected Members',
-                                              title: 'Expected Members'),
-                                          TextFormFiledBlueContainerWidgetMeeting(
-                                              hintText: 'Special Guest',
-                                              title: 'Special Guest'),
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: [
-                                              Container(
-                                                height: 40,
-                                                width: 150,
-                                                decoration: BoxDecoration(
-                                                    color: themeColorBlue,
-                                                    border: Border.all(
-                                                        color: themeColorBlue),
-                                                    borderRadius:
-                                                        BorderRadius.circular(05)),
-                                                child: const Center(
-                                                  child: TextFontWidget(
-                                                    text: "Update",
-                                                    fontsize: 14,
-                                                    // fontWeight: FontWeight.w600,
-                                                    color: cWhite,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                        doyouwantActionButton: false,
-                                        actiontext: 'Update',
-                                      );
-                                    },
-                                    color: themeColorBlue,
-                                    child: GooglePoppinsWidgets(
-                                      text: 'Edit',
-                                      fontsize: 13,
-                                      color: cWhite,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 10,
-                                    right: 10,
-                                  ),
-                                  child: MaterialButton(
-                                    onPressed: () {
-                                      customShowDilogBox(
-                                          context: context,
-                                          title: 'Delete',
-                                          children: [
-                                            GooglePoppinsWidgets(
-                                                text:
-                                                    'Are you sure to want delete',
-                                                fontsize:
-                                                    ResponsiveWebSite.isMobile(
-                                                            context)
-                                                        ? 12
-                                                        : 15)
-                                          ],
-                                          doyouwantActionButton: true);
-                                    },
-                                    color: cred,
-                                    child: GooglePoppinsWidgets(
-                                      text: 'Delete',
-                                      fontsize: 13,
-                                      color: cWhite,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 08,
+                    right: 05,
                   ),
-                );
-              }),
+                  child: GestureDetector(
+                    onTap: () {
+                      meetingController.ontapMeeting.value = false;
+                    },
+                    child: const RouteNonSelectedTextContainer(title: 'Home'),
+                  ),
+                ),
+                const RouteSelectedTextContainer(
+                    width: 140, title: 'Meeting Deatils'),
+              ],
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                color: cWhite,
+                height: 700,
+                width: 1200,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(20),
+                      child: TextFontWidget(
+                        text: 'Meeting ',
+                        fontsize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Expanded(
+                      child: GridView.count(
+                        crossAxisCount: ResponsiveWebSite.isMobile(context)
+                            ? 1
+                            : ResponsiveWebSite.isTablet(context)
+                                ? 3
+                                : 4,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
+                        children: List.generate(20, (index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Container(
+                              height: 200,
+                              width: 300,
+                              decoration: const BoxDecoration(
+                                  color: cWhite,
+                                  //Color.fromARGB(255, 245,252,255),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 1,
+                                      offset: Offset(3, 3),
+                                    ),
+                                    BoxShadow(
+                                      blurRadius: 1,
+                                      offset: Offset(1, 1),
+                                    )
+                                  ]),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 10, left: 10),
+                                    child: TextFontWidget(
+                                      text: 'Meeting Topic ',
+                                      fontsize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(left: 10, top: 10),
+                                    child: TextFontWidget(
+                                      text: 'When',
+                                      fontsize: 14,
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.only(left: 10, top: 10),
+                                    child: TextFontWidget(
+                                      text: 'Venue',
+                                      fontsize: 14,
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      top: 10,
+                                      bottom: 10,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(left: 10),
+                                            child: MaterialButton(
+                                              onPressed: () {
+                                                customShowDilogBox(
+                                                  context: context,
+                                                  title: 'Edit Meeting',
+                                                  children: [
+                                                    TextFormFiledBlueContainerWidgetMeeting(
+                                                        hintText: 'Topic',
+                                                        title: 'Topic'),
+                                                    TextFormFiledBlueContainerWidgetMeeting(
+                                                        hintText: 'Date',
+                                                        title: 'Date'),
+                                                    TextFormFiledBlueContainerWidgetMeeting(
+                                                        hintText: 'Time ',
+                                                        title: 'Time '),
+                                                    TextFormFiledBlueContainerWidgetMeeting(
+                                                        hintText: 'Category',
+                                                        title: 'Category'),
+                                                    TextFormFiledBlueContainerWidgetMeeting(
+                                                        hintText: 'Venue',
+                                                        title: 'Venue'),
+                                                    TextFormFiledBlueContainerWidgetMeeting(
+                                                        hintText:
+                                                            'Expected Members',
+                                                        title:
+                                                            'Expected Members'),
+                                                    TextFormFiledBlueContainerWidgetMeeting(
+                                                        hintText: 'Special Guest',
+                                                        title: 'Special Guest'),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Container(
+                                                          height: 40,
+                                                          width: 150,
+                                                          decoration: BoxDecoration(
+                                                              color:
+                                                                  themeColorBlue,
+                                                              border: Border.all(
+                                                                  color:
+                                                                      themeColorBlue),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          05)),
+                                                          child: const Center(
+                                                            child: TextFontWidget(
+                                                              text: "Update",
+                                                              fontsize: 14,
+                                                              // fontWeight: FontWeight.w600,
+                                                              color: cWhite,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                  doyouwantActionButton: false,
+                                                  actiontext: 'Update',
+                                                );
+                                              },
+                                              color: themeColorBlue,
+                                              child: GooglePoppinsWidgets(
+                                                text: 'Edit',
+                                                fontsize: 13,
+                                                color: cWhite,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 10,
+                                              right: 10,
+                                            ),
+                                            child: MaterialButton(
+                                              onPressed: () {
+                                                customShowDilogBox(
+                                                    context: context,
+                                                    title: 'Delete',
+                                                    children: [
+                                                      GooglePoppinsWidgets(
+                                                          text:
+                                                              'Are you sure to want delete',
+                                                          fontsize:
+                                                              ResponsiveWebSite
+                                                                      .isMobile(
+                                                                          context)
+                                                                  ? 12
+                                                                  : 15)
+                                                    ],
+                                                    doyouwantActionButton: true);
+                                              },
+                                              color: cred,
+                                              child: GooglePoppinsWidgets(
+                                                text: 'Delete',
+                                                fontsize: 13,
+                                                color: cWhite,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
