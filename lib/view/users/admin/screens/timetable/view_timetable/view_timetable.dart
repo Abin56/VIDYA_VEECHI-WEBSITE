@@ -239,7 +239,7 @@ class ViewTimeTable extends StatelessWidget {
                             ), ///////////////////////////////////////////////////////////////////////////////////////////////
                            // Container(width: 1120,height: 600, color: cBlue,)
                              SizedBox(
-                                 width: 1200,
+                                // width: 1200,
                                  height: 600,
                                   child: StreamBuilder(
                                     stream: server

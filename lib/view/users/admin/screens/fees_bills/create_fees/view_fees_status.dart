@@ -93,9 +93,9 @@ class CreatedFeesStatus extends StatelessWidget {
                       color: cWhite,
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8,left: 8,right: 8),
-                            child: const Row(
+                          const Padding(
+                            padding: EdgeInsets.only(top: 8,left: 8,right: 8),
+                            child: Row(
                               children: [
                                 Expanded(
                                     flex: 1,

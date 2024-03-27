@@ -21,7 +21,7 @@ class ClassWiseFeesStatus extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         color: screenContainerbackgroundColor,
-        height: 1000,
+        height: 700,
         width: 1200,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
