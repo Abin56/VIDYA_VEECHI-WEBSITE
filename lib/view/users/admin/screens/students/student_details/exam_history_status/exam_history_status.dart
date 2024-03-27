@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
+import 'package:vidyaveechi_website/controller/exam_result_controller/exam_result_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/drop_down/select_student_exam.dart';
+import 'package:vidyaveechi_website/view/drop_down/select_teachers.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tile_container.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/exam_dataList.dart';
 
 class PerStudentExamHistory extends StatelessWidget {
-  const PerStudentExamHistory({
+  PerStudentExamHistory({
     super.key,
   });
 
+  final StudentController studentController = Get.put(StudentController());
+  final examController = Get.put(ExamResultController());
+
   @override
   Widget build(BuildContext context) {
+    final data = studentController.studentModelData.value;
+
     return Column(
       children: [
         Container(
           height: 40,
-          width: 1200 ,
+          width: 1200,
           color: Colors.blue.withOpacity(0.1),
           child: const Padding(
             padding: EdgeInsets.all(8.0),
@@ -28,23 +38,30 @@ class PerStudentExamHistory extends StatelessWidget {
             ),
           ),
         ),
-        const Padding(  
+        SelectTeachersDropDown(),
+        SelectStudentExamDropDown(
+            classId: data!.classId, studentId: data.docid),
+        Padding(
           padding: EdgeInsets.only(top: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              StudentCategoryTileContainer(
-                  title: 'No.of Exam Passed',
-                  subTitle: '1500 / -',
-                  color: Color.fromARGB(255, 121, 240, 125)),
-              StudentCategoryTileContainer(
-                  title: 'No.of Exam Failed',
-                  subTitle: '1000 / -',
-                  color: Color.fromARGB(255, 234, 102, 92)),
-              StudentCategoryTileContainer(
+              Obx(
+                () => StudentCategoryTileContainer(
+                    title: 'No.of Exam Passed',
+                    subTitle: '${examController.numberExamPassed}',
+                    color: Color.fromARGB(255, 121, 240, 125)),
+              ),
+              Obx(
+                () => StudentCategoryTileContainer(
+                    title: 'No.of Exam Failed',
+                    subTitle: '${examController.numberExamFailed}',
+                    color: Color.fromARGB(255, 234, 102, 92)),
+              ),
+              Obx(() => StudentCategoryTileContainer(
                   title: 'No.of Exam Conducted',
-                  subTitle: '2500 / -',
-                  color: Color.fromARGB(255, 121, 123, 240))
+                  subTitle: '${examController.numberExamConducted}',
+                  color: Color.fromARGB(255, 121, 123, 240)))
             ],
           ),
         ),

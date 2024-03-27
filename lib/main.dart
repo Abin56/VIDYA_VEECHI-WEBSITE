@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:vidyaveechi_website/firebase_options.dart';
 import 'package:vidyaveechi_website/view/home/screens/footer/privacypolicy.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
+import 'package:vidyaveechi_website/view/users/admin/screens/exam_notification/exam_notification.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/scroll_on_web_widget.dart';
 
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
             },
 
             home: SplashScreen(),
+            // home: Scaffold(
+            //   body: AllExamNotificationListView(),
+            // ),
             theme: ThemeData(
                 inputDecorationTheme: InputDecorationTheme(
                     border: OutlineInputBorder(
