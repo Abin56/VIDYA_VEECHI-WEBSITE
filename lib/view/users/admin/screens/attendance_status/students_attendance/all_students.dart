@@ -11,9 +11,9 @@ class AllStudentsAttendance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final stdattendanceListWidget = [
-       TextFontWidget(
+      TextFontWidget(
         text: '',
-        fontsize: ResponsiveWebSite.isMobile(context)?15: 18,
+        fontsize: ResponsiveWebSite.isMobile(context) ? 15 : 18,
         fontWeight: FontWeight.bold,
       ), //////////////Attendance of Students///////////////////....................0
       Container(
@@ -55,13 +55,11 @@ class AllStudentsAttendance extends StatelessWidget {
         ),
       ), //////////////////////...........2
     ];
-    return  Container(
-       color: screenContainerbackgroundColor,
-      height: ResponsiveWebSite.isMobile(context)?840: 820,
-      width: double.infinity,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+    return Container(
+        color: screenContainerbackgroundColor,
+        height: ResponsiveWebSite.isMobile(context) ? 840 : 820,
+        width: double.infinity,
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Padding(
             padding: EdgeInsets.only(left: 25, top: 25),
             child: TextFontWidget(
@@ -70,67 +68,72 @@ class AllStudentsAttendance extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-           Padding(
+          Padding(
             padding: EdgeInsets.only(
                 top: ResponsiveWebSite.isMobile(context) ? 20 : 50),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 color: cWhite,
-                height:ResponsiveWebSite.isMobile(context)?750: 700,
+                height: ResponsiveWebSite.isMobile(context) ? 750 : 700,
                 width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ResponsiveWebSite.isMobile(context)
                         ? Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Expanded(
-                                flex: 1,
-                                child: stdattendanceListWidget[0]),/////////////////heading
+                                  flex: 1,
+                                  child: stdattendanceListWidget[
+                                      0]), /////////////////heading
                               Expanded(
                                 flex: 1,
                                 child: SizedBox(
                                   height: 170,
                                   child: Column(
                                     children: [
-                                     stdattendanceListWidget[1],/////////////////////////class
-                                     stdattendanceListWidget[2]///////////////////////....exam
+                                      stdattendanceListWidget[
+                                          1], /////////////////////////class
+                                      stdattendanceListWidget[
+                                          2] ///////////////////////....exam
                                     ],
                                   ),
                                 ),
                               )
                             ],
-                          )///////////////////////////.....................mobile
+                          ) ///////////////////////////.....................mobile
                         : Row(
                             children: [
-                              Expanded(flex: 1, child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: stdattendanceListWidget[0],
-                              )),/////////////////heading
+                              Expanded(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: stdattendanceListWidget[0],
+                                  )), /////////////////heading
                               Expanded(
                                 flex: 1,
                                 child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: stdattendanceListWidget[1]),///////////////////.....class
+                                    child: stdattendanceListWidget[
+                                        1]), ///////////////////.....class
                               ),
                               Expanded(
                                 flex: 1,
                                 child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: stdattendanceListWidget[2]),///////......exam
+                                    child: stdattendanceListWidget[
+                                        2]), ///////......exam
                               ),
                             ],
                           ),
-                    const StudentAttendanceDataList()//////////..............common
+                    //  StudentAttendanceDataList()//////////..............common
                   ],
                 ),
               ),
             ),
           )
-          ]
-    )
-    );
+        ]));
   }
 }

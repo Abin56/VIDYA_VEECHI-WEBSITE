@@ -14,12 +14,10 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import '../../../../../widgets/blue_Container_widget/blue_Container_widget.dart';
-
 class PeriodWiseStudentsAttendance extends StatelessWidget {
   final AttendenceController attendenceController =
       Get.put(AttendenceController());
   PeriodWiseStudentsAttendance({super.key});
-
   @override
   Widget build(BuildContext context) {
     final date = DateTime.now();
@@ -76,7 +74,8 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                       height: ResponsiveWebSite.isMobile(context) ? 750 : 680,
                       width: double.infinity,
                       child: StreamBuilder(
-                          stream: attendenceController.todayAttendence.value ==  true
+                          stream: attendenceController.todayAttendence.value ==
+                                  true
                               ? server
                                   .collection('SchoolListCollection')
                                   .doc(UserCredentialsController.schoolId)
@@ -121,92 +120,128 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        
-                                        const Spacer(),
-                                        attendenceController.todayAttendence.value == true
-                                            ? Row(
-                                                children: [
-                                                  BlueContainerWidget(
-                                                      title: "Today Status",
-                                                      fontSize: 16,
-                                                      color: themeColorBlue,
-                                                      width: 180),
-                                                  const SizedBox(
-                                                    width: 20,
-                                                  ),
-                                                  Checkbox(
-                                                    value: true,
-                                                    onChanged: (value) {
-                                                      attendenceController.todayAttendence.value = false;
-                                                    },
-                                                  )
-                                                ],
-                                              )
-                                            : Row(
-                                                children: [
-                                                  Padding(
-                                                    padding:const EdgeInsets.all( 8.0),
-                                                    child: Container(
-                                                      width: 250,
-                                                      height: ResponsiveWebSite.isMobile(context)? 80: 100,
-                                                      color: cWhite,
-                                                      child: Column(
-                                                        crossAxisAlignment:CrossAxisAlignment.start,
-                                                        children: [
-                                                          const TextFontWidget(
-                                                              text: 'Month *',
-                                                              fontsize: 12.5),
-                                                          const SizedBox(height: 05, ),
-                                                          SizedBox(
-                                                            height: 40,
-                                                            child: SelectClassAttendenceMonthDropDown(),
-                                                          ),
-                                                        ],
+                                    SizedBox(
+                                      height: 80,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          const Spacer(),
+                                          attendenceController
+                                                      .todayAttendence.value ==
+                                                  true
+                                              ? Row(
+                                                  children: [
+                                                    BlueContainerWidget(
+                                                        title: "Today Status",
+                                                        fontSize: 16,
+                                                        color: themeColorBlue,
+                                                        width: 180),
+                                                    const SizedBox(
+                                                      width: 20,
+                                                    ),
+                                                    Checkbox(
+                                                      value: true,
+                                                      onChanged: (value) {
+                                                        attendenceController
+                                                            .todayAttendence
+                                                            .value = false;
+                                                      },
+                                                    )
+                                                  ],
+                                                )
+                                              : Row(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Container(
+                                                        width: 250,
+                                                        height:
+                                                            ResponsiveWebSite
+                                                                    .isMobile(
+                                                                        context)
+                                                                ? 80
+                                                                : 100,
+                                                        color: cWhite,
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            const TextFontWidget(
+                                                                text: 'Month *',
+                                                                fontsize: 12.5),
+                                                            const SizedBox(
+                                                              height: 05,
+                                                            ),
+                                                            SizedBox(
+                                                              height: 40,
+                                                              child:
+                                                                  SelectClassAttendenceMonthDropDown(),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:const EdgeInsets.all(8.0),
-                                                    child: Container(
-                                                      width: 200,
-                                                      height: ResponsiveWebSite.isMobile(context)? 80: 100,
-                                                      color: cWhite,
-                                                      child: Column(
-                                                        crossAxisAlignment:CrossAxisAlignment.start,
-                                                        children: [
-                                                          const TextFontWidget(
-                                                              text: 'Date *',
-                                                              fontsize: 12.5),
-                                                          const SizedBox(height: 05,),
-                                                          SizedBox(
-                                                            height: 40,
-                                                            child:SelectClassAttendenceDayDropDown(),
-                                                          ),
-                                                        ],
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Container(
+                                                        width: 200,
+                                                        height:
+                                                            ResponsiveWebSite
+                                                                    .isMobile(
+                                                                        context)
+                                                                ? 80
+                                                                : 100,
+                                                        color: cWhite,
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            const TextFontWidget(
+                                                                text: 'Date *',
+                                                                fontsize: 12.5),
+                                                            const SizedBox(
+                                                              height: 05,
+                                                            ),
+                                                            SizedBox(
+                                                              height: 40,
+                                                              child:
+                                                                  SelectClassAttendenceDayDropDown(),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(width: 20,),
-                                                  BlueContainerWidget(
-                                                      title: "Today ? ",
-                                                      fontSize: 12,
-                                                      color: themeColorBlue,
-                                                      width: 80),
-                                                  Checkbox(
-                                                    value: false,
-                                                    onChanged: (value) {
-                                                      attendenceController.todayAttendence.value = true;
-                                                    },
-                                                  )
-                                                ],
-                                              ),
-                                      ],
+                                                    const SizedBox(
+                                                      width: 20,
+                                                    ),
+                                                    BlueContainerWidget(
+                                                        title: "Today ? ",
+                                                        fontSize: 12,
+                                                        color: themeColorBlue,
+                                                        width: 80),
+                                                    Checkbox(
+                                                      value: false,
+                                                      onChanged: (value) {
+                                                        attendenceController
+                                                            .todayAttendence
+                                                            .value = true;
+                                                      },
+                                                    )
+                                                  ],
+                                                ),
+                                        ],
+                                      ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(  top: 10, left: 20, right: 20),
+                                      padding: const EdgeInsets.only(
+                                          top: 0, left: 20, right: 20),
                                       child: Column(
                                         children: [
                                           Container(
@@ -244,7 +279,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(
-                                          top: 0, left: 20, right: 20),
+                                          top: 0, left: 05, right: 05),
                                       child: Container(
                                         height: 480,
                                         color: cWhite,
@@ -253,7 +288,31 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
                                         child: TabBarView(
                                             children: List.generate(
                                                 snaps.data!.docs.length,
-                                                (index) =>const StudentAttendanceDataList())),
+                                                (index) =>
+                                                    StudentAttendanceDataList(
+                                                      subjectID: snaps
+                                                          .data!.docs[index]
+                                                          .data()['docid'],
+                                                      formatted: attendenceController
+                                                                  .todayAttendence
+                                                                  .value ==
+                                                              true
+                                                          ? formatted
+                                                          : attendenceController
+                                                              .fetchClassWiseDatevalue
+                                                              .value,
+                                                      monthwise: attendenceController
+                                                                  .todayAttendence
+                                                                  .value ==
+                                                              true
+                                                          ? monthwise
+                                                          : attendenceController
+                                                              .fetchClassWiseMonthvalue
+                                                              .value,
+                                                      data: snaps
+                                                          .data!.docs[index]
+                                                          .data(),
+                                                    ))),
                                       ),
                                     )
                                   ],

@@ -6,7 +6,6 @@ import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_appBar.dart';
 import 'package:vidyaveechi_website/view/users/admin/create_new_admin_page/create_admin.dart';
 import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achievements.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/all_students.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/students_attendance/period_wise.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/teacher_attendance/all_teachers.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/batch_histroy/batch_history_list.dart';
@@ -23,9 +22,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/parents/all_parents
 import 'package:vidyaveechi_website/view/users/admin/screens/result/student_result.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/view_allStudents.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/view_allTeachers.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/therapy_management/therapy_management.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/timetable/timetable.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/timetable/view_timetable/view_timetable.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AdminHomeScreen extends StatefulWidget {
@@ -45,7 +42,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
         child: SidebarDrawer(
             body: ListView(
               children: [
-                 AppBarAdminPanel(),
+                AppBarAdminPanel(),
                 pages[selectedIndex],
               ],
             ),
@@ -110,18 +107,18 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-
+  PeriodWiseStudentsAttendance(),
   const AdminDashBoardSections(),
- // ViewTimeTable(),
+  // ViewTimeTable(),
   //TherapyManagement(),
 
   AllClassListView(),
 
- // const AllStudentsAttendance(),
+  // const AllStudentsAttendance(),
 
   const AllTeachersAttendance(),
-  
-   PeriodWiseStudentsAttendance(),
+
+  PeriodWiseStudentsAttendance(),
 
   const AllExamNotificationListView(),
   const AllExamNotificationListView(),
@@ -160,47 +157,7 @@ List<Widget> pages = [
 
   const BatchHistroyListPage(),
 
-   TimeTable(),
-
-  // AllClassListView(),
-  // TeachersDetailsContainer(),
-
-  // CreateTeacher(),
-
-  // AllClassListView(),
-
-  // ///
-  // AllStudentListContainer(),
-
-  // const AllTeachersList(),
-  // const CreateTeacherProfile(),
-  // Center(
-  //   child: Text(sideMenu[5]),
-  // ),
-
-  // Center(
-  //   child: Text(sideMenu[7]),
-  // ),
-  // ////
-
-  // const MeetingCreatingPage(),
-  // const AllExamNotificationListView(),
-  // const FeesAndBillsPage(),
-  // Container(
-  //   height: 200,
-  //   color: Colors.redAccent,
-  // ),
-  // // const FeesAndBillsPage(),
-  // const AllExamNotificationListView(),
-  // Center(
-  //   child: Text(sideMenu[1]),
-  // ),
-  // Center(
-  //   child: Text(sideMenu[2]),
-  // ),
-  // Center(
-  //   child: Text(sideMenu[3]),
-  // ),
+  TimeTable(),
 ];
 List<String> sideMenu = [
   'Attendence',
