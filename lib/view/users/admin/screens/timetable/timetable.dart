@@ -14,6 +14,8 @@ import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/noticebutton_container.dart';
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/get_allTeachers.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
 
 import '../../../../../controller/subject_controller/subject_controller.dart';
 
@@ -267,6 +269,29 @@ Padding(
                   fontsize: 18,
                   fontWeight: FontWeight.bold,
                 ),
+                 Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        left: 08,
+                                        right: 05,
+                                      ),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          timetableCtrl.ontapTimetable.value = false;
+                                        },
+                                        child:
+                                            const RouteNonSelectedTextContainer(
+                                                title: 'Home'),
+                                      ),
+                                    ),
+                                    const RouteSelectedTextContainer(
+                                        width: 140, title: 'Timetable Deatils'),
+                                  ],
+                                ),
+                              ),
                 ResponsiveWebSite.isMobile(context)
                     ? Column(
                         children: [

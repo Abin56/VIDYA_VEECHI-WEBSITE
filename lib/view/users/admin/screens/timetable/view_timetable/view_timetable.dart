@@ -243,23 +243,25 @@ class ViewTimeTable extends StatelessWidget {
                             SizedBox(
                               // width: 1200,
                               height: 600,
-                              child: StreamBuilder(
-                                stream: FirebaseFirestore.instance
-                                    .collection('SchoolListCollection')
-                                    .doc(UserCredentialsController.schoolId)
-                                    .collection(
-                                        UserCredentialsController.batchId!)
-                                    .doc(UserCredentialsController.batchId!)
-                                    .collection('classes')
-                                    .doc(classCtrl.classDocID.value)
-                                    .collection('timetables')
-                                    .snapshots(),
-                                builder: (context, snaPS) {
-                                  if (snaPS.hasData) {
-                                    return ListView.separated(
-                                        itemBuilder: (context, index) {
-                                          final data = TimeTableModel.fromMap(
-                                              snaPS.data!.docs[index].data());
+                              child: 
+                              // StreamBuilder(
+                              //   stream: FirebaseFirestore.instance
+                              //       .collection('SchoolListCollection')
+                              //       .doc(UserCredentialsController.schoolId)
+                              //       .collection(
+                              //           UserCredentialsController.batchId!)
+                              //       .doc(UserCredentialsController.batchId!)
+                              //       .collection('classes')
+                              //       .doc(classCtrl.classDocID.value)
+                              //       .collection('timetables')
+                              //       .snapshots(),
+                                // builder: (context, snaPS) {
+                                //   if (snaPS.hasData) {
+                                 //   return 
+                                    ListView.separated(
+                                       itemBuilder: (context, index) {
+                                          // final data = TimeTableModel.fromMap(
+                                          //     snaPS.data!.docs[index].data());
                                           return GestureDetector(
                                               onTap: () {
                                                 // timetableController
@@ -271,20 +273,21 @@ class ViewTimeTable extends StatelessWidget {
                                               },
                                               child: AllClassTimeTableList(
                                                 index: index,
-                                                data: data,
+                                              //  data: data,
                                               ));
-                                        },
+                                       },
                                         separatorBuilder: (context, index) {
                                           return const SizedBox(
                                             height: 02,
                                           );
                                         },
-                                        itemCount: snaPS.data!.docs.length);
-                                  } else {
-                                    return const LoadingWidget();
-                                  }
-                                },
-                              ), //
+                                        itemCount: 20)
+                                        //snaPS.data!.docs.length);
+                                //   } else {
+                                //     return const LoadingWidget();
+                                //   }
+                                // },
+                            //  ), //
                             ),
                           ],
                         ),
