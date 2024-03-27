@@ -86,7 +86,6 @@ class _GeClasseslListDropDownButtonState
               child: CircularProgressIndicator(),
             ),
           );
-        }
-        );
+        });
   }
 }

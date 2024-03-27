@@ -45,12 +45,12 @@ class _EventsEditREmoveState extends State<EventsEditREmove> {
            CreateEvent(),
           Expanded(
             child: GridView.count(
-              crossAxisCount: ResponsiveWebSite.isMobile(context) ? 2 :  ResponsiveWebSite.isTablet(context)?3:4,
+              crossAxisCount: ResponsiveWebSite.isMobile(context) ? 1 :  ResponsiveWebSite.isTablet(context)?3:4,
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
               children: List.generate(20, (index) {
                 return Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
                     height: 200,
                     width: 300,

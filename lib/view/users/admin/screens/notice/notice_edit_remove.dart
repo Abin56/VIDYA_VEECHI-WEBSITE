@@ -55,9 +55,9 @@ class _NoticeEditRemoveState extends State<NoticeEditRemove> {
               mainAxisSpacing: 12,
               children: List.generate(20, (index) {
                 return Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
-                    height: 200,
+                    height: 300,
                     width: 300,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),

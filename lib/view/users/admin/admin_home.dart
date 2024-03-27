@@ -158,7 +158,7 @@ List<Widget> pages = [
 
   const BatchHistroyListPage(),
 
-  const TimeTable(),
+   TimeTable(),
 
   // AllClassListView(),
   // TeachersDetailsContainer(),

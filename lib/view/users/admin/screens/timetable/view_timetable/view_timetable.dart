@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
-import 'package:vidyaveechi_website/controller/time_table_controller/timetable_controller.dart';
 import 'package:vidyaveechi_website/model/class_model/class_model.dart';
 import 'package:vidyaveechi_website/model/timetable_model/timetable_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
@@ -19,6 +18,8 @@ import 'package:vidyaveechi_website/view/widgets/button_container/button_contain
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
+
+import '../../../../../../controller/timetable_controller/timetable_controller.dart';
 
 class ViewTimeTable extends StatelessWidget {
   final TimeTableController timetableController =

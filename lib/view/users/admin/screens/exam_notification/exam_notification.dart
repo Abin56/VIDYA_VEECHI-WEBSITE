@@ -17,9 +17,9 @@ class AllExamNotificationListView extends StatelessWidget {
     return  SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(
-                color: cWhite,
+                color: screenContainerbackgroundColor,
                 height: 1000,
-                width: 1000,
+                width: 1150,
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 0,
@@ -28,9 +28,9 @@ class AllExamNotificationListView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(left: 25, top: 25),
+                        padding: EdgeInsets.only(left: 15, top: 25),
                         child: SizedBox(
-                          height: 60,
+                          height: 40,
                           width: double.infinity,
                           child: TextFontWidget(
                             text: 'All Exams List',
@@ -40,73 +40,82 @@ class AllExamNotificationListView extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
+                        padding: const EdgeInsets.only(bottom: 5),
                         child: Row(
                           children: [
                             const Padding(
-                              padding: EdgeInsets.only(left: 05, right: 05),
+                              padding: EdgeInsets.only(left: 15, right: 05),
                               child: RouteSelectedTextContainer(
                                   title: 'All Exams'),
                             ),
                             const Spacer(),
-                            GestureDetector(
-                              onTap: () {
-                                createExamNotificationFunction(context);
-                              },
-                              child: ButtonContainerWidget(
-                                  curving: 30,
-                                  colorindex: 0,
-                                  height: 40,
-                                  width: 180,
-                                  child: const Center(
-                                    child: TextFontWidget(
-                                      text: 'Create / E D I T',
-                                      fontsize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: cWhite,
-                                    ),
-                                  )),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10,bottom: 5),
+                              child: GestureDetector(
+                                onTap: () {
+                                  createExamNotificationFunction(context);
+                                },
+                                child: ButtonContainerWidget(
+                                    curving: 30,
+                                    colorindex: 0,
+                                    height: 40,
+                                    width: 180,
+                                    child: const Center(
+                                      child: TextFontWidget(
+                                        text: 'Create / E D I T',
+                                        fontsize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: cWhite,
+                                      ),
+                                    )),
+                              ),
                             )
                           ],
                         ),
                       ),
-                      const Row(
-                        children: [
-                          Expanded(
-                              flex: 1,
-                              child: TableHeaderWidget(headerTitle: 'No')),
-                          SizedBox(
-                            width: 01,
+                      Container(color: cWhite,
+                        child: const Padding(
+                          padding: EdgeInsets.only(top: 10,left: 10,right: 10),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                  flex: 1,
+                                  child: TableHeaderWidget(headerTitle: 'No')),
+                              SizedBox(
+                                width: 01,
+                              ),
+                              Expanded(
+                                  flex: 4,
+                                  child: TableHeaderWidget(headerTitle: 'Exam Name')),
+                              SizedBox(
+                                width: 01,
+                              ),
+                              Expanded(
+                                  flex: 2,
+                                  child: TableHeaderWidget(
+                                      headerTitle: 'Total Days')),
+                              SizedBox(
+                                width: 01,
+                              ),
+                              Expanded(
+                                  flex: 3,
+                                  child: TableHeaderWidget(headerTitle: 'Starting')),
+                              SizedBox(
+                                width: 01,
+                              ),
+                              Expanded(
+                                  flex: 1,
+                                  child: TableHeaderWidget(headerTitle: 'Ending')),
+                              SizedBox(
+                                width: 01,
+                              ),
+                            ],
                           ),
-                          Expanded(
-                              flex: 4,
-                              child: TableHeaderWidget(headerTitle: 'Exam Name')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 2,
-                              child: TableHeaderWidget(
-                                  headerTitle: 'Total Days')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 3,
-                              child: TableHeaderWidget(headerTitle: 'Starting')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                          Expanded(
-                              flex: 1,
-                              child: TableHeaderWidget(headerTitle: 'Ending')),
-                          SizedBox(
-                            width: 01,
-                          ),
-                        ],
+                        ),
                       ),
                       Expanded(
-                        child: SizedBox(
+                        child: Container(
+                          color: cWhite,
                           width: 1200,
                           child: 
                           // StreamBuilder(
@@ -127,27 +136,30 @@ class AllExamNotificationListView extends StatelessWidget {
                           //         );
                           //       } else {
                           //         return 
-                                  ListView.separated(
-                                      itemBuilder: (context, index) {
-                                        // final data = ClassModel.fromMap(
-                                        //     snaps.data!.docs[index].data());
-                                        return 
-                                        // GestureDetector(
-                                        //   onTap: () => classController
-                                        //       .ontapClass.value = true,
-                                        //   child: 
-                                          ExamNotificationDataListWidget(
-                                           // data: data,
-                                            index: index,
-                                       //   ),
-                                        );
-                                      },
-                                      separatorBuilder: (context, index) {
-                                        return const SizedBox(
-                                          height: 02,
-                                        );
-                                      },
-                                      itemCount: 10)
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 10,left: 10),
+                                    child: ListView.separated(
+                                        itemBuilder: (context, index) {
+                                          // final data = ClassModel.fromMap(
+                                          //     snaps.data!.docs[index].data());
+                                          return 
+                                          // GestureDetector(
+                                          //   onTap: () => classController
+                                          //       .ontapClass.value = true,
+                                          //   child: 
+                                            ExamNotificationDataListWidget(
+                                             // data: data,
+                                              index: index,
+                                         //   ),
+                                          );
+                                        },
+                                        separatorBuilder: (context, index) {
+                                          return const SizedBox(
+                                            height: 02,
+                                          );
+                                        },
+                                        itemCount: 10),
+                                  )
                           //       }//
                           //     } else {
                           //       return circularProgressIndicator;
