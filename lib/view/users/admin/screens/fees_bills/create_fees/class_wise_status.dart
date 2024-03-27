@@ -64,8 +64,7 @@ class ClassWiseFeesStatus extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 10, right: 10, top: 20),
+                      padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
                       child: Container(
                         color: cWhite,
                         height: 40,

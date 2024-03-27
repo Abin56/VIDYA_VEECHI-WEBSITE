@@ -143,28 +143,31 @@ class CreatedFeesStatus extends StatelessWidget {
                             ),
                           ),
                           Expanded(
-                            child: SizedBox(
-                                width: 1200,
-                                child: ListView.separated(
-                                    itemBuilder: (context, index) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          feesAndBillsController
-                                              .ontapviewclasswiseFees
-                                              .value = true;
-                                        },
-                                        child: AllClassessFeesDataList(
-                                          // data: data,
-                                          index: index,
-                                        ),
-                                      );
-                                    },
-                                    separatorBuilder: (context, index) {
-                                      return const SizedBox(
-                                        height: 02,
-                                      );
-                                    },
-                                    itemCount: 10)),
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8,left: 8,right: 8),
+                              child: SizedBox(
+                                 // width: 1200,
+                                  child: ListView.separated(
+                                      itemBuilder: (context, index) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            feesAndBillsController
+                                                .ontapviewclasswiseFees
+                                                .value = true;
+                                          },
+                                          child: AllClassessFeesDataList(
+                                            // data: data,
+                                            index: index,
+                                          ),
+                                        );
+                                      },
+                                      separatorBuilder: (context, index) {
+                                        return const SizedBox(
+                                          height: 02,
+                                        );
+                                      },
+                                      itemCount: 10)),
+                            ),
                           )
                         ],
                       )),
