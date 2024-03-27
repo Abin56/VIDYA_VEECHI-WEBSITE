@@ -20,8 +20,9 @@ class StudentExamResult extends StatelessWidget {
         fontWeight: FontWeight.bold,
       ), /////////////////////////////////....................0
       Container(
-        height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
-        color: cWhite,
+        height: 80,
+        width: ResponsiveWebSite.isTablet(context)?230: 250,
+        // color: cWhite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,8 +40,9 @@ class StudentExamResult extends StatelessWidget {
         ),
       ), //////////////////...........1
       Container(
-        height: ResponsiveWebSite.isMobile(context) ? 80 : 100,
-        color: cWhite,
+        height: 80,
+        width:  ResponsiveWebSite.isTablet(context)?230: 250,
+        // color: cWhite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -60,7 +62,7 @@ class StudentExamResult extends StatelessWidget {
     ];
     return Container(
       color: screenContainerbackgroundColor,
-      height: 820,
+      height: 760,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,66 +74,107 @@ class StudentExamResult extends StatelessWidget {
               fontsize: 18,
               fontWeight: FontWeight.bold,
             ),
-          ),/////////////////////////////................common
-          const Padding(
-                      padding: EdgeInsets.only(left: 25, top: 25, right: 05),
-                      child: RouteSelectedTextContainer(title: 'All Results'),
-                    ),
-          Padding(
-            padding: EdgeInsets.only(
-                top: ResponsiveWebSite.isMobile(context) ? 20 : 20),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                color: cWhite,
-                height: 700,
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    ResponsiveWebSite.isMobile(context)
-                        ? Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+          ), /////////////////////////////................common
+          // const Padding(
+          //   padding: EdgeInsets.only(left: 25, top: 25, right: 05),
+          //   child: RouteSelectedTextContainer(title: 'All Results'),
+          // ),
+          ResponsiveWebSite.isMobile(context)
+              ? Column(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+            padding: EdgeInsets.only(left: 15, top: 20,bottom: 5, right: 05),
+            child: RouteSelectedTextContainer(title: 'All Results'),
+          ),
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Expanded(
+                        //   flex: 1,
+                        //   child: resultListWidget[0]),/////////////////heading
+                        SizedBox(
+                          height: 170,
+                          child: Column(
                             children: [
-                              Expanded(
-                                flex: 1,
-                                child: resultListWidget[0]),/////////////////heading
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox(
-                                  height: 170,
-                                  child: Column(
-                                    children: [
-                                      resultListWidget[1],/////////////////////////class
-                                      resultListWidget[2]///////////////////////....exam
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          )///////////////////////////.....................mobile
-                        : Row(
-                            children: [
-                              Expanded(flex: 1, child: Padding(
-                                padding: const EdgeInsets.only(left: 20),
-                                child: resultListWidget[0],
-                              )),/////////////////heading
-                              Expanded(
-                                flex: 1,
-                                child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: resultListWidget[1]),///////////////////.....class
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: resultListWidget[2]),///////......exam
-                              ),
+                              resultListWidget[1], /////////////////////////class
+                              resultListWidget[2] ///////////////////////....exam
                             ],
                           ),
-                    const AllResultStatusListView()//////////..............common
+                        )
+                      ],
+                    ),
+                ],
+              ) ///////////////////////////.....................mobile
+              : Row(
+                  children: [
+                    const Padding(
+            padding: EdgeInsets.only(left: 25, top: 25, right: 05),
+            child: RouteSelectedTextContainer(title: 'All Results'),
+          ),
+                    Spacer(),
+                    // Expanded(flex: 1, child: Padding(
+                    //   padding: const EdgeInsets.only(left: 20),
+                    //   child: resultListWidget[0],
+                    // )),/////////////////heading
+                    Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(child: resultListWidget[1])),
+                    Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: resultListWidget[2]),
                   ],
                 ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              color: cWhite,
+              height: 500,
+              width: double.infinity,
+              child: Column(
+                children: [
+                  // ResponsiveWebSite.isMobile(context)
+                  //     ? Row(
+                  //       crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: [
+                  //           Expanded(
+                  //             flex: 1,
+                  //             child: resultListWidget[0]),/////////////////heading
+                  //           Expanded(
+                  //             flex: 1,
+                  //             child: SizedBox(
+                  //               height: 170,
+                  //               child: Column(
+                  //                 children: [
+                  //                   resultListWidget[1],/////////////////////////class
+                  //                   resultListWidget[2]///////////////////////....exam
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //           )
+                  //         ],
+                  //       )///////////////////////////.....................mobile
+                  //     : Row(
+                  //         children: [
+                  //           Expanded(flex: 1, child: Padding(
+                  //             padding: const EdgeInsets.only(left: 20),
+                  //             child: resultListWidget[0],
+                  //           )),/////////////////heading
+                  //           Expanded(
+                  //             flex: 1,
+                  //             child: Padding(
+                  //                 padding: const EdgeInsets.all(8.0),
+                  //                 child: resultListWidget[1]),///////////////////.....class
+                  //           ),
+                  //           Expanded(
+                  //             flex: 1,
+                  //             child: Padding(
+                  //                 padding: const EdgeInsets.all(8.0),
+                  //                 child: resultListWidget[2]),///////......exam
+                  //           ),
+                  //         ],
+                  //       ),
+                  const AllResultStatusListView() //////////..............common
+                ],
               ),
             ),
           )
