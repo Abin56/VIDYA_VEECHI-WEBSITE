@@ -45,7 +45,7 @@ class ClassWiseFeesStatus extends StatelessWidget {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        feesAndBillsController.ontapCreateFees.value = false;
+                        feesAndBillsController.ontapviewclasswiseFees.value = false;
                       },
                       child: const RouteNonSelectedTextContainer(title: 'Home'),
                     ),
