@@ -5,11 +5,11 @@ import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class AllClassTimeTableList extends StatelessWidget {
-  final TimeTableModel? data;
+  final TimeTableModel data;
   final int index;
   const AllClassTimeTableList({
     required this.index,
-     this.data, 
+    required this.data, 
      super.key});
 
   @override
@@ -42,7 +42,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                 rowMainAccess: MainAxisAlignment.center,
                                 color: cWhite,
                                 index: index,
-                                headerTitle: "${data!.selectClass}"),
+                                headerTitle: "${data.selectClass}"),
                           ), //................................................. Months
                           const SizedBox(
                             width: 02,
@@ -79,7 +79,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                           width: 71.5,
                                           child: Center(
                                             child: TextFontWidget(
-                                              text: " ${data!.teacherName}",
+                                              text: " ${data.teacherName}",
                                               fontsize: 10,
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -94,7 +94,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                           width: 71.5,
                                           child: Center(
                                             child: TextFontWidget(
-                                              text: " ${data!.teacherName}",
+                                              text: " ${data.teacherName}",
                                               fontsize: 10,
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -120,7 +120,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                 rowMainAccess: MainAxisAlignment.center,
                                 color: cWhite,
                                 index: index,
-                                headerTitle: "${data!.startTime}"),
+                                headerTitle: "${data.startTime}"),
                           ), //....................................... starting tim e
                           const SizedBox(
                             width: 02,
@@ -131,7 +131,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                 rowMainAccess: MainAxisAlignment.center,
                                 color: cWhite,
                                 index: index,
-                                headerTitle: "${data!.endTime}"),
+                                headerTitle: "${data.endTime}"),
                           ), //.......................................ending time
                           const SizedBox(
                             width: 02,
