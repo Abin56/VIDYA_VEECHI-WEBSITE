@@ -281,10 +281,10 @@ createFeesForClasses(BuildContext context) async {
                     itemCount: feesAndBillsController.selectedClassList.length),
               )),
         ),
-        ProgressButtonWidget(
+        Obx(() => ProgressButtonWidget(
             buttonstate: feesAndBillsController.buttonstate.value,
             text: 'Genrate Fees',
-            function: () => feesAndBillsController.addFessAsignToClass())
+            function: () => feesAndBillsController.addFessAsignToClass()))
       ],
       doyouwantActionButton: false);
 }
