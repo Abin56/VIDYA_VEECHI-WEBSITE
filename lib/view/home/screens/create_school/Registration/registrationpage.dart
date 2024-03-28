@@ -24,7 +24,8 @@ class _RegisrationPageState extends State<RegisrationPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
+          child: 
+          Container(
               height: ResponsiveWebSite.isMobile(context) ? 800 : 1000,
               width: double.infinity,
               decoration: BoxDecoration(

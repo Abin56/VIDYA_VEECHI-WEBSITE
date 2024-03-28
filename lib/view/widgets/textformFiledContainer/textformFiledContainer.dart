@@ -14,6 +14,8 @@ class TextFormFiledContainerWidget extends StatelessWidget {
   Iterable<String>? autofillHints;
   String? Function(String?)? validator;
   Function()? onTap;
+  Icon? icon;
+   
   TextInputType? keyboardType;
   TextFormFiledContainerWidget({
     required this.hintText,
@@ -25,7 +27,11 @@ class TextFormFiledContainerWidget extends StatelessWidget {
     this.onChanged,
     this.validator,
     this.onTap,
-    super.key,
+    this.icon,
+    
+    super.key, 
+   
+
   });
 
   @override
@@ -42,6 +48,7 @@ class TextFormFiledContainerWidget extends StatelessWidget {
             height: 35,
             width: width,
             child: TextFormField(
+              
               style: GoogleFonts.poppins(fontSize: 12),
               onChanged: onChanged,
               autofillHints: autofillHints,
@@ -70,6 +77,8 @@ class TextFormFiledContainerWidget extends StatelessWidget {
                     borderSide: BorderSide(width: 0.4)),
                 hintStyle: const TextStyle(fontSize: 13),
                 hintText: hintText,
+                suffixIcon:icon ,
+              
                 focusedBorder: const OutlineInputBorder(
                   //<-- SEE HERE
                   borderSide: BorderSide(width: 1, color: Colors.green),
