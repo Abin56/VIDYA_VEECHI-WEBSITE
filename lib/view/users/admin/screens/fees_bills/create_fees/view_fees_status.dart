@@ -30,8 +30,16 @@ class CreatedFeesStatus extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                  const Padding(
+                          padding: EdgeInsets.only(left: 25, top: 20),
+                          child: TextFontWidget(
+                            text: 'All Fees & Bills List ',
+                            fontsize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25, top: 25, right: 25),
+                  padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
                   child: Row(
                     children: [
                       const Padding(
@@ -105,7 +113,7 @@ class CreatedFeesStatus extends StatelessWidget {
                                   width: 01,
                                 ),
                                 Expanded(
-                                    flex: 4,
+                                    flex: 3,
                                     child: CatrgoryTableHeaderWidget(
                                         headerTitle: 'No. of Class')),
                                 SizedBox(
@@ -126,14 +134,14 @@ class CreatedFeesStatus extends StatelessWidget {
                                   width: 01,
                                 ),
                                 Expanded(
-                                    flex: 1,
+                                    flex: 2,
                                     child: CatrgoryTableHeaderWidget(
                                         headerTitle: 'Collected')),
                                 SizedBox(
                                   width: 01,
                                 ),
                                 Expanded(
-                                    flex: 1,
+                                    flex: 2,
                                     child: CatrgoryTableHeaderWidget(
                                         headerTitle: 'Pending')),
                                 SizedBox(
@@ -204,9 +212,9 @@ class AllClassessFeesDataList extends StatelessWidget {
             width: 01,
           ),
           Expanded(
-            flex: 4,
+            flex: 3,
             child: DataContainerWidget(
-                rowMainAccess: MainAxisAlignment.start,
+                rowMainAccess: MainAxisAlignment.center,
                 color: cWhite,
                 index: index,
                 headerTitle: "    10"),
@@ -239,7 +247,7 @@ class AllClassessFeesDataList extends StatelessWidget {
             width: 01,
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: DataContainerWidget(
                 rowMainAccess: MainAxisAlignment.center,
                 color: cWhite,
@@ -251,7 +259,7 @@ class AllClassessFeesDataList extends StatelessWidget {
             width: 01,
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: DataContainerWidget(
                 rowMainAccess: MainAxisAlignment.center,
                 color: cWhite,

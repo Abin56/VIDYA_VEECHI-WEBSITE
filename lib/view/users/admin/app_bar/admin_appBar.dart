@@ -32,7 +32,7 @@ class AppBarAdminPanel extends StatelessWidget {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 105,
+        height: 70,
         width: double.infinity,
         child: Column(
           children: [
