@@ -42,12 +42,16 @@ class SelectStudentExamDropDown extends StatelessWidget {
         if (value != null) {
           // classCtrl.className.value = value.className;
           // classCtrl.classDocID.value = value.docid;
-          classCtrl.examId = value;
+          classCtrl.examId.value = value;
         }
         classCtrl.getNumberOfExamConductedSingleStudent(
-            studentId: studentId, classId: classId, examId: classCtrl.examId);
+            studentId: studentId,
+            classId: classId,
+            examId: classCtrl.examId.value);
         classCtrl.getNumberOfExamPassedSingleStudent(
-            studentId: studentId, classId: classId, examId: classCtrl.examId);
+            studentId: studentId,
+            classId: classId,
+            examId: classCtrl.examId.value);
       },
       popupProps: const PopupProps.menu(
           searchFieldProps: TextFieldProps(

@@ -120,9 +120,9 @@ List<Widget> pages = [
 
   PeriodWiseStudentsAttendance(),
 
-  const AllExamNotificationListView(),
-  const AllExamNotificationListView(),
-  const AllExamNotificationListView(),
+  AllExamNotificationListView(),
+  AllExamNotificationListView(),
+  AllExamNotificationListView(),
 
   const StudentExamResult(),
   const StudentExamResult(),

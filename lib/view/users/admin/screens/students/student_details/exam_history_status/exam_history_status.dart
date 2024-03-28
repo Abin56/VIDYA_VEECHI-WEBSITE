@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/controller/exam_result_controller/exam_result_controller.dart';
+import 'package:vidyaveechi_website/model/subject_model/subject_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_student_exam.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_teachers.dart';
@@ -9,6 +10,8 @@ import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tile_container.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/exam_dataList.dart';
+import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
 class PerStudentExamHistory extends StatelessWidget {
   PerStudentExamHistory({
@@ -38,7 +41,6 @@ class PerStudentExamHistory extends StatelessWidget {
             ),
           ),
         ),
-        SelectTeachersDropDown(),
         SelectStudentExamDropDown(
             classId: data!.classId, studentId: data.docid),
         Padding(
@@ -128,21 +130,47 @@ class PerStudentExamHistory extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  child: SizedBox(
-                      child: ListView.separated(
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 10),
-                              child: ExameDataListContainer(index: index),
-                            );
-                          },
-                          separatorBuilder: (context, index) {
-                            return const SizedBox(
-                              height: 02,
-                            );
-                          },
-                          itemCount: 100)))
+                child: SizedBox(
+                  child: Obx(
+                    () => StreamBuilder(
+                      stream: server
+                          .collection('SchoolListCollection')
+                          .doc(UserCredentialsController.schoolId)
+                          .collection(UserCredentialsController.batchId!)
+                          .doc(UserCredentialsController.batchId!)
+                          .collection('classes')
+                          .doc(data.classId)
+                          .collection('Students')
+                          .doc(data.docid)
+                          .collection('Exam Results')
+                          .doc(examController.examId.value)
+                          .collection('Marks')
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        return ListView.separated(
+                            itemBuilder: (context, index) {
+                              final examSubjectData =
+                                  snapshot.data!.docs[index].data();
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 10),
+                                child: ExameDataListContainer(
+                                  index: index,
+                                  examSubjectData: examSubjectData,
+                                ),
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return const SizedBox(
+                                height: 02,
+                              );
+                            },
+                            itemCount: snapshot.data!.docs.length);
+                      },
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         )

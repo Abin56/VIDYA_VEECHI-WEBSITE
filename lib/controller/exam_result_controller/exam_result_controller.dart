@@ -14,7 +14,7 @@ class ExamResultController extends GetxController {
   RxInt numberExamPassed = 0.obs;
   RxInt numberExamFailed = 0.obs;
 
-  String examId = '';
+  RxString examId = '-'.obs;
 
   void getNumberOfExamConductedSingleStudent(
       {required String studentId,
@@ -93,4 +93,13 @@ class ExamResultController extends GetxController {
     // }
     return examList;
   }
+
+//  bool getPassOrFail({required String obtainMark ,required String passMark }){
+
+//   if(obtainMark >= passMark){
+//     return true;
+//   }
+//   return false;
+
+//   }
 }

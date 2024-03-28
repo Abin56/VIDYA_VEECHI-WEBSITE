@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:vidyaveechi_website/controller/attendence_controller/attendence_controller.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
+import 'package:vidyaveechi_website/controller/student_attendence_controller/student_attendence_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/drop_down/attendence/day_dropdown.dart';
 import 'package:vidyaveechi_website/view/drop_down/attendence/month_dropdown.dart';
@@ -14,6 +15,7 @@ import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_creden
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 import '../../../../../widgets/blue_Container_widget/blue_Container_widget.dart';
+
 class PeriodWiseStudentsAttendance extends StatelessWidget {
   final AttendenceController attendenceController =
       Get.put(AttendenceController());

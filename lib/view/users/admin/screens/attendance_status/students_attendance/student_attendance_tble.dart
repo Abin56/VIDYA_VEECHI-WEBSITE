@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:vidyaveechi_website/controller/class_controller/class_controller.dart';
+import 'package:vidyaveechi_website/controller/student_attendence_controller/student_attendence_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
@@ -16,13 +18,15 @@ class StudentAttendanceDataList extends StatelessWidget {
   final String monthwise;
   final String formatted;
   final String subjectID;
-  const StudentAttendanceDataList({
+  StudentAttendanceDataList({
     required this.data,
     super.key,
     required this.monthwise,
     required this.formatted,
     required this.subjectID,
   });
+
+  final getStudentAttendenceController = Get.put(StudentAttendenceController());
 
   @override
   Widget build(BuildContext context) {
@@ -75,48 +79,106 @@ class StudentAttendanceDataList extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const Padding(
-                                padding: EdgeInsets.only(
+                              Padding(
+                                padding: const EdgeInsets.only(
                                   top: 10,
                                 ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    TextFontWidget(
-                                      text: 'Total Students',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    TextFontWidget(
-                                      text: '50',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    TextFontWidget(
-                                      text: 'Present Students',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    TextFontWidget(
-                                      text: '50',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    TextFontWidget(
-                                      text: 'Absent Students',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    TextFontWidget(
-                                      text: '0',
-                                      fontsize: 12,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ],
-                                ),
+                                child:
+                                    //  Obx(
+                                    //   () =>
+                                    StreamBuilder(
+                                        stream: server
+                                            .collection('SchoolListCollection')
+                                            .doc(UserCredentialsController
+                                                .schoolId)
+                                            .collection(
+                                                UserCredentialsController
+                                                    .batchId!)
+                                            .doc(UserCredentialsController
+                                                .batchId!)
+                                            .collection('classes')
+                                            .doc(Get.find<ClassController>()
+                                                .classDocID
+                                                .value)
+                                            .collection('Attendence')
+                                            .doc(monthwise)
+                                            .collection(monthwise)
+                                            .doc(formatted)
+                                            .collection('Subjects')
+                                            .doc(subjectID)
+                                            .collection('AttendenceList')
+                                            .snapshots(),
+                                        builder: (context, snapshot) {
+                                          getStudentAttendenceController
+                                              .getStudentsAttendanceData(
+                                                  monthwise: monthwise,
+                                                  formatted: formatted,
+                                                  subjectID: subjectID);
+                                          if (snapshot.connectionState ==
+                                              ConnectionState.waiting) {
+                                            return const Center(
+                                                child: SizedBox());
+                                          } else if (snapshot
+                                              .data!.docs.isEmpty) {
+                                            return const Center(
+                                              child: SizedBox(),
+                                            );
+                                          } else if (!snapshot.hasData) {
+                                            return const Center(
+                                              child: SizedBox(),
+                                            );
+                                          } else {
+                                            return Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                const TextFontWidget(
+                                                  text: 'Total Students',
+                                                  fontsize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                                TextFontWidget(
+                                                  text: snapshot
+                                                      .data!.docs.length
+                                                      .toString(),
+                                                  fontsize: 12,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                const TextFontWidget(
+                                                  text: 'Present Students',
+                                                  fontsize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                                TextFontWidget(
+                                                  text:
+                                                      getStudentAttendenceController
+                                                          .presentStudent
+                                                          .toString(),
+                                                  fontsize: 12,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                                const TextFontWidget(
+                                                  text: 'Absent Students',
+                                                  fontsize: 12,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                                TextFontWidget(
+                                                  text:
+                                                      getStudentAttendenceController
+                                                          .absentStudent
+                                                          .toString(),
+                                                  fontsize: 12,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                              ],
+                                            );
+                                          }
+                                        }),
                               ),
+                              // ),
                             ],
                           ),
                         ),
