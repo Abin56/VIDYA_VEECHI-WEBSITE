@@ -2,7 +2,6 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:vidyaveechi_website/controller/fees_N_bills_Controller/fees_bills_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
@@ -42,7 +41,7 @@ class CreatedFeesStatus extends StatelessWidget {
                       const Spacer(),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
-                        child: Container(
+                        child: SizedBox(
                           width: 250,
                           height: ResponsiveWebSite.isMobile(context) ? 80 : 80,
                           //color: cWhite,
@@ -67,6 +66,7 @@ class CreatedFeesStatus extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           createFeesFunction(context);
+
                         },
                         child: ButtonContainerWidget(
                             curving: 30,
@@ -94,7 +94,7 @@ class CreatedFeesStatus extends StatelessWidget {
                       child: Column(
                         children: [
                           const Padding(
-                            padding: EdgeInsets.only(top: 8,left: 8,right: 8),
+                            padding: EdgeInsets.only(top: 8, left: 8, right: 8),
                             child: Row(
                               children: [
                                 Expanded(
@@ -144,9 +144,10 @@ class CreatedFeesStatus extends StatelessWidget {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(bottom: 8,left: 8,right: 8),
+                              padding: const EdgeInsets.only(
+                                  bottom: 8, left: 8, right: 8),
                               child: SizedBox(
-                                 // width: 1200,
+                                  // width: 1200,
                                   child: ListView.separated(
                                       itemBuilder: (context, index) {
                                         return GestureDetector(

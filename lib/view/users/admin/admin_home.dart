@@ -107,18 +107,11 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
-  // PeriodWiseStudentsAttendance(),
+  CreatedFeesStatus(),
   const AdminDashBoardSections(),
-  // ViewTimeTable(),
-  //TherapyManagement(),
-
   AllClassListView(),
-
-  // const AllStudentsAttendance(),
-
-  const AllTeachersAttendance(),
-
   PeriodWiseStudentsAttendance(),
+  const AllTeachersAttendance(),
 
   AllExamNotificationListView(),
   AllExamNotificationListView(),

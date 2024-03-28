@@ -50,11 +50,11 @@ class ClassController extends GetxController {
         buttonstate.value = ButtonState.success;
         classNameController.clear();
         classFeeController.clear();
-        await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
-          buttonstate.value = ButtonState.idle;
-        });
+          await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
+            buttonstate.value = ButtonState.idle;
+          });
 
-        showToast(msg: 'New Class Added');
+          showToast(msg: 'New Class Added');
       });
     } catch (e) {
       showToast(msg: 'Somthing went wrong please try again');
