@@ -13,7 +13,7 @@ class AllResultStatusListView extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         color: cWhite,
-        height: 500,
+        height:ResponsiveWebSite.isMobile(context)?420: 500,
         width: double.infinity,
         child: Column(
           children: [

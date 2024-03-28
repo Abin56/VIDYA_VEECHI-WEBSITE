@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vidyaveechi_website/view/colors/colors.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/result/widget/data_container_marks.dart';
+import 'package:vidyaveechi_website/view/colors/colors.dart';  
+import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/tableheaderWidget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
@@ -45,7 +45,7 @@ class TeachersAttendanceDataList extends StatelessWidget {
                         children: [
                           Expanded(
                             flex: 1,
-                            child: DataContainerMarksWidget(
+                            child: DataContainerWidget(
                                 rowMainAccess: MainAxisAlignment.center,
                                 color: cWhite,
                                 index: index,
@@ -54,7 +54,7 @@ class TeachersAttendanceDataList extends StatelessWidget {
                             const SizedBox(width: 1,),
                           Expanded(
                             flex: 6,
-                            child: DataContainerMarksWidget(
+                            child: DataContainerWidget(
                                 rowMainAccess: MainAxisAlignment.start,
                                 color: cWhite,
                                 index: index,
@@ -62,7 +62,7 @@ class TeachersAttendanceDataList extends StatelessWidget {
                           ), const SizedBox(width: 1,),
                           Expanded(
                             flex: 2,
-                            child: DataContainerMarksWidget(
+                            child: DataContainerWidget(
                                 rowMainAccess: MainAxisAlignment.start,
                                 color: cWhite,
                                 index: index,

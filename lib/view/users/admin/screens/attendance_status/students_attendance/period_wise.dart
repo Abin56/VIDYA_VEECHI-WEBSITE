@@ -29,6 +29,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
     String monthwise = month.format(parseDate);
     final DateFormat formatter = DateFormat('dd-MM-yyyy');
     String formatted = formatter.format(parseDate);
+
     return Obx(() => 
     attendenceController.ontapaddAttendence.value == true
         ? AttendanceAddingList(): 
@@ -36,7 +37,7 @@ class PeriodWiseStudentsAttendance extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Container(
             color: screenContainerbackgroundColor,
-            height: ResponsiveWebSite.isMobile(context) ? 840 : 820,
+            height: ResponsiveWebSite.isMobile(context) ? 890 : 820,
             width: 1200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

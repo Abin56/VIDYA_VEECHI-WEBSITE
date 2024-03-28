@@ -28,7 +28,7 @@ class StudentAttendanceDataList extends StatelessWidget {
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
       child: SizedBox(
-        height: 450,
+        height:  450,
         width: ResponsiveWebSite.isMobile(context) ? double.infinity : 1300,
         // width: ResponsiveWebSite.isMobile(context)?500: ResponsiveWebSite.isTablet(context)?800: 1200,
         child: Padding(
@@ -128,41 +128,29 @@ class StudentAttendanceDataList extends StatelessWidget {
                     Expanded(
                         flex: 1,
                         child: CatrgoryTableHeaderWidget(headerTitle: 'No')),
-                    SizedBox(
-                      width: 1,
-                    ),
+                    SizedBox( width: 1,  ),
                     Expanded(
                         flex: 6,
                         child: CatrgoryTableHeaderWidget(
                             headerTitle: "Student Name")),
-                    SizedBox(
-                      width: 1,
-                    ),
+                    SizedBox( width: 1, ),
                     Expanded(
                         flex: 2,
                         child: CatrgoryTableHeaderWidget(headerTitle: "Class")),
-                    SizedBox(
-                      width: 1,
-                    ),
+                    SizedBox( width: 1,),
                     Expanded(
                         flex: 2,
                         child: CatrgoryTableHeaderWidget(headerTitle: "Date")),
-                    SizedBox(
-                      width: 1,
-                    ),
+                    SizedBox(width: 1,),
                     Expanded(
                         flex: 2,
                         child: CatrgoryTableHeaderWidget(headerTitle: "Time")),
-                    SizedBox(
-                      width: 1,
-                    ),
+                    SizedBox(width: 1,),
                     Expanded(
                         flex: 2,
                         child: CatrgoryTableHeaderWidget(
                             headerTitle: "Status from app")),
-                    SizedBox(
-                      width: 1,
-                    ),
+                    SizedBox(width: 1,),
                     Expanded(
                         flex: 2,
                         child: CatrgoryTableHeaderWidget(
@@ -211,9 +199,7 @@ class StudentAttendanceDataList extends StatelessWidget {
                                           index: index,
                                           headerTitle: "${index + 1}"),
                                     ),
-                                    const SizedBox(
-                                      width: 1,
-                                    ),
+                                    const SizedBox( width: 1,),
                                     Expanded(
                                       flex: 6,
                                       child: DataContainerMarksWidget(
@@ -226,9 +212,7 @@ class StudentAttendanceDataList extends StatelessWidget {
                                           headerTitle:
                                               " ${studentData['studentName']}"),
                                     ),
-                                    const SizedBox(
-                                      width: 1,
-                                    ),
+                                    const SizedBox( width: 1,),
                                     Expanded(
                                       flex: 2,
                                       child: DataContainerMarksWidget(
@@ -241,9 +225,7 @@ class StudentAttendanceDataList extends StatelessWidget {
                                           headerTitle:
                                               " ${Get.find<ClassController>().className.value}"),
                                     ),
-                                    const SizedBox(
-                                      width: 1,
-                                    ),
+                                    const SizedBox( width: 1,),
                                     Expanded(
                                       flex: 2,
                                       child: DataContainerMarksWidget(
@@ -255,9 +237,7 @@ class StudentAttendanceDataList extends StatelessWidget {
                                           index: index,
                                           headerTitle: "   $formatted"),
                                     ),
-                                    const SizedBox(
-                                      width: 1,
-                                    ),
+                                    const SizedBox(width: 1,),
                                     Expanded(
                                       flex: 2,
                                       child: DataContainerMarksWidget(
@@ -270,9 +250,7 @@ class StudentAttendanceDataList extends StatelessWidget {
                                           headerTitle:
                                               " ${stringTimeConvert(DateTime.parse(studentData['Date']))}"),
                                     ),
-                                    const SizedBox(
-                                      width: 1,
-                                    ),
+                                    const SizedBox( width: 1,),
                                     Expanded(
                                       flex: 2,
                                       child: DataContainerMarksWidget(
@@ -287,9 +265,7 @@ class StudentAttendanceDataList extends StatelessWidget {
                                                   ? ' Present'
                                                   : ' Absent'),
                                     ),
-                                    const SizedBox(
-                                      width: 1,
-                                    ),
+                                    const SizedBox( width: 1, ),
                                     Expanded(
                                       flex: 2,
                                       child: DataContainerMarksWidget(

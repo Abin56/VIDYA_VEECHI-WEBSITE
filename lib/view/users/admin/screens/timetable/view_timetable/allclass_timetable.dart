@@ -65,7 +65,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                 width: 02,
                               ),
                               Expanded(
-                                flex: 12,
+                                flex: 15,
                                 child: Container(
                                   color: index % 2 == 0
                                       ? const Color.fromARGB(255, 246, 246, 246)
@@ -81,7 +81,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                                       color:
                                                           cBlack.withOpacity(0.2))),
                                               height: 22.5,
-                                              width: 82,
+                                              width: 103,
                                               child: Center(
                                                 child: Row(
                                                   children: [
@@ -114,7 +114,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                                       color:
                                                           cBlack.withOpacity(0.2))),
                                               height: 22.5,
-                                              width: 82,
+                                              width: 103,
                                               child:  Center(
                                                 child: Row(
                                                   children: [
@@ -150,7 +150,7 @@ class AllClassTimeTableList extends StatelessWidget {
                                           width: 03,
                                         );
                                       },
-                                      itemCount: 08),
+                                      itemCount: 07),
                                 ),
                               ), ///////////////////////////sub
                               const SizedBox(

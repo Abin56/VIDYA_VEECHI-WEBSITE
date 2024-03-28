@@ -9,6 +9,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_s
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/message_showing.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
+import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 // ignore: must_be_immutable
 class AppBarAdminPanel extends StatelessWidget {
@@ -32,7 +33,7 @@ class AppBarAdminPanel extends StatelessWidget {
       preferredSize: const Size.fromHeight(100.0),
       child: Container(
         color: Colors.white24,
-        height: 70,
+        height:ResponsiveWebSite.isMobile(context)?105: 70,
         width: double.infinity,
         child: Column(
           children: [
@@ -55,57 +56,61 @@ class AppBarAdminPanel extends StatelessWidget {
                 ////
                 ///....
                 ///
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 5,
-                      ),
-                      child: Container(
-                        height: 45,
-                        width: 280,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(10),
+              ResponsiveWebSite.isMobile(context)? const SizedBox(height: 0,) 
+              :Padding(
+                padding: const EdgeInsets.only(top: 5),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: 5,
                         ),
-                        child: Row(
-                          children: [
-                            // const TextFontWidget(text: '🗓️', fontsize: 12),
-                            const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Icon(Icons.calendar_month_outlined),
-                            ),
-                            TextFontWidget(
-                                text: '${UserCredentialsController.batchId}',
-                                fontsize: 12),
-                            const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: GestureDetector(
-                                onTap: () =>
-                                    academicYearSettingFunction(context),
-                                child: Container(
-                                  height: 34,
-                                  width: 34,
-                                  decoration: BoxDecoration(
-                                      color: cWhite,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: const Center(
-                                    child: Icon(
-                                      Icons.settings_outlined,
-                                      color: cBlack,
+                        child: Container(
+                          height: 45,
+                          width: 280,
+                          decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Row(
+                            children: [
+                              // const TextFontWidget(text: '🗓️', fontsize: 12),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(Icons.calendar_month_outlined),
+                              ),
+                              TextFontWidget(
+                                  text: '${UserCredentialsController.batchId}',
+                                  fontsize: 12),
+                              const Spacer(),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: GestureDetector(
+                                  onTap: () =>
+                                      academicYearSettingFunction(context),
+                                  child: Container(
+                                    height: 34,
+                                    width: 34,
+                                    decoration: BoxDecoration(
+                                        color: cWhite,
+                                        borderRadius: BorderRadius.circular(20)),
+                                    child: const Center(
+                                      child: Icon(
+                                        Icons.settings_outlined,
+                                        color: cBlack,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+              ),
                 const SizedBox(
                   width: 10,
                 ),
@@ -247,6 +252,57 @@ class AppBarAdminPanel extends StatelessWidget {
                 ),
               ],
             ),
+            ResponsiveWebSite.isMobile(context)? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 5,
+                      ),
+                      child: Container(
+                        height: 45,
+                        width: 280,
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          children: [
+                            // const TextFontWidget(text: '🗓️', fontsize: 12),
+                            const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Icon(Icons.calendar_month_outlined),
+                            ),
+                            TextFontWidget(
+                                text: '${UserCredentialsController.batchId}',
+                                fontsize: 12),
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: GestureDetector(
+                                onTap: () =>
+                                    academicYearSettingFunction(context),
+                                child: Container(
+                                  height: 34,
+                                  width: 34,
+                                  decoration: BoxDecoration(
+                                      color: cWhite,
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: const Center(
+                                    child: Icon(
+                                      Icons.settings_outlined,
+                                      color: cBlack,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ):const SizedBox(width: 0,)
             /////////////////////////////////////////////////////////////////////
           ],
         ),

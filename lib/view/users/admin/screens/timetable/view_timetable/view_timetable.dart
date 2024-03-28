@@ -82,27 +82,22 @@ class ViewTimeTable extends StatelessWidget {
                                       itemAsString: (value) => value.className,
                                       onChanged: (value) async {
                                         if (value != null) {
-                                          classCtrl.className.value =
-                                              value.className;
-                                          classCtrl.classDocID.value =
-                                              value.docid;
+                                          classCtrl.className.value = value.className;
+                                          classCtrl.classDocID.value = value.docid;
                                         }
                                       },
                                       popupProps: const PopupProps.menu(
                                           searchFieldProps: TextFieldProps(
                                               decoration: InputDecoration(
                                                   hintText: "Search Class",
-                                                  border:
-                                                      OutlineInputBorder())),
+                                                  border: OutlineInputBorder())),
                                           showSearchBox: true,
-                                          searchDelay:
-                                              Duration(microseconds: 10)),
+                                          searchDelay: Duration(microseconds: 10)),
                                       dropdownDecoratorProps:
                                           DropDownDecoratorProps(
                                               baseStyle: GoogleFonts.poppins(
                                                   fontSize: 13,
-                                                  color: Colors.black
-                                                      .withOpacity(0.7))),
+                                                  color: Colors.black .withOpacity(0.7))),
                                     )),
                               ],
                             ),
@@ -114,8 +109,7 @@ class ViewTimeTable extends StatelessWidget {
                       children: [
                         const Padding(
                           padding: EdgeInsets.only(left: 05, right: 05),
-                          child:
-                              RouteSelectedTextContainer(title: 'All Classes'),
+                          child: RouteSelectedTextContainer(title: 'All Classes'),
                         ),
                         const Spacer(),
                         Padding(
@@ -150,8 +144,7 @@ class ViewTimeTable extends StatelessWidget {
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 10, right: 10, top: 10),
+                              padding: const EdgeInsets.only(  left: 10, right: 10, top: 10),
                               child: Container(
                                 color: cWhite,
                                 height: 40,
@@ -159,81 +152,64 @@ class ViewTimeTable extends StatelessWidget {
                                   children: [
                                     const Expanded(
                                         flex: 1,
-                                        child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'No')),
+                                        child: CatrgoryTableHeaderWidget( headerTitle: 'No')),
                                     const SizedBox(
                                       width: 02,
                                     ),
                                     const Expanded(
                                         flex: 2,
-                                        child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'Class')),
+                                        child: CatrgoryTableHeaderWidget(  headerTitle: 'Class')),
                                     const SizedBox(
                                       width: 02,
                                     ),
                                     const Expanded(
                                         flex: 2,
-                                        child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'Period')),
+                                        child: CatrgoryTableHeaderWidget( headerTitle: 'Period')),
                                     const SizedBox(
                                       width: 02,
                                     ),
                                     Expanded(
-                                      flex: 12,
+                                      flex: 15,
                                       child: Container(
                                         height: 30,
                                         decoration: const BoxDecoration(
                                             color: cBlue,
                                             border: Border.symmetric(
-                                              horizontal: BorderSide(
-                                                  color: Colors.blue),
+                                              horizontal: BorderSide( color: Colors.blue),
                                             )),
                                         child: ListView.separated(
                                             scrollDirection: Axis.horizontal,
                                             itemBuilder: (context, index) {
                                               return Container(
                                                 decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color: cBlack
-                                                            .withOpacity(0.2))),
-                                                width: 82,
+                                                    border: Border.all( color: cBlack .withOpacity(0.2))),
+                                                width: 103,
                                                 child: Center(
                                                   child: TextFontWidget(
                                                     text: days[index],
                                                     fontsize: 12,
                                                     fontWeight: FontWeight.w500,
                                                     color: cWhite,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
+                                                    overflow: TextOverflow.ellipsis,
                                                   ),
                                                 ),
                                               );
                                             },
                                             separatorBuilder: (context, index) {
-                                              return const SizedBox(
-                                                width: 03,
-                                              );
+                                              return const SizedBox( width: 03, );
                                             },
-                                            itemCount: 08),
+                                            itemCount: 07),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 02,
-                                    ),
+                                    const SizedBox( width: 02,),
                                     const Expanded(
                                         flex: 2,
-                                        child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'Starting Time')),
-                                    const SizedBox(
-                                      width: 02,
-                                    ),
+                                        child: CatrgoryTableHeaderWidget( headerTitle: 'Starting Time')),
+                                    const SizedBox( width: 02,),
                                     const Expanded(
                                         flex: 2,
-                                        child: CatrgoryTableHeaderWidget(
-                                            headerTitle: 'Ending Time')),
-                                    const SizedBox(
-                                      width: 02,
-                                    ),
+                                        child: CatrgoryTableHeaderWidget(   headerTitle: 'Ending Time')),
+                                    const SizedBox( width: 02, ),
                                   ],
                                 ),
                               ),
@@ -274,9 +250,7 @@ class ViewTimeTable extends StatelessWidget {
                                               ));
                                         },
                                         separatorBuilder: (context, index) {
-                                          return const SizedBox(
-                                            height: 02,
-                                          );
+                                          return const SizedBox(  height: 02,);
                                         },
                                         itemCount: snaPS.data!.docs.length);
                                   } else {
@@ -305,5 +279,5 @@ List<String> days = [
   'Friday',
   'Saturday',
   'Sunday',
-  'Special Class'
+  //'Special Class'
 ];

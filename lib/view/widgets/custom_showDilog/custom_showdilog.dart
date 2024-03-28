@@ -36,40 +36,46 @@ customShowDilogBox2(
           ),
           actions: doyouwantActionButton == true
               ? <Widget>[
-                  GestureDetector(
-                    onTap: actiononTapfuction,
-                    child: Container(
-                      height: 40,
-                      width: 250,
-                      decoration: const BoxDecoration(
-                        color: themeColorBlue,
-                      ),
-                      child: Center(
-                        child: GooglePoppinsWidgets(
-                            text: actiontext ?? 'Ok',
-                            color: cWhite,
-                            fontsize: 12,
-                            fontWeight: FontWeight.w500),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: actiononTapfuction,
+                      child: Container(
+                        height: 40,
+                        width: 250,
+                        decoration: const BoxDecoration(
+                          color: themeColorBlue,
+                        ),
+                        child: Center(
+                          child: GooglePoppinsWidgets(
+                              text: actiontext ?? 'Ok',
+                              color: cWhite,
+                              fontsize: 12,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ),
                   ),
-                   GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: Container(
-                      height: 40,
-                      width: 250,
-                      decoration: const BoxDecoration(
-                        color: themeColorBlue,
+                   Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Container(
+                        height: 40,
+                        width: 250,
+                        decoration: const BoxDecoration(
+                          color: themeColorBlue,
+                        ),
+                        child: Center(
+                          child: GooglePoppinsWidgets(
+                              text: actiontext ?? 'Cancel',
+                              color: cWhite,
+                              fontsize: 12,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
-                      child: Center(
-                        child: GooglePoppinsWidgets(
-                            text: actiontext ?? 'Cancel',
-                            color: cWhite,
-                            fontsize: 12,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  )
+                                       ),
+                   )
                 ]
               : null);
     },

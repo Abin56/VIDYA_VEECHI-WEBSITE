@@ -21,7 +21,7 @@ class ClassWiseFeesStatus extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         color: screenContainerbackgroundColor,
-        height: 700,
+        height: 750,
         width: 1200,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +60,7 @@ class ClassWiseFeesStatus extends StatelessWidget {
               child: Container(
                 color: cWhite,
                 width: double.infinity,
-                height: ResponsiveWebSite.isMobile(context) ? 800 : 500,
+                height: ResponsiveWebSite.isMobile(context) ? 800 : 600,
                 child: Column(
                   children: [
                     Padding(
@@ -199,7 +199,7 @@ class ClassWiseFeesDataListContainer extends StatelessWidget {
                     return Container(
                       decoration: BoxDecoration(
                           border: Border.all(color: cBlack.withOpacity(0.2))),
-                      width: 50,
+                      width: 63.5,
                       child: const Center(
                         child: TextFontWidget(
                           text: " English",

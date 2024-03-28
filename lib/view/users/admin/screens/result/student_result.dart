@@ -21,7 +21,7 @@ class StudentExamResult extends StatelessWidget {
       ), /////////////////////////////////....................0
       Container(
         height: 80,
-        width: ResponsiveWebSite.isTablet(context)?230: 250,
+        width: ResponsiveWebSite.isTablet(context) ? 230 : 250,
         // color: cWhite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +41,7 @@ class StudentExamResult extends StatelessWidget {
       ), //////////////////...........1
       Container(
         height: 80,
-        width:  ResponsiveWebSite.isTablet(context)?230: 250,
+        width: ResponsiveWebSite.isTablet(context) ? 230 : 250,
         // color: cWhite,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,7 +62,7 @@ class StudentExamResult extends StatelessWidget {
     ];
     return Container(
       color: screenContainerbackgroundColor,
-      height: 710,
+      height: ResponsiveWebSite.isMobile(context) ? 730 : 710,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,13 +80,15 @@ class StudentExamResult extends StatelessWidget {
           //   child: RouteSelectedTextContainer(title: 'All Results'),
           // ),
           ResponsiveWebSite.isMobile(context)
-              ? Column(crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Padding(
-            padding: EdgeInsets.only(left: 15, top: 20,bottom: 5, right: 05),
-            child: RouteSelectedTextContainer(title: 'All Results'),
-          ),
-                  Row(
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(
+                          left: 15, top: 20, bottom: 5, right: 05),
+                      child: RouteSelectedTextContainer(title: 'All Results'),
+                    ),
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // Expanded(
@@ -96,21 +98,23 @@ class StudentExamResult extends StatelessWidget {
                           height: 170,
                           child: Column(
                             children: [
-                              resultListWidget[1], /////////////////////////class
-                              resultListWidget[2] ///////////////////////....exam
+                              resultListWidget[
+                                  1], /////////////////////////class
+                              resultListWidget[
+                                  2] ///////////////////////....exam
                             ],
                           ),
                         )
                       ],
                     ),
-                ],
-              ) ///////////////////////////.....................mobile
+                  ],
+                ) ///////////////////////////.....................mobile
               : Row(
                   children: [
                     const Padding(
-            padding: EdgeInsets.only(left: 25, top: 25, right: 05),
-            child: RouteSelectedTextContainer(title: 'All Results'),
-          ),
+                      padding: EdgeInsets.only(left: 25, top: 25, right: 05),
+                      child: RouteSelectedTextContainer(title: 'All Results'),
+                    ),
                     Spacer(),
                     // Expanded(flex: 1, child: Padding(
                     //   padding: const EdgeInsets.only(left: 20),
@@ -128,7 +132,7 @@ class StudentExamResult extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               color: cWhite,
-              height: 500,
+              height: ResponsiveWebSite.isMobile(context) ? 420 : 500,
               width: double.infinity,
               child: const Column(
                 children: [

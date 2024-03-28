@@ -107,18 +107,16 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 }
 
 List<Widget> pages = [
- // PeriodWiseStudentsAttendance(),
   const AdminDashBoardSections(),
-  // ViewTimeTable(),
   //TherapyManagement(),
 
   AllClassListView(),
 
   // const AllStudentsAttendance(),
-
+  PeriodWiseStudentsAttendance(),
   const AllTeachersAttendance(),
 
-  PeriodWiseStudentsAttendance(),
+
 
   const AllExamNotificationListView(),
   const AllExamNotificationListView(),
@@ -148,16 +146,14 @@ List<Widget> pages = [
 
   CreateAdmin(),
 
-  ///create admin eduknm
   GeneralInsructions(),
 
   const Achievements(),
-CreatedFeesStatus(),
+  CreatedFeesStatus(),
  // const FeesAndBillsPage(),
 
   const BatchHistroyListPage(),
- ViewTimeTable()
- // TimeTable(),
+  ViewTimeTable()
 ];
 List<String> sideMenu = [
   'Attendence',

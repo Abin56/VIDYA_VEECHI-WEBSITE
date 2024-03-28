@@ -25,7 +25,7 @@ class CreatedFeesStatus extends StatelessWidget {
         ? ClassWiseFeesStatus()
         : Container(
             color: screenContainerbackgroundColor,
-            height: 700,
+            height:ResponsiveWebSite.isMobile(context)?800: 700,
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,58 @@ class CreatedFeesStatus extends StatelessWidget {
                         ),
                 Padding(
                   padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
-                  child: Row(
+                  child: ResponsiveWebSite.isMobile(context)?
+                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                     const Padding(
+                       padding: EdgeInsets.only(left: 05, right: 05,bottom: 5),
+                       child: RouteSelectedTextContainer(
+                           title: 'All Fees & Bills'),
+                     ),
+                     Padding(
+                       padding: const EdgeInsets.only(right: 10),
+                       child: Container(
+                         width: 250,
+                         height: ResponsiveWebSite.isMobile(context) ? 80 : 80,
+                         //color: cWhite,
+                         child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
+                             const TextFontWidget(
+                                 text: 'Class *', fontsize: 12.5),
+                             const SizedBox(
+                               height: 05,
+                             ),
+                             SizedBox(
+                               height: 40,
+                               child: DropdownSearch(
+                                 items: const ['Class X', 'Class XI'],
+                               ),
+                             ),
+                           ],
+                         ),
+                       ),
+                     ),
+                     GestureDetector(
+                       onTap: () {
+                         createFeesFunction(context);
+                       },
+                       child: ButtonContainerWidget(
+                           curving: 30,
+                           colorindex: 0,
+                           height: 40,
+                           width: 180,
+                           child: const Center(
+                             child: TextFontWidget(
+                               text: 'Create Fee',
+                               fontsize: 14,
+                               fontWeight: FontWeight.bold,
+                               color: cWhite,
+                             ),
+                           )),
+                     )
+                   ],): Row(
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(left: 05, right: 05),
@@ -97,7 +148,7 @@ class CreatedFeesStatus extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 10, right: 10, top: 25),
                   child: Container(
                       width: double.infinity,
-                      height: ResponsiveWebSite.isMobile(context) ? 800 : 500,
+                      height: ResponsiveWebSite.isMobile(context) ? 500 : 500,
                       color: cWhite,
                       child: Column(
                         children: [
