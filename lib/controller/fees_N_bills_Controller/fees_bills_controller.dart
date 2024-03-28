@@ -63,21 +63,33 @@ class FeesAndBillsController extends GetxController {
             .doc(selectedClassList[i].docid)
             .collection("ClassFees")
             .doc(selectedFeeMonthContoller.text.trim())
-            .collection(seletedFeeDateContoller.text.trim())
-            .doc(feesDetail.docid)
-            .set(feesDetail.toMap())
-            .then((value) async {
-          feestypeNameContoller.clear();
-          feesContoller.clear();
-          feesDueContoller.clear();
-          seletedFeeDateContoller.clear();
-          selectedFeeMonthContoller.clear();
-          buttonstate.value = ButtonState.success;
-          await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
-            buttonstate.value = ButtonState.idle;
-          });
+            .set({'docid': selectedFeeMonthContoller.text.trim()}).then(
+                (value) async {
+          await server
+              .collection('SchoolListCollection')
+              .doc(UserCredentialsController.schoolId)
+              .collection(UserCredentialsController.batchId!)
+              .doc(UserCredentialsController.batchId!)
+              .collection('classes')
+              .doc(selectedClassList[i].docid)
+              .collection("ClassFees")
+              .doc(selectedFeeMonthContoller.text.trim())
+              .collection(seletedFeeDateContoller.text.trim())
+              .doc(feesDetail.docid)
+              .set(feesDetail.toMap())
+              .then((value) async {
+            feestypeNameContoller.clear();
+            feesContoller.clear();
+            feesDueContoller.clear();
+            seletedFeeDateContoller.clear();
+            selectedFeeMonthContoller.clear();
+            buttonstate.value = ButtonState.success;
+            await Future.delayed(const Duration(seconds: 2)).then((vazlue) {
+              buttonstate.value = ButtonState.idle;
+            });
 
-          showToast(msg: 'Fees Genrated Completed');
+            showToast(msg: 'Fees Genrated Completed');
+          });
         });
       }
     } catch (e) {
