@@ -62,7 +62,7 @@ class StudentExamResult extends StatelessWidget {
     ];
     return Container(
       color: screenContainerbackgroundColor,
-      height: 760,
+      height: 710,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,7 +130,7 @@ class StudentExamResult extends StatelessWidget {
               color: cWhite,
               height: 500,
               width: double.infinity,
-              child: Column(
+              child: const Column(
                 children: [
                   // ResponsiveWebSite.isMobile(context)
                   //     ? Row(

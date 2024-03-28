@@ -18,7 +18,7 @@ class AllExamNotificationListView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Container(
         color: screenContainerbackgroundColor,
-        height: 1000,
+        height: 700,
         width: 1150,
         child: Padding(
           padding: const EdgeInsets.only(
@@ -76,7 +76,7 @@ class AllExamNotificationListView extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   color: cWhite,
-                  height: 700,
+                  height: 550,
                   width: 1100,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
