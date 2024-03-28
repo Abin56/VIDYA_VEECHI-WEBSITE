@@ -29,16 +29,17 @@ class CreateAdmin extends StatelessWidget {
         ),
       ), ////////////////////..................1
       Container(
+        height: 35,
         width: ResponsiveWebSite.isMobile(context) ? 80 : 150,
         child: TextFormField(
-          autovalidateMode: AutovalidateMode.always,
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter some text';
+           autovalidateMode: AutovalidateMode.always,
+          // validator: (value) {
+          //   if (value == null || value.isEmpty) {
+          //     return 'Please enter some text';
         
-            }
-            return null;
-          },
+          //   }
+          //   return null;
+          // },
           style: const TextStyle(fontSize: 14),
           decoration: const InputDecoration(
             // fillColor: Colors.white,
@@ -53,6 +54,7 @@ class CreateAdmin extends StatelessWidget {
         ),
       ), //////////////////////................2
       Container(
+        
           width: ResponsiveWebSite.isMobile(context) ? 80 : 150,
           child: Text(
             "Admin Email",
@@ -60,27 +62,32 @@ class CreateAdmin extends StatelessWidget {
                 fontSize: ResponsiveWebSite.isMobile(context) ? 13 : 15,
                 fontWeight: FontWeight.bold),
           )), //////////////////////..............3
-      TextFormField(
-        autovalidateMode: AutovalidateMode.always,
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter some text';
-      
-          }
-          return null;
-        },
-        style: const TextStyle(fontSize: 14),
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(),
-          hintText: 'Enter Email ID',
-          prefixIcon: Icon(
-            Icons.email,
-            size: 20,
+      Container(
+        height: 35,
+        color: screenContainerbackgroundColor,
+        child: TextFormField(
+           autovalidateMode: AutovalidateMode.always,
+          // validator: (value) {
+          //   if (value == null || value.isEmpty) {
+          //     return 'Please enter some text';
+        
+          //   }
+          //   return null;
+          // },
+          style: const TextStyle(fontSize: 14),
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Enter Email ID',
+            prefixIcon: Icon(
+              Icons.email,
+              size: 20,
+            ),
+            contentPadding: EdgeInsets.only(top: 1, bottom: 1),
           ),
-          contentPadding: EdgeInsets.only(top: 1, bottom: 1),
         ),
       ), //////////////////////////////............4
       Container(
+        height: 35,
           width: ResponsiveWebSite.isMobile(context) ? 80 : 150,
           child: Text(
             "Gender",
@@ -91,31 +98,36 @@ class CreateAdmin extends StatelessWidget {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DropdownSearch(
-            
-            validator: (value) {
-                    if (value == null || value.isEmpty) {
-          return 'Please enter some text';
-                
-                    }
-                    return null;
-                  },
-            dropdownDecoratorProps: DropDownDecoratorProps(
-                dropdownSearchDecoration: InputDecoration(
-                    hintText: "Please Select Gender",
-                    labelStyle: TextStyle(
-                      fontSize: ResponsiveWebSite.isMobile(context) ? 13 : 15,
-                    ),
-                    contentPadding: EdgeInsets.only(top: 5, bottom: 5),
-                    prefixIcon: Icon(
-                      Icons.person_2,
-                      size: 20,
-                    ))),
-            items: const ['Male', 'Female', 'Others'],
+          Container(
+            height: 35,
+            color: screenContainerbackgroundColor,
+            child: DropdownSearch(
+              
+            //   validator: (value) {
+            //           if (value == null || value.isEmpty) {
+            // return 'Please enter some text';
+                  
+            //           }
+            //           return null;
+            //         },
+              dropdownDecoratorProps: DropDownDecoratorProps(
+                  dropdownSearchDecoration: InputDecoration(
+                      hintText: "Please Select Gender",
+                      labelStyle: TextStyle(
+                        fontSize: ResponsiveWebSite.isMobile(context) ? 13 : 15,
+                      ),
+                      contentPadding: EdgeInsets.only(top: 5, bottom: 5),
+                      prefixIcon: Icon(
+                        Icons.person_2,
+                        size: 20,
+                      ))),
+              items: const ['Male', 'Female', 'Others'],
+            ),
           ),
         ],
       ), ////////////////////////....................6
       Container(
+        
           width: ResponsiveWebSite.isMobile(context) ? 80 : 150,
           child: Text(
             "Phone Number",
@@ -123,26 +135,30 @@ class CreateAdmin extends StatelessWidget {
                 fontSize: ResponsiveWebSite.isMobile(context) ? 13 : 15,
                 fontWeight: FontWeight.bold),
           )), /////////////////////////////....................7
-      TextFormField(
-        autovalidateMode: AutovalidateMode.always,
-        validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter some text';
-            
-        }
-        return null;
-      },
-        keyboardType: TextInputType.number,
-        style: const TextStyle(fontSize: 14),
-        decoration: const InputDecoration(
-            prefixIcon: Icon(
-              Icons.phone_android,
-              size: 20,
-            ),
-            border: OutlineInputBorder(),
-            hintText: 'Enter Phone Number',
-            contentPadding: EdgeInsets.only(top: 5, bottom: 5),
-            prefixText: "+91"),
+      Container(
+        height: 35,
+        color: screenContainerbackgroundColor,
+        child: TextFormField(
+        //   autovalidateMode: AutovalidateMode.always,
+        //   validator: (value) {
+        //   if (value == null || value.isEmpty) {
+        //     return 'Please enter some text';
+              
+        //   }
+        //   return null;
+        // },
+          keyboardType: TextInputType.number,
+          style: const TextStyle(fontSize: 14),
+          decoration: const InputDecoration(
+              prefixIcon: Icon(
+                Icons.phone_android,
+                size: 20,
+              ),
+              border: OutlineInputBorder(),
+              hintText: 'Enter Phone Number',
+              contentPadding: EdgeInsets.only(top: 5, bottom: 5),
+              prefixText: "+91"),
+        ),
       ), //////////////////////.............................8
       Container(
           width: ResponsiveWebSite.isMobile(context) ? 80 : 150,
@@ -258,7 +274,7 @@ class CreateAdmin extends StatelessWidget {
                                         padding:
                                             const EdgeInsets.only(right: 10),
                                         child: adminListWidgets[
-                                            2] ///////////////////enter name
+                                            2] ///////////////////...............enter name
                                         ),
                                   ),
                                 ],
