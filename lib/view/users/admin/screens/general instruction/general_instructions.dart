@@ -265,111 +265,105 @@ class GeneralInsructions extends StatelessWidget {
                         child: SizedBox(
                           // height: 800,
                           width: 1000,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 100,
-                              vertical: 30,
-                            ),
-                            child: Container(
-                              margin: const EdgeInsets.only(top: 10),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 1000,
-                                    decoration: BoxDecoration(
-                                        color: cWhite,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: Column(
-                                      children: [
-                                        Center(
-                                            child: Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 20),
-                                          child: GooglePoppinsWidgets(
-                                            text: 'General Instructions',
-                                            fontsize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        )),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 40, top: 20),
-                                          child: ListView.separated(
-                                              shrinkWrap: true,
-                                              itemBuilder: (context, index) {
-                                                // if (index ==
-                                                //     (generalInstructionsController
-                                                //         .listOfGeneralIModel.length))
-                                                {
-                                                  return Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            right: 20),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .end,
-                                                      children: [
-                                                        const SizedBox(
-                                                          height: 10,
-                                                        ),
-                                                        Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Flexible(
-                                                                child: Text(
-                                                                  "General Instruction",
-                                                                  style: GoogleFonts.roboto(
-                                                                      fontSize: ResponsiveWebSite.isMobile(
-                                                                              context)
-                                                                          ? 12
-                                                                          : 15),
-                                                                  softWrap:
-                                                                      true,
-                                                                ),
-                                                              ),
-                                                            ]),
-                                                      ],
-                                                    ),
-                                                  );
-                                                }
-                                                // return InstructionTextWidget(
-                                                //   count: (index + 1).toString(),
-                                                //   text: generalInstructionsController
-                                                //       .listOfGeneralIModel[index].instruction,
-                                                // );
-                                              },
-                                              separatorBuilder:
-                                                  (context, index) {
-                                                return const SizedBox(
-                                                  height: 20,
-                                                );
-                                              },
-                                              itemCount: 10
-                                              // generalInstructionsController.listOfGeneralIModel.length +1
-                                              ),
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 1000,
+                                  decoration: BoxDecoration(
+                                      color: cWhite,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Column(
+                                    children: [
+                                      Center(
+                                          child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 20),
+                                        child: GooglePoppinsWidgets(
+                                          text: 'General Instructions',
+                                          fontsize: 18,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                      ],
-                                    ),
-                                  )
-
-                                  // sizedBoxH20,
-
-                                  // Expanded(
-                                  //   child: ListView.builder(
-                                  //       itemCount: generalInsructionController
-                                  //           .instructionList.length,
-                                  //       itemBuilder: (context, index) {
-                                  //         return Text(
-                                  //             '•  ${generalInsructionController.instructionList[index]}');
-                                  //       }),
-                                  // ),
-                                ],
-                              ),
+                                      )),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 40, top: 20),
+                                        child: ListView.separated(
+                                            shrinkWrap: true,
+                                            itemBuilder: (context, index) {
+                                              // if (index ==
+                                              //     (generalInstructionsController
+                                              //         .listOfGeneralIModel.length))
+                                              {
+                                                return Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 20),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .end,
+                                                    children: [
+                                                      const SizedBox(
+                                                        height: 10,
+                                                      ),
+                                                      Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Flexible(
+                                                              child: Text(
+                                                                "General Instruction",
+                                                                style: GoogleFonts.roboto(
+                                                                    fontSize: ResponsiveWebSite.isMobile(
+                                                                            context)
+                                                                        ? 12
+                                                                        : 15),
+                                                                softWrap:
+                                                                    true,
+                                                              ),
+                                                            ),
+                                                          ]),
+                                                    ],
+                                                  ),
+                                                );
+                                              }
+                                              // return InstructionTextWidget(
+                                              //   count: (index + 1).toString(),
+                                              //   text: generalInstructionsController
+                                              //       .listOfGeneralIModel[index].instruction,
+                                              // );
+                                            },
+                                            separatorBuilder:
+                                                (context, index) {
+                                              return const SizedBox(
+                                                height: 20,
+                                              );
+                                            },
+                                            itemCount: 10
+                                            // generalInstructionsController.listOfGeneralIModel.length +1
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                          
+                                // sizedBoxH20,
+                          
+                                // Expanded(
+                                //   child: ListView.builder(
+                                //       itemCount: generalInsructionController
+                                //           .instructionList.length,
+                                //       itemBuilder: (context, index) {
+                                //         return Text(
+                                //             '•  ${generalInsructionController.instructionList[index]}');
+                                //       }),
+                                // ),
+                              ],
                             ),
                           ),
                         ),

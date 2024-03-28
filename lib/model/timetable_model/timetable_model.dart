@@ -1,7 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 
-class TimeTableModel{
+class TimeTableModel {
   String? selectClass;
   String? dayName;
   String? teacherName;
@@ -9,7 +11,7 @@ class TimeTableModel{
   String? periodNumber;
   String? startTime;
   String? endTime;
-  String? selectColor;
+  Color? selectColor;
   TimeTableModel({
     this.selectClass,
     this.dayName,
@@ -21,50 +23,50 @@ class TimeTableModel{
     this.selectColor,
   });
   TimeTableModel copyWith({
-  String? selectClass,
-  String? dayName,
-  String? teacherName,
-  String? subjectName,
-  String? periodNumber,
-  String? startTime,
-  String? endTime,
-  String? selectColor,
+    String? selectClass,
+    String? dayName,
+    String? teacherName,
+    String? subjectName,
+    String? periodNumber,
+    String? startTime,
+    String? endTime,
+    Color? selectColor,
   }) {
     return TimeTableModel(
-   selectClass: selectClass??   this.selectClass,
-   dayName: dayName?? this.dayName,
-   teacherName: teacherName?? this.teacherName,
-   subjectName : subjectName?? this.subjectName,
-   periodNumber: periodNumber?? this.periodNumber,
-   startTime: startTime?? this.startTime,
-   endTime: endTime?? this.endTime,
-   selectColor: selectColor?? this.selectColor,
+      selectClass: selectClass ?? this.selectClass,
+      dayName: dayName ?? this.dayName,
+      teacherName: teacherName ?? this.teacherName,
+      subjectName: subjectName ?? this.subjectName,
+      periodNumber: periodNumber ?? this.periodNumber,
+      startTime: startTime ?? this.startTime,
+      endTime: endTime ?? this.endTime,
+      selectColor: selectColor ?? this.selectColor,
     );
   }
   Map<String, dynamic> toMap() {
-     return <String, dynamic>{
-   'selectClass': selectClass ?? "",
-   'dayName': dayName?? "",
-   'teacherName': teacherName?? "",
-   'subjectName' : subjectName?? "",
-   'periodNumber': periodNumber?? "",
-   'startTime': startTime?? "",
-   'endTime': endTime?? "",
-   'selectColor': selectColor?? "",
-  };
+    return <String, dynamic>{
+      'selectClass': selectClass,
+      'dayName': dayName,
+      'teacherName': teacherName,
+      'subjectName': subjectName,
+      'periodNumber': periodNumber,
+      'startTime': startTime,
+      'endTime': endTime,
+      'selectColor': selectColor?.value,
+    };
   }
-   factory TimeTableModel.fromMap(Map<String, dynamic> map) {
+  factory TimeTableModel.fromMap(Map<String, dynamic> map) {
     return TimeTableModel(
-      selectClass: map['selectClass'] != null ? map['selectClass'] as String : "",
-      dayName: map['dayName'] != null ? map['dayName'] as String : "",
-      teacherName: map['teacherName'] != null ? map['teacherName'] as String : "",
-      subjectName: map['subjectName'] != null ? map['subjectName'] as String : "",
-      periodNumber: map['periodNumber'] != null ? map['periodNumber'] as String : "",
-      startTime: map['startTime'] != null ? map['startTime'] as String : "",
-      endTime: map['endTime'] != null ? map['endTime'] as String : "",
-      selectColor: map['selectColor'] != null ? map['selectColor'] as String : "",
+      selectClass: map['selectClass'] != null ? map['selectClass'] as String : null,
+      dayName: map['dayName'] != null ? map['dayName'] as String : null,
+      teacherName: map['teacherName'] != null ? map['teacherName'] as String : null,
+      subjectName: map['subjectName'] != null ? map['subjectName'] as String : null,
+      periodNumber: map['periodNumber'] != null ? map['periodNumber'] as String : null,
+      startTime: map['startTime'] != null ? map['startTime'] as String : null,
+      endTime: map['endTime'] != null ? map['endTime'] as String : null,
+      selectColor: map['selectColor'] != null ? Color(map['selectColor'] as int) : null,
     );
-   }
+  }
 
     String toJson() => json.encode(toMap());
 
@@ -73,7 +75,7 @@ class TimeTableModel{
 
       @override
   String toString() {
-    return 'TimeTableModel(selectClass: $selectClass,dayName: $dayName, teacherName: $teacherName, subjectName: $subjectName, periodNumber: $periodNumber, startTime: $startTime, endTime: $endTime, selectColor: $selectColor, )';
+    return 'TimeTableModel(selectClass: $selectClass, dayName: $dayName, teacherName: $teacherName, subjectName: $subjectName, periodNumber: $periodNumber, startTime: $startTime, endTime: $endTime, selectColor: $selectColor)';
   }
 
     @override

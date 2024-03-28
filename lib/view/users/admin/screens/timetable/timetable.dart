@@ -8,13 +8,12 @@ import 'package:vidyaveechi_website/controller/timetable_controller/timetable_co
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/drop_down/class_wise_subject.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
-import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/noticebutton_container.dart';
-import 'package:vidyaveechi_website/view/widgets/drop_DownList/get_allTeachers.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 import '../../../../../controller/subject_controller/subject_controller.dart';
+import '../../../../drop_down/all_teacher.dart';
 
 class TimeTable extends StatefulWidget {
  final String firebaseColor = '';
@@ -64,7 +63,7 @@ class _TimeTableState extends State<TimeTable> {
       SelectClassDropDown(), /////////////////////////////////////////////////////////////////0
       Obx(() => Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(5),
               border: Border.all(color: Colors.black, width: 0.5),
             ),
             width: 450,
@@ -95,16 +94,11 @@ class _TimeTableState extends State<TimeTable> {
 ///////////////////////////////////////////////////////////////////////1
       SelectClassWiseSubjectDropDown(),
 
-      Padding(
-        padding: const EdgeInsets.only(top: 10, right: 10),
-        child: GetAllTeachersListDropDownButton(
-          schoolID: schoolID,
-        ),
-      ), /////////////////////////////////////////////////////3
+      SelectTeachersDropDown(), /////////////////////////////////////////////////////3
       Obx(
         () => Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(5),
             border: Border.all(color: Colors.black, width: 0.5),
           ),
           width: 450,
@@ -141,31 +135,31 @@ class _TimeTableState extends State<TimeTable> {
         padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
         child: TextFormFiledBlueContainerWidget1(
           controller: timetableCtrl.startTimeController,
-          width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
+          width: ResponsiveWebSite.isMobile(context) ? double.infinity : 420,
           hintText: 'Start time',
           title: 'Start time',
         ),
       ), 
         Padding(
-        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+        padding: const EdgeInsets.only( left: 10, right: 10),
         child: TextFormFiledBlueContainerWidget1(
           controller: timetableCtrl.endTimeController,
-          width: ResponsiveWebSite.isMobile(context) ? double.infinity : 400,
+          width: ResponsiveWebSite.isMobile(context) ? double.infinity : 420,
           hintText: 'End time',
           title: 'End time',
         ),
       ), ////////////////////////////////////////////////////////5
 Padding(
-  padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+  padding: const EdgeInsets.only( left: 10, right: 10),
   child: Obx(
     () => Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.black, width: 0.5),
       ),
-      width: 360,
+      width: 400,
       child: DropdownButtonFormField<Color>(
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.zero,
         ),
@@ -190,8 +184,8 @@ Padding(
           return DropdownMenuItem<Color>(
             value: value,
             child: Container(
-              height: 50,
-              width: 50,
+              height: 30,
+              width: 30,
               color: value,
             ),
           );
@@ -221,11 +215,7 @@ Padding(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GooglePoppinsWidgets(
-                  text: 'TimeTable',
-                  fontsize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                  const TextFontWidget(text: 'TimeTable', fontsize: 20,fontWeight:FontWeight.bold ,),
                 ResponsiveWebSite.isMobile(context)
                     ? Column(
                         children: [
@@ -286,13 +276,22 @@ Padding(
                                         child: Row(
                                           children: [
                                             Expanded(
-                                              child: textformWidget[0],
+                                              child: Padding(
+                                                 padding: const EdgeInsets.only(right: 10),
+                                                child: textformWidget[0],
+                                              ),
                                             ),
                                             Expanded(
-                                              child: textformWidget[1],
+                                              child: Padding(
+                                                 padding: const EdgeInsets.only(left: 10,right: 10),
+                                                child: textformWidget[1],
+                                              ),
                                             ),
                                             Expanded(
-                                              child: textformWidget[2],
+                                              child: Padding(
+                                                 padding: const EdgeInsets.only(left: 10),
+                                                child: textformWidget[2],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -303,13 +302,22 @@ Padding(
                                         child: Row(
                                           children: [
                                             Expanded(
-                                              child: textformWidget[3],
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(right: 10),
+                                                child: textformWidget[3],
+                                              ),
                                             ),
                                             Expanded(
-                                              child: textformWidget[4],
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(right: 10,left: 10),
+                                                child: textformWidget[4],
+                                              ),
                                             ),
                                             Expanded(
-                                              child: textformWidget[5],
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(left: 10),
+                                                child: textformWidget[5],
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -319,13 +327,19 @@ Padding(
                                             left: 10, right: 10),
                                         child: Row(
                                           children: [
-                                            Expanded(child: textformWidget[6]),
-                                            Expanded(child: textformWidget[7]),
+                                            Expanded(child: Padding(
+                                              padding: const EdgeInsets.only(right: 10),
+                                              child: textformWidget[6],
+                                            )),
+                                            Expanded(child: Padding(
+                                              padding: const EdgeInsets.only(right: 10,left: 10),
+                                              child: textformWidget[7],
+                                            )),
                                             const Expanded(
                                                 child: SizedBox(
-                                              height: 40,
-                                              width: 400,
-                                            ))
+                                                                                              height: 40,
+                                                                                              width: 400,
+                                                                                            ))
                                           ],
                                         ),
                                       ),
@@ -469,7 +483,7 @@ class TextFormFiledBlueContainerWidget1 extends StatelessWidget {
             height: 5,
           ),
           Container(
-            height: 40,
+            height: 45,
             width: width,
             color: Colors.white,
             child: Center(
